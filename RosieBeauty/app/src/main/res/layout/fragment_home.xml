@@ -6,23 +6,13 @@
     android:layout_height="match_parent"
     tools:context=".HomeFragment">
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/my_toolbar"
+    <androidx.appcompat.widget.SearchView
+        android:id="@+id/search_view"
         android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
+        android:layout_height="wrap_content"
         android:background="@color/colorPrimary"
-        android:elevation="4dp"
-        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
-        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
-        >
-        <SearchView
-            android:id="@+id/searchView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:iconifiedByDefault="false"
-            android:queryHint="Search"
-            android:layout_centerHorizontal="true"/>
-    </androidx.appcompat.widget.Toolbar>
+        app:queryBackground="@android:color/white"
+        android:padding="5dp"/>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_navigation"

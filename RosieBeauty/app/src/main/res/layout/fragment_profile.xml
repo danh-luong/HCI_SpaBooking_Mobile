@@ -3,14 +3,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SearchFragment">
+    tools:context=".ProfileFragment">
 
     <!-- TODO: Update blank fragment layout -->
     <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="This is Search Fragment"
+        android:text="This is Profile Fragment"
         android:textSize="50dp"
         android:gravity="center_vertical|center_horizontal"/>
+
 
 </FrameLayout>
