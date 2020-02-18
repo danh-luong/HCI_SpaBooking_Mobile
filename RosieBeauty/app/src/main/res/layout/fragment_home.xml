@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    app:layout_anchorGravity="right"
     tools:context=".HomeFragment">
 
     <androidx.appcompat.widget.SearchView
@@ -11,8 +12,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/colorPrimary"
+        android:gravity="right"
+        android:padding="5dp"
         app:queryBackground="@android:color/white"
-        android:padding="5dp"/>
+        android:layoutDirection="rtl"/>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_navigation"
