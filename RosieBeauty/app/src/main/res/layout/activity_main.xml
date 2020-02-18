@@ -7,12 +7,19 @@
     android:background="@android:color/holo_blue_light"
     tools:context=".MainActivity">
 
+
+
     <FrameLayout
         android:id="@+id/fragment_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@+id/bottom_nav" />
-    />
+        android:layout_above="@+id/bottom_nav">
+    </FrameLayout>
+
+
+    <include
+        android:id="@+id/toolbar_main"
+        layout="@layout/toolbar_main" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_nav"
@@ -23,5 +30,12 @@
         app:itemIconTint="@android:color/holo_red_light"
         app:itemTextColor="@android:color/holo_orange_light"
         app:menu="@menu/bottom_nav_menu" />
+
+    <com.miguelcatalan.materialsearchview.MaterialSearchView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/search_view"
+
+        />
 
 </RelativeLayout>

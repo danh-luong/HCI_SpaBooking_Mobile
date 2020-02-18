@@ -3,4 +3,12 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string-array name="product_list">
+        <item>Milk</item>
+        <item>Milky</item>
+        <item>Waifu</item>
+        <item>Husbando</item>
+        <item>Bellona</item>
+        <item>Aramintha</item>
+    </string-array>
 </resources>
