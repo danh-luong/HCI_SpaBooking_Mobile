@@ -9,11 +9,15 @@ import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
+import androidx.viewpager.widget.ViewPager;
 
 import java.util.ArrayList;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import rosie.com.rosiebeauty.Model.MultiViewModel;
 import rosie.com.rosiebeauty.R;
+import rosie.com.rosiebeauty.SlideshowAdapter;
 
 public class MultiViewTypeAdapter extends RecyclerView.Adapter {
 
@@ -23,11 +27,11 @@ public class MultiViewTypeAdapter extends RecyclerView.Adapter {
 
     public static class SlideshowTypeViewHolder extends RecyclerView.ViewHolder {
 
-        ImageView imgSlideshow;
+        ViewPager imgSlideshow;
 
         public SlideshowTypeViewHolder(View itemView) {
             super(itemView);
-            this.imgSlideshow = itemView.findViewById(R.id.imageSlideshow);
+            this.imgSlideshow = itemView.findViewById(R.id.home_slideshow);
         }
     }
 
@@ -60,9 +64,8 @@ public class MultiViewTypeAdapter extends RecyclerView.Adapter {
                 view = LayoutInflater.from(parent.getContext()).inflate(R.layout.slideshow_layout, parent, false);
 
                 final ViewGroup.LayoutParams lp = view.getLayoutParams();
-                if (lp instanceof StaggeredGridLayoutManager.LayoutParams)
-                {
-                    StaggeredGridLayoutManager.LayoutParams sglp = (StaggeredGridLayoutManager.LayoutParams)lp;
+                if (lp instanceof StaggeredGridLayoutManager.LayoutParams) {
+                    StaggeredGridLayoutManager.LayoutParams sglp = (StaggeredGridLayoutManager.LayoutParams) lp;
                     sglp.setFullSpan(true);
                 }
 
@@ -98,6 +101,21 @@ public class MultiViewTypeAdapter extends RecyclerView.Adapter {
             switch (object.type) {
                 case MultiViewModel.TYPE_SLIDESHOW:
                     ((SlideshowTypeViewHolder) holder).imgSlideshow.setBackgroundResource(R.drawable.slideshow1);
+                    ((SlideshowTypeViewHolder) holder).imgSlideshow.setAdapter(new SlideshowAdapter(mContext));
+                    TimerTask timerTask = new TimerTask() {
+                        @Override
+                        public void run() {
+                            ((SlideshowTypeViewHolder) holder).imgSlideshow.post(new Runnable() {
+                                @Override
+                                public void run() {
+                                    ((SlideshowTypeViewHolder) holder).imgSlideshow.setCurrentItem((((SlideshowTypeViewHolder) holder).imgSlideshow.getCurrentItem() + 1) % ((SlideshowTypeViewHolder) holder).imgSlideshow.getChildCount());
+                                }
+                            });
+                        }
+                    };
+                    Timer swipeTimer;
+                    swipeTimer = new Timer();
+                    swipeTimer.schedule(timerTask, 1000, 3000);
                     break;
                 case MultiViewModel.TYPE_IMAGE_WITH_TEXT:
                     ((ImageTypeViewHolder) holder).txtType.setText(object.text);

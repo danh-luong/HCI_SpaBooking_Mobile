@@ -42,9 +42,9 @@ public class SlideshowAdapter extends PagerAdapter {
     @Override
     public Object instantiateItem(@NonNull ViewGroup container, int position) {
         inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View view = inflater.inflate(R.layout.slideshow_layout, container, false);
+        View view = inflater.inflate(R.layout.slideshow_swipe, container, false);
 
-        ImageView imageView = (ImageView) view.findViewById(R.id.imageView);
+        ImageView imageView = (ImageView) view.findViewById(R.id.imageSlideshow);
         imageView.setImageResource(images[position]);
 
         container.addView(view);

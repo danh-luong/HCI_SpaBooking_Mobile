@@ -24,9 +24,6 @@ import rosie.com.rosiebeauty.Model.MultiViewModel;
  */
 public class HomeFragment extends Fragment {
 
-    ViewPager viewSlideShow;
-    SlideshowAdapter slideshowAdapter;
-    Timer swipeTimer;
     ArrayList<MultiViewModel> gridViewModelArrayList;
     private RecyclerView mRecyclerView;
     private String[] activity_names;
@@ -42,25 +39,8 @@ public class HomeFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View rootView = inflater.inflate(R.layout.fragment_home, container, false);
-//        --- Start slideshow ---
-//        viewSlideShow = rootView.findViewById(R.id.recyclerView);
-//        slideshowAdapter = new SlideshowAdapter(this.getActivity());
-//        viewSlideShow.setAdapter(slideshowAdapter);
-//        TimerTask timerTask = new TimerTask() {
-//            @Override
-//            public void run() {
-//                viewSlideShow.post(new Runnable() {
-//                    @Override
-//                    public void run() {
-//                        viewSlideShow.setCurrentItem((viewSlideShow.getCurrentItem() + 1) % slideshowAdapter.getCount());
-//                    }
-//                });
-//            }
-//        };
-//        swipeTimer = new Timer();
-//        swipeTimer.schedule(timerTask, 1000, 3000);
-//        --- End slideshow ---
 
+        //Recycler View
         gridViewModelArrayList = new ArrayList();
 
         prepareData();
