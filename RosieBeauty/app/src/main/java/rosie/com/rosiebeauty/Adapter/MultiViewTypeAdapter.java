@@ -7,7 +7,6 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
@@ -15,7 +14,6 @@ import java.util.ArrayList;
 
 import rosie.com.rosiebeauty.Model.MultiViewModel;
 import rosie.com.rosiebeauty.R;
-import rosie.com.rosiebeauty.SlideshowAdapter;
 
 public class MultiViewTypeAdapter extends RecyclerView.Adapter {
 

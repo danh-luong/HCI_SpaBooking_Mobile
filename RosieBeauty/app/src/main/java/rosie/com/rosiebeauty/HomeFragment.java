@@ -7,7 +7,6 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.fragment.app.Fragment;
-
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
@@ -15,7 +14,6 @@ import androidx.viewpager.widget.ViewPager;
 
 import java.util.ArrayList;
 import java.util.Timer;
-import java.util.TimerTask;
 
 import rosie.com.rosiebeauty.Adapter.MultiViewTypeAdapter;
 import rosie.com.rosiebeauty.Model.MultiViewModel;
@@ -45,7 +43,6 @@ public class HomeFragment extends Fragment {
         // Inflate the layout for this fragment
         View rootView = inflater.inflate(R.layout.fragment_home, container, false);
 //        --- Start slideshow ---
-
 //        viewSlideShow = rootView.findViewById(R.id.recyclerView);
 //        slideshowAdapter = new SlideshowAdapter(this.getActivity());
 //        viewSlideShow.setAdapter(slideshowAdapter);

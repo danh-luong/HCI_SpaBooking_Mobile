@@ -10,7 +10,6 @@ import android.widget.LinearLayout;
 import androidx.annotation.NonNull;
 import androidx.viewpager.widget.PagerAdapter;
 
-import java.util.TimerTask;
 
 public class SlideshowAdapter extends PagerAdapter {
 
@@ -57,11 +56,4 @@ public class SlideshowAdapter extends PagerAdapter {
         container.removeView((LinearLayout) object);
 
     }
-
-    private TimerTask timerTask = new TimerTask() {
-        @Override
-        public void run() {
-
-        }
-    };
 }
