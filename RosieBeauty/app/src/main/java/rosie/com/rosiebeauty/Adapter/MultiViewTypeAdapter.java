@@ -11,6 +11,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 import androidx.viewpager.widget.ViewPager;
 
+import com.miguelcatalan.materialsearchview.MaterialSearchView;
+
 import java.util.ArrayList;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -24,6 +26,11 @@ public class MultiViewTypeAdapter extends RecyclerView.Adapter {
     private ArrayList<MultiViewModel> dataSet;
     Context mContext;
     int total_types;
+    private MaterialSearchView searchView;
+
+    public void setSearchView(MaterialSearchView searchView) {
+        this.searchView = searchView;
+    }
 
     public static class SlideshowTypeViewHolder extends RecyclerView.ViewHolder {
 
@@ -73,6 +80,9 @@ public class MultiViewTypeAdapter extends RecyclerView.Adapter {
             case MultiViewModel.TYPE_IMAGE_WITH_TEXT:
                 view = LayoutInflater.from(parent.getContext()).inflate(R.layout.image_with_title, parent, false);
                 return new ImageTypeViewHolder(view);
+            case MultiViewModel.TYPE_IMAGE_INLINE_WITH_TEXT:
+                view = LayoutInflater.from(parent.getContext()).inflate(R.layout.suggestion_item, parent, false);
+                return new ImageTypeViewHolder(view);
 
         }
 
@@ -87,6 +97,8 @@ public class MultiViewTypeAdapter extends RecyclerView.Adapter {
                 return MultiViewModel.TYPE_SLIDESHOW;
             case 1:
                 return MultiViewModel.TYPE_IMAGE_WITH_TEXT;
+            case 2:
+                return MultiViewModel.TYPE_IMAGE_INLINE_WITH_TEXT;
 
         }
         return 0;
@@ -95,7 +107,7 @@ public class MultiViewTypeAdapter extends RecyclerView.Adapter {
     @Override
     public void onBindViewHolder(final RecyclerView.ViewHolder holder, final int listPosition) {
 
-        MultiViewModel object = dataSet.get(listPosition);
+        final MultiViewModel object = dataSet.get(listPosition);
 
         if (object != null) {
             switch (object.type) {
@@ -121,9 +133,27 @@ public class MultiViewTypeAdapter extends RecyclerView.Adapter {
                     ((ImageTypeViewHolder) holder).txtType.setText(object.text);
                     ((ImageTypeViewHolder) holder).image.setImageResource(object.data);
                     break;
+                case MultiViewModel.TYPE_IMAGE_INLINE_WITH_TEXT:
+                    ((ImageTypeViewHolder) holder).txtType.setText(object.text);
+                    ((ImageTypeViewHolder) holder).image.setImageResource(object.data);
+                    ((ImageTypeViewHolder) holder).txtType.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            searchView.setQuery(object.text, false);
+                        }
+                    });
+                    ((ImageTypeViewHolder) holder).image.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            searchView.setQuery(object.text, false);
+                        }
+                    });
+                    break;
             }
         }
     }
+
+
 
     @Override
     public int getItemCount() {

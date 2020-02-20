@@ -36,7 +36,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/search_view"
-
+        app:searchBackground="@drawable/grad"
+        android:textColor="@android:color/white"
         />
 
 </RelativeLayout>
