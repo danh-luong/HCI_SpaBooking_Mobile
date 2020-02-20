@@ -3,7 +3,24 @@
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
-    <color name="gradStart">#8000FF</color>
-    <color name="gradEnd">#00f9ff</color>
+    <!--    <color name="gradStart">#8000FF</color>-->
+    <!--    <color name="gradEnd">#00f9ff</color>-->
+
+    <!--    <color name="gradStart">#f1b2ff</color>-->
+    <!--    <color name="gradEnd">#a1a5ff</color>-->
+
+
+    <!--    <color name="gradStart">#e0c4c9</color>-->
+    <!--    <color name="gradEnd">#be8e98</color>-->
+
+    <!--    <color name="gradStart">#AA646A</color>-->
+    <!--    <color name="gradEnd">#5B369C</color>-->
+
+<!--    <color name="gradEnd">#FF5861</color>-->
+<!--    <color name="gradStart">#FFAFAC</color>-->
+
+    <color name="gradEnd">#0078D4</color>
+    <color name="gradStart">#82CCC4</color>
+
 </resources>
 
