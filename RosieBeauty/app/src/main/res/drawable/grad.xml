@@ -8,4 +8,6 @@
         android:centerColor="@color/gradStart"
         android:startColor="@color/gradEnd"/>
 
+        />
+
 </shape>
