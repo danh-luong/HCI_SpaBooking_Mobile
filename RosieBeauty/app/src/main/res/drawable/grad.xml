@@ -6,6 +6,6 @@
         android:angle="45"
         android:endColor="@color/gradEnd"
         android:centerColor="@color/gradStart"
-        android:centerX="0"/>
+        android:startColor="@color/gradEnd"/>
 
 </shape>
