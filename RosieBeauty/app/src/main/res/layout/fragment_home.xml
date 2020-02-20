@@ -9,14 +9,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="10dp"
         android:background="?android:attr/selectableItemBackground"
-        android:layout_below="@id/home_slideshow"/>
-
-    <androidx.viewpager.widget.ViewPager
-        android:id="@+id/home_slideshow"
-        android:layout_width="match_parent"
-        android:layout_height="220dp"
-        android:background="@android:color/background_dark" />
+        />
 
 </RelativeLayout>

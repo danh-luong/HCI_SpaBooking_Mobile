@@ -43,26 +43,26 @@ public class HomeFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-
-//        --- Start lideshow ---
         View rootView = inflater.inflate(R.layout.fragment_home, container, false);
-        viewSlideShow = rootView.findViewById(R.id.home_slideshow);
-        slideshowAdapter = new SlideshowAdapter(this.getActivity());
-        viewSlideShow.setAdapter(slideshowAdapter);
-        TimerTask timerTask = new TimerTask() {
-            @Override
-            public void run() {
-                viewSlideShow.post(new Runnable() {
-                    @Override
-                    public void run() {
-                        viewSlideShow.setCurrentItem((viewSlideShow.getCurrentItem() + 1) % slideshowAdapter.getCount());
-                    }
-                });
-            }
-        };
-        swipeTimer = new Timer();
-        swipeTimer.schedule(timerTask, 1000, 3000);
+//        --- Start slideshow ---
 
+//        viewSlideShow = rootView.findViewById(R.id.recyclerView);
+//        slideshowAdapter = new SlideshowAdapter(this.getActivity());
+//        viewSlideShow.setAdapter(slideshowAdapter);
+//        TimerTask timerTask = new TimerTask() {
+//            @Override
+//            public void run() {
+//                viewSlideShow.post(new Runnable() {
+//                    @Override
+//                    public void run() {
+//                        viewSlideShow.setCurrentItem((viewSlideShow.getCurrentItem() + 1) % slideshowAdapter.getCount());
+//                    }
+//                });
+//            }
+//        };
+//        swipeTimer = new Timer();
+//        swipeTimer.schedule(timerTask, 1000, 3000);
+//        --- End slideshow ---
 
         gridViewModelArrayList = new ArrayList();
 
@@ -78,23 +78,40 @@ public class HomeFragment extends Fragment {
         mRecyclerView.setItemAnimator(new DefaultItemAnimator());
         mRecyclerView.setAdapter(adapter);
 
-//        --- End slideshow ---
+
         return rootView;
     }
 
     void prepareData() {
         activity_names = new String[]{
-                "AAAA", "BBBBB", "CCCCCC", "AAAA", "BBBBB", "CCCCCC", "AAAA", "BBBBB", "CCCCCC"
+                "AAAA", "BBBBB", "CCCCCC", "AAAA", "BBBBB", "CCCCCC", "AAAA", "BBBBB", "CCCCCC", "AAAA", "BBBBB", "CCCCCC", "AAAA", "BBBBB", "CCCCCC", "AAAA", "BBBBB", "CCCCCC"
         };
-        icons = new int[]{R.drawable.ic_action_book, R.drawable.ic_action_favorites, R.drawable.ic_action_home, R.drawable.ic_action_book, R.drawable.ic_action_favorites, R.drawable.ic_action_home, R.drawable.ic_action_book, R.drawable.ic_action_favorites, R.drawable.ic_action_home};
+        icons = new int[]{
+                R.drawable.ic_action_book,
+                R.drawable.ic_action_favorites,
+                R.drawable.ic_action_home,
+                R.drawable.ic_action_book,
+                R.drawable.ic_action_favorites,
+                R.drawable.ic_action_home,
+                R.drawable.ic_action_book,
+                R.drawable.ic_action_favorites,
+                R.drawable.ic_action_home,
+                R.drawable.ic_action_book,
+                R.drawable.ic_action_favorites,
+                R.drawable.ic_action_home,
+                R.drawable.ic_action_book,
+                R.drawable.ic_action_favorites,
+                R.drawable.ic_action_home,
+                R.drawable.ic_action_book,
+                R.drawable.ic_action_favorites,
+                R.drawable.ic_action_home
+        };
 
 
         MultiViewModel gridViewModel = null;
         for (int i = 0; i < activity_names.length; i++) {
-            if (i == 6) {
-                gridViewModel = new MultiViewModel(MultiViewModel.TYPE_BANNER, "", R.drawable.slideshow1);
-                gridViewModelArrayList.add(gridViewModel);
-                gridViewModel = new MultiViewModel(MultiViewModel.TYPE_IMAGE_WITH_TEXT, activity_names[i], icons[i]);
+            if (i == 0) {
+                gridViewModel = new MultiViewModel(MultiViewModel.TYPE_SLIDESHOW, "", R.drawable.slideshow1);
                 gridViewModelArrayList.add(gridViewModel);
             } else {
                 gridViewModel = new MultiViewModel(MultiViewModel.TYPE_IMAGE_WITH_TEXT, activity_names[i], icons[i]);
