@@ -1,11 +1,15 @@
 package rosie.com.rosiebeauty;
 
+import android.media.Image;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
@@ -25,10 +29,17 @@ public class MainActivity extends AppCompatActivity {
         bottomNavigationView.setOnNavigationItemSelectedListener(navListener);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar_main);
         setSupportActionBar(toolbar);
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setHomeButtonEnabled(true);
+//        actionBar.setLogo(R.drawable.ic_spa_logo_no_text);
+        getSupportActionBar().setDisplayUseLogoEnabled(true);
+//        actionBar.setDisplayHomeAsUpEnabled(true);
+        setTitle(getTitle());
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new HomeFragment()).commit();
         setupSearchView();
 
     }
+
 
     private BottomNavigationView.OnNavigationItemSelectedListener navListener =
             new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -48,15 +59,16 @@ public class MainActivity extends AppCompatActivity {
                         case R.id.action_profile:
                             selectedFragment = new ProfileFragment();
                             break;
+
                     }
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, selectedFragment).commit();
-                    return  true;
+                    return true;
                 }
             };
 
 
     private void setupSearchView() {
-        searchView=(MaterialSearchView)findViewById(R.id.search_view);
+        searchView = (MaterialSearchView) findViewById(R.id.search_view);
         searchView.setSuggestions(getResources().getStringArray(R.array.product_list));
         searchView.setOnQueryTextListener(new MaterialSearchView.OnQueryTextListener() {
             @Override

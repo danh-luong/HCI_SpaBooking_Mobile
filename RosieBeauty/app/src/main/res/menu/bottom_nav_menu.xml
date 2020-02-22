@@ -7,7 +7,7 @@
         android:icon="@drawable/ic_action_home"
         android:title="Home"
         app:actionViewClass="android.widget.ImageButton"
-        app:showAsAction="always" />
+        app:showAsAction="always"/>
     <item
         android:id="@+id/action_favorites"
         android:enabled="true"

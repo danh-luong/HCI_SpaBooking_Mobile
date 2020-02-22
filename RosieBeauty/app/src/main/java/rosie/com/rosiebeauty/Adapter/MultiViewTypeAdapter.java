@@ -72,6 +72,11 @@ public class MultiViewTypeAdapter extends RecyclerView.Adapter {
                 return new SlideshowTypeViewHolder(view);
             case MultiViewModel.TYPE_IMAGE_WITH_TEXT:
                 view = LayoutInflater.from(parent.getContext()).inflate(R.layout.image_with_title, parent, false);
+                final ViewGroup.LayoutParams lp1 = view.getLayoutParams();
+                if (lp1 instanceof StaggeredGridLayoutManager.LayoutParams) {
+                    StaggeredGridLayoutManager.LayoutParams sglp = (StaggeredGridLayoutManager.LayoutParams) lp1;
+                    sglp.setFullSpan(true);
+                }
                 return new ImageTypeViewHolder(view);
 
         }
@@ -120,6 +125,7 @@ public class MultiViewTypeAdapter extends RecyclerView.Adapter {
                 case MultiViewModel.TYPE_IMAGE_WITH_TEXT:
                     ((ImageTypeViewHolder) holder).txtType.setText(object.text);
                     ((ImageTypeViewHolder) holder).image.setImageResource(object.data);
+                    ((ImageTypeViewHolder) holder).image.setClipToOutline(true);
                     break;
             }
         }
