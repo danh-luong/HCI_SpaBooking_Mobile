@@ -1,5 +1,6 @@
 package rosie.com.rosiebeauty.Adapter;
 
+import android.app.Activity;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,6 +18,8 @@ import java.util.ArrayList;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import rosie.com.rosiebeauty.HomeFragment;
+import rosie.com.rosiebeauty.MainActivity;
 import rosie.com.rosiebeauty.Model.MultiViewModel;
 import rosie.com.rosiebeauty.R;
 import rosie.com.rosiebeauty.SlideshowAdapter;
@@ -158,7 +161,6 @@ public class MultiViewTypeAdapter extends RecyclerView.Adapter {
             }
         }
     }
-
 
 
     @Override
