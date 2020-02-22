@@ -10,10 +10,8 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
-import androidx.viewpager.widget.ViewPager;
 
 import java.util.ArrayList;
-import java.util.Timer;
 
 import rosie.com.rosiebeauty.Adapter.MultiViewTypeAdapter;
 import rosie.com.rosiebeauty.Model.MultiViewModel;
