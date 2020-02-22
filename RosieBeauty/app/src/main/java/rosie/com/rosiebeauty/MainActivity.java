@@ -4,6 +4,8 @@ import android.media.Image;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ArrayAdapter;
+import android.widget.SearchView;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.Toast;
@@ -20,6 +22,8 @@ import com.miguelcatalan.materialsearchview.MaterialSearchView;
 public class MainActivity extends AppCompatActivity {
 
     MaterialSearchView searchView;
+    private Fragment selectedFragment = null;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
             new BottomNavigationView.OnNavigationItemSelectedListener() {
                 @Override
                 public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                    Fragment selectedFragment = null;
+                    searchView.closeSearch();
                     switch (item.getItemId()) {
                         case R.id.action_home:
                             selectedFragment = new HomeFragment();
@@ -68,8 +72,8 @@ public class MainActivity extends AppCompatActivity {
 
 
     private void setupSearchView() {
-        searchView = (MaterialSearchView) findViewById(R.id.search_view);
-        searchView.setSuggestions(getResources().getStringArray(R.array.product_list));
+        searchView = (MaterialSearchView)findViewById(R.id.search_view);
+        //searchView.setSuggestions(getResources().getStringArray(R.array.product_list));
         searchView.setOnQueryTextListener(new MaterialSearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
@@ -79,6 +83,7 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public boolean onQueryTextChange(String newText) {
+                ((SearchFragment)selectedFragment).changeContentOnQueryTextChange(newText);
                 return false;
             }
         });
@@ -89,13 +94,21 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_main, menu);
-        MenuItem item = menu.findItem(R.id.action_search);
-        searchView.setMenuItem(item);
-        return super.onCreateOptionsMenu(menu);
+        return true;
     }
+
+
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        return super.onOptionsItemSelected(item);
+        switch (item.getItemId()) {
+            case R.id.action_search:
+                selectedFragment = new SearchFragment();
+                ((SearchFragment)selectedFragment).setSearchView(this.searchView);
+                searchView.showSearch();
+                break;
+        }
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, selectedFragment).commit();
+        return true;
     }
 }
