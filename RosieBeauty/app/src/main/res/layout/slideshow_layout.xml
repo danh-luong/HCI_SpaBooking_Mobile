@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/pager_Slideshow"
+    android:orientation="vertical">
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/home_slideshow"
+        android:layout_width="match_parent"
+        android:layout_height="220dp"
+        android:background="@android:color/background_dark"/>
+
+</LinearLayout>

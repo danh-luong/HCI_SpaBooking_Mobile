@@ -1,31 +1,22 @@
 package rosie.com.rosiebeauty;
 
-
-import android.app.Activity;
+import android.annotation.SuppressLint;
 import android.os.Bundle;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.SearchView;
-import androidx.appcompat.widget.Toolbar;
-import androidx.fragment.app.Fragment;
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
-import androidx.navigation.fragment.NavHostFragment;
-
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageButton;
-import android.widget.Toast;
 
-import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.android.material.navigation.NavigationView;
+import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.DefaultItemAnimator;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.recyclerview.widget.StaggeredGridLayoutManager;
+import androidx.viewpager.widget.ViewPager;
+
+import java.util.ArrayList;
+import java.util.Timer;
+
+import rosie.com.rosiebeauty.Adapter.MultiViewTypeAdapter;
+import rosie.com.rosiebeauty.Model.MultiViewModel;
 
 
 /**
@@ -33,59 +24,76 @@ import com.google.android.material.navigation.NavigationView;
  */
 public class HomeFragment extends Fragment {
 
+    ArrayList<MultiViewModel> gridViewModelArrayList;
+    private RecyclerView mRecyclerView;
+    private String[] activity_names;
+    private int[] icons;
 
     public HomeFragment() {
         // Required empty public constructor
     }
 
-
+    @SuppressLint("WrongViewCast")
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View rootView = inflater.inflate(R.layout.fragment_home, container, false);
 
-//        Toolbar toolbar = rootView.findViewById(R.id.my_toolbar);
-//        ((AppCompatActivity) getActivity()).setSupportActionBar(toolbar);
-//        ((AppCompatActivity) getActivity()).getSupportActionBar().setDisplayShowTitleEnabled(false);
+        //Recycler View
+        gridViewModelArrayList = new ArrayList();
+
+        prepareData();
+
+        MultiViewTypeAdapter adapter = new MultiViewTypeAdapter(gridViewModelArrayList, this.getActivity().getApplicationContext());
+        // LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this, RecyclerView.VERTICAL, false);
+
+        mRecyclerView = rootView.findViewById(R.id.recyclerView);
+        StaggeredGridLayoutManager lm =
+                new StaggeredGridLayoutManager(3, StaggeredGridLayoutManager.VERTICAL);
+        mRecyclerView.setLayoutManager(lm);
+        mRecyclerView.setItemAnimator(new DefaultItemAnimator());
+        mRecyclerView.setAdapter(adapter);
+
+
         return rootView;
     }
 
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        return super.onOptionsItemSelected(item);
-    }
+    void prepareData() {
+        activity_names = new String[]{
+                "AAAA", "BBBBB", "CCCCCC", "AAAA", "BBBBB", "CCCCCC", "AAAA", "BBBBB", "CCCCCC", "AAAA", "BBBBB", "CCCCCC", "AAAA", "BBBBB", "CCCCCC", "AAAA", "BBBBB", "CCCCCC"
+        };
+        icons = new int[]{
+                R.drawable.slideshow1,
+                R.drawable.slideshow2,
+                R.drawable.slideshow3,
+                R.drawable.slideshow4,
+                R.drawable.slideshow5,
+                R.drawable.slideshow4,
+                R.drawable.slideshow5,
+                R.drawable.slideshow4,
+                R.drawable.slideshow5,
+                R.drawable.slideshow4,
+                R.drawable.slideshow5,
+                R.drawable.slideshow4,
+                R.drawable.slideshow5,
+                R.drawable.slideshow4,
+                R.drawable.slideshow5,
+                R.drawable.slideshow4,
+                R.drawable.slideshow5,
+                R.drawable.slideshow4
+        };
 
-    @Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-        SearchView searchView = view.findViewById(R.id.search_view);
-        searchView.setOnQueryTextFocusChangeListener(new View.OnFocusChangeListener() {
-            @Override
-            public void onFocusChange(View v, boolean hasFocus) {
-                NavHostFragment.findNavController(HomeFragment.this).navigate(R.id.action_homeFragment_to_searchFragment);
-            }
-        });
-        BottomNavigationView bottomNavigationView = view.findViewById(R.id.bottom_navigation);
-        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                switch (item.getItemId()) {
-                    case R.id.action_home:
-                        NavHostFragment.findNavController(HomeFragment.this).navigate(R.id.action_homeFragment_self);
-                        break;
-                    case R.id.action_favorites:
-                        NavHostFragment.findNavController(HomeFragment.this).navigate(R.id.action_homeFragment_to_favoriteFragment);
-                        break;
-                    case R.id.action_profile:
-                        NavHostFragment.findNavController(HomeFragment.this).navigate(R.id.action_homeFragment_to_profileFragment);
-                        break;
-                    case R.id.action_book:
-                        NavHostFragment.findNavController(HomeFragment.this).navigate(R.id.action_homeFragment_to_bookingFragment);
-                        break;
-                }
-                return false;
-            }
-        });
+
+        MultiViewModel gridViewModel = null;
+        for (int i = 0; i < activity_names.length; i++) {
+//            if (i == 0) {
+//                gridViewModel = new MultiViewModel(MultiViewModel.TYPE_SLIDESHOW, "", R.drawable.slideshow1);
+//                gridViewModelArrayList.add(gridViewModel);
+//            } else {
+                gridViewModel = new MultiViewModel(MultiViewModel.TYPE_IMAGE_WITH_TEXT, activity_names[i], icons[i]);
+                gridViewModelArrayList.add(gridViewModel);
+//            }
+        }
     }
 }
