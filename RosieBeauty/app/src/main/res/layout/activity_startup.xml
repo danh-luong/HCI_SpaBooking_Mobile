@@ -10,9 +10,11 @@
     tools:context=".StartupActivity">
 
     <LinearLayout
+        android:id="@+id/startup_center_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
+        android:alpha="0"
         android:gravity="center"
         android:orientation="vertical">
 
