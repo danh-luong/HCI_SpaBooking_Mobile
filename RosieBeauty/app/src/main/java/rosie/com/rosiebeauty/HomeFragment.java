@@ -10,10 +10,8 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
-import androidx.viewpager.widget.ViewPager;
 
 import java.util.ArrayList;
-import java.util.Timer;
 
 import rosie.com.rosiebeauty.Adapter.MultiViewTypeAdapter;
 import rosie.com.rosiebeauty.Model.MultiViewModel;
@@ -48,7 +46,7 @@ public class HomeFragment extends Fragment {
         MultiViewTypeAdapter adapter = new MultiViewTypeAdapter(gridViewModelArrayList, this.getActivity().getApplicationContext());
         // LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this, RecyclerView.VERTICAL, false);
 
-        mRecyclerView = rootView.findViewById(R.id.recyclerView);
+        mRecyclerView = rootView.findViewById(R.id.suggestionView);
         StaggeredGridLayoutManager lm =
                 new StaggeredGridLayoutManager(3, StaggeredGridLayoutManager.VERTICAL);
         mRecyclerView.setLayoutManager(lm);

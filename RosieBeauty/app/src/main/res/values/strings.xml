@@ -11,4 +11,8 @@
         <item>Bellona</item>
         <item>Aramintha</item>
     </string-array>
+    <string name="top_trending"><u>Top Trending</u></string>
+    <string name="recent_search"><u>Recent Search</u></string>
+    <string name="search_result"><u>Search Result</u></string>
+    <string name="no_result"><i>No match found</i></string>
 </resources>

@@ -19,6 +19,8 @@ public class MainActivity extends AppCompatActivity {
 
     MaterialSearchView searchView;
     private Fragment selectedFragment = null;
+    private boolean isCurrentSearchFragment = false;
+    private SearchFragment searchFragment = null;
 
 
     @Override
@@ -91,12 +93,24 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
             case R.id.action_search:
-                selectedFragment = new SearchFragment();
+                if(selectedFragment == null) {
+                    searchFragment = new SearchFragment();
+                }
+                selectedFragment = searchFragment;
                 ((SearchFragment)selectedFragment).setSearchView(this.searchView);
-                searchView.showSearch();
+                if (!isCurrentSearchFragment) {
+                    searchView.clearFocus();
+                    isCurrentSearchFragment = true;
+                } else {
+                    searchView.showSearch();
+                }
                 break;
         }
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, selectedFragment).commit();
         return true;
+    }
+
+    public void setIsCurrentSearchFragment(boolean isCurrentSearchFragment) {
+        this.isCurrentSearchFragment = isCurrentSearchFragment;
     }
 }
