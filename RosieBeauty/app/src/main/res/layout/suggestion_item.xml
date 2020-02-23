@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_gravity="center">
+    android:layout_gravity="center"
+    tools:layout_editor_absoluteY="315dp">
 
     <ImageView
         android:id="@+id/imageView"
@@ -37,4 +38,20 @@
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="@+id/imageView"
         app:layout_constraintTop_toTopOf="@+id/imageView" />
+
+    <ImageView
+        android:id="@+id/suggestion_icon"
+        android:layout_width="56dp"
+        android:layout_height="38dp"
+        android:layout_below="@+id/pager_Slideshow"
+        android:layout_centerHorizontal="true"
+
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="45dp"
+        android:clickable="false"
+        android:src="@drawable/magnifying_class"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.2" />
 </androidx.constraintlayout.widget.ConstraintLayout>

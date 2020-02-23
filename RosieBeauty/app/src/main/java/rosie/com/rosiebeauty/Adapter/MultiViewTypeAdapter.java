@@ -1,6 +1,7 @@
 package rosie.com.rosiebeauty.Adapter;
 
 import android.content.Context;
+import android.media.Image;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -46,13 +47,19 @@ public class MultiViewTypeAdapter extends RecyclerView.Adapter {
 
         TextView txtType;
         ImageView image;
+        ImageView icon;
 
         public ImageTypeViewHolder(View itemView) {
             super(itemView);
 
             this.txtType = (TextView) itemView.findViewById(R.id.txtTitle);
             this.image = (ImageView) itemView.findViewById(R.id.imageView);
+            if(itemView.findViewById(R.id.suggestion_icon) != null) {
+                this.icon = (ImageView) itemView.findViewById(R.id.suggestion_icon);
+            }
         }
+
+
     }
 
 
@@ -88,6 +95,9 @@ public class MultiViewTypeAdapter extends RecyclerView.Adapter {
             case MultiViewModel.TYPE_IMAGE_INLINE_WITH_TEXT:
                 view = LayoutInflater.from(parent.getContext()).inflate(R.layout.suggestion_item, parent, false);
                 return new ImageTypeViewHolder(view);
+            case MultiViewModel.TYPE_TEXT_INSIDE_IMAGE:
+                view = LayoutInflater.from(parent.getContext()).inflate(R.layout.trending_product_layout, parent, false);
+                return new ImageTypeViewHolder(view);
 
         }
 
@@ -104,6 +114,8 @@ public class MultiViewTypeAdapter extends RecyclerView.Adapter {
                 return MultiViewModel.TYPE_IMAGE_WITH_TEXT;
             case 2:
                 return MultiViewModel.TYPE_IMAGE_INLINE_WITH_TEXT;
+            case 3:
+                return MultiViewModel.TYPE_TEXT_INSIDE_IMAGE;
 
         }
         return 0;
@@ -142,19 +154,43 @@ public class MultiViewTypeAdapter extends RecyclerView.Adapter {
                 case MultiViewModel.TYPE_IMAGE_INLINE_WITH_TEXT:
                     ((ImageTypeViewHolder) holder).txtType.setText(object.text);
                     ((ImageTypeViewHolder) holder).image.setImageResource(object.data);
+                    ((ImageTypeViewHolder) holder).icon.setImageResource(object.iconId);
                     ((ImageTypeViewHolder) holder).txtType.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
+                            searchView.showSearch();
                             searchView.setQuery(object.text, false);
                         }
                     });
                     ((ImageTypeViewHolder) holder).image.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
+                            searchView.showSearch();
                             searchView.setQuery(object.text, false);
+
                         }
                     });
                     break;
+                case MultiViewModel.TYPE_TEXT_INSIDE_IMAGE:
+                    ((ImageTypeViewHolder) holder).txtType.setText(object.text);
+                    ((ImageTypeViewHolder) holder).image.setImageResource(object.data);
+                    ((ImageTypeViewHolder) holder).txtType.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            searchView.showSearch();
+                            searchView.setQuery(object.text, false);
+                        }
+                    });
+                    ((ImageTypeViewHolder) holder).image.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            searchView.showSearch();
+                            searchView.setQuery(object.text, false);
+
+                        }
+                    });
+                    break;
+
             }
         }
     }
