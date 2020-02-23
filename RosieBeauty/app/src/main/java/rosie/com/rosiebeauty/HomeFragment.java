@@ -59,39 +59,38 @@ public class HomeFragment extends Fragment {
 
     void prepareData() {
         activity_names = new String[]{
-                "AAAA", "BBBBB", "CCCCCC", "AAAA", "BBBBB", "CCCCCC", "AAAA", "BBBBB", "CCCCCC", "AAAA", "BBBBB", "CCCCCC", "AAAA", "BBBBB", "CCCCCC", "AAAA", "BBBBB", "CCCCCC"
+                "Facial Treatment",
+                "Makeup",
+                "Hair",
+                "Nails",
+                "Massage",
+                "Waxing",
+                "Steam Bath",
+                "Burn Fat",
+                "Tattoo Makeup",
         };
         icons = new int[]{
-                R.drawable.ic_action_book,
-                R.drawable.ic_action_favorites,
-                R.drawable.ic_action_home,
-                R.drawable.ic_action_book,
-                R.drawable.ic_action_favorites,
-                R.drawable.ic_action_home,
-                R.drawable.ic_action_book,
-                R.drawable.ic_action_favorites,
-                R.drawable.ic_action_home,
-                R.drawable.ic_action_book,
-                R.drawable.ic_action_favorites,
-                R.drawable.ic_action_home,
-                R.drawable.ic_action_book,
-                R.drawable.ic_action_favorites,
-                R.drawable.ic_action_home,
-                R.drawable.ic_action_book,
-                R.drawable.ic_action_favorites,
-                R.drawable.ic_action_home
+                R.drawable.facial_treatment,
+                R.drawable.makeup,
+                R.drawable.hair,
+                R.drawable.nails,
+                R.drawable.massage,
+                R.drawable.waxing,
+                R.drawable.steam_bath,
+                R.drawable.burn_fat,
+                R.drawable.tattoo_makeup
         };
 
 
         MultiViewModel gridViewModel = null;
         for (int i = 0; i < activity_names.length; i++) {
-            if (i == 0) {
-                gridViewModel = new MultiViewModel(MultiViewModel.TYPE_SLIDESHOW, "", R.drawable.slideshow1);
-                gridViewModelArrayList.add(gridViewModel);
-            } else {
-                gridViewModel = new MultiViewModel(MultiViewModel.TYPE_IMAGE_WITH_TEXT, activity_names[i], icons[i]);
-                gridViewModelArrayList.add(gridViewModel);
-            }
+//            if (i == 0) {
+//                gridViewModel = new MultiViewModel(MultiViewModel.TYPE_SLIDESHOW, "", R.drawable.slideshow1);
+//                gridViewModelArrayList.add(gridViewModel);
+//            } else {
+            gridViewModel = new MultiViewModel(MultiViewModel.TYPE_IMAGE_WITH_TEXT, activity_names[i], icons[i]);
+            gridViewModelArrayList.add(gridViewModel);
+//            }
         }
     }
 }

@@ -27,9 +27,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:background="@drawable/grad"
-        app:itemIconTint="@android:color/white"
-        app:itemTextColor="@android:color/white"
+        android:background="@drawable/bottom_grad"
+        app:itemIconTint="@color/bottom_nav_state"
+        app:itemTextColor="@color/bottom_nav_state"
         app:menu="@menu/bottom_nav_menu" />
 
     <com.miguelcatalan.materialsearchview.MaterialSearchView
