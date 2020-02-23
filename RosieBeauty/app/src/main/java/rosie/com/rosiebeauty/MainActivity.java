@@ -3,6 +3,8 @@ package rosie.com.rosiebeauty;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -30,12 +32,14 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         ActionBar actionBar = getSupportActionBar();
         actionBar.setHomeButtonEnabled(true);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
 //        actionBar.setLogo(R.drawable.ic_spa_logo_no_text);
         getSupportActionBar().setDisplayUseLogoEnabled(true);
 //        actionBar.setDisplayHomeAsUpEnabled(true);
         setTitle(getTitle());
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new HomeFragment()).commit();
         setupSearchView();
+
 
     }
 
@@ -67,7 +71,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     private void setupSearchView() {
-        searchView = (MaterialSearchView)findViewById(R.id.search_view);
+        searchView = (MaterialSearchView) findViewById(R.id.search_view);
         //searchView.setSuggestions(getResources().getStringArray(R.array.product_list));
         searchView.setOnQueryTextListener(new MaterialSearchView.OnQueryTextListener() {
             @Override
@@ -78,7 +82,7 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public boolean onQueryTextChange(String newText) {
-                ((SearchFragment)selectedFragment).changeContentOnQueryTextChange(newText);
+                ((SearchFragment) selectedFragment).changeContentOnQueryTextChange(newText);
                 return false;
             }
         });
@@ -93,17 +97,39 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
+            case android.R.id.home:
+                onBackPressed();
+                return true;
             case R.id.action_search:
                 selectedFragment = new SearchFragment();
-                ((SearchFragment)selectedFragment).setSearchView(this.searchView);
+                ((SearchFragment) selectedFragment).setSearchView(this.searchView);
                 searchView.showSearch();
                 break;
         }
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, selectedFragment).commit();
         return true;
+    }
+
+    public void clickTextViewOnCategoryHome(View view) {
+        TextView textView = (TextView) view;
+        String text = textView.getText().toString();
+        switch (text) {
+            default:
+                selectedFragment = new CategoryServices();
+                getSupportFragmentManager().beginTransaction().add(R.id.fragment_container, selectedFragment).addToBackStack(null).commit();
+        }
+
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Fragment f = getSupportFragmentManager().findFragmentById(R.id.fragment_container);
+        if(f instanceof HomeFragment){
+            getSupportActionBar().setDisplayHomeAsUpEnabled(false);
+        }
     }
 }

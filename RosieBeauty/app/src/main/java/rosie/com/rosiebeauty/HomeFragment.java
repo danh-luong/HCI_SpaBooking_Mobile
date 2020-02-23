@@ -59,27 +59,26 @@ public class HomeFragment extends Fragment {
 
     void prepareData() {
         activity_names = new String[]{
-                "AAAA", "BBBBB", "CCCCCC", "AAAA", "BBBBB", "CCCCCC", "AAAA", "BBBBB", "CCCCCC", "AAAA", "BBBBB", "CCCCCC", "AAAA", "BBBBB", "CCCCCC", "AAAA", "BBBBB", "CCCCCC"
+                "Facial Treatment",
+                "Makeup",
+                "Hair",
+                "Nails",
+                "Massage",
+                "Waxing",
+                "Steam Bath",
+                "Burn Fat",
+                "Tattoo Makeup",
         };
         icons = new int[]{
-                R.drawable.slideshow1,
-                R.drawable.slideshow2,
-                R.drawable.slideshow3,
-                R.drawable.slideshow4,
-                R.drawable.slideshow5,
-                R.drawable.slideshow4,
-                R.drawable.slideshow5,
-                R.drawable.slideshow4,
-                R.drawable.slideshow5,
-                R.drawable.slideshow4,
-                R.drawable.slideshow5,
-                R.drawable.slideshow4,
-                R.drawable.slideshow5,
-                R.drawable.slideshow4,
-                R.drawable.slideshow5,
-                R.drawable.slideshow4,
-                R.drawable.slideshow5,
-                R.drawable.slideshow4
+                R.drawable.facial_treatment,
+                R.drawable.makeup,
+                R.drawable.hair,
+                R.drawable.nails,
+                R.drawable.massage,
+                R.drawable.waxing,
+                R.drawable.steam_bath,
+                R.drawable.burn_fat,
+                R.drawable.tattoo_makeup
         };
 
 
@@ -89,8 +88,8 @@ public class HomeFragment extends Fragment {
 //                gridViewModel = new MultiViewModel(MultiViewModel.TYPE_SLIDESHOW, "", R.drawable.slideshow1);
 //                gridViewModelArrayList.add(gridViewModel);
 //            } else {
-                gridViewModel = new MultiViewModel(MultiViewModel.TYPE_IMAGE_WITH_TEXT, activity_names[i], icons[i]);
-                gridViewModelArrayList.add(gridViewModel);
+            gridViewModel = new MultiViewModel(MultiViewModel.TYPE_IMAGE_WITH_TEXT, activity_names[i], icons[i]);
+            gridViewModelArrayList.add(gridViewModel);
 //            }
         }
     }

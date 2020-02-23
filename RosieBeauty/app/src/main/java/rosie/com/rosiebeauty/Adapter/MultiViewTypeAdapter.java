@@ -160,7 +160,6 @@ public class MultiViewTypeAdapter extends RecyclerView.Adapter {
     }
 
 
-
     @Override
     public int getItemCount() {
         return dataSet.size();
