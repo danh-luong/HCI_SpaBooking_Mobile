@@ -40,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new HomeFragment()).commit();
         setupSearchView();
 
+
     }
 
 
@@ -99,6 +100,9 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
+            case android.R.id.home:
+                onBackPressed();
+                return true;
             case R.id.action_search:
                 selectedFragment = new SearchFragment();
                 ((SearchFragment) selectedFragment).setSearchView(this.searchView);
@@ -113,10 +117,19 @@ public class MainActivity extends AppCompatActivity {
         TextView textView = (TextView) view;
         String text = textView.getText().toString();
         switch (text) {
-            case "AAAA":
+            default:
                 selectedFragment = new CategoryServices();
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, selectedFragment).commit();
+                getSupportFragmentManager().beginTransaction().add(R.id.fragment_container, selectedFragment).addToBackStack(null).commit();
         }
 
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Fragment f = getSupportFragmentManager().findFragmentById(R.id.fragment_container);
+        if(f instanceof HomeFragment){
+            getSupportActionBar().setDisplayHomeAsUpEnabled(false);
+        }
     }
 }
