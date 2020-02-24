@@ -112,7 +112,7 @@ public class MainActivity extends AppCompatActivity {
                 }
                 break;
         }
-        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, selectedFragment).commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, selectedFragment).addToBackStack(null).commit();
         return true;
     }
 
@@ -121,8 +121,8 @@ public class MainActivity extends AppCompatActivity {
         String text = textView.getText().toString();
         switch (text) {
             default:
-                //BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_nav);
-               // bottomNavigationView.setVisibility(View.GONE);
+                BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_nav);
+                bottomNavigationView.setVisibility(View.GONE);
                 selectedFragment = new CategoryServices();
                 getSupportFragmentManager().beginTransaction().add(R.id.fragment_container, selectedFragment).addToBackStack(null).commit();
         }
@@ -134,8 +134,8 @@ public class MainActivity extends AppCompatActivity {
         super.onBackPressed();
         Fragment f = getSupportFragmentManager().findFragmentById(R.id.fragment_container);
         if(f instanceof HomeFragment){
-            //BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_nav);
-            //bottomNavigationView.setVisibility(View.VISIBLE);
+            BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_nav);
+            bottomNavigationView.setVisibility(View.VISIBLE);
             getSupportActionBar().setDisplayHomeAsUpEnabled(false);
         }
     }

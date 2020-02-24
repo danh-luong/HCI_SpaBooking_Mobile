@@ -137,7 +137,7 @@ public class SearchFragment extends Fragment {
         mRecyclerViewForTrendingList.setLayoutManager(lmForTrending);
         mRecyclerViewForTrendingList.setItemAnimator(new DefaultItemAnimator());
         mRecyclerViewForTrendingList.setAdapter(trendingAdapter);
-        ((MainActivity)getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(false);
+        ((MainActivity)getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         return rootView;
 
     }
