@@ -37,25 +37,34 @@
             android:foregroundGravity="left"
             tools:layout_editor_absoluteY="29dp" />
 
-
-        <TextView
-            android:id="@+id/txtTopTrending"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="5dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="9dp"
-            android:text="@string/top_trending"
-            android:textSize="17dp"
-            android:textStyle="bold"
-            tools:layout_editor_absoluteX="77dp"
-            tools:layout_editor_absoluteY="284dp" />
+            android:orientation="vertical"
+            android:id="@+id/layoutTopTrending">
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/trendingProduct"
-            android:layout_width="411dp"
-            android:layout_height="wrap_content"
-            tools:layout_editor_absoluteY="338dp" />
+            <TextView
+                android:id="@+id/txtTopTrending"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="9dp"
+                android:text="@string/top_trending"
+                android:textSize="17dp"
+                android:textStyle="bold"
+                tools:layout_editor_absoluteX="77dp"
+                tools:layout_editor_absoluteY="284dp" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/trendingProduct"
+                android:layout_width="411dp"
+                android:layout_height="wrap_content"
+                tools:layout_editor_absoluteY="338dp" />
+
+        </LinearLayout>
+
+
 
 
     </LinearLayout>

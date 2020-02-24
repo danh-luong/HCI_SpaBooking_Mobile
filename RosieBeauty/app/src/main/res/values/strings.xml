@@ -16,4 +16,7 @@
     <string name="recent_search"><u>Recent Search</u></string>
     <string name="search_result"><u>Search Result</u></string>
     <string name="no_result"><i>No match found</i></string>
+    <string name="demo_description_content">
+        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text\.
+    </string>
 </resources>

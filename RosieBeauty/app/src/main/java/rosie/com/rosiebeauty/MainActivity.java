@@ -32,19 +32,10 @@ public class MainActivity extends AppCompatActivity {
         bottomNavigationView.setOnNavigationItemSelectedListener(navListener);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar_main);
         setSupportActionBar(toolbar);
-        ActionBar actionBar = getSupportActionBar();
-        actionBar.setHomeButtonEnabled(true);
-        getSupportActionBar().setDisplayShowTitleEnabled(false);
-//        actionBar.setLogo(R.drawable.ic_spa_logo_no_text);
-        getSupportActionBar().setDisplayUseLogoEnabled(true);
-//        actionBar.setDisplayHomeAsUpEnabled(true);
-        setTitle(getTitle());
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new HomeFragment()).commit();
         setupSearchView();
 
-
     }
-
 
     private BottomNavigationView.OnNavigationItemSelectedListener navListener =
             new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -64,21 +55,22 @@ public class MainActivity extends AppCompatActivity {
                         case R.id.action_profile:
                             selectedFragment = new ProfileFragment();
                             break;
-
                     }
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, selectedFragment).commit();
-                    return true;
+                    return  true;
                 }
             };
 
 
     private void setupSearchView() {
-        searchView = (MaterialSearchView) findViewById(R.id.search_view);
+        searchView = (MaterialSearchView)findViewById(R.id.search_view);
         //searchView.setSuggestions(getResources().getStringArray(R.array.product_list));
         searchView.setOnQueryTextListener(new MaterialSearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
-                Toast.makeText(getApplicationContext(), query, Toast.LENGTH_SHORT).show();
+                ((SearchFragment)selectedFragment).displaySubmitData(query);
+                ((SearchFragment)selectedFragment).setIsSubmit(true);
+                ((SearchFragment)selectedFragment).previousText = query;
                 return false;
             }
 
@@ -99,6 +91,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
@@ -106,7 +99,7 @@ public class MainActivity extends AppCompatActivity {
                 onBackPressed();
                 return true;
             case R.id.action_search:
-                if(selectedFragment == null) {
+                if(searchFragment == null) {
                     searchFragment = new SearchFragment();
                 }
                 selectedFragment = searchFragment;
@@ -119,7 +112,7 @@ public class MainActivity extends AppCompatActivity {
                 }
                 break;
         }
-        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, selectedFragment).commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, selectedFragment).addToBackStack(null).commit();
         return true;
     }
 

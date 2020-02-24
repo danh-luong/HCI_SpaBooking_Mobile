@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 import androidx.viewpager.widget.ViewPager;
@@ -20,7 +21,9 @@ import java.util.TimerTask;
 
 import rosie.com.rosiebeauty.Model.MultiViewModel;
 import rosie.com.rosiebeauty.R;
+import rosie.com.rosiebeauty.SearchFragment;
 import rosie.com.rosiebeauty.SlideshowAdapter;
+import rosie.com.rosiebeauty.SpaServiceDetailFragment;
 
 public class MultiViewTypeAdapter extends RecyclerView.Adapter {
 
@@ -28,9 +31,18 @@ public class MultiViewTypeAdapter extends RecyclerView.Adapter {
     Context mContext;
     int total_types;
     private MaterialSearchView searchView;
+    private Fragment triggerFragment;
 
     public void setSearchView(MaterialSearchView searchView) {
         this.searchView = searchView;
+    }
+
+    public Fragment getTriggerFragment() {
+        return triggerFragment;
+    }
+
+    public void setTriggerFragment(Fragment triggerFragment) {
+        this.triggerFragment = triggerFragment;
     }
 
     public static class SlideshowTypeViewHolder extends RecyclerView.ViewHolder {
@@ -49,6 +61,7 @@ public class MultiViewTypeAdapter extends RecyclerView.Adapter {
         ImageView image;
         ImageView icon;
 
+
         public ImageTypeViewHolder(View itemView) {
             super(itemView);
 
@@ -56,6 +69,7 @@ public class MultiViewTypeAdapter extends RecyclerView.Adapter {
             this.image = (ImageView) itemView.findViewById(R.id.imageView);
             if(itemView.findViewById(R.id.suggestion_icon) != null) {
                 this.icon = (ImageView) itemView.findViewById(R.id.suggestion_icon);
+
             }
         }
 
@@ -155,21 +169,39 @@ public class MultiViewTypeAdapter extends RecyclerView.Adapter {
                     ((ImageTypeViewHolder) holder).txtType.setText(object.text);
                     ((ImageTypeViewHolder) holder).image.setImageResource(object.data);
                     ((ImageTypeViewHolder) holder).icon.setImageResource(object.iconId);
-                    ((ImageTypeViewHolder) holder).txtType.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            searchView.showSearch();
-                            searchView.setQuery(object.text, false);
-                        }
-                    });
-                    ((ImageTypeViewHolder) holder).image.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            searchView.showSearch();
-                            searchView.setQuery(object.text, false);
+                    if (object.styleOfContent == 1) {
+                        ((ImageTypeViewHolder) holder).txtType.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                searchView.showSearch();
+                                searchView.setQuery(object.text, false);
+                            }
+                        });
+                        ((ImageTypeViewHolder) holder).image.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                searchView.showSearch();
+                                searchView.setQuery(object.text, false);
 
-                        }
-                    });
+                            }
+                        });
+                    } else if (object.styleOfContent == 2) {
+                        ((ImageTypeViewHolder) holder).txtType.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                SearchFragment searchFragment = (SearchFragment) triggerFragment;
+                                searchFragment.showProductDetail(new SpaServiceDetailFragment());
+                            }
+                        });
+                        ((ImageTypeViewHolder) holder).image.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                SearchFragment searchFragment = (SearchFragment) triggerFragment;
+                                searchFragment.showProductDetail(new SpaServiceDetailFragment());
+
+                            }
+                        });
+                    }
                     break;
                 case MultiViewModel.TYPE_TEXT_INSIDE_IMAGE:
                     ((ImageTypeViewHolder) holder).txtType.setText(object.text);
@@ -177,16 +209,15 @@ public class MultiViewTypeAdapter extends RecyclerView.Adapter {
                     ((ImageTypeViewHolder) holder).txtType.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                            searchView.showSearch();
-                            searchView.setQuery(object.text, false);
+                            SearchFragment searchFragment = (SearchFragment) triggerFragment;
+                            searchFragment.showProductDetail(new SpaServiceDetailFragment());
                         }
                     });
                     ((ImageTypeViewHolder) holder).image.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                            searchView.showSearch();
-                            searchView.setQuery(object.text, false);
-
+                            SearchFragment searchFragment = (SearchFragment) triggerFragment;
+                            searchFragment.showProductDetail(new SpaServiceDetailFragment());
                         }
                     });
                     break;
@@ -194,6 +225,7 @@ public class MultiViewTypeAdapter extends RecyclerView.Adapter {
             }
         }
     }
+
 
 
     @Override
