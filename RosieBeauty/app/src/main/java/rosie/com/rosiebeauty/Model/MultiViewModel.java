@@ -7,7 +7,8 @@ public class MultiViewModel {
     public static final int TYPE_IMAGE_WITH_TEXT = 1;
     public static final int TYPE_IMAGE_INLINE_WITH_TEXT = 2;
     public static final int TYPE_TEXT_INSIDE_IMAGE = 3;
-    public static final int TYPE_SECTIN_TITLE = 5;
+    public static final int TYPE_IMG_TEXT_PRICE = 4;
+    public static final int TYPE_SECTION_TITLE = 5;
     public static final int TYPE_RECYLERVIEW = 6;
     public static final int TYPE_SQUARE_ICON_TEXT_BELOW = 7;
 
@@ -21,6 +22,7 @@ public class MultiViewModel {
     public int iconId;
     public int orientation;
     public int reclyerSpan;
+    public String price;
     public List<RecyclerChildItem> recyclerChildItems;
 
     public static class RecyclerChildItem {
@@ -39,6 +41,13 @@ public class MultiViewModel {
         this.type = type;
         this.data = data;
         this.text = text;
+    }
+
+    public MultiViewModel(int type, String text, int data, String price) {
+        this.type = type;
+        this.data = data;
+        this.text = text;
+        this.price = price;
     }
 
     public MultiViewModel(int type, int orientation, int reclyerSpan, List<RecyclerChildItem> recyclerChildItems) {

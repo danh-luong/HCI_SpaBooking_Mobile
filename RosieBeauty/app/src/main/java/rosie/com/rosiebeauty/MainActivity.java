@@ -149,4 +149,8 @@ public class MainActivity extends AppCompatActivity {
     public void setIsCurrentSearchFragment(boolean isCurrentSearchFragment) {
         this.isCurrentSearchFragment = isCurrentSearchFragment;
     }
+
+    public void clickToShowDetail(View view) {
+
+    }
 }
