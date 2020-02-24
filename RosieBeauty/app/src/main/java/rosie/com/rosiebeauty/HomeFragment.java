@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import rosie.com.rosiebeauty.Adapter.MultiViewTypeAdapter;
 import rosie.com.rosiebeauty.Model.MultiViewModel;
@@ -48,16 +49,17 @@ public class HomeFragment extends Fragment {
 
         mRecyclerView = rootView.findViewById(R.id.suggestionView);
         StaggeredGridLayoutManager lm =
-                new StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.VERTICAL);
+                new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL);
         mRecyclerView.setLayoutManager(lm);
         mRecyclerView.setItemAnimator(new DefaultItemAnimator());
         mRecyclerView.setAdapter(adapter);
-            
+
         return rootView;
     }
 
     void prepareData() {
         activity_names = new String[]{
+                "",
                 "Facial Treatment",
                 "Makeup",
                 "Hair",
@@ -69,6 +71,7 @@ public class HomeFragment extends Fragment {
                 "Tattoo Makeup",
         };
         icons = new int[]{
+                R.drawable.slideshow1,
                 R.drawable.facial_treatment,
                 R.drawable.makeup,
                 R.drawable.hair,
@@ -82,14 +85,37 @@ public class HomeFragment extends Fragment {
 
 
         MultiViewModel gridViewModel = null;
+        List<MultiViewModel.RecyclerChildItem> recyclerChildItems = new ArrayList<>();
+        recyclerChildItems.add(new MultiViewModel.RecyclerChildItem(R.drawable.facial_treatment, "Facial Treatment", MultiViewModel.TYPE_SQUARE_ICON_TEXT_BELOW));
+        recyclerChildItems.add(new MultiViewModel.RecyclerChildItem(R.drawable.makeup, "Makeup", MultiViewModel.TYPE_SQUARE_ICON_TEXT_BELOW));
+        recyclerChildItems.add(new MultiViewModel.RecyclerChildItem(R.drawable.hair, "Hair", MultiViewModel.TYPE_SQUARE_ICON_TEXT_BELOW));
+        recyclerChildItems.add(new MultiViewModel.RecyclerChildItem(R.drawable.nails, "Nails", MultiViewModel.TYPE_SQUARE_ICON_TEXT_BELOW));
+        recyclerChildItems.add(new MultiViewModel.RecyclerChildItem(R.drawable.massage, "Massage", MultiViewModel.TYPE_SQUARE_ICON_TEXT_BELOW));
+        recyclerChildItems.add(new MultiViewModel.RecyclerChildItem(R.drawable.waxing, "Waxing", MultiViewModel.TYPE_SQUARE_ICON_TEXT_BELOW));
+        recyclerChildItems.add(new MultiViewModel.RecyclerChildItem(R.drawable.steam_bath, "Steam Bath", MultiViewModel.TYPE_SQUARE_ICON_TEXT_BELOW));
+        recyclerChildItems.add(new MultiViewModel.RecyclerChildItem(R.drawable.burn_fat, "Burn Fat", MultiViewModel.TYPE_SQUARE_ICON_TEXT_BELOW));
+        recyclerChildItems.add(new MultiViewModel.RecyclerChildItem(R.drawable.tattoo_makeup, "Tattoo Makeup", MultiViewModel.TYPE_SQUARE_ICON_TEXT_BELOW));
+
         for (int i = 0; i < activity_names.length; i++) {
-//            if (i == 0) {
-//                gridViewModel = new MultiViewModel(MultiViewModel.TYPE_SLIDESHOW, "", R.drawable.slideshow1);
-//                gridViewModelArrayList.add(gridViewModel);
-//            } else {
-            gridViewModel = new MultiViewModel(MultiViewModel.TYPE_IMAGE_WITH_TEXT, activity_names[i], icons[i]);
-            gridViewModelArrayList.add(gridViewModel);
-//            }
+            if (i == 0) {
+                gridViewModel = new MultiViewModel(MultiViewModel.TYPE_SECTIN_TITLE, "Hot Deals");
+                gridViewModelArrayList.add(gridViewModel);
+                gridViewModel = new MultiViewModel(MultiViewModel.TYPE_SLIDESHOW, "", R.drawable.slideshow1);
+                gridViewModelArrayList.add(gridViewModel);
+                gridViewModel = new MultiViewModel(MultiViewModel.TYPE_SECTIN_TITLE, "Category");
+                gridViewModelArrayList.add(gridViewModel);
+                gridViewModel =
+                        new MultiViewModel(MultiViewModel.TYPE_RECYLERVIEW, MultiViewModel.ORIENTATION_HORIZONTAL,
+                                2, recyclerChildItems);
+                gridViewModelArrayList.add(gridViewModel);
+                gridViewModel = new MultiViewModel(MultiViewModel.TYPE_SECTIN_TITLE, "Top Services");
+                gridViewModelArrayList.add(gridViewModel);
+            } else {
+
+                gridViewModel = new MultiViewModel(MultiViewModel.TYPE_IMAGE_WITH_TEXT, activity_names[i], icons[i]);
+                gridViewModelArrayList.add(gridViewModel);
+            }
         }
+
     }
 }
