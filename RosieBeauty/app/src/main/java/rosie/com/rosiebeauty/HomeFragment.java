@@ -25,7 +25,7 @@ public class HomeFragment extends Fragment {
 
     ArrayList<MultiViewModel> gridViewModelArrayList;
     private RecyclerView mRecyclerView;
-    private String[] activity_names;
+    private String[] service_names;
     private int[] icons;
 
     public HomeFragment() {
@@ -58,29 +58,31 @@ public class HomeFragment extends Fragment {
     }
 
     void prepareData() {
-        activity_names = new String[]{
-                "",
-                "Facial Treatment",
-                "Makeup",
-                "Hair",
-                "Nails",
-                "Massage",
-                "Waxing",
-                "Steam Bath",
-                "Burn Fat",
-                "Tattoo Makeup",
+        service_names = new String[]{
+                "Blow Dry",
+                "Female Hair Cutting",
+                "Male Hair Cutting",
+                "Hair Dye",
+                "Long Hair Dye",
+                "Male Hair Dye",
+                "Hair Glossing",
+                "Hair Highlight",
+                "Hair Perm",
+                "Hair Steaming",
+                "Hair Straightening",
         };
         icons = new int[]{
-                R.drawable.slideshow1,
-                R.drawable.facial_treatment,
-                R.drawable.makeup,
-                R.drawable.hair,
-                R.drawable.nails,
-                R.drawable.massage,
-                R.drawable.waxing,
-                R.drawable.steam_bath,
-                R.drawable.burn_fat,
-                R.drawable.tattoo_makeup
+                R.drawable.ser_blow_dry,
+                R.drawable.ser_cutting_hair_girl,
+                R.drawable.ser_cutting_hair_man,
+                R.drawable.ser_dye_hair,
+                R.drawable.ser_dye_long_hair,
+                R.drawable.ser_dye_man_hair,
+                R.drawable.ser_gloss_hair,
+                R.drawable.ser_highlight_hair,
+                R.drawable.ser_perm,
+                R.drawable.ser_steaming_hair,
+                R.drawable.ser_straighten_hair,
         };
 
 
@@ -96,7 +98,7 @@ public class HomeFragment extends Fragment {
         recyclerChildItems.add(new MultiViewModel.RecyclerChildItem(R.drawable.burn_fat, "Burn Fat", MultiViewModel.TYPE_SQUARE_ICON_TEXT_BELOW));
         recyclerChildItems.add(new MultiViewModel.RecyclerChildItem(R.drawable.tattoo_makeup, "Tattoo Makeup", MultiViewModel.TYPE_SQUARE_ICON_TEXT_BELOW));
 
-        for (int i = 0; i < activity_names.length; i++) {
+        for (int i = 0; i < service_names.length; i++) {
             if (i == 0) {
                 gridViewModel = new MultiViewModel(MultiViewModel.TYPE_SECTION_TITLE, "Hot Deals");
                 gridViewModelArrayList.add(gridViewModel);
@@ -112,7 +114,7 @@ public class HomeFragment extends Fragment {
                 gridViewModelArrayList.add(gridViewModel);
             } else {
 
-                gridViewModel = new MultiViewModel(MultiViewModel.TYPE_IMG_TEXT_PRICE, activity_names[i], icons[i], "270.00$");
+                gridViewModel = new MultiViewModel(MultiViewModel.TYPE_IMG_TEXT_PRICE, service_names[i], icons[i], "$270.00");
                 gridViewModelArrayList.add(gridViewModel);
             }
         }
