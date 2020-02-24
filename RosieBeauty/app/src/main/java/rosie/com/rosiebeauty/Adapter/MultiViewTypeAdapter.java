@@ -16,6 +16,8 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.miguelcatalan.materialsearchview.MaterialSearchView;
 
+import org.w3c.dom.Text;
+
 import java.util.ArrayList;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -120,6 +122,21 @@ public class MultiViewTypeAdapter extends RecyclerView.Adapter {
         }
     }
 
+    public static class AppointmentItemViewHolder extends RecyclerView.ViewHolder {
+        TextView txtAppointmentCode;
+        TextView txtBookingDate;
+        TextView txtAppointmentDate;
+        TextView txtPayPrice;
+
+        public AppointmentItemViewHolder(View itemView) {
+            super(itemView);
+            this.txtAppointmentCode = (TextView) itemView.findViewById(R.id.txtBookingCode);
+            this.txtBookingDate = (TextView) itemView.findViewById(R.id.txtBookingDate);
+            this.txtAppointmentDate = (TextView) itemView.findViewById(R.id.txtAppointmentDate);
+            this.txtPayPrice = (TextView) itemView.findViewById(R.id.txtPayPrice);
+        }
+    }
+
 
     public MultiViewTypeAdapter(ArrayList<MultiViewModel> data, Context context) {
         this.dataSet = data;
@@ -173,6 +190,9 @@ public class MultiViewTypeAdapter extends RecyclerView.Adapter {
             case MultiViewModel.TYPE_SQUARE_ICON_TEXT_BELOW:
                 view = LayoutInflater.from(parent.getContext()).inflate(R.layout.square_icon_with_text_below, parent, false);
                 return new SquareIconViewHolder(view);
+            case MultiViewModel.TYPE_APPOINTMENT_ITEM:
+                view = LayoutInflater.from(parent.getContext()).inflate(R.layout.general_booking_item, parent, false);
+                return new AppointmentItemViewHolder(view);
         }
 
         return null;
@@ -198,6 +218,8 @@ public class MultiViewTypeAdapter extends RecyclerView.Adapter {
                 return MultiViewModel.TYPE_RECYLERVIEW;
             case 7:
                 return MultiViewModel.TYPE_SQUARE_ICON_TEXT_BELOW;
+            case 8:
+                return MultiViewModel.TYPE_APPOINTMENT_ITEM;
         }
         return 0;
     }
@@ -316,6 +338,12 @@ public class MultiViewTypeAdapter extends RecyclerView.Adapter {
                     ((SquareIconViewHolder) holder).text.setText(object.text);
                     ((SquareIconViewHolder) holder).image.setImageResource(object.data);
                     ((SquareIconViewHolder) holder).image.setClipToOutline(true);
+                    break;
+                case MultiViewModel.TYPE_APPOINTMENT_ITEM:
+                    ((AppointmentItemViewHolder) holder).txtAppointmentCode.setText(object.appointment.appointmentCode);
+                    ((AppointmentItemViewHolder) holder).txtBookingDate.setText(object.appointment.bookingDate);
+                    ((AppointmentItemViewHolder) holder).txtAppointmentDate.setText(object.appointment.appointmentDate);
+                    ((AppointmentItemViewHolder) holder).txtPayPrice.setText(object.appointment.payPrice);
                     break;
             }
         }

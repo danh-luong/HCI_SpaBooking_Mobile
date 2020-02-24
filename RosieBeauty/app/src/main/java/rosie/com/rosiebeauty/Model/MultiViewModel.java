@@ -11,6 +11,7 @@ public class MultiViewModel {
     public static final int TYPE_SECTION_TITLE = 5;
     public static final int TYPE_RECYLERVIEW = 6;
     public static final int TYPE_SQUARE_ICON_TEXT_BELOW = 7;
+    public static final int TYPE_APPOINTMENT_ITEM = 8;
 
     public static final int ORIENTATION_HORIZONTAL = 0;
     public static final int ORIENTATION_VERTICAL = 1;
@@ -24,6 +25,21 @@ public class MultiViewModel {
     public int reclyerSpan;
     public String price;
     public List<RecyclerChildItem> recyclerChildItems;
+    public Appointment appointment;
+
+    public static class Appointment {
+        public String appointmentCode;
+        public String bookingDate;
+        public String appointmentDate;
+        public String payPrice;
+
+        public Appointment(String appointmentCode, String bookingDate, String appointmentDate, String payPrice) {
+            this.appointmentCode = appointmentCode;
+            this.bookingDate = bookingDate;
+            this.appointmentDate = appointmentDate;
+            this.payPrice = payPrice;
+        }
+    }
 
     public static class RecyclerChildItem {
         public int image;
@@ -35,6 +51,11 @@ public class MultiViewModel {
             this.text = text;
             this.type = type;
         }
+    }
+
+    public MultiViewModel(int type, Appointment appointment) {
+        this.type = type;
+        this.appointment = appointment;
     }
 
     public MultiViewModel(int type, String text, int data) {
