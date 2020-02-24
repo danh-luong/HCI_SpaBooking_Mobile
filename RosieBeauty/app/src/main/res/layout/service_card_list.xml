@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:paddingLeft="5dp"
+    android:paddingRight="5dp">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/background_border"
+        android:padding="10dp">
+
+        <ImageView
+            android:id="@+id/imageService"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_below="@+id/pager_Slideshow"
+            android:layout_margin="0dp"
+            android:clickable="false"
+            android:scaleType="fitXY"
+            android:src="@drawable/ser_cutting_hair_girl" />
+
+        <TextView
+            android:id="@+id/txtNameService"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:background="#FFFFFF"
+            android:clickable="true"
+            android:fontFamily="@font/philosopher_bold"
+            android:gravity="center_vertical"
+            android:maxLines="2"
+            android:onClick="clickToShowDetail"
+            android:text="Cutting Girl Hair"
+            android:textAlignment="center"
+            android:textColor="#03BCF4"
+            android:textSize="18dp"
+            android:layout_below="@+id/imageService"/>
+        <TextView
+            android:id="@+id/txtPriceService"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:background="#FFFFFF"
+            android:clickable="true"
+            android:fontFamily="@font/philosopher_bold"
+            android:onClick="clickToShowDetail"
+            android:text="$200"
+            android:textAlignment="center"
+            android:textColor="#015FA3"
+            android:textSize="14dp"
+            android:layout_below="@+id/txtNameService"/>
+    </RelativeLayout>
+
+</RelativeLayout>
