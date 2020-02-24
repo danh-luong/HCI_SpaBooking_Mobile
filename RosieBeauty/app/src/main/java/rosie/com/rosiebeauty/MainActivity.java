@@ -103,7 +103,7 @@ public class MainActivity extends AppCompatActivity {
         switch (item.getItemId()) {
             case android.R.id.home:
                 onBackPressed();
-                return true;
+                break;
             case R.id.action_search:
                 if(searchFragment == null) {
                     searchFragment = new SearchFragment();
@@ -113,12 +113,12 @@ public class MainActivity extends AppCompatActivity {
                 if (!isCurrentSearchFragment) {
                     searchView.clearFocus();
                     isCurrentSearchFragment = true;
+                    getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, selectedFragment).addToBackStack(null).commit();
                 } else {
                     searchView.showSearch();
                 }
                 break;
         }
-        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, selectedFragment).addToBackStack(null).commit();
         return true;
     }
 
