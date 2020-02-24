@@ -52,8 +52,7 @@ public class HomeFragment extends Fragment {
         mRecyclerView.setLayoutManager(lm);
         mRecyclerView.setItemAnimator(new DefaultItemAnimator());
         mRecyclerView.setAdapter(adapter);
-
-
+            
         return rootView;
     }
 

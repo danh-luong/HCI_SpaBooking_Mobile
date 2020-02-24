@@ -6,6 +6,7 @@ public class MultiViewModel {
     public static final int TYPE_IMAGE_INLINE_WITH_TEXT = 2;
     public static final int TYPE_TEXT_INSIDE_IMAGE = 3;
 
+    public int styleOfContent;
     public int type;
     public int data;
     public String text;
@@ -17,11 +18,14 @@ public class MultiViewModel {
         this.text = text;
     }
 
-    public MultiViewModel(int type, String text, int data, int iconId) {
+
+
+    public MultiViewModel(int type, String text, int data, int iconId, int styleOfContent) {
         this.type = type;
         this.data = data;
         this.text = text;
         this.iconId = iconId;
+        this.styleOfContent = styleOfContent;
     }
 
 
