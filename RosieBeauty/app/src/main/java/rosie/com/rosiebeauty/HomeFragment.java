@@ -98,21 +98,21 @@ public class HomeFragment extends Fragment {
 
         for (int i = 0; i < activity_names.length; i++) {
             if (i == 0) {
-                gridViewModel = new MultiViewModel(MultiViewModel.TYPE_SECTIN_TITLE, "Hot Deals");
+                gridViewModel = new MultiViewModel(MultiViewModel.TYPE_SECTION_TITLE, "Hot Deals");
                 gridViewModelArrayList.add(gridViewModel);
                 gridViewModel = new MultiViewModel(MultiViewModel.TYPE_SLIDESHOW, "", R.drawable.slideshow1);
                 gridViewModelArrayList.add(gridViewModel);
-                gridViewModel = new MultiViewModel(MultiViewModel.TYPE_SECTIN_TITLE, "Category");
+                gridViewModel = new MultiViewModel(MultiViewModel.TYPE_SECTION_TITLE, "Category");
                 gridViewModelArrayList.add(gridViewModel);
                 gridViewModel =
                         new MultiViewModel(MultiViewModel.TYPE_RECYLERVIEW, MultiViewModel.ORIENTATION_HORIZONTAL,
                                 2, recyclerChildItems);
                 gridViewModelArrayList.add(gridViewModel);
-                gridViewModel = new MultiViewModel(MultiViewModel.TYPE_SECTIN_TITLE, "Top Services");
+                gridViewModel = new MultiViewModel(MultiViewModel.TYPE_SECTION_TITLE, "Top Services");
                 gridViewModelArrayList.add(gridViewModel);
             } else {
 
-                gridViewModel = new MultiViewModel(MultiViewModel.TYPE_IMAGE_WITH_TEXT, activity_names[i], icons[i]);
+                gridViewModel = new MultiViewModel(MultiViewModel.TYPE_IMG_TEXT_PRICE, activity_names[i], icons[i], "270.00$");
                 gridViewModelArrayList.add(gridViewModel);
             }
         }

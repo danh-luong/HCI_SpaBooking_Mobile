@@ -16,8 +16,6 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.miguelcatalan.materialsearchview.MaterialSearchView;
 
-import org.w3c.dom.Text;
-
 import java.util.ArrayList;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -156,7 +154,7 @@ public class MultiViewTypeAdapter extends RecyclerView.Adapter {
             case MultiViewModel.TYPE_IMG_TEXT_PRICE:
                 view = LayoutInflater.from(parent.getContext()).inflate(R.layout.service_card_list, parent, false);
                 return new ServiceCardListHolder(view);
-            case MultiViewModel.TYPE_SECTIN_TITLE:
+            case MultiViewModel.TYPE_SECTION_TITLE:
                 view = LayoutInflater.from(parent.getContext()).inflate(R.layout.section_title, parent, false);
                 final ViewGroup.LayoutParams lp1 = view.getLayoutParams();
                 if (lp1 instanceof StaggeredGridLayoutManager.LayoutParams) {
@@ -194,9 +192,8 @@ public class MultiViewTypeAdapter extends RecyclerView.Adapter {
                 return MultiViewModel.TYPE_TEXT_INSIDE_IMAGE;
             case 4:
                 return MultiViewModel.TYPE_IMG_TEXT_PRICE;
-
             case 5:
-                return MultiViewModel.TYPE_SECTIN_TITLE;
+                return MultiViewModel.TYPE_SECTION_TITLE;
             case 6:
                 return MultiViewModel.TYPE_RECYLERVIEW;
             case 7:
@@ -294,9 +291,9 @@ public class MultiViewTypeAdapter extends RecyclerView.Adapter {
                 case MultiViewModel.TYPE_IMG_TEXT_PRICE:
                     ((ServiceCardListHolder) holder).imgService.setImageResource(object.data);
                     ((ServiceCardListHolder) holder).txtName.setText(object.text);
-                    ((ServiceCardListHolder) holder).txtPrice.setText(object.text);
+                    ((ServiceCardListHolder) holder).txtPrice.setText(object.price);
                     break;
-                case MultiViewModel.TYPE_SECTIN_TITLE:
+                case MultiViewModel.TYPE_SECTION_TITLE:
                     ((SectionTitleViewHolder) holder).txtType.setText(object.text);
                     break;
                 case MultiViewModel.TYPE_RECYLERVIEW:
