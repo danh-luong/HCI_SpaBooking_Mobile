@@ -5,6 +5,7 @@ public class MultiViewModel {
     public static final int TYPE_IMAGE_WITH_TEXT = 1;
     public static final int TYPE_IMAGE_INLINE_WITH_TEXT = 2;
     public static final int TYPE_TEXT_INSIDE_IMAGE = 3;
+    public static final int TYPE_IMG_TEXT_PRICE = 4;
 
     public int type;
     public int data;

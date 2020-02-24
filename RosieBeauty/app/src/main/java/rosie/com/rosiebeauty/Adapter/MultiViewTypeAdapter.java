@@ -1,13 +1,13 @@
 package rosie.com.rosiebeauty.Adapter;
 
 import android.content.Context;
-import android.media.Image;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 import androidx.viewpager.widget.ViewPager;
@@ -54,12 +54,24 @@ public class MultiViewTypeAdapter extends RecyclerView.Adapter {
 
             this.txtType = (TextView) itemView.findViewById(R.id.txtTitle);
             this.image = (ImageView) itemView.findViewById(R.id.imageView);
-            if(itemView.findViewById(R.id.suggestion_icon) != null) {
+            if (itemView.findViewById(R.id.suggestion_icon) != null) {
                 this.icon = (ImageView) itemView.findViewById(R.id.suggestion_icon);
             }
         }
+    }
 
+    public static class ServiceCardListHolder extends RecyclerView.ViewHolder {
 
+        ImageView imgService;
+        TextView txtName;
+        TextView txtPrice;
+
+        public ServiceCardListHolder(@NonNull View itemView) {
+            super(itemView);
+            this.imgService = (ImageView) itemView.findViewById(R.id.imageService);
+            this.txtName = (TextView) itemView.findViewById(R.id.txtNameService);
+            this.txtPrice = (TextView) itemView.findViewById(R.id.txtPriceService);
+        }
     }
 
 
@@ -86,11 +98,6 @@ public class MultiViewTypeAdapter extends RecyclerView.Adapter {
                 return new SlideshowTypeViewHolder(view);
             case MultiViewModel.TYPE_IMAGE_WITH_TEXT:
                 view = LayoutInflater.from(parent.getContext()).inflate(R.layout.image_with_title, parent, false);
-//                final ViewGroup.LayoutParams lp1 = view.getLayoutParams();
-//                if (lp1 instanceof StaggeredGridLayoutManager.LayoutParams) {
-//                    StaggeredGridLayoutManager.LayoutParams sglp = (StaggeredGridLayoutManager.LayoutParams) lp1;
-//                    sglp.setFullSpan(true);
-//                }
                 return new ImageTypeViewHolder(view);
             case MultiViewModel.TYPE_IMAGE_INLINE_WITH_TEXT:
                 view = LayoutInflater.from(parent.getContext()).inflate(R.layout.suggestion_item, parent, false);
@@ -98,7 +105,9 @@ public class MultiViewTypeAdapter extends RecyclerView.Adapter {
             case MultiViewModel.TYPE_TEXT_INSIDE_IMAGE:
                 view = LayoutInflater.from(parent.getContext()).inflate(R.layout.trending_product_layout, parent, false);
                 return new ImageTypeViewHolder(view);
-
+            case MultiViewModel.TYPE_IMG_TEXT_PRICE:
+                view = LayoutInflater.from(parent.getContext()).inflate(R.layout.service_card_list, parent, false);
+                return new ServiceCardListHolder(view);
         }
 
         return null;
@@ -116,6 +125,8 @@ public class MultiViewTypeAdapter extends RecyclerView.Adapter {
                 return MultiViewModel.TYPE_IMAGE_INLINE_WITH_TEXT;
             case 3:
                 return MultiViewModel.TYPE_TEXT_INSIDE_IMAGE;
+            case 4:
+                return MultiViewModel.TYPE_IMG_TEXT_PRICE;
 
         }
         return 0;
@@ -189,6 +200,11 @@ public class MultiViewTypeAdapter extends RecyclerView.Adapter {
 
                         }
                     });
+                    break;
+                case MultiViewModel.TYPE_IMG_TEXT_PRICE:
+                    ((ServiceCardListHolder) holder).imgService.setImageResource(object.data);
+                    ((ServiceCardListHolder) holder).txtName.setText(object.text);
+                    ((ServiceCardListHolder) holder).txtPrice.setText(object.text);
                     break;
 
             }
