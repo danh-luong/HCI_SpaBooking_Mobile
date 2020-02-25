@@ -330,6 +330,7 @@
                     android:layout_marginRight="5dp"
                     android:background="@drawable/red_ground_button"
                     android:fontFamily="@font/philosopher_bold"
+                    android:textColor="@color/white"
                     android:text="CANCLE BOOKING" />
 
                 <Button
@@ -338,6 +339,7 @@
                     android:layout_marginLeft="5dp"
                     android:background="@drawable/greend_round_button"
                     android:fontFamily="@font/philosopher_bold"
+                    android:textColor="@color/white"
                     android:text="CHECK IN" />
             </LinearLayout>
 
