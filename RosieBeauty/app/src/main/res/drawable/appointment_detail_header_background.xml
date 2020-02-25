@@ -5,9 +5,9 @@
         android:color="#DBDBDB"/>
 
     <!-- Optional, round your corners -->
-    <corners android:bottomLeftRadius="50dp"
+    <corners android:bottomLeftRadius="10dp"
         android:topLeftRadius="10dp"
-        android:bottomRightRadius="50dp"
+        android:bottomRightRadius="10dp"
         android:topRightRadius="10dp"
         />
 

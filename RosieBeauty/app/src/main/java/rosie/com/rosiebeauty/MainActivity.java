@@ -143,6 +143,10 @@ public class MainActivity extends AppCompatActivity {
             BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_nav);
             bottomNavigationView.setVisibility(View.VISIBLE);
             getSupportActionBar().setDisplayHomeAsUpEnabled(false);
+        }else if(f instanceof BookingFragment){
+            BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_nav);
+            bottomNavigationView.setVisibility(View.VISIBLE);
+            getSupportActionBar().setDisplayHomeAsUpEnabled(false);
         }
     }
 
@@ -151,6 +155,14 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void clickToShowDetail(View view) {
+
+    }
+
+    public void clickGoToAppointmentDetail(View view) {
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_nav);
+        bottomNavigationView.setVisibility(View.GONE);
+        selectedFragment = new AppointmentDetail();
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, selectedFragment).addToBackStack(null).commit();
 
     }
 }
