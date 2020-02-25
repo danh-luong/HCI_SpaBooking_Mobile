@@ -30,5 +30,4 @@ public class AppointmentDetail extends Fragment {
         ((AppCompatActivity) getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         return inflater.inflate(R.layout.fragment_appointment_detail, container, false);
     }
-
 }
