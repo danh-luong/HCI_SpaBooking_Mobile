@@ -1,0 +1,350 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AppointmentDetail">
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/appointment_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginBottom="10dp"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp">
+        <TextView
+            android:id="@+id/section_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/philosopher_bold"
+            android:textAlignment="center"
+            android:textSize="25dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:text="Appointment Details"/>
+        <RelativeLayout
+            android:layout_below="@id/section_title"
+            android:id="@+id/appointment_header_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/appointment_detail_header_background"
+            android:paddingLeft="10dp"
+            android:paddingTop="20dp"
+            android:paddingRight="10dp"
+            android:paddingBottom="20dp">
+
+            <TextView
+                android:id="@+id/txtBookingCode"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/philosopher_bold"
+                android:text="BK4560"
+                android:textAlignment="textEnd"
+                android:textColor="@android:color/black"
+                android:textSize="18dp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:id="@+id/booking_date_container"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/txtBookingCode"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/BookingDateTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/txtBookingCode"
+                    android:fontFamily="@font/philosopher_bold"
+                    android:text="Booking Date: "
+                    android:textColor="@android:color/black"
+                    android:textSize="16dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/txtBookingDate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="20:20"
+                    android:textColor="@android:color/holo_blue_light"
+                    android:textSize="15dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/booking_time_container"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/booking_date_container"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/BookingTimeTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/txtBookingCode"
+                    android:fontFamily="@font/philosopher_bold"
+                    android:text="Booking Time: "
+                    android:textColor="@android:color/black"
+                    android:textSize="16dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/txtBookingTime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="20:20"
+                    android:textColor="@android:color/holo_blue_light"
+                    android:textSize="15dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/appointment_date_container"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/booking_time_container"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/AppointmentDateTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/BookingDateTitle"
+                    android:fontFamily="@font/philosopher_bold"
+                    android:text="Appointment Date: "
+                    android:textColor="@android:color/black"
+                    android:textSize="16dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/txtAppointmentDate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="05-04-2020"
+                    android:textColor="@android:color/holo_blue_light"
+                    android:textSize="15dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/appointment_time_container"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/appointment_date_container"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/AppointmentTimeTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/BookingDateTitle"
+                    android:fontFamily="@font/philosopher_bold"
+                    android:text="Appointment Date: "
+                    android:textColor="@android:color/black"
+                    android:textSize="16dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/txtAppointmentTime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="12:00"
+                    android:textColor="@android:color/holo_blue_light"
+                    android:textSize="15dp" />
+            </LinearLayout>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/appointment_detail_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/appointment_header_container"
+            android:background="@drawable/appointment_detail_header_background"
+            android:paddingLeft="10dp"
+            android:paddingTop="20dp"
+            android:paddingRight="10dp"
+            android:paddingBottom="20dp"
+            android:layout_marginTop="10dp">
+
+            <RelativeLayout
+                android:id="@+id/service_name_price_container"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/underline_background"
+                android:orientation="horizontal"
+                android:paddingBottom="15dp">
+
+                <TextView
+                    android:id="@+id/txtServiceName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="25dp"
+                    android:layout_alignParentLeft="true"
+                    android:fontFamily="@font/philosopher_bold"
+                    android:text="Swedish Massage"
+                    android:textColor="@android:color/black"
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/txtServicePrice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="25dp"
+                    android:layout_alignParentRight="true"
+                    android:fontFamily="@font/philosopher_bold"
+                    android:gravity="center_vertical"
+                    android:text="$4500"
+                    android:textColor="@android:color/holo_blue_light"
+                    android:textSize="18dp" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/service_detail_price_container"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/service_name_price_container"
+                android:background="@drawable/underline_background"
+                android:orientation="horizontal"
+                android:paddingTop="5dp"
+                android:paddingBottom="15dp">
+
+                <TextView
+                    android:id="@+id/SubTotalTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="20dp"
+                    android:layout_alignParentLeft="true"
+                    android:fontFamily="@font/philosopher_bold"
+                    android:text="Sub Total"
+                    android:textColor="@android:color/black"
+                    android:textSize="16dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/txtSubTotal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="20dp"
+                    android:layout_alignParentRight="true"
+                    android:fontFamily="@font/philosopher_bold"
+                    android:text="4500.0"
+                    android:textColor="@android:color/holo_blue_light"
+                    android:textSize="14dp" />
+
+                <TextView
+                    android:id="@+id/TaxTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="20dp"
+                    android:layout_below="@id/SubTotalTitle"
+                    android:layout_alignParentLeft="true"
+                    android:fontFamily="@font/philosopher_bold"
+                    android:text="Tax (3%)"
+                    android:textColor="@android:color/black"
+                    android:textSize="16dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/txtTax"
+                    android:layout_width="wrap_content"
+                    android:layout_height="20dp"
+                    android:layout_below="@id/txtSubTotal"
+                    android:layout_alignParentRight="true"
+                    android:fontFamily="@font/philosopher_bold"
+                    android:text="135.0"
+                    android:textColor="@android:color/holo_blue_light"
+                    android:textSize="14dp" />
+
+                <TextView
+                    android:id="@+id/AdvacePaymentTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="20dp"
+                    android:layout_below="@id/TaxTitle"
+                    android:layout_alignParentLeft="true"
+                    android:fontFamily="@font/philosopher_bold"
+                    android:text="Advance Payment"
+                    android:textColor="@android:color/black"
+                    android:textSize="16dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/txtAdvancePayment"
+                    android:layout_width="wrap_content"
+                    android:layout_height="20dp"
+                    android:layout_below="@id/txtTax"
+                    android:layout_alignParentRight="true"
+                    android:fontFamily="@font/philosopher_bold"
+                    android:text="0.0"
+                    android:textColor="@android:color/holo_blue_light"
+                    android:textSize="14dp" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/service_total_price_container"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/service_detail_price_container"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/TotalPayableTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:layout_alignParentLeft="true"
+                    android:fontFamily="@font/philosopher_bold"
+                    android:text="Total Payable"
+                    android:textColor="@android:color/black"
+                    android:textSize="24dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/txtTotalPayable"
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:layout_alignParentRight="true"
+                    android:fontFamily="@font/philosopher_bold"
+                    android:gravity="center_vertical"
+                    android:text="$4635"
+                    android:textColor="@android:color/holo_blue_dark"
+                    android:textSize="18dp"
+                    android:textStyle="bold" />
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/button_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/appointment_detail_container"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true">
+
+                <Button
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:background="@drawable/red_ground_button"
+                    android:fontFamily="@font/philosopher_bold"
+                    android:textColor="@color/white"
+                    android:text="CANCLE BOOKING" />
+
+                <Button
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:background="@drawable/greend_round_button"
+                    android:fontFamily="@font/philosopher_bold"
+                    android:textColor="@color/white"
+                    android:text="CHECK IN" />
+            </LinearLayout>
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+</FrameLayout>
