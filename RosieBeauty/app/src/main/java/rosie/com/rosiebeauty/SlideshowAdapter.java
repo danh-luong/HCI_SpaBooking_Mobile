@@ -18,11 +18,13 @@ public class SlideshowAdapter extends PagerAdapter {
 
     public int[] images = {
             R.drawable.slide_show0,
-            R.drawable.slideshow1,
-            R.drawable.slideshow2,
-            R.drawable.slideshow3,
-            R.drawable.slideshow4,
-            R.drawable.slideshow5
+            R.drawable.slide_show01,
+            R.drawable.slide_show02,
+            R.drawable.slide_show03,
+            R.drawable.slide_show0,
+            R.drawable.slide_show01,
+            R.drawable.slide_show02,
+            R.drawable.slide_show03,
     };
 
     public SlideshowAdapter(Context context) {

@@ -235,7 +235,7 @@ public class MultiViewTypeAdapter extends RecyclerView.Adapter {
         if (object != null) {
             switch (object.type) {
                 case MultiViewModel.TYPE_SLIDESHOW:
-                    ((SlideshowTypeViewHolder) holder).imgSlideshow.setBackgroundResource(R.drawable.slideshow1);
+                    ((SlideshowTypeViewHolder) holder).imgSlideshow.setBackgroundResource(R.drawable.slide_show0);
                     ((SlideshowTypeViewHolder) holder).imgSlideshow.setAdapter(new SlideshowAdapter(mContext));
                     TimerTask timerTask = new TimerTask() {
                         @Override

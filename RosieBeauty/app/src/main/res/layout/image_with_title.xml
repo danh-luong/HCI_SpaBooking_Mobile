@@ -21,7 +21,7 @@
             android:clickable="false"
             android:scaleType="fitXY"
             android:background="@drawable/imageview_home"
-            android:src="@drawable/slideshow1" />
+            android:src="@drawable/slide_show0" />
 
         <TextView
             android:id="@+id/txtTitle"

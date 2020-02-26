@@ -8,7 +8,7 @@
             android:layout_width="match_parent"
             android:layout_height="250dp"
             android:id="@+id/imageSlideshow"
-            android:src="@drawable/slideshow1"
+            android:src="@drawable/slide_show0"
             android:scaleType="fitXY"
             android:contentDescription="Spa Slideshow"/>
 

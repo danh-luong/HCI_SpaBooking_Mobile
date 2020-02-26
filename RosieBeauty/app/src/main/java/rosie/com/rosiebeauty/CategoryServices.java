@@ -84,7 +84,7 @@ public class CategoryServices extends Fragment {
         MultiViewModel gridViewModel = null;
         for (int i = 0; i < activity_names.length; i++) {
             if (i == 0) {
-                gridViewModel = new MultiViewModel(MultiViewModel.TYPE_SLIDESHOW, "", R.drawable.slideshow1);
+                gridViewModel = new MultiViewModel(MultiViewModel.TYPE_SLIDESHOW, "", R.drawable.slide_show0);
                 gridViewModelArrayList.add(gridViewModel);
             } else {
             gridViewModel = new MultiViewModel(MultiViewModel.TYPE_IMAGE_WITH_TEXT, activity_names[i], icons[i]);
