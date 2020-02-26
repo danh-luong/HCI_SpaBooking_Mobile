@@ -1,6 +1,8 @@
 package rosie.com.rosiebeauty.Adapter;
 
 import android.content.Context;
+import android.graphics.Color;
+import android.graphics.Paint;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,7 +18,6 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.miguelcatalan.materialsearchview.MaterialSearchView;
 
-import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.Timer;
@@ -82,12 +83,14 @@ public class MultiViewTypeAdapter extends RecyclerView.Adapter {
         ImageView imgService;
         TextView txtName;
         TextView txtPrice;
+        TextView txtPriceAfterPromotion;
 
         public ServiceCardListHolder(@NonNull View itemView) {
             super(itemView);
             this.imgService = (ImageView) itemView.findViewById(R.id.imageService);
             this.txtName = (TextView) itemView.findViewById(R.id.txtNameService);
             this.txtPrice = (TextView) itemView.findViewById(R.id.txtPriceService);
+            this.txtPriceAfterPromotion = (TextView) itemView.findViewById(R.id.txtPriceAfterPromotion);
         }
     }
 
@@ -313,7 +316,15 @@ public class MultiViewTypeAdapter extends RecyclerView.Adapter {
                 case MultiViewModel.TYPE_IMG_TEXT_PRICE:
                     ((ServiceCardListHolder) holder).imgService.setImageResource(object.data);
                     ((ServiceCardListHolder) holder).txtName.setText(object.text);
-                    ((ServiceCardListHolder) holder).txtPrice.setText(object.price);
+                    if (object.hasPromotion == MultiViewModel.HAS_PROMOTION) {
+                        ((ServiceCardListHolder) holder).txtPrice.setText(object.price);
+                        ((ServiceCardListHolder) holder).txtPrice.setPaintFlags(((ServiceCardListHolder) holder).txtPrice.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
+                        ((ServiceCardListHolder) holder).txtPriceAfterPromotion.setText(object.priceAfterPromotion);
+                    }else{
+                        ((ServiceCardListHolder) holder).txtPrice.setText("");
+                        ((ServiceCardListHolder) holder).txtPriceAfterPromotion.setText(object.price);
+                        ((ServiceCardListHolder) holder).txtPriceAfterPromotion.setTextColor(Color.parseColor("#015FA3"));
+                    }
                     break;
                 case MultiViewModel.TYPE_SECTION_TITLE:
                     ((SectionTitleViewHolder) holder).txtType.setText(object.text);

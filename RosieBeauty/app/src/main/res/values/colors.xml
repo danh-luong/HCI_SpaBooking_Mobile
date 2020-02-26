@@ -38,6 +38,7 @@
     <color name="grey">#E5E5E5</color>
     <color name="white">#FFFFFF</color>
 
-    <color name="homeFragmentBackground">#E0E0E0</color>
+    <color name="homeFragmentBackground">#FFFFFF</color>
+    <color name="service_item_blue_color">#015FA3</color>
 </resources>
 

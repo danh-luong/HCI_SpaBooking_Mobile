@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 import rosie.com.rosiebeauty.Adapter.MultiViewTypeAdapter;
 import rosie.com.rosiebeauty.Model.MultiViewModel;
@@ -113,9 +114,17 @@ public class HomeFragment extends Fragment {
                 gridViewModel = new MultiViewModel(MultiViewModel.TYPE_SECTION_TITLE, "Top Services");
                 gridViewModelArrayList.add(gridViewModel);
             } else {
-
-                gridViewModel = new MultiViewModel(MultiViewModel.TYPE_IMG_TEXT_PRICE, service_names[i], icons[i], "$270.00");
-                gridViewModelArrayList.add(gridViewModel);
+                Random random = new Random();
+                int min = 100;
+                int max = 500;
+                int price = random.nextInt((max - min) + 1) + min;
+                if (i % 2 == 0) {
+                    gridViewModel = new MultiViewModel(MultiViewModel.TYPE_IMG_TEXT_PRICE, service_names[i], icons[i], "$" + price + ".00", MultiViewModel.NO_PROMOTION, "");
+                    gridViewModelArrayList.add(gridViewModel);
+                } else {
+                    gridViewModel = new MultiViewModel(MultiViewModel.TYPE_IMG_TEXT_PRICE, service_names[i], icons[i], "$" + price + ".00", MultiViewModel.HAS_PROMOTION, "$" + (price - 50) + ".00");
+                    gridViewModelArrayList.add(gridViewModel);
+                }
             }
         }
 

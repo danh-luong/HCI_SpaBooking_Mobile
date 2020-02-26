@@ -16,6 +16,9 @@ public class MultiViewModel {
     public static final int ORIENTATION_HORIZONTAL = 0;
     public static final int ORIENTATION_VERTICAL = 1;
 
+    public static final int HAS_PROMOTION = 1;
+    public static final int NO_PROMOTION = 0;
+
     public int styleOfContent;
     public int type;
     public int data;
@@ -24,8 +27,10 @@ public class MultiViewModel {
     public int orientation;
     public int reclyerSpan;
     public String price;
+    public String priceAfterPromotion;
     public List<RecyclerChildItem> recyclerChildItems;
     public Appointment appointment;
+    public int hasPromotion;
 
     public static class Appointment {
         public String appointmentCode;
@@ -69,6 +74,15 @@ public class MultiViewModel {
         this.data = data;
         this.text = text;
         this.price = price;
+    }
+
+    public MultiViewModel(int type, String text, int data, String price, int hasPromotion, String priceAfterPromotion) {
+        this.type = type;
+        this.data = data;
+        this.text = text;
+        this.price = price;
+        this.hasPromotion = hasPromotion;
+        this.priceAfterPromotion = priceAfterPromotion;
     }
 
     public MultiViewModel(int type, int orientation, int reclyerSpan, List<RecyclerChildItem> recyclerChildItems) {
