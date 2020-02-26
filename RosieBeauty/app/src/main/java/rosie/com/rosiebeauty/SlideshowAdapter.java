@@ -17,6 +17,7 @@ public class SlideshowAdapter extends PagerAdapter {
     LayoutInflater inflater;
 
     public int[] images = {
+            R.drawable.slide_show0,
             R.drawable.slideshow1,
             R.drawable.slideshow2,
             R.drawable.slideshow3,

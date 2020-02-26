@@ -28,7 +28,7 @@ public class MultiViewModel {
     public int reclyerSpan;
     public String price;
     public String priceAfterPromotion;
-    public List<RecyclerChildItem> recyclerChildItems;
+    public List<MultiViewModel> multiViewModels;
     public Appointment appointment;
     public int hasPromotion;
 
@@ -45,6 +45,7 @@ public class MultiViewModel {
             this.payPrice = payPrice;
         }
     }
+
 
     public static class RecyclerChildItem {
         public int image;
@@ -85,10 +86,10 @@ public class MultiViewModel {
         this.priceAfterPromotion = priceAfterPromotion;
     }
 
-    public MultiViewModel(int type, int orientation, int reclyerSpan, List<RecyclerChildItem> recyclerChildItems) {
+    public MultiViewModel(int type, int orientation, int reclyerSpan, List<MultiViewModel> multiViewModels) {
         this.type = type;
         this.orientation = orientation;
-        this.recyclerChildItems = recyclerChildItems;
+        this.multiViewModels = multiViewModels;
         this.reclyerSpan = reclyerSpan;
     }
 

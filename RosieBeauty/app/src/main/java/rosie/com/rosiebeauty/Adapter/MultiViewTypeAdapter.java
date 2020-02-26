@@ -320,7 +320,7 @@ public class MultiViewTypeAdapter extends RecyclerView.Adapter {
                         ((ServiceCardListHolder) holder).txtPrice.setText(object.price);
                         ((ServiceCardListHolder) holder).txtPrice.setPaintFlags(((ServiceCardListHolder) holder).txtPrice.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
                         ((ServiceCardListHolder) holder).txtPriceAfterPromotion.setText(object.priceAfterPromotion);
-                    }else{
+                    } else {
                         ((ServiceCardListHolder) holder).txtPrice.setText("");
                         ((ServiceCardListHolder) holder).txtPriceAfterPromotion.setText(object.price);
                         ((ServiceCardListHolder) holder).txtPriceAfterPromotion.setTextColor(Color.parseColor("#015FA3"));
@@ -333,9 +333,8 @@ public class MultiViewTypeAdapter extends RecyclerView.Adapter {
                     ArrayList<MultiViewModel> gridViewModelArrayList = new ArrayList();
                     MultiViewModel gridViewModel = null;
 
-                    for (MultiViewModel.RecyclerChildItem item : object.recyclerChildItems) {
-                        gridViewModel = new MultiViewModel(item.type, item.text, item.image);
-                        gridViewModelArrayList.add(gridViewModel);
+                    for (MultiViewModel item : object.multiViewModels) {
+                        gridViewModelArrayList.add(item);
                     }
                     MultiViewTypeAdapter adapter = new MultiViewTypeAdapter(gridViewModelArrayList, mContext);
 

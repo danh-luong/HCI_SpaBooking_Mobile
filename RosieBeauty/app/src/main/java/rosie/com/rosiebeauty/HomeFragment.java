@@ -88,16 +88,16 @@ public class HomeFragment extends Fragment {
 
 
         MultiViewModel gridViewModel = null;
-        List<MultiViewModel.RecyclerChildItem> recyclerChildItems = new ArrayList<>();
-        recyclerChildItems.add(new MultiViewModel.RecyclerChildItem(R.drawable.facial_treatment, "Facial Treatment", MultiViewModel.TYPE_SQUARE_ICON_TEXT_BELOW));
-        recyclerChildItems.add(new MultiViewModel.RecyclerChildItem(R.drawable.makeup, "Makeup", MultiViewModel.TYPE_SQUARE_ICON_TEXT_BELOW));
-        recyclerChildItems.add(new MultiViewModel.RecyclerChildItem(R.drawable.hair, "Hair", MultiViewModel.TYPE_SQUARE_ICON_TEXT_BELOW));
-        recyclerChildItems.add(new MultiViewModel.RecyclerChildItem(R.drawable.nails, "Nails", MultiViewModel.TYPE_SQUARE_ICON_TEXT_BELOW));
-        recyclerChildItems.add(new MultiViewModel.RecyclerChildItem(R.drawable.massage, "Massage", MultiViewModel.TYPE_SQUARE_ICON_TEXT_BELOW));
-        recyclerChildItems.add(new MultiViewModel.RecyclerChildItem(R.drawable.waxing, "Waxing", MultiViewModel.TYPE_SQUARE_ICON_TEXT_BELOW));
-        recyclerChildItems.add(new MultiViewModel.RecyclerChildItem(R.drawable.steam_bath, "Steam Bath", MultiViewModel.TYPE_SQUARE_ICON_TEXT_BELOW));
-        recyclerChildItems.add(new MultiViewModel.RecyclerChildItem(R.drawable.burn_fat, "Burn Fat", MultiViewModel.TYPE_SQUARE_ICON_TEXT_BELOW));
-        recyclerChildItems.add(new MultiViewModel.RecyclerChildItem(R.drawable.tattoo_makeup, "Tattoo Makeup", MultiViewModel.TYPE_SQUARE_ICON_TEXT_BELOW));
+        List<MultiViewModel> childMultiViewModels = new ArrayList<>();
+        childMultiViewModels.add(new MultiViewModel(MultiViewModel.TYPE_SQUARE_ICON_TEXT_BELOW, "Facial Treatment", R.drawable.facial_treatment));
+        childMultiViewModels.add(new MultiViewModel(MultiViewModel.TYPE_SQUARE_ICON_TEXT_BELOW, "Makeup", R.drawable.makeup));
+        childMultiViewModels.add(new MultiViewModel(MultiViewModel.TYPE_SQUARE_ICON_TEXT_BELOW, "Hair", R.drawable.hair));
+        childMultiViewModels.add(new MultiViewModel(MultiViewModel.TYPE_SQUARE_ICON_TEXT_BELOW, "Nails", R.drawable.nails));
+        childMultiViewModels.add(new MultiViewModel(MultiViewModel.TYPE_SQUARE_ICON_TEXT_BELOW, "Massage", R.drawable.massage));
+        childMultiViewModels.add(new MultiViewModel(MultiViewModel.TYPE_SQUARE_ICON_TEXT_BELOW, "Waxing", R.drawable.waxing));
+        childMultiViewModels.add(new MultiViewModel(MultiViewModel.TYPE_SQUARE_ICON_TEXT_BELOW, "Steam Bath", R.drawable.steam_bath));
+        childMultiViewModels.add(new MultiViewModel(MultiViewModel.TYPE_SQUARE_ICON_TEXT_BELOW, "Burn Fat", R.drawable.burn_fat));
+        childMultiViewModels.add(new MultiViewModel(MultiViewModel.TYPE_SQUARE_ICON_TEXT_BELOW, "Tattoo Makeup", R.drawable.tattoo_makeup));
 
         for (int i = 0; i < service_names.length; i++) {
             if (i == 0) {
@@ -105,13 +105,31 @@ public class HomeFragment extends Fragment {
                 gridViewModelArrayList.add(gridViewModel);
                 gridViewModel = new MultiViewModel(MultiViewModel.TYPE_SLIDESHOW, "", R.drawable.slideshow1);
                 gridViewModelArrayList.add(gridViewModel);
+                gridViewModel = new MultiViewModel(MultiViewModel.TYPE_SECTION_TITLE, "Top Sale");
+                gridViewModelArrayList.add(gridViewModel);
+                Random random = new Random();
+                int min = 200;
+                int max = 500;
+                int price = 0;
+                List<MultiViewModel> childTopPromotions = new ArrayList<>();
+                int sale[] = new int[]{
+                        100, 80, 60, 55, 40, 33, 20,10
+                };
+                for (int j = 0; j < 8; j++) {
+                    price = random.nextInt((max - min) + 1) + min;
+                    childTopPromotions.add(new MultiViewModel(MultiViewModel.TYPE_IMG_TEXT_PRICE, service_names[j], icons[j], "$" + price + ".00", MultiViewModel.HAS_PROMOTION, "$" + (price - sale[j]) + ".00"));
+                }
+                gridViewModel =
+                        new MultiViewModel(MultiViewModel.TYPE_RECYLERVIEW, MultiViewModel.ORIENTATION_HORIZONTAL,
+                                2, childTopPromotions);
+                gridViewModelArrayList.add(gridViewModel);
                 gridViewModel = new MultiViewModel(MultiViewModel.TYPE_SECTION_TITLE, "Category");
                 gridViewModelArrayList.add(gridViewModel);
                 gridViewModel =
                         new MultiViewModel(MultiViewModel.TYPE_RECYLERVIEW, MultiViewModel.ORIENTATION_HORIZONTAL,
-                                2, recyclerChildItems);
+                                2, childMultiViewModels);
                 gridViewModelArrayList.add(gridViewModel);
-                gridViewModel = new MultiViewModel(MultiViewModel.TYPE_SECTION_TITLE, "Top Services");
+                gridViewModel = new MultiViewModel(MultiViewModel.TYPE_SECTION_TITLE, "Top Trending");
                 gridViewModelArrayList.add(gridViewModel);
             } else {
                 Random random = new Random();
