@@ -1,5 +1,8 @@
 package rosie.com.rosiebeauty.Model;
 
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
+
 import java.util.List;
 
 public class MultiViewModel {
@@ -19,6 +22,9 @@ public class MultiViewModel {
     public static final int HAS_PROMOTION = 1;
     public static final int NO_PROMOTION = 0;
 
+    public static final int WRAP_CONTENT = -2;
+    public static final int MATCH_PARENT = -1;
+
     public int styleOfContent;
     public int type;
     public int data;
@@ -31,6 +37,8 @@ public class MultiViewModel {
     public List<MultiViewModel> multiViewModels;
     public Appointment appointment;
     public int hasPromotion;
+    public int width;
+    public int height;
 
     public static class Appointment {
         public String appointmentCode;
@@ -77,13 +85,14 @@ public class MultiViewModel {
         this.price = price;
     }
 
-    public MultiViewModel(int type, String text, int data, String price, int hasPromotion, String priceAfterPromotion) {
+    public MultiViewModel(int type, String text, int data, String price, int hasPromotion, String priceAfterPromotion, int width) {
         this.type = type;
         this.data = data;
         this.text = text;
         this.price = price;
         this.hasPromotion = hasPromotion;
         this.priceAfterPromotion = priceAfterPromotion;
+        this.width = width;
     }
 
     public MultiViewModel(int type, int orientation, int reclyerSpan, List<MultiViewModel> multiViewModels) {

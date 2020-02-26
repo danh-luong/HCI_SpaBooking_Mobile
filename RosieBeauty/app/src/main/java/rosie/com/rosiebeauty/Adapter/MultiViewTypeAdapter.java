@@ -2,11 +2,15 @@ package rosie.com.rosiebeauty.Adapter;
 
 import android.content.Context;
 import android.graphics.Color;
+import android.graphics.Outline;
 import android.graphics.Paint;
+import android.os.Build;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.ViewOutlineProvider;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
@@ -84,6 +88,7 @@ public class MultiViewTypeAdapter extends RecyclerView.Adapter {
         TextView txtName;
         TextView txtPrice;
         TextView txtPriceAfterPromotion;
+        RelativeLayout relativeLayout;
 
         public ServiceCardListHolder(@NonNull View itemView) {
             super(itemView);
@@ -91,6 +96,7 @@ public class MultiViewTypeAdapter extends RecyclerView.Adapter {
             this.txtName = (TextView) itemView.findViewById(R.id.txtNameService);
             this.txtPrice = (TextView) itemView.findViewById(R.id.txtPriceService);
             this.txtPriceAfterPromotion = (TextView) itemView.findViewById(R.id.txtPriceAfterPromotion);
+            this.relativeLayout = (RelativeLayout) itemView.findViewById(R.id.service_card_item_container);
         }
     }
 
@@ -235,7 +241,7 @@ public class MultiViewTypeAdapter extends RecyclerView.Adapter {
         if (object != null) {
             switch (object.type) {
                 case MultiViewModel.TYPE_SLIDESHOW:
-                    ((SlideshowTypeViewHolder) holder).imgSlideshow.setBackgroundResource(R.drawable.slide_show0);
+                    ((SlideshowTypeViewHolder) holder).imgSlideshow.setClipToOutline(true);
                     ((SlideshowTypeViewHolder) holder).imgSlideshow.setAdapter(new SlideshowAdapter(mContext));
                     TimerTask timerTask = new TimerTask() {
                         @Override
@@ -314,7 +320,22 @@ public class MultiViewTypeAdapter extends RecyclerView.Adapter {
                     });
                     break;
                 case MultiViewModel.TYPE_IMG_TEXT_PRICE:
+                    ((ServiceCardListHolder)holder).relativeLayout.getLayoutParams().width = object.width;
                     ((ServiceCardListHolder) holder).imgService.setImageResource(object.data);
+                    ((ServiceCardListHolder) holder).imgService.setClipToOutline(true);
+
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+
+                        ((ServiceCardListHolder) holder).imgService.setOutlineProvider(new ViewOutlineProvider() {
+                            @Override
+                            public void getOutline(View view, Outline outline) {
+                                int curveRadius = 30;
+                                outline.setRoundRect(0, 0, view.getWidth(), (view.getHeight()+curveRadius), curveRadius);
+                            }
+                        });
+
+                    }
+                    ((ServiceCardListHolder) holder).txtPriceAfterPromotion.setClipToOutline(true);
                     ((ServiceCardListHolder) holder).txtName.setText(object.text);
                     if (object.hasPromotion == MultiViewModel.HAS_PROMOTION) {
                         ((ServiceCardListHolder) holder).txtPrice.setText(object.price);

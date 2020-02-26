@@ -3,12 +3,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/homeFragmentBackground">
-
+<!--    android:background="?android:attr/selectableItemBackground"-->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/suggestionView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="center_horizontal"
+        android:paddingRight="10dp"
+        android:paddingLeft="10dp"
         android:background="?android:attr/selectableItemBackground"
         />
 

@@ -39,6 +39,7 @@ public class SlideshowAdapter extends PagerAdapter {
     @Override
     public boolean isViewFromObject(@NonNull View view, @NonNull Object object) {
         return (view == (LinearLayout) object);
+
     }
 
     @NonNull
@@ -48,6 +49,8 @@ public class SlideshowAdapter extends PagerAdapter {
         View view = inflater.inflate(R.layout.slideshow_swipe, container, false);
 
         ImageView imageView = (ImageView) view.findViewById(R.id.imageSlideshow);
+        imageView.setClipToOutline(true);
+        imageView.setBackground(context.getResources().getDrawable(R.drawable.round_corner_slide_show));
         imageView.setImageResource(images[position]);
 
         container.addView(view);
@@ -59,4 +62,5 @@ public class SlideshowAdapter extends PagerAdapter {
         container.removeView((LinearLayout) object);
 
     }
+
 }

@@ -14,7 +14,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:src="@drawable/ic_spa_logo_no_text"
+        android:src="@drawable/ic_spa_logo_toolbar"
         android:text="Toolbar Title" />
 
 </androidx.appcompat.widget.Toolbar>
