@@ -11,7 +11,7 @@
             android:scaleType="fitXY"
             android:contentDescription="Spa Slideshow"
             android:background="@drawable/round_corner_slide_show"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"/>
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"/>
 
 </LinearLayout>

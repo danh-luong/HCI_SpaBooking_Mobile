@@ -8,17 +8,16 @@
                 android:width="50dp"
                 android:height="50dp" />
             <padding
-                android:bottom="1dp"
-                android:top="1dp" />
+                android:bottom="1dp"/>
         </shape>
     </item>
     <item>
         <shape android:shape="rectangle">
             <gradient
-                android:angle="45"
-                android:endColor="@color/profileGradStart"
+                android:angle="180"
+                android:endColor="@color/homeFragmentBackground"
                 android:centerColor="@color/profileGradEnd"
-                android:startColor="@color/profileGradStart" />
+                android:startColor="@color/homeFragmentBackground" />
 
         </shape>
     </item>

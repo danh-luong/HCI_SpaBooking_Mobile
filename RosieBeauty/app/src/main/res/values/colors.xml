@@ -30,8 +30,8 @@
     <!--    <color name="gradEnd">#D5D5D5</color>-->
 
 
-    <color name="profileGradStart">#AFAFAF</color>
-    <color name="profileGradEnd">#777777</color>
+    <color name="profileGradStart">@color/homeFragmentBackground</color>
+    <color name="profileGradEnd">#B1B1B1</color>
 
 
     <color name="solidCircle">#015FA3</color>
@@ -41,7 +41,7 @@
     <color name="followers">#0D5D98</color>
     <color name="headings">#3797CF</color>
 
-    <color name="grey">#E5E5E5</color>
+    <color name="grey">#B1B0B0</color>
     <color name="white">#FFFFFF</color>
 
     <color name="homeFragmentBackground">#E5E5E5</color>
