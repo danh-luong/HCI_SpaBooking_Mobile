@@ -102,8 +102,8 @@ public class HomeFragment extends Fragment {
 
         for (int i = 0; i < service_names.length; i++) {
             if (i == 0) {
-                gridViewModel = new MultiViewModel(MultiViewModel.TYPE_SECTION_TITLE, "Hot Deals");
-                gridViewModelArrayList.add(gridViewModel);
+//                gridViewModel = new MultiViewModel(MultiViewModel.TYPE_SECTION_TITLE, "Hot Deals");
+//                gridViewModelArrayList.add(gridViewModel);
                 gridViewModel = new MultiViewModel(MultiViewModel.TYPE_SLIDESHOW, "", R.drawable.slide_show0);
                 gridViewModelArrayList.add(gridViewModel);
                 gridViewModel = new MultiViewModel(MultiViewModel.TYPE_SECTION_TITLE, "Top Sale");
@@ -114,7 +114,7 @@ public class HomeFragment extends Fragment {
                 int price = 0;
                 List<MultiViewModel> childTopPromotions = new ArrayList<>();
                 int sale[] = new int[]{
-                        100, 80, 60, 55, 40, 33, 20,10
+                        100, 80, 60, 55, 40, 33, 20, 10
                 };
                 for (int j = 0; j < 8; j++) {
                     price = random.nextInt((max - min) + 1) + min;
@@ -138,10 +138,16 @@ public class HomeFragment extends Fragment {
                 int max = 500;
                 int price = random.nextInt((max - min) + 1) + min;
                 if (i % 2 == 0) {
-                    gridViewModel = new MultiViewModel(MultiViewModel.TYPE_IMG_TEXT_PRICE, service_names[i], icons[i], "$" + price + ".00", MultiViewModel.NO_PROMOTION, "", MultiViewModel.MATCH_PARENT);
+                    gridViewModel = new MultiViewModel(MultiViewModel.TYPE_IMG_TEXT_PRICE, service_names[i], icons[i],
+                            "$" + price + ".00",
+                            MultiViewModel.NO_PROMOTION,
+                            "", MultiViewModel.MATCH_PARENT);
                     gridViewModelArrayList.add(gridViewModel);
                 } else {
-                    gridViewModel = new MultiViewModel(MultiViewModel.TYPE_IMG_TEXT_PRICE, service_names[i], icons[i], "$" + price + ".00", MultiViewModel.HAS_PROMOTION, "$" + (price - 50) + ".00", MultiViewModel.MATCH_PARENT);
+                    gridViewModel = new MultiViewModel(MultiViewModel.TYPE_IMG_TEXT_PRICE, service_names[i], icons[i],
+                            "$" + price + ".00",
+                            MultiViewModel.HAS_PROMOTION,
+                            "$" + (price - 50) + ".00", MultiViewModel.MATCH_PARENT);
                     gridViewModelArrayList.add(gridViewModel);
                 }
             }

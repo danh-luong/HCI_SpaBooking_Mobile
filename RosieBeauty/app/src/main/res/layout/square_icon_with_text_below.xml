@@ -3,13 +3,14 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_gravity="center"
-    android:layout_margin="5dp"
-    android:maxWidth="120dp"
     android:orientation="vertical">
 
     <RelativeLayout
         android:layout_width="120dp"
-        android:layout_height="wrap_content"
+        android:layout_height="170dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
         android:background="@drawable/home_item_background">
 
         <ImageView
@@ -26,7 +27,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/square_icon_image"
-            android:padding="5dp"
             android:text="Facial Treatment"
             android:fontFamily="@font/philosopher_bold"
             android:textStyle="bold"
