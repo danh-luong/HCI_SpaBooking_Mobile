@@ -15,6 +15,7 @@ public class MultiViewModel {
     public static final int TYPE_RECYLERVIEW = 6;
     public static final int TYPE_SQUARE_ICON_TEXT_BELOW = 7;
     public static final int TYPE_APPOINTMENT_ITEM = 8;
+    public static final int TYPE_FAVORITE_ITEM = 9;
 
     public static final int ORIENTATION_HORIZONTAL = 0;
     public static final int ORIENTATION_VERTICAL = 1;
@@ -39,6 +40,64 @@ public class MultiViewModel {
     public int hasPromotion;
     public int width;
     public int height;
+    public FavoriteItem favoriteItem;
+
+    public static class FavoriteItem {
+        int image;
+        String title;
+        String spaName;
+        String location;
+        float star;
+
+        public FavoriteItem(int image, String title, String spaName, String location, float star) {
+            this.image = image;
+            this.title = title;
+            this.spaName = spaName;
+            this.location = location;
+            this.star = star;
+        }
+
+        public int getImage() {
+            return image;
+        }
+
+        public void setImage(int image) {
+            this.image = image;
+        }
+
+        public String getTitle() {
+            return title;
+        }
+
+        public void setTitle(String title) {
+            this.title = title;
+        }
+
+        public String getSpaName() {
+            return spaName;
+        }
+
+        public void setSpaName(String spaName) {
+            this.spaName = spaName;
+        }
+
+        public String getLocation() {
+            return location;
+        }
+
+        public void setLocation(String location) {
+            this.location = location;
+        }
+
+        public float getStar() {
+            return star;
+        }
+
+        public void setStar(float star) {
+            this.star = star;
+        }
+    }
+
 
     public static class Appointment {
         public String appointmentCode;
@@ -65,6 +124,11 @@ public class MultiViewModel {
             this.text = text;
             this.type = type;
         }
+    }
+
+    public MultiViewModel(int type, FavoriteItem favoriteItem) {
+        this.type = type;
+        this.favoriteItem = favoriteItem;
     }
 
     public MultiViewModel(int type, Appointment appointment) {

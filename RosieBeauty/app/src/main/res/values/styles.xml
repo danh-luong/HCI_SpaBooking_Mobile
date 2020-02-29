@@ -9,5 +9,9 @@
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
     </style>
+    <style name="RatingBar" parent="android:style/Widget.Material.RatingBar.Small">
+        <item name="colorControlNormal">@color/grey</item>
+        <item name="colorControlActivated">@android:color/holo_orange_light</item>
+    </style>
 
 </resources>

@@ -24,8 +24,6 @@ import rosie.com.rosiebeauty.Model.MultiViewModel;
 public class BookingFragment extends Fragment {
     ArrayList<MultiViewModel> gridViewModelArrayList;
     private RecyclerView mRecyclerView;
-    private String[] service_names;
-    private int[] icons;
 
     public BookingFragment() {
         // Required empty public constructor

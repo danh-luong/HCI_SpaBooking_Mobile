@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewOutlineProvider;
 import android.widget.ImageView;
+import android.widget.RatingBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -146,6 +147,21 @@ public class MultiViewTypeAdapter extends RecyclerView.Adapter {
         }
     }
 
+    public static class FavoriteItemViewHolder extends RecyclerView.ViewHolder {
+        ImageView imageView;
+        TextView txtTitle;
+        TextView txtAddress;
+        RatingBar ratingBar;
+
+        public FavoriteItemViewHolder(View itemView) {
+            super(itemView);
+            this.imageView = (ImageView) itemView.findViewById(R.id.itemImage);
+            this.txtTitle = (TextView) itemView.findViewById(R.id.txtTitle);
+            this.txtAddress = (TextView) itemView.findViewById(R.id.txtAddress);
+            this.ratingBar = (RatingBar) itemView.findViewById(R.id.ratingBar);
+        }
+    }
+
 
     public MultiViewTypeAdapter(ArrayList<MultiViewModel> data, Context context) {
         this.dataSet = data;
@@ -202,6 +218,9 @@ public class MultiViewTypeAdapter extends RecyclerView.Adapter {
             case MultiViewModel.TYPE_APPOINTMENT_ITEM:
                 view = LayoutInflater.from(parent.getContext()).inflate(R.layout.general_booking_item, parent, false);
                 return new AppointmentItemViewHolder(view);
+            case MultiViewModel.TYPE_FAVORITE_ITEM:
+                view = LayoutInflater.from(parent.getContext()).inflate(R.layout.favorite_item, parent, false);
+                return new FavoriteItemViewHolder(view);
         }
 
         return null;
@@ -229,6 +248,8 @@ public class MultiViewTypeAdapter extends RecyclerView.Adapter {
                 return MultiViewModel.TYPE_SQUARE_ICON_TEXT_BELOW;
             case 8:
                 return MultiViewModel.TYPE_APPOINTMENT_ITEM;
+            case 9:
+                return MultiViewModel.TYPE_FAVORITE_ITEM;
         }
         return 0;
     }
@@ -320,7 +341,7 @@ public class MultiViewTypeAdapter extends RecyclerView.Adapter {
                     });
                     break;
                 case MultiViewModel.TYPE_IMG_TEXT_PRICE:
-                    ((ServiceCardListHolder)holder).relativeLayout.getLayoutParams().width = object.width;
+                    ((ServiceCardListHolder) holder).relativeLayout.getLayoutParams().width = object.width;
                     ((ServiceCardListHolder) holder).imgService.setImageResource(object.data);
                     ((ServiceCardListHolder) holder).imgService.setClipToOutline(true);
 
@@ -330,7 +351,7 @@ public class MultiViewTypeAdapter extends RecyclerView.Adapter {
                             @Override
                             public void getOutline(View view, Outline outline) {
                                 int curveRadius = 30;
-                                outline.setRoundRect(0, 0, view.getWidth(), (view.getHeight()+curveRadius), curveRadius);
+                                outline.setRoundRect(0, 0, view.getWidth(), (view.getHeight() + curveRadius), curveRadius);
                             }
                         });
 
@@ -375,6 +396,24 @@ public class MultiViewTypeAdapter extends RecyclerView.Adapter {
                     ((AppointmentItemViewHolder) holder).txtBookingDate.setText(object.appointment.bookingDate);
                     ((AppointmentItemViewHolder) holder).txtAppointmentDate.setText(object.appointment.appointmentDate);
                     ((AppointmentItemViewHolder) holder).txtPayPrice.setText(object.appointment.payPrice);
+                    break;
+                case MultiViewModel.TYPE_FAVORITE_ITEM:
+                    ((FavoriteItemViewHolder) holder).imageView.setImageResource(object.favoriteItem.getImage());
+                    ((FavoriteItemViewHolder) holder).imageView.setClipToOutline(true);
+                    ((FavoriteItemViewHolder) holder).txtTitle.setText(object.favoriteItem.getTitle());
+                    ((FavoriteItemViewHolder) holder).txtAddress.setText(object.favoriteItem.getLocation());
+                    ((FavoriteItemViewHolder) holder).ratingBar.setRating(object.favoriteItem.getStar());
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+
+                        ((FavoriteItemViewHolder) holder).imageView.setOutlineProvider(new ViewOutlineProvider() {
+                            @Override
+                            public void getOutline(View view, Outline outline) {
+                                int curveRadius = 30;
+                                outline.setRoundRect(0, 0, (view.getWidth()+ curveRadius), view.getHeight() , curveRadius);
+                            }
+                        });
+
+                    }
                     break;
             }
         }
