@@ -66,18 +66,16 @@ public class CategoryServices extends Fragment {
                 "Waxing",
                 "Steam Bath",
                 "Burn Fat",
-                "Tattoo Makeup",
         };
         icons = new int[]{
-                R.drawable.facial_treatment,
-                R.drawable.makeup,
-                R.drawable.hair,
-                R.drawable.nails,
-                R.drawable.massage,
-                R.drawable.waxing,
-                R.drawable.steam_bath,
-                R.drawable.burn_fat,
-                R.drawable.tattoo_makeup
+                R.drawable.ca_facial_treatment,
+                R.drawable.ca_makeup,
+                R.drawable.ca_hair,
+                R.drawable.ca_nails,
+                R.drawable.ca_massage,
+                R.drawable.ca_waxing,
+                R.drawable.ca_steam_bath,
+                R.drawable.ca_burn_fat,
         };
 
 
