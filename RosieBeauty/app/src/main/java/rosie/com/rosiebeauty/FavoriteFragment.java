@@ -59,13 +59,13 @@ public class FavoriteFragment extends Fragment {
         List<MultiViewModel.FavoriteItem> favoriteItems = new ArrayList<>();
         favoriteItems.add(
                 new MultiViewModel.FavoriteItem
-                        (R.drawable.makeup, "Trang điểm mặt", "", "Sư Vạn Hạnh, Quận 10", 3.5f));
+                        (R.drawable.ser_gloss_hair, "Trang điểm mặt", "", "Sư Vạn Hạnh, Quận 10", 3.5f));
         favoriteItems.add(
                 new MultiViewModel.FavoriteItem
-                        (R.drawable.makeup, "Massage mặt", "", "Sư Vạn Hạnh, Quận 10", 3.5f));
+                        (R.drawable.ser_perm, "Massage mặt", "", "Sư Vạn Hạnh, Quận 10", 3.5f));
         favoriteItems.add(
                 new MultiViewModel.FavoriteItem
-                        (R.drawable.makeup, "Xăm chân mày", "", "Sư Vạn Hạnh, Quận 10", 3.5f));
+                        (R.drawable.ser_steaming_hair, "Xăm chân mày", "", "Sư Vạn Hạnh, Quận 10", 3.5f));
 
         for (int i = 0; i < favoriteItems.size(); i++) {
             gridViewModelArrayList.add(new MultiViewModel(MultiViewModel.TYPE_FAVORITE_ITEM, favoriteItems.get(i)));

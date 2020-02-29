@@ -105,24 +105,24 @@ public class HomeFragment extends Fragment {
 //                gridViewModelArrayList.add(gridViewModel);
                 gridViewModel = new MultiViewModel(MultiViewModel.TYPE_SLIDESHOW, "", R.drawable.slide_show0);
                 gridViewModelArrayList.add(gridViewModel);
-                gridViewModel = new MultiViewModel(MultiViewModel.TYPE_SECTION_TITLE, "Top Sale");
-                gridViewModelArrayList.add(gridViewModel);
-                Random random = new Random();
-                int min = 200;
-                int max = 500;
-                int price = 0;
-                List<MultiViewModel> childTopPromotions = new ArrayList<>();
-                int sale[] = new int[]{
-                        100, 80, 60, 55, 40, 33, 20, 10
-                };
-                for (int j = 0; j < 8; j++) {
-                    price = random.nextInt((max - min) + 1) + min;
-                    childTopPromotions.add(new MultiViewModel(MultiViewModel.TYPE_IMG_TEXT_PRICE, service_names[j], icons[j], "$" + price + ".00", MultiViewModel.HAS_PROMOTION, "$" + (price - sale[j]) + ".00", MultiViewModel.WRAP_CONTENT));
-                }
-                gridViewModel =
-                        new MultiViewModel(MultiViewModel.TYPE_RECYLERVIEW, MultiViewModel.ORIENTATION_HORIZONTAL,
-                                2, childTopPromotions);
-                gridViewModelArrayList.add(gridViewModel);
+//                gridViewModel = new MultiViewModel(MultiViewModel.TYPE_SECTION_TITLE, "Top Sale");
+//                gridViewModelArrayList.add(gridViewModel);
+//                Random random = new Random();
+//                int min = 200;
+//                int max = 500;
+//                int price = 0;
+//                List<MultiViewModel> childTopPromotions = new ArrayList<>();
+//                int sale[] = new int[]{
+//                        100, 80, 60, 55, 40, 33, 20, 10
+//                };
+//                for (int j = 0; j < 8; j++) {
+//                    price = random.nextInt((max - min) + 1) + min;
+//                    childTopPromotions.add(new MultiViewModel(MultiViewModel.TYPE_IMG_TEXT_PRICE, service_names[j], icons[j], "$" + price + ".00", MultiViewModel.HAS_PROMOTION, "$" + (price - sale[j]) + ".00", MultiViewModel.WRAP_CONTENT));
+//                }
+//                gridViewModel =
+//                        new MultiViewModel(MultiViewModel.TYPE_RECYLERVIEW, MultiViewModel.ORIENTATION_HORIZONTAL,
+//                                2, childTopPromotions);
+//                gridViewModelArrayList.add(gridViewModel);
                 gridViewModel = new MultiViewModel(MultiViewModel.TYPE_SECTION_TITLE, "Category");
                 gridViewModelArrayList.add(gridViewModel);
                 gridViewModel =

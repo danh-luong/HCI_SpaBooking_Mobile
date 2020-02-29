@@ -30,7 +30,7 @@
             android:layout_alignParentLeft="true"
             android:background="@drawable/imageview_home"
             android:scaleType="fitXY"
-            android:src="@drawable/makeup" />
+            android:src="@drawable/ser_gloss_hair" />
 
         <TextView
             android:id="@+id/txtTitle"
