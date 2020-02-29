@@ -123,12 +123,10 @@ public class MultiViewTypeAdapter extends RecyclerView.Adapter {
 
     public static class SquareIconViewHolder extends RecyclerView.ViewHolder {
         ImageView image;
-        TextView text;
 
         public SquareIconViewHolder(View itemView) {
             super(itemView);
             this.image = (ImageView) itemView.findViewById(R.id.square_icon_image);
-            this.text = (TextView) itemView.findViewById(R.id.square_icon_text);
         }
     }
 
@@ -387,7 +385,6 @@ public class MultiViewTypeAdapter extends RecyclerView.Adapter {
                     ((RecylerViewHolder) holder).itemRecyler.setAdapter(adapter);
                     break;
                 case MultiViewModel.TYPE_SQUARE_ICON_TEXT_BELOW:
-                    ((SquareIconViewHolder) holder).text.setText(object.text);
                     ((SquareIconViewHolder) holder).image.setImageResource(object.data);
                     ((SquareIconViewHolder) holder).image.setClipToOutline(true);
                     break;
