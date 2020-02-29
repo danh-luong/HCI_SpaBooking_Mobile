@@ -71,7 +71,10 @@ public class MultiViewModel {
         this.type = type;
         this.appointment = appointment;
     }
-
+    public MultiViewModel(int type, int data) {
+        this.type = type;
+        this.data = data;
+    }
     public MultiViewModel(int type, String text, int data) {
         this.type = type;
         this.data = data;
