@@ -6,15 +6,15 @@
     android:orientation="vertical">
 
     <RelativeLayout
-        android:layout_width="110dp"
+        android:layout_width="130dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
         android:background="@drawable/home_item_background">
 
         <ImageView
             android:id="@+id/square_icon_image"
-            android:layout_width="110dp"
-            android:layout_height="80dp"
+            android:layout_width="130dp"
+            android:layout_height="90dp"
             android:background="@drawable/imageview_home"
             android:scaleType="fitXY"
             android:layout_centerHorizontal="true"
