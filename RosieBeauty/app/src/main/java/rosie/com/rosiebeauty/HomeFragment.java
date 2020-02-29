@@ -90,15 +90,14 @@ public class HomeFragment extends Fragment {
 
         MultiViewModel gridViewModel = null;
         List<MultiViewModel> childMultiViewModels = new ArrayList<>();
-        childMultiViewModels.add(new MultiViewModel(MultiViewModel.TYPE_SQUARE_ICON_TEXT_BELOW, "Facial Treatment", R.drawable.facial_treatment));
-        childMultiViewModels.add(new MultiViewModel(MultiViewModel.TYPE_SQUARE_ICON_TEXT_BELOW, "Makeup", R.drawable.makeup));
-        childMultiViewModels.add(new MultiViewModel(MultiViewModel.TYPE_SQUARE_ICON_TEXT_BELOW, "Hair", R.drawable.hair));
-        childMultiViewModels.add(new MultiViewModel(MultiViewModel.TYPE_SQUARE_ICON_TEXT_BELOW, "Nails", R.drawable.nails));
-        childMultiViewModels.add(new MultiViewModel(MultiViewModel.TYPE_SQUARE_ICON_TEXT_BELOW, "Massage", R.drawable.massage));
-        childMultiViewModels.add(new MultiViewModel(MultiViewModel.TYPE_SQUARE_ICON_TEXT_BELOW, "Waxing", R.drawable.waxing));
-        childMultiViewModels.add(new MultiViewModel(MultiViewModel.TYPE_SQUARE_ICON_TEXT_BELOW, "Steam Bath", R.drawable.steam_bath));
-        childMultiViewModels.add(new MultiViewModel(MultiViewModel.TYPE_SQUARE_ICON_TEXT_BELOW, "Burn Fat", R.drawable.burn_fat));
-        childMultiViewModels.add(new MultiViewModel(MultiViewModel.TYPE_SQUARE_ICON_TEXT_BELOW, "Tattoo Makeup", R.drawable.tattoo_makeup));
+        childMultiViewModels.add(new MultiViewModel(MultiViewModel.TYPE_SQUARE_ICON_TEXT_BELOW, "Facial Treatment", R.drawable.ca_facial_treatment));
+        childMultiViewModels.add(new MultiViewModel(MultiViewModel.TYPE_SQUARE_ICON_TEXT_BELOW, "Makeup", R.drawable.ca_makeup));
+        childMultiViewModels.add(new MultiViewModel(MultiViewModel.TYPE_SQUARE_ICON_TEXT_BELOW, "Hair", R.drawable.ca_hair));
+        childMultiViewModels.add(new MultiViewModel(MultiViewModel.TYPE_SQUARE_ICON_TEXT_BELOW, "Nails", R.drawable.ca_nails));
+        childMultiViewModels.add(new MultiViewModel(MultiViewModel.TYPE_SQUARE_ICON_TEXT_BELOW, "Massage", R.drawable.ca_massage));
+        childMultiViewModels.add(new MultiViewModel(MultiViewModel.TYPE_SQUARE_ICON_TEXT_BELOW, "Waxing", R.drawable.ca_waxing));
+        childMultiViewModels.add(new MultiViewModel(MultiViewModel.TYPE_SQUARE_ICON_TEXT_BELOW, "Steam Bath", R.drawable.ca_steam_bath));
+        childMultiViewModels.add(new MultiViewModel(MultiViewModel.TYPE_SQUARE_ICON_TEXT_BELOW, "Burn Fat", R.drawable.ca_burn_fat));
 
         for (int i = 0; i < service_names.length; i++) {
             if (i == 0) {

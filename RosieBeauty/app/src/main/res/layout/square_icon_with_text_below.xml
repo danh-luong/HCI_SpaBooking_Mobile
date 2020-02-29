@@ -20,7 +20,7 @@
             android:background="@drawable/imageview_home"
             android:scaleType="fitXY"
             android:layout_centerHorizontal="true"
-            android:src="@drawable/makeup" />
+            android:src="@drawable/ca_makeup" />
 
         <TextView
             android:id="@+id/square_icon_text"
