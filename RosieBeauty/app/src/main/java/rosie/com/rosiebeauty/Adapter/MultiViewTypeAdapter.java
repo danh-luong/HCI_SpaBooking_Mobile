@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewOutlineProvider;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -20,14 +21,16 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 import androidx.viewpager.widget.ViewPager;
 
+import com.beardedhen.androidbootstrap.BootstrapCircleThumbnail;
 import com.miguelcatalan.materialsearchview.MaterialSearchView;
 
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
-
 import rosie.com.rosiebeauty.Model.MultiViewModel;
+import rosie.com.rosiebeauty.Model.TimeScheduleButtonManager;
 import rosie.com.rosiebeauty.R;
 import rosie.com.rosiebeauty.SearchFragment;
 import rosie.com.rosiebeauty.SlideshowAdapter;
@@ -40,6 +43,7 @@ public class MultiViewTypeAdapter extends RecyclerView.Adapter {
     int total_types;
     private MaterialSearchView searchView;
     private Fragment triggerFragment;
+    static List<TimeHolder> listTimeHolders = new ArrayList<>();
 
     public void setSearchView(MaterialSearchView searchView) {
         this.searchView = searchView;
@@ -79,6 +83,34 @@ public class MultiViewTypeAdapter extends RecyclerView.Adapter {
                 this.icon = (ImageView) itemView.findViewById(R.id.suggestion_icon);
 
             }
+        }
+    }
+
+
+    public static class CommentTypeViewHolder extends RecyclerView.ViewHolder {
+
+        TextView txtUsername;
+        TextView txtComment;
+        BootstrapCircleThumbnail avatar;
+
+
+        public CommentTypeViewHolder(View itemView) {
+            super(itemView);
+
+            this.txtUsername = (TextView) itemView.findViewById(R.id.txtUsername);
+            this.txtComment = (TextView) itemView.findViewById(R.id.txtComment);
+            this.avatar = (BootstrapCircleThumbnail) itemView.findViewById(R.id.imgAvatar);
+
+        }
+    }
+
+    public static class TimeHolder extends RecyclerView.ViewHolder {
+
+        TimeScheduleButtonManager btnTimeManager;
+
+        public TimeHolder(View itemView) {
+            super(itemView);
+            this.btnTimeManager = new TimeScheduleButtonManager ( (Button) itemView.findViewById(R.id.btnViewSchedule), TimeScheduleButtonManager.ButtonTimeStatus.UNSELECTED);
         }
     }
 
@@ -202,6 +234,12 @@ public class MultiViewTypeAdapter extends RecyclerView.Adapter {
             case MultiViewModel.TYPE_APPOINTMENT_ITEM:
                 view = LayoutInflater.from(parent.getContext()).inflate(R.layout.general_booking_item, parent, false);
                 return new AppointmentItemViewHolder(view);
+            case MultiViewModel.TYPE_FACEBOOK_COMMENT:
+                view = LayoutInflater.from(parent.getContext()).inflate(R.layout.comment_item_layout, parent, false);
+                return new CommentTypeViewHolder(view);
+            case MultiViewModel.TYPE_BUTTON_TIME_SCHEDULE:
+                view = LayoutInflater.from(parent.getContext()).inflate(R.layout.time_schedule_item, parent, false);
+                return new TimeHolder(view);
         }
 
         return null;
@@ -229,6 +267,10 @@ public class MultiViewTypeAdapter extends RecyclerView.Adapter {
                 return MultiViewModel.TYPE_SQUARE_ICON_TEXT_BELOW;
             case 8:
                 return MultiViewModel.TYPE_APPOINTMENT_ITEM;
+            case 9:
+                return MultiViewModel.TYPE_FACEBOOK_COMMENT;
+            case 10:
+                return MultiViewModel.TYPE_BUTTON_TIME_SCHEDULE;
         }
         return 0;
     }
@@ -375,6 +417,32 @@ public class MultiViewTypeAdapter extends RecyclerView.Adapter {
                     ((AppointmentItemViewHolder) holder).txtBookingDate.setText(object.appointment.bookingDate);
                     ((AppointmentItemViewHolder) holder).txtAppointmentDate.setText(object.appointment.appointmentDate);
                     ((AppointmentItemViewHolder) holder).txtPayPrice.setText(object.appointment.payPrice);
+                    break;
+                case MultiViewModel.TYPE_FACEBOOK_COMMENT:
+                    ((CommentTypeViewHolder)holder).txtUsername.setText(object.username);
+                    ((CommentTypeViewHolder)holder).txtComment.setText(object.comment);
+                    ((CommentTypeViewHolder)holder).avatar.setImageResource(object.iconId);
+                    break;
+                case MultiViewModel.TYPE_BUTTON_TIME_SCHEDULE:
+                    final TimeHolder timeHolder =  ((TimeHolder)holder);
+                    listTimeHolders.add(timeHolder);
+                    timeHolder.btnTimeManager.getBtnTime().setText(object.text);
+                    if (listPosition == 0) {
+                        timeHolder.btnTimeManager.setButtonStatus(TimeScheduleButtonManager.ButtonTimeStatus.DISABLED);
+                    } else {
+                        timeHolder.btnTimeManager.setButtonStatus(TimeScheduleButtonManager.ButtonTimeStatus.UNSELECTED);
+                        timeHolder.btnTimeManager.getBtnTime().setOnClickListener(new View.OnClickListener(){
+                            @Override
+                            public void onClick(View v) {
+                                for (int i = 1; i < listTimeHolders.size(); i++) {
+                                    if (listTimeHolders.get(i).btnTimeManager.getBtnStatus() == TimeScheduleButtonManager.ButtonTimeStatus.SELECTED) {
+                                        listTimeHolders.get(i).btnTimeManager.setButtonStatus(TimeScheduleButtonManager.ButtonTimeStatus.UNSELECTED);
+                                    }
+                                }
+                                timeHolder.btnTimeManager.setButtonStatus(TimeScheduleButtonManager.ButtonTimeStatus.SELECTED);;
+                            }
+                        });
+                    }
                     break;
             }
         }

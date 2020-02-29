@@ -13,20 +13,24 @@
         android:layout_centerHorizontal="true"
         android:layout_marginStart="9dp"
         android:layout_marginBottom="16dp"
-        android:background="@color/colorPrimary"
         android:clickable="false"
         android:src="@drawable/ic_action_book"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/txtTitle"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        android:scaleType="fitXY"
+        android:background="@drawable/service_card_list_image_corner"
+        android:tint="#6F000000"/>
+
+
 
     <TextView
         android:id="@+id/txtTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/imageView"
-        android:layout_marginStart="60dp"
+        android:layout_marginStart="20dp"
         android:layout_marginBottom="28dp"
         android:maxLines="2"
         android:singleLine="false"
