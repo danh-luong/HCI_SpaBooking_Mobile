@@ -46,8 +46,8 @@ public class SearchFragment extends Fragment {
     private int[] iconsForRecentSearch = new int[]{
             R.drawable.ser_steaming_hair,
             R.drawable.ser_blow_dry,
-            R.drawable.makeup,
-            R.drawable.hair
+            R.drawable.ser_dye_hair,
+            R.drawable.ser_gloss_hair
     };
 
     private int[] historyIcon = new int[]{
@@ -63,10 +63,10 @@ public class SearchFragment extends Fragment {
             "Mud Bath", "Salt Stone", "SOOTHE FACIAL", "ORGANIC FACIAL", "C.TREATMENT", "COLLAGEN INFUSION"
     };
     private int[] iconsForSuggestion = new int[]{
-            R.drawable.makeup,
-            R.drawable.massage,
-            R.drawable.nails,
-            R.drawable.hair,
+            R.drawable.ser_steaming_hair,
+            R.drawable.ser_steaming_hair,
+            R.drawable.ser_highlight_hair,
+            R.drawable.ser_gloss_hair,
             R.drawable.ser_blow_dry,
             R.drawable.ser_steaming_hair
     };
@@ -86,10 +86,10 @@ public class SearchFragment extends Fragment {
             "COLLAGEN FACIAL", "C.TREATMENT", "SOOTHE FACIAL", "Salt Stone"
     };
     private int[] trending_product_icons = new int[]{
-            R.drawable.makeup,
-            R.drawable.massage,
-            R.drawable.nails,
-            R.drawable.hair
+            R.drawable.ser_blow_dry,
+            R.drawable.ser_highlight_hair,
+            R.drawable.ser_perm,
+            R.drawable.ser_gloss_hair
     };
     private MaterialSearchView searchView;
 
