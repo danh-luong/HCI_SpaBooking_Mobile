@@ -35,7 +35,6 @@ dependencies {
 
     //Material Design
     implementation 'com.google.android.material:material:1.1.0'
-
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation 'androidx.appcompat:appcompat:1.1.0'
     implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
@@ -43,6 +42,9 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
     implementation group: 'com.miguelcatalan', name: 'materialsearchview', version: '1.4.0'
+    implementation group: 'com.beardedhen', name: 'androidbootstrap', version: '2.3.2'
+    implementation group: 'com.android.support.constraint', name: 'constraint-layout', version: '1.1.3'
 
     apply plugin: 'androidx.navigation.safeargs'
+
 }

@@ -16,6 +16,8 @@ public class MultiViewModel {
     public static final int TYPE_SQUARE_ICON_TEXT_BELOW = 7;
     public static final int TYPE_APPOINTMENT_ITEM = 8;
     public static final int TYPE_FAVORITE_ITEM = 9;
+    public static final int TYPE_FACEBOOK_COMMENT = 10;
+    public static final int TYPE_BUTTON_TIME_SCHEDULE = 11;
 
     public static final int ORIENTATION_HORIZONTAL = 0;
     public static final int ORIENTATION_VERTICAL = 1;
@@ -30,6 +32,8 @@ public class MultiViewModel {
     public int type;
     public int data;
     public String text;
+    public String username;
+    public String comment;
     public int iconId;
     public int orientation;
     public int reclyerSpan;
@@ -181,6 +185,15 @@ public class MultiViewModel {
         this.iconId = iconId;
         this.styleOfContent = styleOfContent;
     }
+
+
+    public MultiViewModel(int type, String username, String comment, int iconId) {
+        this.type = type;
+        this.username = username;
+        this.comment = comment;
+        this.iconId = iconId;
+    }
+
 
 
 }

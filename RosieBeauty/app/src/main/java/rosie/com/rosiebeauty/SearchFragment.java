@@ -41,13 +41,13 @@ public class SearchFragment extends Fragment {
 
     //-----------------------------------Recent search------------------------------------
     private String[] recent_search_names = new String[]{
-            "AAAA", "BBBBB", "CCCCCC", "DDDD"
+            "Mud Bath", "Salt Stone", "SOOTHE FACIAL", "ORGANIC FACIAL"
     };
     private int[] iconsForRecentSearch = new int[]{
-            R.drawable.ic_action_book,
-            R.drawable.ic_action_favorites,
-            R.drawable.ic_action_home,
-            R.drawable.ic_action_home
+            R.drawable.ser_steaming_hair,
+            R.drawable.ser_blow_dry,
+            R.drawable.makeup,
+            R.drawable.hair
     };
 
     private int[] historyIcon = new int[]{
@@ -60,15 +60,15 @@ public class SearchFragment extends Fragment {
     //-----------------------------------Normal suggestion------------------------------------
 
     private String[] suggestion_item_names = new String[]{
-            "AAAA", "BBBBB", "CCCCCC", "DDDD", "Aaaaa1", "Aaaaa2"
+            "Mud Bath", "Salt Stone", "SOOTHE FACIAL", "ORGANIC FACIAL", "C.TREATMENT", "COLLAGEN INFUSION"
     };
     private int[] iconsForSuggestion = new int[]{
-            R.drawable.ic_action_book,
-            R.drawable.ic_action_favorites,
-            R.drawable.ic_action_home,
-            R.drawable.ic_action_home,
-            R.drawable.ic_action_favorites,
-            R.drawable.ic_action_favorites
+            R.drawable.makeup,
+            R.drawable.massage,
+            R.drawable.nails,
+            R.drawable.hair,
+            R.drawable.ser_blow_dry,
+            R.drawable.ser_steaming_hair
     };
 
     private int[] glassIcon = new int[]{
@@ -83,13 +83,13 @@ public class SearchFragment extends Fragment {
     //-----------------------------------Trending items------------------------------------
 
     private String[] trending_product_names = new String[]{
-            "AAAA", "BBBBB", "CCCCCC", "DDDD"
+            "COLLAGEN FACIAL", "C.TREATMENT", "SOOTHE FACIAL", "Salt Stone"
     };
     private int[] trending_product_icons = new int[]{
-            R.drawable.ic_action_book,
-            R.drawable.ic_action_favorites,
-            R.drawable.ic_action_home,
-            R.drawable.ic_action_home
+            R.drawable.makeup,
+            R.drawable.massage,
+            R.drawable.nails,
+            R.drawable.hair
     };
     private MaterialSearchView searchView;
 

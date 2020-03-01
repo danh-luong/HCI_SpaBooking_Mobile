@@ -46,5 +46,8 @@
 
     <color name="homeFragmentBackground">#E5E5E5</color>
     <color name="service_item_blue_color">#015FA3</color>
+    <color name="schedule_button_color">#FFB8F8</color>
+    <color name="duskYellow">#FFDF00</color>
+    <color name="lightGrey">#9A9A9A</color>
 </resources>
 
