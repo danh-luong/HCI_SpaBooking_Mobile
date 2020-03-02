@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/service_card_item_container"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_gravity="center"
-    android:gravity="center"
-    android:layout_margin="5dp">
+    android:layout_margin="5dp"
+    android:gravity="center">
 
     <RelativeLayout
-        android:layout_width="150dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/shadow_background"
         android:clickable="true"
@@ -17,53 +18,129 @@
 
         <ImageView
             android:id="@+id/imageService"
-            android:layout_width="150dp"
-            android:layout_height="100dp"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
             android:layout_below="@+id/pager_Slideshow"
-            android:background="@drawable/service_card_list_image_corner"
             android:clickable="false"
             android:scaleType="fitXY"
-            android:src="@drawable/ser_cutting_hair_girl"/>
-
+            android:src="@drawable/ser_cutting_hair_girl" />
+        <TextView
+            android:id="@+id/txtPromotion"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/service_card_list_image_corner"
+            android:padding="4dp"
+            android:text="-50%"
+            android:textAlignment="center"
+            android:layout_alignRight="@id/imageService"
+            android:textColor="@color/white"
+            android:textSize="15dp"
+            android:textStyle="bold" />
         <TextView
             android:id="@+id/txtNameService"
-            android:layout_width="150dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/imageService"
             android:background="#FFFFFF"
             android:fontFamily="@font/philosopher_bold"
             android:gravity="center_vertical"
-            android:maxLines="2"
+            android:singleLine="true"
             android:text="Cutting Girl Hair"
             android:textAlignment="center"
             android:textColor="#FF84AD"
-            android:textSize="14dp" />
+            android:textSize="16dp"
+            android:layout_below="@id/imageService"/>
 
-        <TextView
-            android:id="@+id/txtPriceService"
-            android:layout_width="150dp"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/txtNameService"
-            android:background="#FFFFFF"
-            android:fontFamily="@font/philosopher_bold"
-            android:text="$200"
-            android:textAlignment="center"
-            android:textColor="@color/service_item_blue_color"
-            android:textSize="10dp" />
-
-        <TextView
-            android:id="@+id/txtPriceAfterPromotion"
+        <RelativeLayout
+            android:id="@+id/price_container"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/txtPriceService"
+            android:layout_below="@id/txtNameService"
+            android:layout_centerHorizontal="true">
+
+            <TextView
+                android:id="@+id/txtPriceService"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:alpha=".5"
+                android:background="#FFFFFF"
+                android:layout_marginRight="5dp"
+                android:fontFamily="@font/philosopher_bold"
+                android:text=""
+                android:textAlignment="center"
+                android:textColor="@color/service_item_blue_color"
+                android:textSize="14dp" />
+
+            <TextView
+                android:id="@+id/txtPriceAfterPromotion"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="2dp"
+                android:layout_toRightOf="@+id/txtPriceService"
+                android:background="#FFFFFF"
+                android:fontFamily="@font/philosopher_bold"
+                android:text=""
+                android:textAlignment="center"
+                android:textColor="#F44336"
+                android:textSize="14dp" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rate_container"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/price_container"
+            android:layout_centerHorizontal="true">
+
+            <TextView
+                android:id="@+id/rateStar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:background="#FFFFFF"
+                android:drawableStart="@drawable/ic_star_yellow_5dp"
+                android:fontFamily="@font/philosopher_bold"
+                android:gravity="center"
+                android:text="4.5"
+                android:textColor="#000000"
+                android:textSize="10dp" />
+
+            <TextView
+                android:id="@+id/countComment"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginLeft="10dp"
+                android:layout_marginBottom="2dp"
+                android:layout_toRightOf="@+id/rateStar"
+                android:background="#FFFFFF"
+                android:drawableStart="@drawable/ic_comment_black_12dp"
+                android:fontFamily="@font/philosopher_bold"
+                android:gravity="center"
+                android:text="5"
+                android:textColor="#000000"
+                android:textSize="10dp" />
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/serAddress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/rate_container"
+            android:layout_centerHorizontal="true"
             android:layout_marginBottom="2dp"
             android:background="#FFFFFF"
+            android:drawableStart="@drawable/ic_location_on_black_10dp"
             android:fontFamily="@font/philosopher_bold"
-            android:text=""
+            android:text="Ho Chi Minh"
             android:textAlignment="center"
-            android:layout_centerHorizontal="true"
-            android:textColor="#F44336"
-            android:textSize="12dp" />
+            android:textColor="#000000"
+            android:textSize="10dp"
+            android:singleLine="true"
+            />
     </RelativeLayout>
 
 </RelativeLayout>
