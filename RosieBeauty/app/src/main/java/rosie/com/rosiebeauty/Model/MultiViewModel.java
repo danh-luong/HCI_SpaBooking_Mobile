@@ -45,6 +45,10 @@ public class MultiViewModel {
     public int width;
     public int height;
     public FavoriteItem favoriteItem;
+    public double rate;
+    public int countComment;
+    public String address;
+    public String intPromotion;
 
     public static class FavoriteItem {
         int image;
@@ -139,10 +143,12 @@ public class MultiViewModel {
         this.type = type;
         this.appointment = appointment;
     }
+
     public MultiViewModel(int type, int data) {
         this.type = type;
         this.data = data;
     }
+
     public MultiViewModel(int type, String text, int data) {
         this.type = type;
         this.data = data;
@@ -156,14 +162,28 @@ public class MultiViewModel {
         this.price = price;
     }
 
-    public MultiViewModel(int type, String text, int data, String price, int hasPromotion, String priceAfterPromotion, int width) {
+//    public MultiViewModel(int type, String text, int data, String price, int hasPromotion, String priceAfterPromotion, int width) {
+//        this.type = type;
+//        this.data = data;
+//        this.text = text;
+//        this.price = price;
+//        this.hasPromotion = hasPromotion;
+//        this.priceAfterPromotion = priceAfterPromotion;
+//        this.width = width;
+//    }
+
+    public MultiViewModel(int type, int data, String text, String price, String priceAfterPromotion,
+                          int hasPromotion, double rate, int countComment, String address, String intPromotion) {
         this.type = type;
         this.data = data;
         this.text = text;
         this.price = price;
-        this.hasPromotion = hasPromotion;
         this.priceAfterPromotion = priceAfterPromotion;
-        this.width = width;
+        this.hasPromotion = hasPromotion;
+        this.rate = rate;
+        this.countComment = countComment;
+        this.address = address;
+        this.intPromotion = intPromotion;
     }
 
     public MultiViewModel(int type, int orientation, int reclyerSpan, List<MultiViewModel> multiViewModels) {
@@ -193,7 +213,6 @@ public class MultiViewModel {
         this.comment = comment;
         this.iconId = iconId;
     }
-
 
 
 }

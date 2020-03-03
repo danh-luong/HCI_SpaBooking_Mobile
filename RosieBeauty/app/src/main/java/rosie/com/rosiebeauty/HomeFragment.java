@@ -1,6 +1,8 @@
 package rosie.com.rosiebeauty;
 
 import android.annotation.SuppressLint;
+import android.icu.text.DecimalFormat;
+import android.icu.util.Currency;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,8 +14,10 @@ import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
+import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 import java.util.Random;
 
 import rosie.com.rosiebeauty.Adapter.MultiViewTypeAdapter;
@@ -27,8 +31,12 @@ public class HomeFragment extends Fragment {
 
     ArrayList<MultiViewModel> gridViewModelArrayList;
     private RecyclerView mRecyclerView;
-    private String[] service_names;
-    private int[] icons;
+    private String[] service_names, address;
+    private int[] icons, countComment, txtPromotion, price;
+    private Double[] rateStar;
+    Locale locale = Locale.forLanguageTag("vi-VN");
+    java.text.NumberFormat formatPrice = NumberFormat.getCurrencyInstance(locale);
+
 
     public HomeFragment() {
         // Required empty public constructor
@@ -61,30 +69,66 @@ public class HomeFragment extends Fragment {
 
     void prepareData() {
         service_names = new String[]{
-                "Blow Dry",
-                "Female Hair Cutting",
-                "Male Hair Cutting",
-                "Hair Dye",
-                "Long Hair Dye",
-                "Male Hair Dye",
-                "Hair Glossing",
-                "Hair Highlight",
-                "Hair Perm",
-                "Hair Steaming",
-                "Hair Straightening",
+                "Sấy tóc tạo kiểu",
+                "Cắt tóc tạo kiểu",
+                "Nhuộm tóc",
+                "Nhuộm tóc dài",
+                "Phủ bóng",
+                "Nhuộm Highlight",
+                "Uốn tóc",
+                "Hấp tóc",
+                "Duỗi tóc",
         };
         icons = new int[]{
                 R.drawable.ser_blow_dry,
                 R.drawable.ser_cutting_hair_girl,
-                R.drawable.ser_cutting_hair_man,
                 R.drawable.ser_dye_hair,
                 R.drawable.ser_dye_long_hair,
-                R.drawable.ser_dye_man_hair,
                 R.drawable.ser_gloss_hair,
                 R.drawable.ser_highlight_hair,
                 R.drawable.ser_perm,
                 R.drawable.ser_steaming_hair,
                 R.drawable.ser_straighten_hair,
+        };
+        txtPromotion = new int[]{
+                5,
+                20,
+                30,
+                10,
+                10,
+                20,
+                10,
+                5,
+                50
+        };
+        rateStar = new Double[]{
+                3.0,
+                4.3,
+                5.0,
+                4.0,
+                3.9,
+                4.5,
+                2.0,
+                3.9,
+                4.0,
+                5.0
+        };
+        countComment = new int[]{
+                1, 4, 5, 7, 8, 2, 4, 5, 6
+        };
+        address = new String[]{
+                "CN: Nguyễn Thiện Thuật, Q.3",
+                "CN: Võ Văn Tần, Q.3",
+                "CN: Phan Xích Long, Q.Phú Nhuận",
+                "CN: Hồ Hảo Hớn, Q.1",
+                "CN: Nguyễn Thiện Thuật, Q.3",
+                "CN: Võ Văn Tần, Q.3",
+                "CN: Phan Xích Long, Q.Phú Nhuận",
+                "CN: Hồ Hảo Hớn, Q.1",
+                "CN: Nguyễn Thiện Thuật, Q.3",
+        };
+        price = new int[]{
+                200000, 300000, 500000, 800000, 2000000, 500000, 400000, 600000, 1500000,
         };
 
 
@@ -92,17 +136,15 @@ public class HomeFragment extends Fragment {
         List<MultiViewModel> childMultiViewModels = new ArrayList<>();
         childMultiViewModels.add(new MultiViewModel(MultiViewModel.TYPE_SQUARE_ICON_TEXT_BELOW, R.drawable.ca_facial_treatment));
         childMultiViewModels.add(new MultiViewModel(MultiViewModel.TYPE_SQUARE_ICON_TEXT_BELOW, R.drawable.ca_hair));
-        childMultiViewModels.add(new MultiViewModel(MultiViewModel.TYPE_SQUARE_ICON_TEXT_BELOW,  R.drawable.ca_massage));
-        childMultiViewModels.add(new MultiViewModel(MultiViewModel.TYPE_SQUARE_ICON_TEXT_BELOW,  R.drawable.ca_makeup));
-        childMultiViewModels.add(new MultiViewModel(MultiViewModel.TYPE_SQUARE_ICON_TEXT_BELOW,  R.drawable.ca_nails));
+        childMultiViewModels.add(new MultiViewModel(MultiViewModel.TYPE_SQUARE_ICON_TEXT_BELOW, R.drawable.ca_massage));
+        childMultiViewModels.add(new MultiViewModel(MultiViewModel.TYPE_SQUARE_ICON_TEXT_BELOW, R.drawable.ca_makeup));
+        childMultiViewModels.add(new MultiViewModel(MultiViewModel.TYPE_SQUARE_ICON_TEXT_BELOW, R.drawable.ca_nails));
         childMultiViewModels.add(new MultiViewModel(MultiViewModel.TYPE_SQUARE_ICON_TEXT_BELOW, R.drawable.ca_waxing));
-        childMultiViewModels.add(new MultiViewModel(MultiViewModel.TYPE_SQUARE_ICON_TEXT_BELOW,  R.drawable.ca_steam_bath));
-        childMultiViewModels.add(new MultiViewModel(MultiViewModel.TYPE_SQUARE_ICON_TEXT_BELOW,  R.drawable.ca_burn_fat));
+        childMultiViewModels.add(new MultiViewModel(MultiViewModel.TYPE_SQUARE_ICON_TEXT_BELOW, R.drawable.ca_steam_bath));
+        childMultiViewModels.add(new MultiViewModel(MultiViewModel.TYPE_SQUARE_ICON_TEXT_BELOW, R.drawable.ca_burn_fat));
 
         for (int i = 0; i < service_names.length; i++) {
             if (i == 0) {
-//                gridViewModel = new MultiViewModel(MultiViewModel.TYPE_SECTION_TITLE, "Hot Deals");
-//                gridViewModelArrayList.add(gridViewModel);
                 gridViewModel = new MultiViewModel(MultiViewModel.TYPE_SLIDESHOW, "", R.drawable.slide_show0);
                 gridViewModelArrayList.add(gridViewModel);
 //                gridViewModel = new MultiViewModel(MultiViewModel.TYPE_SECTION_TITLE, "Top Sale");
@@ -123,30 +165,30 @@ public class HomeFragment extends Fragment {
 //                        new MultiViewModel(MultiViewModel.TYPE_RECYLERVIEW, MultiViewModel.ORIENTATION_HORIZONTAL,
 //                                2, childTopPromotions);
 //                gridViewModelArrayList.add(gridViewModel);
-                gridViewModel = new MultiViewModel(MultiViewModel.TYPE_SECTION_TITLE, "Category");
+
+                gridViewModel = new MultiViewModel(MultiViewModel.TYPE_SECTION_TITLE, "Danh mục dịch vụ");
                 gridViewModelArrayList.add(gridViewModel);
                 gridViewModel =
                         new MultiViewModel(MultiViewModel.TYPE_RECYLERVIEW, MultiViewModel.ORIENTATION_HORIZONTAL,
                                 2, childMultiViewModels);
                 gridViewModelArrayList.add(gridViewModel);
-                gridViewModel = new MultiViewModel(MultiViewModel.TYPE_SECTION_TITLE, "Top Trending");
+
+                gridViewModel = new MultiViewModel(MultiViewModel.TYPE_SECTION_TITLE, "Giảm giá HOT");
+                gridViewModelArrayList.add(gridViewModel);
+                gridViewModel = new MultiViewModel(MultiViewModel.TYPE_IMG_TEXT_PRICE, icons[i], service_names[i],
+                        formatPrice.format(price[i]),formatPrice.format(price[i]-(price[i]*txtPromotion[i]/100)), MultiViewModel.HAS_PROMOTION,
+                        rateStar[i], countComment[i], address[i], "-"+txtPromotion[i]+"%");
                 gridViewModelArrayList.add(gridViewModel);
             } else {
-                Random random = new Random();
-                int min = 100;
-                int max = 500;
-                int price = random.nextInt((max - min) + 1) + min;
                 if (i % 2 == 0) {
-                    gridViewModel = new MultiViewModel(MultiViewModel.TYPE_IMG_TEXT_PRICE, service_names[i], icons[i],
-                            "$" + price + ".00",
-                            MultiViewModel.NO_PROMOTION,
-                            "", MultiViewModel.MATCH_PARENT);
+                    gridViewModel = new MultiViewModel(MultiViewModel.TYPE_IMG_TEXT_PRICE, icons[i], service_names[i],
+                            formatPrice.format(price[i]),formatPrice.format(price[i]-(price[i]*txtPromotion[i]/100)), MultiViewModel.HAS_PROMOTION,
+                            rateStar[i], countComment[i], address[i], "-"+txtPromotion[i]+"%");
                     gridViewModelArrayList.add(gridViewModel);
                 } else {
-                    gridViewModel = new MultiViewModel(MultiViewModel.TYPE_IMG_TEXT_PRICE, service_names[i], icons[i],
-                            "$" + price + ".00",
-                            MultiViewModel.HAS_PROMOTION,
-                            "$" + (price - 50) + ".00", MultiViewModel.MATCH_PARENT);
+                    gridViewModel = new MultiViewModel(MultiViewModel.TYPE_IMG_TEXT_PRICE, icons[i], service_names[i],
+                            formatPrice.format(price[i]),formatPrice.format(price[i]-(price[i]*txtPromotion[i]/100)), MultiViewModel.HAS_PROMOTION,
+                            rateStar[i], countComment[i], address[i], "-"+txtPromotion[i]+"%");
                     gridViewModelArrayList.add(gridViewModel);
                 }
             }

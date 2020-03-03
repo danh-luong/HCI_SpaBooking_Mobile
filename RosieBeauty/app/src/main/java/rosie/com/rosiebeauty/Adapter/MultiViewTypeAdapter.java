@@ -30,6 +30,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
+
 import rosie.com.rosiebeauty.Model.MultiViewModel;
 import rosie.com.rosiebeauty.Model.TimeScheduleButtonManager;
 import rosie.com.rosiebeauty.R;
@@ -111,14 +112,14 @@ public class MultiViewTypeAdapter extends RecyclerView.Adapter {
 
         public TimeHolder(View itemView) {
             super(itemView);
-            this.btnTimeManager = new TimeScheduleButtonManager ( (Button) itemView.findViewById(R.id.btnViewSchedule), TimeScheduleButtonManager.ButtonTimeStatus.UNSELECTED);
+            this.btnTimeManager = new TimeScheduleButtonManager((Button) itemView.findViewById(R.id.btnViewSchedule), TimeScheduleButtonManager.ButtonTimeStatus.UNSELECTED);
         }
     }
 
     public static class ServiceCardListHolder extends RecyclerView.ViewHolder {
 
         ImageView imgService;
-        TextView txtName;
+        TextView txtName, txtPromotion, rateStar, countComment, serAddress;
         TextView txtPrice;
         TextView txtPriceAfterPromotion;
         RelativeLayout relativeLayout;
@@ -129,6 +130,10 @@ public class MultiViewTypeAdapter extends RecyclerView.Adapter {
             this.txtName = (TextView) itemView.findViewById(R.id.txtNameService);
             this.txtPrice = (TextView) itemView.findViewById(R.id.txtPriceService);
             this.txtPriceAfterPromotion = (TextView) itemView.findViewById(R.id.txtPriceAfterPromotion);
+            this.txtPromotion = (TextView) itemView.findViewById(R.id.txtPromotion);
+            this.rateStar = (TextView) itemView.findViewById(R.id.rateStar);
+            this.countComment = (TextView) itemView.findViewById(R.id.countComment);
+            this.serAddress = (TextView) itemView.findViewById(R.id.serAddress);
             this.relativeLayout = (RelativeLayout) itemView.findViewById(R.id.service_card_item_container);
         }
     }
@@ -381,7 +386,6 @@ public class MultiViewTypeAdapter extends RecyclerView.Adapter {
                     });
                     break;
                 case MultiViewModel.TYPE_IMG_TEXT_PRICE:
-                    ((ServiceCardListHolder) holder).relativeLayout.getLayoutParams().width = object.width;
                     ((ServiceCardListHolder) holder).imgService.setImageResource(object.data);
                     ((ServiceCardListHolder) holder).imgService.setClipToOutline(true);
 
@@ -394,7 +398,6 @@ public class MultiViewTypeAdapter extends RecyclerView.Adapter {
                                 outline.setRoundRect(0, 0, view.getWidth(), (view.getHeight() + curveRadius), curveRadius);
                             }
                         });
-
                     }
                     ((ServiceCardListHolder) holder).txtPriceAfterPromotion.setClipToOutline(true);
                     ((ServiceCardListHolder) holder).txtName.setText(object.text);
@@ -402,11 +405,15 @@ public class MultiViewTypeAdapter extends RecyclerView.Adapter {
                         ((ServiceCardListHolder) holder).txtPrice.setText(object.price);
                         ((ServiceCardListHolder) holder).txtPrice.setPaintFlags(((ServiceCardListHolder) holder).txtPrice.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
                         ((ServiceCardListHolder) holder).txtPriceAfterPromotion.setText(object.priceAfterPromotion);
+                        ((ServiceCardListHolder) holder).txtPromotion.setText(object.intPromotion + "");
                     } else {
-                        ((ServiceCardListHolder) holder).txtPrice.setText("");
-                        ((ServiceCardListHolder) holder).txtPriceAfterPromotion.setText(object.price);
-                        ((ServiceCardListHolder) holder).txtPriceAfterPromotion.setTextColor(Color.parseColor("#015FA3"));
+                        ((ServiceCardListHolder) holder).txtPrice.setText(object.price);
+                        ((ServiceCardListHolder) holder).txtPrice.setAlpha(1);
+                        ((ServiceCardListHolder) holder).txtPromotion.setText("");
                     }
+                    ((ServiceCardListHolder) holder).rateStar.setText(object.rate + "");
+                    ((ServiceCardListHolder) holder).countComment.setText(object.countComment + "");
+                    ((ServiceCardListHolder) holder).serAddress.setText(object.address);
                     break;
                 case MultiViewModel.TYPE_SECTION_TITLE:
                     ((SectionTitleViewHolder) holder).txtType.setText(object.text);
@@ -448,26 +455,26 @@ public class MultiViewTypeAdapter extends RecyclerView.Adapter {
                             @Override
                             public void getOutline(View view, Outline outline) {
                                 int curveRadius = 30;
-                                outline.setRoundRect(0, 0, (view.getWidth()+ curveRadius), view.getHeight() , curveRadius);
+                                outline.setRoundRect(0, 0, (view.getWidth() + curveRadius), view.getHeight(), curveRadius);
                             }
                         });
 
                     }
                     break;
                 case MultiViewModel.TYPE_FACEBOOK_COMMENT:
-                    ((CommentTypeViewHolder)holder).txtUsername.setText(object.username);
-                    ((CommentTypeViewHolder)holder).txtComment.setText(object.comment);
-                    ((CommentTypeViewHolder)holder).avatar.setImageResource(object.iconId);
+                    ((CommentTypeViewHolder) holder).txtUsername.setText(object.username);
+                    ((CommentTypeViewHolder) holder).txtComment.setText(object.comment);
+                    ((CommentTypeViewHolder) holder).avatar.setImageResource(object.iconId);
                     break;
                 case MultiViewModel.TYPE_BUTTON_TIME_SCHEDULE:
-                    final TimeHolder timeHolder =  ((TimeHolder)holder);
+                    final TimeHolder timeHolder = ((TimeHolder) holder);
                     listTimeHolders.add(timeHolder);
                     timeHolder.btnTimeManager.getBtnTime().setText(object.text);
                     if (listPosition == 0) {
                         timeHolder.btnTimeManager.setButtonStatus(TimeScheduleButtonManager.ButtonTimeStatus.DISABLED);
                     } else {
                         timeHolder.btnTimeManager.setButtonStatus(TimeScheduleButtonManager.ButtonTimeStatus.UNSELECTED);
-                        timeHolder.btnTimeManager.getBtnTime().setOnClickListener(new View.OnClickListener(){
+                        timeHolder.btnTimeManager.getBtnTime().setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
                                 for (int i = 1; i < listTimeHolders.size(); i++) {
@@ -475,7 +482,8 @@ public class MultiViewTypeAdapter extends RecyclerView.Adapter {
                                         listTimeHolders.get(i).btnTimeManager.setButtonStatus(TimeScheduleButtonManager.ButtonTimeStatus.UNSELECTED);
                                     }
                                 }
-                                timeHolder.btnTimeManager.setButtonStatus(TimeScheduleButtonManager.ButtonTimeStatus.SELECTED);;
+                                timeHolder.btnTimeManager.setButtonStatus(TimeScheduleButtonManager.ButtonTimeStatus.SELECTED);
+                                ;
                             }
                         });
                     }
