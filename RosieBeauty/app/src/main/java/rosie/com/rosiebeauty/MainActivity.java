@@ -141,18 +141,7 @@ public class MainActivity extends AppCompatActivity {
         return true;
     }
 
-    public void clickTextViewOnCategoryHome(View view) {
-        TextView textView = (TextView) view;
-        String text = textView.getText().toString();
-        switch (text) {
-            default:
-                BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_nav);
-                bottomNavigationView.setVisibility(View.GONE);
-                selectedFragment = new CategoryServices();
-                getSupportFragmentManager().beginTransaction().add(R.id.fragment_container, selectedFragment).addToBackStack(null).commit();
-        }
-
-    }
+    
 
     @Override
     public void onBackPressed() {

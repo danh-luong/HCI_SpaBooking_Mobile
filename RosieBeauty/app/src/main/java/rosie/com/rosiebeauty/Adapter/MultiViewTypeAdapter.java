@@ -4,6 +4,7 @@ import android.content.Context;
 import android.graphics.Color;
 import android.graphics.Outline;
 import android.graphics.Paint;
+import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -306,6 +307,7 @@ public class MultiViewTypeAdapter extends RecyclerView.Adapter {
 
         if (object != null) {
             switch (object.type) {
+                //Slideshow in Home
                 case MultiViewModel.TYPE_SLIDESHOW:
                     ((SlideshowTypeViewHolder) holder).imgSlideshow.setClipToOutline(true);
                     ((SlideshowTypeViewHolder) holder).imgSlideshow.setAdapter(new SlideshowAdapter(mContext));
@@ -324,11 +326,13 @@ public class MultiViewTypeAdapter extends RecyclerView.Adapter {
                     swipeTimer = new Timer();
                     swipeTimer.schedule(timerTask, 1000, 3000);
                     break;
+                    //Category in Home
                 case MultiViewModel.TYPE_IMAGE_WITH_TEXT:
                     ((ImageTypeViewHolder) holder).txtType.setText(object.text);
                     ((ImageTypeViewHolder) holder).image.setImageResource(object.data);
                     ((ImageTypeViewHolder) holder).image.setClipToOutline(true);
                     break;
+                    //Suggest in Search
                 case MultiViewModel.TYPE_IMAGE_INLINE_WITH_TEXT:
                     ((ImageTypeViewHolder) holder).txtType.setText(object.text);
                     ((ImageTypeViewHolder) holder).image.setImageResource(object.data);
@@ -367,6 +371,7 @@ public class MultiViewTypeAdapter extends RecyclerView.Adapter {
                         });
                     }
                     break;
+                    //Trending in Search
                 case MultiViewModel.TYPE_TEXT_INSIDE_IMAGE:
                     ((ImageTypeViewHolder) holder).txtType.setText(object.text);
                     ((ImageTypeViewHolder) holder).image.setImageResource(object.data);
@@ -385,6 +390,7 @@ public class MultiViewTypeAdapter extends RecyclerView.Adapter {
                         }
                     });
                     break;
+                    //Promotion in Home
                 case MultiViewModel.TYPE_IMG_TEXT_PRICE:
                     ((ServiceCardListHolder) holder).imgService.setImageResource(object.data);
                     ((ServiceCardListHolder) holder).imgService.setClipToOutline(true);
@@ -406,15 +412,26 @@ public class MultiViewTypeAdapter extends RecyclerView.Adapter {
                         ((ServiceCardListHolder) holder).txtPrice.setPaintFlags(((ServiceCardListHolder) holder).txtPrice.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
                         ((ServiceCardListHolder) holder).txtPriceAfterPromotion.setText(object.priceAfterPromotion);
                         ((ServiceCardListHolder) holder).txtPromotion.setText(object.intPromotion + "");
-                    } else {
+                        ((ServiceCardListHolder) holder).txtPromotion.setBackgroundColor(Color.parseColor("#FF0000"));
+                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+
+                            ((ServiceCardListHolder) holder).txtPromotion.setOutlineProvider(new ViewOutlineProvider() {
+                                @Override
+                                public void getOutline(View view, Outline outline) {
+                                    int curveRadius = 30;
+                                    outline.setRoundRect(0, 0, view.getWidth(), (view.getHeight() + curveRadius), curveRadius);
+                                }
+                            });
+                        }
+                    } else if (object.hasPromotion == MultiViewModel.NO_PROMOTION){
                         ((ServiceCardListHolder) holder).txtPrice.setText(object.price);
                         ((ServiceCardListHolder) holder).txtPrice.setAlpha(1);
-                        ((ServiceCardListHolder) holder).txtPromotion.setText("");
                     }
                     ((ServiceCardListHolder) holder).rateStar.setText(object.rate + "");
                     ((ServiceCardListHolder) holder).countComment.setText(object.countComment + "");
                     ((ServiceCardListHolder) holder).serAddress.setText(object.address);
                     break;
+                //Section in Appoinment
                 case MultiViewModel.TYPE_SECTION_TITLE:
                     ((SectionTitleViewHolder) holder).txtType.setText(object.text);
                     break;
@@ -458,7 +475,6 @@ public class MultiViewTypeAdapter extends RecyclerView.Adapter {
                                 outline.setRoundRect(0, 0, (view.getWidth() + curveRadius), view.getHeight(), curveRadius);
                             }
                         });
-
                     }
                     break;
                 case MultiViewModel.TYPE_FACEBOOK_COMMENT:
