@@ -128,6 +128,8 @@ public class MainActivity extends AppCompatActivity {
                 selectedFragment = searchFragment;
                 ((SearchFragment)selectedFragment).setSearchView(this.searchView);
                 if (!isCurrentSearchFragment) {
+                    BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_nav);
+                    bottomNavigationView.setVisibility(View.GONE);
                     searchView.clearFocus();
                     isCurrentSearchFragment = true;
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, selectedFragment).addToBackStack(null).commit();
