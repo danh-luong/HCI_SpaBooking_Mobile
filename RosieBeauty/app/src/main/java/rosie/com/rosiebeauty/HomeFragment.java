@@ -1,13 +1,10 @@
 package rosie.com.rosiebeauty;
 
 import android.annotation.SuppressLint;
-import android.icu.text.DecimalFormat;
-import android.icu.util.Currency;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.DefaultItemAnimator;
@@ -18,7 +15,6 @@ import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
-import java.util.Random;
 
 import rosie.com.rosiebeauty.Adapter.MultiViewTypeAdapter;
 import rosie.com.rosiebeauty.Model.MultiViewModel;
@@ -36,7 +32,7 @@ public class HomeFragment extends Fragment {
     private Double[] pro_rateStar, near_rateStar;
     Locale locale = Locale.forLanguageTag("vi-VN");
     java.text.NumberFormat formatPrice = NumberFormat.getCurrencyInstance(locale);
-
+    private int int_promotion = -1;
 
     public HomeFragment() {
         // Required empty public constructor
@@ -103,7 +99,7 @@ public class HomeFragment extends Fragment {
                 4.8
         };
         pro_countComment = new int[]{
-                4, 5, 7, 8, 6,5
+                4, 5, 7, 8, 6, 5
         };
         pro_address = new String[]{
                 "Nguyễn Thiện Thuật, Q.3",
@@ -138,9 +134,9 @@ public class HomeFragment extends Fragment {
                 25,
                 20,
                 20,
-                15,
-                15,
-                5,
+                0,
+                0,
+                0,
         };
         near_rateStar = new Double[]{
                 5.0,
@@ -151,7 +147,7 @@ public class HomeFragment extends Fragment {
                 4.0,
         };
         near_countComment = new int[]{
-                4, 5, 7, 8, 10,9
+                4, 5, 7, 8, 10, 9
         };
         near_address = new String[]{
                 "Phạm Văn Đồng, Q. Bình Thạnh",
@@ -163,7 +159,7 @@ public class HomeFragment extends Fragment {
 
         };
         near_price = new int[]{
-                8000000, 500000, 800000, 600000, 1000000, 400000
+                2000000, 500000, 800000, 600000, 1000000, 400000
         };
 
         MultiViewModel gridViewModel = null;
@@ -186,51 +182,58 @@ public class HomeFragment extends Fragment {
                 new MultiViewModel(MultiViewModel.TYPE_RECYLERVIEW, MultiViewModel.ORIENTATION_HORIZONTAL,
                         2, childMultiViewModels);
         gridViewModelArrayList.add(gridViewModel);
-        //Promotion
-        for (int i = 0; i < pro_names.length; i++) {
-            if (i == 0) {
-                gridViewModel = new MultiViewModel(MultiViewModel.TYPE_SECTION_TITLE, "Giảm giá HOT");
+
+
+        //Nearly
+        gridViewModel = new MultiViewModel(MultiViewModel.TYPE_SECTION_TITLE, "Gần bạn");
+        gridViewModelArrayList.add(gridViewModel);
+
+        for (int i = 0; i < near_names.length; i++) {
+            int near_afterpromotion = 0;
+            //Check promotion
+            if (near_txtPromotion[i] == 0) {
+                int_promotion = MultiViewModel.NO_PROMOTION;
+            } else if (near_txtPromotion[i] > 0) {
+                int_promotion = MultiViewModel.HAS_PROMOTION;
+                near_afterpromotion = near_price[i] - (near_price[i] * near_txtPromotion[i] / 100);
+            }
+            int price_acronym = 0;
+            //show service
+            if (Math.abs(near_price[i] / 1000000) > 1) {
+                price_acronym = (near_price[i] / 1000000);
+                gridViewModel = new MultiViewModel(MultiViewModel.TYPE_IMG_TEXT_PRICE, near_pic[i], near_names[i],
+                        price_acronym + " triệu", formatPrice.format(near_afterpromotion),
+                        int_promotion, near_rateStar[i], near_countComment[i], near_address[i], "-" + near_txtPromotion[i] + "%");
                 gridViewModelArrayList.add(gridViewModel);
+            } else {
+                gridViewModel = new MultiViewModel(MultiViewModel.TYPE_IMG_TEXT_PRICE, near_pic[i], near_names[i],
+                        formatPrice.format(near_price[i]), formatPrice.format(near_afterpromotion),
+                        int_promotion, near_rateStar[i], near_countComment[i], near_address[i], "-" + near_txtPromotion[i] + "%");
+                gridViewModelArrayList.add(gridViewModel);
+            }
+        }
+
+        //Promotion
+        gridViewModel = new MultiViewModel(MultiViewModel.TYPE_SECTION_TITLE, "Giảm giá HOT");
+        gridViewModelArrayList.add(gridViewModel);
+        for (int i = 0; i < pro_names.length; i++) {
+            int price_afterpromotion = 0;
+            price_afterpromotion = pro_price[i] - (pro_price[i] * pro_txtPromotion[i] / 100);
+            float price_acronym = 0;
+            //show service
+            if (Math.abs(pro_price[i] / 1000000) > 1) {
+                price_acronym = (pro_price[i] / 1000000);
                 gridViewModel = new MultiViewModel(MultiViewModel.TYPE_IMG_TEXT_PRICE, pro_pic[i], pro_names[i],
-                        formatPrice.format(pro_price[i]), formatPrice.format(pro_price[i] - (pro_price[i] * pro_txtPromotion[i] / 100)), MultiViewModel.HAS_PROMOTION,
+                        price_acronym + " triệu", formatPrice.format(price_afterpromotion), MultiViewModel.HAS_PROMOTION,
                         pro_rateStar[i], pro_countComment[i], pro_address[i], "-" + pro_txtPromotion[i] + "%");
                 gridViewModelArrayList.add(gridViewModel);
             } else {
-                if (i % 2 == 0) {
-                    gridViewModel = new MultiViewModel(MultiViewModel.TYPE_IMG_TEXT_PRICE, pro_pic[i], pro_names[i],
-                            formatPrice.format(pro_price[i]), formatPrice.format(pro_price[i] - (pro_price[i] * pro_txtPromotion[i] / 100)), MultiViewModel.HAS_PROMOTION,
-                            pro_rateStar[i], pro_countComment[i], pro_address[i], "-" + pro_txtPromotion[i] + "%");
-                    gridViewModelArrayList.add(gridViewModel);
-                } else {
-                    gridViewModel = new MultiViewModel(MultiViewModel.TYPE_IMG_TEXT_PRICE, pro_pic[i], pro_names[i],
-                            formatPrice.format(pro_price[i]), formatPrice.format(pro_price[i] - (pro_price[i] * pro_txtPromotion[i] / 100)), MultiViewModel.HAS_PROMOTION,
-                            pro_rateStar[i], pro_countComment[i], pro_address[i], "-" + pro_txtPromotion[i] + "%");
-                    gridViewModelArrayList.add(gridViewModel);
-                }
+                gridViewModel = new MultiViewModel(MultiViewModel.TYPE_IMG_TEXT_PRICE, pro_pic[i], pro_names[i],
+                        formatPrice.format(pro_price[i]), formatPrice.format(price_afterpromotion), MultiViewModel.HAS_PROMOTION,
+                        pro_rateStar[i], pro_countComment[i], pro_address[i], "-" + pro_txtPromotion[i] + "%");
+                gridViewModelArrayList.add(gridViewModel);
             }
         }
-        //Nearly
-        for (int i = 0; i < pro_names.length; i++) {
-            if (i == 0) {
-                gridViewModel = new MultiViewModel(MultiViewModel.TYPE_SECTION_TITLE, "Gần bạn");
-                gridViewModelArrayList.add(gridViewModel);
-                gridViewModel = new MultiViewModel(MultiViewModel.TYPE_IMG_TEXT_PRICE, near_pic[i], near_names[i],
-                        formatPrice.format(near_price[i]), formatPrice.format(near_price[i] - (near_price[i] * near_txtPromotion[i] / 100)), MultiViewModel.HAS_PROMOTION,
-                        near_rateStar[i], near_countComment[i], near_address[i], "-" + near_txtPromotion[i] + "%");
-                gridViewModelArrayList.add(gridViewModel);
-            } else {
-                if (i % 2 == 0) {
-                    gridViewModel = new MultiViewModel(MultiViewModel.TYPE_IMG_TEXT_PRICE, near_pic[i], near_names[i],
-                            formatPrice.format(near_price[i]), formatPrice.format(near_price[i] - (near_price[i] * near_txtPromotion[i] / 100)), MultiViewModel.HAS_PROMOTION,
-                            near_rateStar[i], near_countComment[i], near_address[i], "-" + near_txtPromotion[i] + "%");
-                    gridViewModelArrayList.add(gridViewModel);
-                } else {
-                    gridViewModel = new MultiViewModel(MultiViewModel.TYPE_IMG_TEXT_PRICE, near_pic[i], near_names[i],
-                            formatPrice.format(near_price[i]), formatPrice.format(near_price[i] - (near_price[i] * near_txtPromotion[i] / 100)), MultiViewModel.HAS_PROMOTION,
-                            near_rateStar[i], near_countComment[i], near_address[i], "-" + near_txtPromotion[i] + "%");
-                    gridViewModelArrayList.add(gridViewModel);
-                }
-            }
-        }
+
     }
 }

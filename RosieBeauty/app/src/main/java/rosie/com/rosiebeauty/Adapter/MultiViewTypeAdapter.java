@@ -4,7 +4,6 @@ import android.content.Context;
 import android.graphics.Color;
 import android.graphics.Outline;
 import android.graphics.Paint;
-import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,16 +15,15 @@ import android.widget.RatingBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.DefaultItemAnimator;
-import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 import androidx.viewpager.widget.ViewPager;
 
 import com.beardedhen.androidbootstrap.BootstrapCircleThumbnail;
 import com.miguelcatalan.materialsearchview.MaterialSearchView;
-
 
 import java.util.ArrayList;
 import java.util.List;
@@ -412,20 +410,14 @@ public class MultiViewTypeAdapter extends RecyclerView.Adapter {
                         ((ServiceCardListHolder) holder).txtPrice.setPaintFlags(((ServiceCardListHolder) holder).txtPrice.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
                         ((ServiceCardListHolder) holder).txtPriceAfterPromotion.setText(object.priceAfterPromotion);
                         ((ServiceCardListHolder) holder).txtPromotion.setText(object.intPromotion + "");
-                        ((ServiceCardListHolder) holder).txtPromotion.setBackgroundColor(Color.parseColor("#FF0000"));
-                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                        ((ServiceCardListHolder) holder).txtPromotion.setBackground(mContext.getResources().getDrawable(R.drawable.service_card_list_image_corner));
+                        ((ServiceCardListHolder) holder).txtPrice.setAlpha(0.5f);
 
-                            ((ServiceCardListHolder) holder).txtPromotion.setOutlineProvider(new ViewOutlineProvider() {
-                                @Override
-                                public void getOutline(View view, Outline outline) {
-                                    int curveRadius = 30;
-                                    outline.setRoundRect(0, 0, view.getWidth(), (view.getHeight() + curveRadius), curveRadius);
-                                }
-                            });
-                        }
                     } else if (object.hasPromotion == MultiViewModel.NO_PROMOTION){
                         ((ServiceCardListHolder) holder).txtPrice.setText(object.price);
                         ((ServiceCardListHolder) holder).txtPrice.setAlpha(1);
+                        ((ServiceCardListHolder) holder).txtPromotion.setText("");
+                        ((ServiceCardListHolder) holder).txtPromotion.setBackgroundColor(Color.TRANSPARENT);
                     }
                     ((ServiceCardListHolder) holder).rateStar.setText(object.rate + "");
                     ((ServiceCardListHolder) holder).countComment.setText(object.countComment + "");

@@ -1,8 +1,5 @@
 package rosie.com.rosiebeauty.Model;
 
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
-
 import java.util.List;
 
 public class MultiViewModel {
