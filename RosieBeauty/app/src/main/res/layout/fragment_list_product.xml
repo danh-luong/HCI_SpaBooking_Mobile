@@ -1,14 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".ListProduct">
-
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    android:layout_height="wrap_content"
+    android:paddingLeft="5dp"
+    android:paddingRight="5dp">
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:id="@+id/btnFilter">
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:padding="10dp"
+        android:layout_margin="10dp"
+        android:background="@drawable/service_card_list_image_corner"
+        android:textColor="@color/white"
+        android:text="Gần đây"
+        android:id="@+id/btnNearly"
+        android:onClick="clickToShowNearly"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:padding="10dp"
+        android:layout_margin="10dp"
+        android:fontFamily="@font/philosopher_bold"
+        android:background="@drawable/service_card_list_image_corner"
+        android:fontFamily="@font/philosopher_bold"
+        android:textColor="@color/white"
+        android:text="Đánh giá"
+        android:id="@+id/btnRate"
+        android:onClick="clickToShowRate"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:padding="10dp"
+        android:fontFamily="@font/philosopher_bold"
+        android:layout_margin="10dp"
+        android:background="@drawable/service_card_list_image_corner"
+        android:textColor="@color/white"
+        android:text="Khuyến mại"
+        android:id="@+id/btnPromotion"
+        android:onClick="clickToShowPromotion"/>
+</LinearLayout>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/item_recyler_view"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
-
-</FrameLayout>
+        android:layout_height="wrap_content"
+        android:background="?android:attr/selectableItemBackground"
+        android:layout_below="@+id/btnFilter"/>
+</RelativeLayout>
