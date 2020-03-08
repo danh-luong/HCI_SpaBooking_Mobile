@@ -26,6 +26,14 @@ public class SpaServiceDetailFragment extends Fragment {
     private ArrayList<MultiViewModel> commentList;
     private RecyclerView commentsHolder;
 
+    private static com.beardedhen.androidbootstrap.BootstrapButton buttonBook;
+
+
+    public static void updateButtonBook() {
+        String buttonBookString = "Lịch đặt: " + "ngày " + MainActivity.schedule_button_date + " lúc: " + MainActivity.schedule_button_time + " | " + "Đặt ngay!";
+        if(buttonBook != null) buttonBook.setText(buttonBookString);
+    }
+
 
     private String[] user_names = new String[]{
             "Nguyễn Văn Nam", "Trần Văn Kiệt", "Lê Thị Tám", "Quỳnh Thị Nhạn"
@@ -53,6 +61,7 @@ public class SpaServiceDetailFragment extends Fragment {
         // Inflate the layout for this fragment
         View rootView = inflater.inflate(R.layout.fragment_spa_service_detail, container, false);
         ((AppCompatActivity) getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        buttonBook = rootView.findViewById(R.id.boostrapButtonBook);
 
         prepareData();
         MultiViewTypeAdapter commentAdapter = new MultiViewTypeAdapter(commentList, this.getActivity().getApplicationContext());

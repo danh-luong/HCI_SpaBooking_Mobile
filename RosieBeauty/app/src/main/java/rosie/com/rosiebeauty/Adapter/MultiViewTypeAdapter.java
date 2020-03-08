@@ -30,6 +30,7 @@ import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import rosie.com.rosiebeauty.MainActivity;
 import rosie.com.rosiebeauty.Model.MultiViewModel;
 import rosie.com.rosiebeauty.Model.TimeScheduleButtonManager;
 import rosie.com.rosiebeauty.R;
@@ -490,6 +491,8 @@ public class MultiViewTypeAdapter extends RecyclerView.Adapter {
                                     }
                                 }
                                 timeHolder.btnTimeManager.setButtonStatus(TimeScheduleButtonManager.ButtonTimeStatus.SELECTED);
+                                MainActivity.schedule_button_time = timeHolder.btnTimeManager.getBtnTime().getText().toString();
+                                SpaServiceDetailFragment.updateButtonBook();
                                 ;
                             }
                         });

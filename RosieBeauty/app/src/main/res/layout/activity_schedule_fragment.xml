@@ -58,19 +58,7 @@
             android:inputType="textMultiLine"
             android:layout_marginTop="15dp"/>
 
-        <com.beardedhen.androidbootstrap.BootstrapButton
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Đặt"
-            android:layout_marginLeft="30dp"
-            android:layout_marginRight="30dp"
-            android:layout_marginTop="15dp"
-            android:layout_marginBottom="20dp"
-            app:bootstrapBrand="danger"
-            app:bootstrapSize="lg"
-            app:buttonMode="regular"
-            app:showOutline="false"
-            app:roundedCorners="true" />
+
 
     </LinearLayout>
 

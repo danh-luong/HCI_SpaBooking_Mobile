@@ -23,11 +23,16 @@ import com.miguelcatalan.materialsearchview.MaterialSearchView;
 
 public class MainActivity extends AppCompatActivity {
 
+    public static String schedule_button_date = "";
+    public static String schedule_button_time = "";
+
     MaterialSearchView searchView;
     private Fragment selectedFragment = null;
     private FragmentActivity selectedFragmentActivity = null;
     private boolean isCurrentSearchFragment = false;
     private SearchFragment searchFragment = null;
+
+
 
 
     @Override
