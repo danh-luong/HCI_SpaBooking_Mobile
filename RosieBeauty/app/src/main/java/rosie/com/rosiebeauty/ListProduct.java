@@ -1,25 +1,25 @@
 package rosie.com.rosiebeauty;
 
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-
 import java.util.ArrayList;
 import java.util.List;
 
-public class ListProduct extends Fragment implements ActionBar.TabListener{
-    private List<Fragment> sortTabs = new ArrayList<>();
+public class ListProduct extends Fragment implements ActionBar.TabListener {
+    private List<Fragment> listTabs = new ArrayList<>();
     private TabNearly tabNearly;
     private TabRating tabRating;
     private TabPromotion tabPromotion;
     private String username;
+
     public ListProduct() {
         // Required empty public constructor
     }
@@ -27,6 +27,8 @@ public class ListProduct extends Fragment implements ActionBar.TabListener{
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        ((AppCompatActivity) getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         ActionBar bar = ((AppCompatActivity) getActivity()).getSupportActionBar();
         bar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
 
@@ -55,12 +57,36 @@ public class ListProduct extends Fragment implements ActionBar.TabListener{
 
     @Override
     public void onTabSelected(ActionBar.Tab tab, FragmentTransaction ft) {
-
+        if (tab.getPosition() == 0) {
+            if (tabNearly == null) {
+                tabNearly = new TabNearly();
+                listTabs.add(tabNearly);
+            } else {
+                tabNearly = (TabNearly) listTabs.get(tab.getPosition());
+            }
+            ft.replace(android.R.id.content, tabNearly);
+        } else if (tab.getPosition() == 1) {
+            if (tabPromotion == null) {
+                tabPromotion = new TabPromotion();
+                listTabs.add(tabPromotion);
+            } else {
+                tabPromotion = (TabPromotion) listTabs.get(tab.getPosition());
+            }
+            ft.replace(android.R.id.content, tabPromotion);
+        } else {
+            if (tabRating == null) {
+                tabRating = new TabRating();
+                listTabs.add(tabRating);
+            } else {
+                tabRating = (TabRating) listTabs.get(tab.getPosition());
+            }
+            ft.replace(android.R.id.content, tabRating);
+        }
     }
 
     @Override
     public void onTabUnselected(ActionBar.Tab tab, FragmentTransaction ft) {
-
+        ft.remove(listTabs.get(tab.getPosition()));
     }
 
     @Override

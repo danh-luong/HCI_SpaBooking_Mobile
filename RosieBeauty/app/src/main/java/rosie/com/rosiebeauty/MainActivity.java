@@ -185,4 +185,9 @@ public class MainActivity extends AppCompatActivity {
         getSupportFragmentManager().beginTransaction().setCustomAnimations(R.animator.slide_in_left, R.animator.slide_out_right, R.animator.pop_out_right, R.animator.pop_in_left).setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN).replace(R.id.fragment_container, selectedFragment).addToBackStack(null).commit();
 
     }
+
+    public void clickToViewList(View view) {
+        selectedFragment = new ListProduct();
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, selectedFragment).commit();
+    }
 }
