@@ -71,6 +71,7 @@ public class MainActivity extends AppCompatActivity {
                     switch (item.getItemId()) {
                         case R.id.action_home:
                             selectedFragment = new HomeFragment();
+                              MainActivity.this.getSupportActionBar().setDisplayHomeAsUpEnabled(false);
                             break;
                         case R.id.action_favorites:
                             selectedFragment = new FavoriteFragment();
@@ -85,6 +86,7 @@ public class MainActivity extends AppCompatActivity {
                             selectedFragment = new ProfileFragment();
                             break;
                     }
+                    isCurrentSearchFragment = false;
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, selectedFragment).commit();
                     return true;
                 }
@@ -143,6 +145,7 @@ public class MainActivity extends AppCompatActivity {
                 }
                 break;
         }
+
         return true;
     }
 

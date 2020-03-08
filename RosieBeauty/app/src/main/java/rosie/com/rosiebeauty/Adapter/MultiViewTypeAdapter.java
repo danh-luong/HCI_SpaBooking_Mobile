@@ -92,7 +92,7 @@ public class MultiViewTypeAdapter extends RecyclerView.Adapter {
 
         TextView txtUsername;
         TextView txtComment;
-        BootstrapCircleThumbnail avatar;
+
 
 
         public CommentTypeViewHolder(View itemView) {
@@ -100,7 +100,7 @@ public class MultiViewTypeAdapter extends RecyclerView.Adapter {
 
             this.txtUsername = (TextView) itemView.findViewById(R.id.txtUsername);
             this.txtComment = (TextView) itemView.findViewById(R.id.txtComment);
-            this.avatar = (BootstrapCircleThumbnail) itemView.findViewById(R.id.imgAvatar);
+
 
         }
     }
@@ -472,7 +472,6 @@ public class MultiViewTypeAdapter extends RecyclerView.Adapter {
                 case MultiViewModel.TYPE_FACEBOOK_COMMENT:
                     ((CommentTypeViewHolder) holder).txtUsername.setText(object.username);
                     ((CommentTypeViewHolder) holder).txtComment.setText(object.comment);
-                    ((CommentTypeViewHolder) holder).avatar.setImageResource(object.iconId);
                     break;
                 case MultiViewModel.TYPE_BUTTON_TIME_SCHEDULE:
                     final TimeHolder timeHolder = ((TimeHolder) holder);

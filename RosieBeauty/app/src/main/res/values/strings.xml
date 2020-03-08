@@ -12,11 +12,11 @@
         <item>Bellona</item>
         <item>Aramintha</item>
     </string-array>
-    <string name="top_trending"><u>Top Trending</u></string>
-    <string name="recent_search"><u>Recent Search</u></string>
-    <string name="search_result"><u>Search Result</u></string>
-    <string name="no_result"><i>No match found</i></string>
+    <string name="top_trending"><u>Xu hướng</u></string>
+    <string name="recent_search"><u>Từ khóa tìm kiếm gần đây</u></string>
+    <string name="search_result"><u>Kết quả tìm kiếm</u></string>
+    <string name="no_result"><i>Không tìm thấy</i></string>
     <string name="demo_description_content">
-        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text\. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text\.
+        Massage body thư giãn nhẹ nhàng, cải thiện tinh thần, giúp ổn định tâm lý và giải tỏa những căng thẳng mệt mỏi trong cơ thể một cách hữu hiệu. Thực hiện kiểu massage này, các kỹ thuật viên dùng những động tác day ấn tròn, dọc cơ lực, ngang đẩy lực, từ đó truyền nguồn năng lượng mới vào các cơ quan chính trong cơ thể, đào thải ứ trệ, độc tố ra ngoài mang đến sự thư giãn tuyệt đối\.
     </string>
 </resources>

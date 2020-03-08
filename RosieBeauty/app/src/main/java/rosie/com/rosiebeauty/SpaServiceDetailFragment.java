@@ -28,11 +28,11 @@ public class SpaServiceDetailFragment extends Fragment {
 
 
     private String[] user_names = new String[]{
-            "Mud Bath", "Salt Stone", "SOOTHE FACIAL", "ORGANIC FACIAL"
+            "Nguyễn Văn Nam", "Trần Văn Kiệt", "Lê Thị Tám", "Quỳnh Thị Nhạn"
     };
 
     private String[] comments = new String[]{
-            "This is a really good service 10/10 recommended", "This is a really good service 9/10 recommended", "This is a really good service 8/10 recommended", "This is a really good service 7/10 recommended"
+            "Dịch vụ này hay lắm các bạn à", "Dịch vụ rất tốt 9/10. Khuyến khích nên thử 1 lần", "Dịch vụ rất tốt 8/10. Khuyến khích nên thử 1 lần", "Dịch vụ rất tốt 7/10. Khuyến khích nên thử 1 lần"
     };
     private int[] avatars = new int[]{
             R.drawable.avatar1,
@@ -63,13 +63,6 @@ public class SpaServiceDetailFragment extends Fragment {
         commentsHolder.setItemAnimator(new DefaultItemAnimator());
         commentsHolder.setAdapter(commentAdapter);
 
-        Button btnViewSchedule = (Button) rootView.findViewById(R.id.btnViewSchedule);
-        btnViewSchedule.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                SpaServiceDetailFragment.this.getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new ScheduleFragment()).commit();
-            }
-        });
         return rootView;
 
     }
