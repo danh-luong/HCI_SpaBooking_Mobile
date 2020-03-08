@@ -83,27 +83,27 @@ public class FragmentNearly extends Fragment {
                         .snippet("Phạm Văn Đồng, Q. Bình Thạnh"));
 
                 mMap.addMarker(new MarkerOptions()
-                        .position(new LatLng(10.8148441, 106.6873383))
+                        .position(new LatLng(10.8147498, 106.6893264))
                         .title("Rose Spa")
                         .snippet("Lê Quang Định, Q. Gò Vấp"));
 
                 mMap.addMarker(new MarkerOptions()
-                        .position(new LatLng(10.8009176, 106.6817639))
+                        .position(new LatLng(10.803484, 106.6887525))
                         .title("Rose Spa")
                         .snippet("Phan Đăng Lưu, Q. Phú Nhuận"));
 
                 mMap.addMarker(new MarkerOptions()
-                        .position(new LatLng(10.8035865, 106.6994101))
+                        .position(new LatLng(10.8026333, 106.7012415))
                         .title("Rose Spa")
                         .snippet("Phan Chu Trinh, Q. Bình Thạnh"));
 
                 mMap.addMarker(new MarkerOptions()
-                        .position(new LatLng(10.7684673, 106.6771623))
+                        .position(new LatLng(10.768925, 106.6783052))
                         .title("Rose Spa")
                         .snippet("Nguyễn Thiện Thuật, Q.3"));
 
                 mMap.addMarker(new MarkerOptions()
-                        .position(new LatLng(10.7715641, 106.6834673))
+                        .position(new LatLng(10.770785, 106.6843526))
                         .title("Rose Spa")
                         .snippet("Võ Văn Tần, Q.3"));
 
@@ -113,12 +113,12 @@ public class FragmentNearly extends Fragment {
                         .snippet("Phan Xích Long, Q.Phú Nhuận"));
 
                 mMap.addMarker(new MarkerOptions()
-                        .position(new LatLng(10.7613989, 106.6900695))
+                        .position(new LatLng(10.7617781, 106.6913156))
                         .title("Rose Spa")
                         .snippet("Hồ Hảo Hớn, Q.1"));
 
                 mMap.addMarker(new MarkerOptions()
-                        .position(new LatLng(10.7894365, 106.6728024))
+                        .position(new LatLng(10.7887217, 106.6756508))
                         .title("Rose Spa")
                         .snippet("Lê Văn Sĩ, Quận 3"));
             }
