@@ -123,8 +123,6 @@ public class FragmentNearly extends Fragment {
                         .snippet("Lê Văn Sĩ, Quận 3"));
             }
         });
-
-
         return rootView;
     }
 }
