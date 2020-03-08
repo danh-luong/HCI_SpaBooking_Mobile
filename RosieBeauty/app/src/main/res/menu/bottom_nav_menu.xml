@@ -5,28 +5,35 @@
         android:id="@+id/action_home"
         android:enabled="true"
         android:icon="@drawable/ic_action_home"
-        android:title="Home"
+        android:title="Trang chủ"
         app:actionViewClass="android.widget.ImageButton"
         app:showAsAction="always"/>
     <item
         android:id="@+id/action_favorites"
         android:enabled="true"
         android:icon="@drawable/ic_action_favorites"
-        android:title="Favorites"
+        android:title="Yêu thích"
+        app:actionViewClass="android.widget.ImageButton"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/action_map"
+        android:enabled="true"
+        android:icon="@drawable/ic_map"
+        android:title="Gần đây"
         app:actionViewClass="android.widget.ImageButton"
         app:showAsAction="always" />
     <item
         android:id="@+id/action_book"
         android:enabled="true"
         android:icon="@drawable/ic_action_book"
-        android:title="Book"
+        android:title="Lịch hẹn"
         app:actionViewClass="android.widget.ImageButton"
         app:showAsAction="always" />
     <item
         android:id="@+id/action_profile"
         android:enabled="true"
         android:icon="@drawable/ic_action_profile"
-        android:title="Profile"
+        android:title="Hồ sơ"
         app:actionViewClass="android.widget.ImageButton"
         app:showAsAction="always" />
 </menu>

@@ -15,6 +15,7 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -24,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
 
     MaterialSearchView searchView;
     private Fragment selectedFragment = null;
+    private FragmentActivity selectedFragmentActivity = null;
     private boolean isCurrentSearchFragment = false;
     private SearchFragment searchFragment = null;
 
@@ -50,6 +52,7 @@ public class MainActivity extends AppCompatActivity {
         setupSearchView();
 
     }
+
     protected void setStatusBarGradiant(Activity activity) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             Window window = activity.getWindow();
@@ -59,6 +62,7 @@ public class MainActivity extends AppCompatActivity {
             window.setBackgroundDrawable(background);
         }
     }
+
     private BottomNavigationView.OnNavigationItemSelectedListener navListener =
             new BottomNavigationView.OnNavigationItemSelectedListener() {
                 @Override
@@ -71,6 +75,9 @@ public class MainActivity extends AppCompatActivity {
                         case R.id.action_favorites:
                             selectedFragment = new FavoriteFragment();
                             break;
+                        case R.id.action_map:
+                            selectedFragment = new FragmentNearly();
+                            break;
                         case R.id.action_book:
                             selectedFragment = new BookingFragment();
                             break;
@@ -79,20 +86,20 @@ public class MainActivity extends AppCompatActivity {
                             break;
                     }
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, selectedFragment).commit();
-                    return  true;
+                    return true;
                 }
             };
 
 
     private void setupSearchView() {
-        searchView = (MaterialSearchView)findViewById(R.id.search_view);
+        searchView = (MaterialSearchView) findViewById(R.id.search_view);
         //searchView.setSuggestions(getResources().getStringArray(R.array.product_list));
         searchView.setOnQueryTextListener(new MaterialSearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
-                ((SearchFragment)selectedFragment).displaySubmitData(query);
-                ((SearchFragment)selectedFragment).setIsSubmit(true);
-                ((SearchFragment)selectedFragment).previousText = query;
+                ((SearchFragment) selectedFragment).displaySubmitData(query);
+                ((SearchFragment) selectedFragment).setIsSubmit(true);
+                ((SearchFragment) selectedFragment).previousText = query;
                 return false;
             }
 
@@ -113,7 +120,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
@@ -121,11 +127,11 @@ public class MainActivity extends AppCompatActivity {
                 onBackPressed();
                 break;
             case R.id.action_search:
-                if(searchFragment == null) {
+                if (searchFragment == null) {
                     searchFragment = new SearchFragment();
                 }
                 selectedFragment = searchFragment;
-                ((SearchFragment)selectedFragment).setSearchView(this.searchView);
+                ((SearchFragment) selectedFragment).setSearchView(this.searchView);
                 if (!isCurrentSearchFragment) {
                     BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_nav);
                     bottomNavigationView.setVisibility(View.GONE);
@@ -140,26 +146,24 @@ public class MainActivity extends AppCompatActivity {
         return true;
     }
 
-    
 
     @Override
     public void onBackPressed() {
         super.onBackPressed();
         Fragment f = getSupportFragmentManager().findFragmentById(R.id.fragment_container);
-        if(f instanceof HomeFragment){
+        if (f instanceof HomeFragment) {
             BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_nav);
             bottomNavigationView.setVisibility(View.VISIBLE);
             getSupportActionBar().setDisplayHomeAsUpEnabled(false);
-        }else if(f instanceof BookingFragment){
+        } else if (f instanceof BookingFragment) {
             BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_nav);
             bottomNavigationView.setVisibility(View.VISIBLE);
             getSupportActionBar().setDisplayHomeAsUpEnabled(false);
-        }else if(f instanceof FavoriteFragment){
+        } else if (f instanceof FavoriteFragment) {
             BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_nav);
             bottomNavigationView.setVisibility(View.VISIBLE);
             getSupportActionBar().setDisplayHomeAsUpEnabled(false);
-        }
-        else if(f instanceof ProfileFragment){
+        } else if (f instanceof ProfileFragment) {
             BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_nav);
             bottomNavigationView.setVisibility(View.VISIBLE);
             getSupportActionBar().setDisplayHomeAsUpEnabled(false);
