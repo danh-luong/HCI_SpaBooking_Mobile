@@ -1,8 +1,6 @@
 package rosie.com.rosiebeauty;
 
-import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -15,21 +13,19 @@ import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import rosie.com.rosiebeauty.UserData.CurrentUserData;
+import rosie.com.rosiebeauty.Data.User;
+import rosie.com.rosiebeauty.Data.UserRepository;
 
 public class LoginActivity extends AppCompatActivity {
     private Intent intent;
 
-    public static final String ROLE_ADMIN = "admin";
-    public static final String ROLE_MANAGER = "manager";
-    public static final String ROLE_CUSTOMER = "customer";
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
+        UserRepository.initDataUser();
         setStatusBarGradiant(this);
-        TextView registerLink = (TextView)findViewById(R.id.txtRegisterLink);
+        setContentView(R.layout.activity_login);
+        TextView registerLink = (TextView) findViewById(R.id.txtRegisterLink);
         registerLink.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -43,27 +39,24 @@ public class LoginActivity extends AppCompatActivity {
     public void onclickLogin(View view) {
         String userName = ((EditText) findViewById(R.id.edtUsername)).getText().toString();
         String password = ((EditText) findViewById(R.id.edtPassword)).getText().toString();
-        String role = requestLogin(userName, password);
-        if (role != null) {
-            switch (role) {
-                case ROLE_ADMIN:
+        Boolean isAuthenticated = requestLogin(userName, password);
+        if (isAuthenticated == true) {
+            switch (UserRepository.currentUser.getRole()) {
+                case User.ROLE_ADMIN:
                     intent = new Intent(this, AdminActivity.class);
-                    CurrentUserData.setCurrentUserAsAdmin();
                     break;
-                case ROLE_MANAGER:
+                case User.ROLE_MANAGER:
                     intent = new Intent(this, ManagerActivity.class);
-                    CurrentUserData.setCurrentUserAsManager();
                     break;
-                case ROLE_CUSTOMER:
+                case User.ROLE_CUSTOMER:
                     intent = new Intent(this, MainActivity.class);
-                    CurrentUserData.setCurrentUserAsCustomer();
                     break;
             }
             finish();
             startActivity(intent);
 
         } else {
-            TextView txtErrorMsg = (TextView)findViewById(R.id.txtErrorMsg);
+            TextView txtErrorMsg = (TextView) findViewById(R.id.txtErrorMsg);
             txtErrorMsg.setText("Đăng nhập thất bại. Xin kiểm tra lại tài khoản và mật khẩu của bạn.");
             txtErrorMsg.setVisibility(View.VISIBLE);
         }
@@ -73,7 +66,7 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        TextView txtErrorMsg = (TextView)findViewById(R.id.txtErrorMsg);
+        TextView txtErrorMsg = (TextView) findViewById(R.id.txtErrorMsg);
         txtErrorMsg.setVisibility(View.INVISIBLE);
     }
 
@@ -87,13 +80,17 @@ public class LoginActivity extends AppCompatActivity {
         }
     }
 
-    public String requestLogin(String userName, String password) {
+    public Boolean requestLogin(String userName, String password) {
         userName = userName.trim();
         password = password.trim();
-        if(userName.equals(LoginActivity.ROLE_CUSTOMER)) return LoginActivity.ROLE_CUSTOMER;
-        if (userName.equals(LoginActivity.ROLE_ADMIN)) return LoginActivity.ROLE_ADMIN;
-        if (userName.equals(LoginActivity.ROLE_MANAGER)) return LoginActivity.ROLE_MANAGER;
-        return null;
+        User user = UserRepository.userList.get(userName);
+        if (user != null) {
+            if (user.getPassword().equals(password)) {
+                UserRepository.currentUser = user;
+                return true;
+            }
+        }
+        return false;
     }
 
 }
