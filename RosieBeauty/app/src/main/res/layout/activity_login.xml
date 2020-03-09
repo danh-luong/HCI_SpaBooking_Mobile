@@ -3,65 +3,88 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/white"
+    android:background="@drawable/startup_grad"
     tools:context=".LoginActivity"
     android:orientation="vertical">
 
-    <include
-        android:id="@+id/toolbar_main"
-        layout="@layout/toolbar_main" />
 
 
-    <TextView
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text="Login"
-        android:textSize="30dp"
-        android:textStyle="bold"
-        android:layout_marginTop="50dp"/>
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginTop="100dp"
+        android:layout_marginBottom="50dp">
+        <ImageView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:src="@drawable/ic_spa_logo_no_text" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="User name"
-        android:layout_marginLeft="5dp"
-        android:textSize="20dp"
-        android:textStyle="bold"
-        android:layout_marginTop="50dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Rose spa"
+            android:textSize="30dp"
+            android:textStyle="bold|italic"
+            android:layout_marginLeft="10dp"
+            />
+    </LinearLayout>
+
+
+
+
 
 
     <EditText
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Enter username"
+        android:layout_height="40dp"
+        android:hint="Username"
         android:id="@+id/edtUsername"
-        android:layout_marginTop="16dp"/>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Password"
         android:layout_marginTop="16dp"
-        android:layout_marginLeft="5dp"
-        android:textSize="20dp"
-        android:textStyle="bold"/>
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:gravity="center"
+        android:background="@drawable/edit_text_border"/>
+
+
 
     <EditText
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Enter password"
+        android:layout_height="40dp"
+        android:hint="Password"
         android:inputType="textPassword"
         android:id="@+id/edtPassword"
-        android:layout_marginTop="16dp"/>
+        android:layout_marginTop="25dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:background="@drawable/edit_text_border"
+        android:gravity="center"/>
+
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:layout_marginLeft="35dp"
+        android:layout_marginRight="35dp"
+        android:text="Đăng nhập"
+        android:textSize="17dp"
+        android:textColor="@color/white"
+        android:onClick="onclickLogin"
+        android:background="@drawable/button_border_login_style"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:text="Login"
-        android:onClick="onclickLogin"/>
+        android:textSize="18dp"
+        android:text="Không có tài khoản? Đăng ký ngay!"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:id="@+id/txtRegisterLink"
+        />
 
     <TextView
         android:layout_width="match_parent"
@@ -70,7 +93,7 @@
         android:textSize="20dp"
         android:visibility="gone"
         android:id="@+id/txtErrorMsg"
-        android:textColor="@android:color/holo_red_light"/>
+        android:textColor="@android:color/holo_red_dark"/>
 
 
 </LinearLayout>

@@ -29,12 +29,15 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         setStatusBarGradiant(this);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar_main);
-        setSupportActionBar(toolbar);
-        ActionBar actionBar = getSupportActionBar();
-        actionBar.setHomeButtonEnabled(true);
-        getSupportActionBar().setDisplayShowTitleEnabled(false);
-        getSupportActionBar().setDisplayUseLogoEnabled(true);
+        TextView registerLink = (TextView)findViewById(R.id.txtRegisterLink);
+        registerLink.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                intent = new Intent(LoginActivity.this, RegisterActivity.class);
+                finish();
+                startActivity(intent);
+            }
+        });
     }
 
     public void onclickLogin(View view) {
@@ -56,11 +59,12 @@ public class LoginActivity extends AppCompatActivity {
                     CurrentUserData.setCurrentUserAsCustomer();
                     break;
             }
+            finish();
             startActivity(intent);
 
         } else {
             TextView txtErrorMsg = (TextView)findViewById(R.id.txtErrorMsg);
-            txtErrorMsg.setText("Login failed please check your username and password!");
+            txtErrorMsg.setText("Đăng nhập thất bại. Xin kiểm tra lại tài khoản và mật khẩu của bạn.");
             txtErrorMsg.setVisibility(View.VISIBLE);
         }
 
