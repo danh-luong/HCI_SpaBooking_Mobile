@@ -9,6 +9,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
@@ -28,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
     private FragmentActivity selectedFragmentActivity = null;
     private boolean isCurrentSearchFragment = false;
     private SearchFragment searchFragment = null;
-
+    private TextView toolbar_title;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +41,7 @@ public class MainActivity extends AppCompatActivity {
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_nav);
         bottomNavigationView.setOnNavigationItemSelectedListener(navListener);
+        toolbar_title = (TextView) findViewById(R.id.text_toolbar);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar_main);
         setSupportActionBar(toolbar);
         ActionBar actionBar = getSupportActionBar();
@@ -71,18 +73,23 @@ public class MainActivity extends AppCompatActivity {
                     switch (item.getItemId()) {
                         case R.id.action_home:
                             selectedFragment = new HomeFragment();
+                            toolbar_title.setText("Rose Spa");
                             break;
                         case R.id.action_favorites:
                             selectedFragment = new FavoriteFragment();
+                            toolbar_title.setText("Yêu thích");
                             break;
                         case R.id.action_map:
                             selectedFragment = new FragmentNearly();
+                            toolbar_title.setText("Gần đây");
                             break;
                         case R.id.action_book:
                             selectedFragment = new BookingFragment();
+                            toolbar_title.setText("Lịch hẹn");
                             break;
                         case R.id.action_profile:
                             selectedFragment = new ProfileFragment();
+                            toolbar_title.setText("Hồ sơ");
                             break;
                     }
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, selectedFragment).commit();
@@ -154,19 +161,24 @@ public class MainActivity extends AppCompatActivity {
         if (f instanceof HomeFragment) {
             BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_nav);
             bottomNavigationView.setVisibility(View.VISIBLE);
+            toolbar_title.setText("Rose Spa");
             getSupportActionBar().setDisplayHomeAsUpEnabled(false);
         } else if (f instanceof BookingFragment) {
             BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_nav);
             bottomNavigationView.setVisibility(View.VISIBLE);
             getSupportActionBar().setDisplayHomeAsUpEnabled(false);
+            toolbar_title.setText("Lịch hẹn");
         } else if (f instanceof FavoriteFragment) {
             BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_nav);
             bottomNavigationView.setVisibility(View.VISIBLE);
             getSupportActionBar().setDisplayHomeAsUpEnabled(false);
+            toolbar_title.setText("Yêu thích");
         } else if (f instanceof ProfileFragment) {
             BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_nav);
             bottomNavigationView.setVisibility(View.VISIBLE);
             getSupportActionBar().setDisplayHomeAsUpEnabled(false);
+            toolbar_title.setText("Hồ sơ");
+
         }
     }
 
@@ -181,13 +193,18 @@ public class MainActivity extends AppCompatActivity {
     public void clickGoToAppointmentDetail(View view) {
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_nav);
         bottomNavigationView.setVisibility(View.GONE);
+        toolbar_title.setText("Chi tiết lịch hẹn");
         selectedFragment = new AppointmentDetail();
         getSupportFragmentManager().beginTransaction().setCustomAnimations(R.animator.slide_in_left, R.animator.slide_out_right, R.animator.pop_out_right, R.animator.pop_in_left).setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN).replace(R.id.fragment_container, selectedFragment).addToBackStack(null).commit();
 
     }
 
     public void clickToViewList(View view) {
-        selectedFragment = new ListProduct();
-        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, selectedFragment).commit();
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_nav);
+        bottomNavigationView.setVisibility(View.GONE);
+        toolbar_title.setText("Dịch vụ");
+        selectedFragment = new ListProductFragment();
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, selectedFragment).addToBackStack(null).commit();
     }
+
 }

@@ -9,12 +9,16 @@
     android:theme="?attr/actionBarTheme"
     app:titleTextColor="@android:color/white">
 
-    <ImageView
-        android:id="@+id/toolbar_title"
+    <TextView
+        android:id="@+id/text_toolbar"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:src="@drawable/ic_spa_logo_toolbar"
-        android:text="Toolbar Title" />
+        android:layout_height="match_parent"
+        android:textColor="@color/white"
+        android:text="Rose Spa"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:layout_marginLeft="25dp"
+        android:fontFamily="@font/philosopher_bold"
+        android:textSize="25dp"/>
 
 </androidx.appcompat.widget.Toolbar>
