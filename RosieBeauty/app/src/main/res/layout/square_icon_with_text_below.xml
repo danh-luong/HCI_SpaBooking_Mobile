@@ -18,7 +18,8 @@
             android:background="@drawable/imageview_home"
             android:scaleType="fitXY"
             android:layout_centerHorizontal="true"
-            android:src="@drawable/ca_makeup" />
+            android:src="@drawable/ca_makeup"
+            android:onClick="clickToViewList"/>
 
     </RelativeLayout>
 </LinearLayout>

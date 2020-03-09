@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/homeFragmentBackground"
+    android:paddingLeft="5dp"
+    android:paddingRight="5dp">
+
+    <LinearLayout
+        android:id="@+id/btnFilter"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/filter_Nearly"
+            android:layout_width="100dp"
+            android:layout_height="30dp"
+            android:layout_margin="5dp"
+            android:background="@drawable/filter_border"
+            android:clickable="true"
+            android:fontFamily="@font/philosopher_bold"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="Gần đây"
+            android:textColor="@color/white"/>
+
+        <TextView
+            android:id="@+id/filter_Promotion"
+            android:layout_width="100dp"
+            android:layout_height="30dp"
+            android:layout_margin="5dp"
+            android:background="@drawable/filter_border"
+            android:clickable="true"
+            android:fontFamily="@font/philosopher_bold"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="Khuyến mại"
+            android:textColor="@color/white"/>
+
+        <TextView
+            android:id="@+id/filter_Rate"
+            android:layout_width="100dp"
+            android:layout_height="30dp"
+            android:layout_margin="5dp"
+            android:background="@drawable/filter_border"
+            android:clickable="true"
+            android:fontFamily="@font/philosopher_bold"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="Đánh giá"
+            android:textColor="@color/white"/>
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/item_list_product"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btnFilter"
+        android:background="?android:attr/selectableItemBackground" />
+</RelativeLayout>

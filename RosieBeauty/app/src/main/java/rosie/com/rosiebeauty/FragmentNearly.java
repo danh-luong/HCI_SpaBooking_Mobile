@@ -26,7 +26,6 @@ import java.util.List;
 public class FragmentNearly extends Fragment {
     Location currentLocation;
     LocationManager locationManager;
-    LocationListener locationListener;
 
     public FragmentNearly() {
         // Required empty public constructor
