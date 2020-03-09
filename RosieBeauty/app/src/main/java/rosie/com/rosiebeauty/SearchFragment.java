@@ -41,7 +41,7 @@ public class SearchFragment extends Fragment {
 
     //-----------------------------------Recent search------------------------------------
     private String[] recent_search_names = new String[]{
-            "Mud Bath", "Salt Stone", "SOOTHE FACIAL", "ORGANIC FACIAL"
+            "Tắm bùn", "Nhuộm tóc", "Uốn tóc", "Phục hồi tóc"
     };
     private int[] iconsForRecentSearch = new int[]{
             R.drawable.ser_steaming_hair,
@@ -60,7 +60,7 @@ public class SearchFragment extends Fragment {
     //-----------------------------------Normal suggestion------------------------------------
 
     private String[] suggestion_item_names = new String[]{
-            "Mud Bath", "Salt Stone", "SOOTHE FACIAL", "ORGANIC FACIAL", "C.TREATMENT", "COLLAGEN INFUSION"
+            "Tắm bùn", "Nhuộm tóc", "Uốn tóc", "Tái tạo da mặt", "Phục hồi tóc", "Trị mụn"
     };
     private int[] iconsForSuggestion = new int[]{
             R.drawable.ser_steaming_hair,
@@ -83,7 +83,7 @@ public class SearchFragment extends Fragment {
     //-----------------------------------Trending items------------------------------------
 
     private String[] trending_product_names = new String[]{
-            "COLLAGEN FACIAL", "C.TREATMENT", "SOOTHE FACIAL", "Salt Stone"
+            "Tắm bùn", "Tái tạo da mặt", "Phục hồi tóc", "Trị mụn"
     };
     private int[] trending_product_icons = new int[]{
             R.drawable.ser_blow_dry,

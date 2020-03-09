@@ -1,6 +1,7 @@
 package rosie.com.rosiebeauty;
 
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -83,10 +84,17 @@ public class ScheduleFragment extends Fragment {
                 Date selectedDate = convertCalendarInfoToDate(year, month, dayOfMonth);
                 ScheduleFragment.this.selectedDayOfWeek = convertDateToDayOfWeek(selectedDate);
                 updateSchedule();
+                setDateOfBookButton(year, month, dayOfMonth);
+
             }
         });
 
         return rootView;
+    }
+
+    private void setDateOfBookButton(int year, int month, int dayOfMonth) {
+        MainActivity.schedule_button_date = dayOfMonth + "-" + month + "-" + year;
+        SpaServiceDetailFragment.updateButtonBook();
     }
 
     private void updateSchedule() {

@@ -24,6 +24,9 @@ import com.miguelcatalan.materialsearchview.MaterialSearchView;
 
 public class MainActivity extends AppCompatActivity {
 
+    public static String schedule_button_date = "";
+    public static String schedule_button_time = "";
+
     MaterialSearchView searchView;
     private Fragment selectedFragment = null;
     private FragmentActivity selectedFragmentActivity = null;
@@ -73,6 +76,7 @@ public class MainActivity extends AppCompatActivity {
                     switch (item.getItemId()) {
                         case R.id.action_home:
                             selectedFragment = new HomeFragment();
+                              MainActivity.this.getSupportActionBar().setDisplayHomeAsUpEnabled(false);
                             toolbar_title.setText("Rose Spa");
                             break;
                         case R.id.action_favorites:
@@ -92,6 +96,7 @@ public class MainActivity extends AppCompatActivity {
                             toolbar_title.setText("Hồ sơ");
                             break;
                     }
+                    isCurrentSearchFragment = false;
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, selectedFragment).commit();
                     return true;
                 }
@@ -150,6 +155,7 @@ public class MainActivity extends AppCompatActivity {
                 }
                 break;
         }
+
         return true;
     }
 
