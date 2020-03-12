@@ -4,15 +4,16 @@ import java.io.Serializable;
 
 public class User implements Serializable {
 
-    private String username, name, password, email, phone, imgSrc, role;
+    private String username, name, password, email, phone, role, status;
     public static final String ROLE_ADMIN = "admin";
     public static final String ROLE_MANAGER = "manager";
     public static final String ROLE_CUSTOMER = "customer";
+    private int imgSrc;
 
     public User() {
     }
 
-    public User(String username, String name, String password, String email, String phone, String imgSrc, String role) {
+    public User(String username, String name, String password, String email, String phone, int imgSrc, String role, String status) {
         this.username = username;
         this.name = name;
         this.password = password;
@@ -20,6 +21,15 @@ public class User implements Serializable {
         this.phone = phone;
         this.imgSrc = imgSrc;
         this.role = role;
+        this.status = status;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 
     public String getUsername() {
@@ -62,11 +72,11 @@ public class User implements Serializable {
         this.phone = phone;
     }
 
-    public String getImgSrc() {
+    public int getImgSrc() {
         return imgSrc;
     }
 
-    public void setImgSrc(String imgSrc) {
+    public void setImgSrc(int imgSrc) {
         this.imgSrc = imgSrc;
     }
 

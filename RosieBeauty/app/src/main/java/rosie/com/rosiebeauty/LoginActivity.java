@@ -85,7 +85,7 @@ public class LoginActivity extends AppCompatActivity {
         password = password.trim();
         User user = UserRepository.userList.get(userName);
         if (user != null) {
-            if (user.getPassword().equals(password)) {
+            if (user.getPassword().equals(password) && user.getStatus().equals("active")) {
                 UserRepository.currentUser = user;
                 return true;
             }
