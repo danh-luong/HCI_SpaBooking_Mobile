@@ -27,7 +27,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text="Rose Spa"
-            android:textColor="#FF0000"
+            android:textColor="@color/colorAccent"
             android:fontFamily="@font/philosopher_bold_italic"
             android:textSize="40dp"
             android:textStyle="bold|italic"
