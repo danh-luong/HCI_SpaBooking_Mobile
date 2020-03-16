@@ -1,7 +1,5 @@
 package rosie.com.rosiebeauty;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
@@ -12,6 +10,8 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import rosie.com.rosiebeauty.Data.User;
 import rosie.com.rosiebeauty.Data.UserRepository;
@@ -73,7 +73,7 @@ public class LoginActivity extends AppCompatActivity {
     protected void setStatusBarGradiant(Activity activity) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             Window window = activity.getWindow();
-            Drawable background = activity.getResources().getDrawable(R.drawable.gradient_statusbar);
+            Drawable background = activity.getResources().getDrawable(R.drawable.startup_grad);
             window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
             window.setStatusBarColor(activity.getResources().getColor(android.R.color.transparent));
             window.setBackgroundDrawable(background);
@@ -92,5 +92,4 @@ public class LoginActivity extends AppCompatActivity {
         }
         return false;
     }
-
 }
