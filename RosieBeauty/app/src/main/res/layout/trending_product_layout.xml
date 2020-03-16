@@ -33,6 +33,7 @@
         android:layout_marginStart="20dp"
         android:layout_marginBottom="28dp"
         android:maxLines="2"
+        android:fontFamily="@font/philosopher_bold"
         android:singleLine="false"
         android:text="Samples Title"
         android:textColor="@android:color/white"

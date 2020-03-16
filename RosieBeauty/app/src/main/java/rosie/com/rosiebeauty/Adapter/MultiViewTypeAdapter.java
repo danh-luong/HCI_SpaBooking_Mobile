@@ -60,7 +60,6 @@ public class MultiViewTypeAdapter extends RecyclerView.Adapter {
     }
 
     public static class SlideshowTypeViewHolder extends RecyclerView.ViewHolder {
-
         ViewPager imgSlideshow;
 
         public SlideshowTypeViewHolder(View itemView) {

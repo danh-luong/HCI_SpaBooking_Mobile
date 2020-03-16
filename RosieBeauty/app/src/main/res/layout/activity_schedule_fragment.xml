@@ -15,9 +15,9 @@
         <CalendarView
             android:id="@+id/calviewSchedule"
             android:layout_width="match_parent"
-            android:layout_height="370dp"
-            android:maxDate="03/08/2020"
-            android:minDate="02/29/2020"
+            android:layout_height="300dp"
+            android:maxDate="03/29/2020"
+            android:minDate="03/23/2020"
 
             />
 
@@ -38,7 +38,8 @@
         <androidx.recyclerview.widget.RecyclerView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/time_chooser_holder"/>
+            android:id="@+id/time_chooser_holder"
+            />
 
         <View
             android:layout_width="match_parent"
@@ -47,17 +48,16 @@
             android:layout_marginTop="10dp"/>
 
         <EditText
-            android:layout_height="100dp"
-            android:layout_width="match_parent"
-            android:hint="Lưu ý của bạn"
-            android:textStyle="bold"
-            android:textSize="20dp"
-            android:layout_marginLeft="30dp"
-            android:layout_marginRight="30dp"
             android:id="@+id/edtNote"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginRight="30dp"
+            android:hint="Lưu ý của bạn"
             android:inputType="textMultiLine"
-            android:layout_marginTop="15dp"/>
-
+            android:textSize="20dp"
+            android:textStyle="bold" />
 
 
     </LinearLayout>

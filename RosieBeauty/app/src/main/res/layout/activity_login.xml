@@ -27,21 +27,20 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text="Rose spa"
+            android:textColor="#FF0000"
+            android:fontFamily="@font/philosopher_bold_italic"
             android:textSize="30dp"
             android:textStyle="bold|italic"
             android:layout_marginLeft="10dp"
             />
     </LinearLayout>
 
-
-
-
-
-
     <EditText
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:hint="Username"
+        android:fontFamily="@font/lora_italic"
+        android:singleLine="true"
         android:id="@+id/edtUsername"
         android:layout_marginTop="16dp"
         android:layout_marginLeft="40dp"
@@ -56,6 +55,8 @@
         android:layout_height="40dp"
         android:hint="Password"
         android:inputType="textPassword"
+        android:singleLine="true"
+        android:fontFamily="@font/lora_italic"
         android:id="@+id/edtPassword"
         android:layout_marginTop="25dp"
         android:layout_marginLeft="40dp"
@@ -81,6 +82,7 @@
         android:layout_marginTop="16dp"
         android:textSize="18dp"
         android:text="Không có tài khoản? Đăng ký ngay!"
+        android:fontFamily="@font/lora_italic"
         android:textStyle="bold"
         android:gravity="center"
         android:id="@+id/txtRegisterLink"
