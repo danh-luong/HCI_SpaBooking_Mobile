@@ -29,7 +29,7 @@
             android:text="Rose spa"
             android:textColor="#FF0000"
             android:fontFamily="@font/philosopher_bold_italic"
-            android:textSize="30dp"
+            android:textSize="40dp"
             android:textStyle="bold|italic"
             android:layout_marginLeft="10dp"
             />
@@ -38,7 +38,7 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="40dp"
-        android:hint="Username"
+        android:hint="Tên đăng nhập"
         android:fontFamily="@font/lora_italic"
         android:singleLine="true"
         android:id="@+id/edtUsername"
@@ -53,7 +53,7 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="40dp"
-        android:hint="Password"
+        android:hint="Mật khẩu"
         android:inputType="textPassword"
         android:singleLine="true"
         android:fontFamily="@font/lora_italic"

@@ -23,6 +23,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="7dp"
+            android:fontFamily="@font/lora"
             android:layout_marginTop="10dp"
             android:text="RoleId"
             app:layout_constraintStart_toEndOf="@+id/textView5"
@@ -32,6 +33,7 @@
             android:id="@+id/textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/lora"
             android:layout_marginStart="16dp"
             android:layout_marginTop="10dp"
             android:text="Tên: "
@@ -42,6 +44,7 @@
             android:id="@+id/txtName"
             android:layout_width="wrap_content"
             android:layout_height="19dp"
+            android:fontFamily="@font/lora"
             android:layout_marginStart="7dp"
             android:layout_marginTop="10dp"
             android:text="Username"
@@ -55,6 +58,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="10dp"
             android:text="Điện Thoại: "
+            android:fontFamily="@font/lora"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
@@ -65,6 +69,7 @@
             android:layout_marginStart="7dp"
             android:layout_marginTop="10dp"
             android:text="Phone"
+            android:fontFamily="@font/lora"
             app:layout_constraintStart_toEndOf="@+id/textView4"
             app:layout_constraintTop_toBottomOf="@+id/txtEmail" />
 
@@ -72,6 +77,7 @@
             android:id="@+id/textView3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/lora"
             android:layout_marginStart="16dp"
             android:layout_marginTop="10dp"
             android:text="Email: "
@@ -83,6 +89,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
+            android:fontFamily="@font/lora"
             android:layout_marginTop="10dp"
             android:text="Chức vụ: "
             app:layout_constraintStart_toStartOf="parent"
@@ -92,6 +99,7 @@
             android:id="@+id/txtEmail"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/lora"
             android:layout_marginStart="7dp"
             android:layout_marginTop="10dp"
             android:text="Email"

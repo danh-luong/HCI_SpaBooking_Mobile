@@ -53,20 +53,20 @@ public class BookingFragment extends Fragment {
     }
 
     void prepareData() {
-        MultiViewModel gridViewModel = null;
-        gridViewModel = new MultiViewModel(MultiViewModel.TYPE_SECTION_TITLE, "My Appointments");
-        gridViewModelArrayList.add(gridViewModel);
+//        MultiViewModel gridViewModel = null;
+//        gridViewModel = new MultiViewModel(MultiViewModel.TYPE_SECTION_TITLE, "My Appointments");
+//        gridViewModelArrayList.add(gridViewModel);
         List<MultiViewModel.Appointment> appointments = new ArrayList<>();
         appointments.add(new MultiViewModel.Appointment("BK4051", "05-04-2020 12:00",
-                "20-05-2020 15:00", "$450"));
+                "20-05-2020 15:00", "8.000.000đ"));
         appointments.add(new MultiViewModel.Appointment("BK4052", "05-06-2020 12:00",
-                "20-07-2020 15:00", "$150"));
+                "20-07-2020 15:00", "3.000.000đ"));
         appointments.add(new MultiViewModel.Appointment("BK4053", "05-07-2020 12:00",
-                "20-08-2020 15:00", "$250"));
+                "20-08-2020 15:00", "6.000.000đ"));
         appointments.add(new MultiViewModel.Appointment("BK4054", "05-08-2020 12:00",
-                "20-09-2020 15:00", "$350"));
+                "20-09-2020 15:00", "10.000.000đ"));
         appointments.add(new MultiViewModel.Appointment("BK4055", "05-09-2020 12:00",
-                "20-10-2020 15:00", "$950"));
+                "20-10-2020 15:00", "20.000.000đ"));
         for (int i = 0; i < appointments.size(); i++) {
             gridViewModelArrayList.add(new MultiViewModel(MultiViewModel.TYPE_APPOINTMENT_ITEM, appointments.get(i)));
         }

@@ -26,6 +26,7 @@
             android:layout_height="wrap_content"
             android:text="Lịch đặt"
             android:textStyle="bold"
+            android:fontFamily="@font/philosopher_bold"
             android:textSize="20dp"
             android:layout_marginBottom="5dp"
             android:layout_marginLeft="10dp"/>
@@ -50,6 +51,8 @@
         <EditText
             android:id="@+id/edtNote"
             android:layout_width="match_parent"
+            android:background="@android:color/transparent"
+            android:fontFamily="@font/lora"
             android:layout_height="100dp"
             android:layout_marginLeft="30dp"
             android:layout_marginTop="15dp"

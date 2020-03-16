@@ -36,9 +36,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/imgUser"
+            android:fontFamily="@font/lora_italic"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="15sp"
-            android:fontFamily="sans-serif-light"
             android:text="Joey Tribbiani"
             android:textColor="@color/white"
             android:textSize="32sp" />
@@ -65,6 +65,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/philosopher_bold"
                     android:text="Email"
                     android:textColor="@color/headings"
                     android:textSize="13sp" />
@@ -73,7 +74,7 @@
                     android:id="@+id/txtEmailProfile"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:fontFamily="sans-serif-light"
+                    android:fontFamily="@font/lora"
                     android:text="joey@sharenofood.com"
                     android:textColor="#000000"
                     android:textSize="18sp" />
@@ -96,6 +97,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Điện thoại:"
+                    android:fontFamily="@font/philosopher_bold"
                     android:textColor="@color/headings"
                     android:textSize="13sp" />
 
@@ -103,7 +105,7 @@
                     android:id="@+id/txtPhoneProfile"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:fontFamily="sans-serif-light"
+                    android:fontFamily="@font/lora"
                     android:text="+1-202-555-0157"
                     android:textColor="#000000"
                     android:textSize="18sp" />
@@ -126,12 +128,14 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Chức vụ"
+                    android:fontFamily="@font/philosopher_bold"
                     android:textColor="@color/headings"
                     android:textSize="13sp" />
 
                 <Spinner
                     android:layout_width="200dp"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/lora"
                     android:id="@+id/spnRole"/>
 
                 <View
@@ -151,15 +155,16 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Tên Đăng Nhập:"
+                    android:text="Tên đăng nhập:"
                     android:textColor="@color/headings"
+                    android:fontFamily="@font/philosopher_bold"
                     android:textSize="13sp" />
 
                 <TextView
                     android:id="@+id/txtUsernameProfile"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:fontFamily="sans-serif-light"
+                    android:fontFamily="@font/lora"
                     android:text="facebook.com/joeytrib"
                     android:textColor="#000000"
                     android:textSize="18sp" />

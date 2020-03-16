@@ -8,17 +8,21 @@
     android:orientation="vertical"
     tools:layout_editor_absoluteY="315dp">
 
-    <Button
+    <TextView
         android:id="@+id/btnViewSchedule"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="20dp"
+        android:layout_margin="10dp"
+        android:paddingBottom="10dp"
+        android:paddingTop="10dp"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:fontFamily="@font/lora"
         android:background="@drawable/button_border_background"
         android:text="7:30"
+        android:clickable="true"
         android:textColor="@android:color/white"
-        android:textSize="20dp"
+        android:textSize="16dp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

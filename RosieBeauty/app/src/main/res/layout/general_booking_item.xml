@@ -44,7 +44,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/txtBookingCode"
                 android:fontFamily="@font/philosopher_bold"
-                android:text="Booking Date: "
+                android:text="Ngày đặt lịch: "
                 android:textColor="@android:color/black"
                 android:textSize="16dp"
                 android:textStyle="bold" />
@@ -54,6 +54,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="30-03-2020 20:20"
+                android:fontFamily="@font/lora"
                 android:textColor="@android:color/holo_blue_light"
                 android:textSize="15dp" />
         </LinearLayout>
@@ -71,7 +72,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/BookingDateTitle"
                 android:fontFamily="@font/philosopher_bold"
-                android:text="Appointment Date: "
+                android:text="Ngày hẹn: "
                 android:textColor="@android:color/black"
                 android:textSize="16dp"
                 android:textStyle="bold" />
@@ -80,6 +81,7 @@
                 android:id="@+id/txtAppointmentDate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/lora"
                 android:text="05-04-2020 12:00"
                 android:textColor="@android:color/holo_blue_light"
                 android:textSize="15dp" />
@@ -97,7 +99,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/philosopher_bold"
-                android:text="Pay Price: "
+                android:text="Thanh toán: "
                 android:textColor="@android:color/black"
                 android:textSize="16dp"
                 android:textStyle="bold" />
@@ -106,7 +108,9 @@
                 android:id="@+id/txtPayPrice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="$1270.00"
+                android:text="12.000.000đ"
+                android:textStyle="bold"
+                android:fontFamily="@font/lora"
                 android:textColor="@android:color/holo_blue_light"
                 android:textSize="15dp" />
         </LinearLayout>
@@ -119,7 +123,7 @@
         android:layout_height="30dp"
         android:textSize="12dp"
         android:textColor="@android:color/white"
-        android:text="Cancle"
+        android:text="Huỷ"
         android:layout_alignBottom="@id/booking_inner_layout"
         android:layout_alignParentLeft="true"
         android:layout_centerInParent="true"

@@ -53,9 +53,9 @@ public class FavoriteFragment extends Fragment {
     }
 
     void prepareData() {
-        MultiViewModel gridViewModel = null;
-        gridViewModel = new MultiViewModel(MultiViewModel.TYPE_SECTION_TITLE, "Dịch vụ yêu thích");
-        gridViewModelArrayList.add(gridViewModel);
+//        MultiViewModel gridViewModel = null;
+//        gridViewModel = new MultiViewModel(MultiViewModel.TYPE_SECTION_TITLE, "Dịch vụ yêu thích");
+//        gridViewModelArrayList.add(gridViewModel);
         List<MultiViewModel.FavoriteItem> favoriteItems = new ArrayList<>();
         favoriteItems.add(
                 new MultiViewModel.FavoriteItem
