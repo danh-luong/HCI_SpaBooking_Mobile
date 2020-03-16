@@ -22,7 +22,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 import androidx.viewpager.widget.ViewPager;
 
-import com.beardedhen.androidbootstrap.BootstrapCircleThumbnail;
 import com.miguelcatalan.materialsearchview.MaterialSearchView;
 
 import java.util.ArrayList;
@@ -92,7 +91,6 @@ public class MultiViewTypeAdapter extends RecyclerView.Adapter {
 
         TextView txtUsername;
         TextView txtComment;
-
 
 
         public CommentTypeViewHolder(View itemView) {
@@ -324,13 +322,13 @@ public class MultiViewTypeAdapter extends RecyclerView.Adapter {
                     swipeTimer = new Timer();
                     swipeTimer.schedule(timerTask, 1000, 3000);
                     break;
-                    //Category in Home
+                //Category in Home
                 case MultiViewModel.TYPE_IMAGE_WITH_TEXT:
                     ((ImageTypeViewHolder) holder).txtType.setText(object.text);
                     ((ImageTypeViewHolder) holder).image.setImageResource(object.data);
                     ((ImageTypeViewHolder) holder).image.setClipToOutline(true);
                     break;
-                    //Suggest in Search
+                //Suggest in Search
                 case MultiViewModel.TYPE_IMAGE_INLINE_WITH_TEXT:
                     ((ImageTypeViewHolder) holder).txtType.setText(object.text);
                     ((ImageTypeViewHolder) holder).image.setImageResource(object.data);
@@ -369,7 +367,7 @@ public class MultiViewTypeAdapter extends RecyclerView.Adapter {
                         });
                     }
                     break;
-                    //Trending in Search
+                //Trending in Search
                 case MultiViewModel.TYPE_TEXT_INSIDE_IMAGE:
                     ((ImageTypeViewHolder) holder).txtType.setText(object.text);
                     ((ImageTypeViewHolder) holder).image.setImageResource(object.data);
@@ -388,7 +386,7 @@ public class MultiViewTypeAdapter extends RecyclerView.Adapter {
                         }
                     });
                     break;
-                    //Promotion in Home
+                //Promotion in Home
                 case MultiViewModel.TYPE_IMG_TEXT_PRICE:
                     ((ServiceCardListHolder) holder).imgService.setImageResource(object.data);
                     ((ServiceCardListHolder) holder).imgService.setClipToOutline(true);
@@ -408,14 +406,17 @@ public class MultiViewTypeAdapter extends RecyclerView.Adapter {
                     if (object.hasPromotion == MultiViewModel.HAS_PROMOTION) {
                         ((ServiceCardListHolder) holder).txtPrice.setText(object.price);
                         ((ServiceCardListHolder) holder).txtPrice.setPaintFlags(((ServiceCardListHolder) holder).txtPrice.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
+                        ((ServiceCardListHolder) holder).txtPrice.setTextSize(14f);
                         ((ServiceCardListHolder) holder).txtPriceAfterPromotion.setText(object.priceAfterPromotion);
                         ((ServiceCardListHolder) holder).txtPromotion.setText(object.intPromotion + "");
                         ((ServiceCardListHolder) holder).txtPromotion.setBackground(mContext.getResources().getDrawable(R.drawable.service_card_list_image_corner));
+                        ((ServiceCardListHolder) holder).txtPromotion.setTextSize(16f);
                         ((ServiceCardListHolder) holder).txtPrice.setAlpha(0.5f);
 
-                    } else if (object.hasPromotion == MultiViewModel.NO_PROMOTION){
+                    } else if (object.hasPromotion == MultiViewModel.NO_PROMOTION) {
                         ((ServiceCardListHolder) holder).txtPrice.setText(object.price);
                         ((ServiceCardListHolder) holder).txtPrice.setAlpha(1);
+                        ((ServiceCardListHolder) holder).txtPrice.setTextSize(16f);
                         ((ServiceCardListHolder) holder).txtPromotion.setText("");
                         ((ServiceCardListHolder) holder).txtPromotion.setBackgroundColor(Color.TRANSPARENT);
                     }

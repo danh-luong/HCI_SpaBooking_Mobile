@@ -31,7 +31,7 @@
             android:textSize="18dp"
             android:textStyle="bold" />
 
-        <LinearLayout
+        <RelativeLayout
             android:id="@+id/booking_date_container"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -42,7 +42,7 @@
                 android:id="@+id/BookingDateTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/txtBookingCode"
+                android:layout_alignParentLeft="true"
                 android:fontFamily="@font/philosopher_bold"
                 android:text="Ngày đặt lịch: "
                 android:textColor="@android:color/black"
@@ -54,12 +54,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="30-03-2020 20:20"
+                android:layout_alignParentRight="true"
                 android:fontFamily="@font/lora"
                 android:textColor="@android:color/holo_blue_light"
                 android:textSize="15dp" />
-        </LinearLayout>
+        </RelativeLayout>
 
-        <LinearLayout
+        <RelativeLayout
             android:id="@+id/appointment_date_container"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -72,6 +73,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/BookingDateTitle"
                 android:fontFamily="@font/philosopher_bold"
+                android:layout_alignParentLeft="true"
                 android:text="Ngày hẹn: "
                 android:textColor="@android:color/black"
                 android:textSize="16dp"
@@ -82,12 +84,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/lora"
+                android:layout_alignParentRight="true"
                 android:text="05-04-2020 12:00"
                 android:textColor="@android:color/holo_blue_light"
                 android:textSize="15dp" />
-        </LinearLayout>
+        </RelativeLayout>
 
-        <LinearLayout
+        <RelativeLayout
             android:id="@+id/pay_price_container"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -101,6 +104,7 @@
                 android:fontFamily="@font/philosopher_bold"
                 android:text="Thanh toán: "
                 android:textColor="@android:color/black"
+                android:layout_alignParentLeft="true"
                 android:textSize="16dp"
                 android:textStyle="bold" />
 
@@ -110,10 +114,11 @@
                 android:layout_height="wrap_content"
                 android:text="12.000.000đ"
                 android:textStyle="bold"
+                android:layout_alignParentRight="true"
                 android:fontFamily="@font/lora"
                 android:textColor="@android:color/holo_blue_light"
                 android:textSize="15dp" />
-        </LinearLayout>
+        </RelativeLayout>
 
 
     </RelativeLayout>

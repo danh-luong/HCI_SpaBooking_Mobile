@@ -17,17 +17,6 @@
         android:paddingLeft="5dp"
         android:paddingRight="5dp">
 
-        <!--        <TextView-->
-        <!--            android:id="@+id/section_title"-->
-        <!--            android:layout_width="match_parent"-->
-        <!--            android:layout_height="wrap_content"-->
-        <!--            android:fontFamily="@font/philosopher_bold"-->
-        <!--            android:paddingTop="10dp"-->
-        <!--            android:paddingBottom="10dp"-->
-        <!--            android:text="Chi tiết lịch hẹn"-->
-        <!--            android:textAlignment="center"-->
-        <!--            android:textSize="25dp" />-->
-
         <RelativeLayout
             android:id="@+id/appointment_header_container"
             android:layout_width="match_parent"
@@ -49,7 +38,7 @@
                 android:textSize="18dp"
                 android:textStyle="bold" />
 
-            <LinearLayout
+            <RelativeLayout
                 android:id="@+id/booking_date_container"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -60,7 +49,7 @@
                     android:id="@+id/BookingDateTitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_below="@id/txtBookingCode"
+                    android:layout_alignParentLeft="true"
                     android:fontFamily="@font/philosopher_bold"
                     android:text="Ngày đặt: "
                     android:textColor="@android:color/black"
@@ -71,13 +60,14 @@
                     android:id="@+id/txtBookingDate"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
                     android:fontFamily="@font/lora"
-                    android:text="20:20"
+                    android:text="01-04-2020"
                     android:textColor="@android:color/holo_blue_light"
                     android:textSize="15dp" />
-            </LinearLayout>
+            </RelativeLayout>
 
-            <LinearLayout
+            <RelativeLayout
                 android:id="@+id/booking_time_container"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -88,7 +78,7 @@
                     android:id="@+id/BookingTimeTitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_below="@id/txtBookingCode"
+                    android:layout_alignParentLeft="true"
                     android:fontFamily="@font/philosopher_bold"
                     android:text="Giờ đặt: "
                     android:textColor="@android:color/black"
@@ -99,13 +89,14 @@
                     android:id="@+id/txtBookingTime"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
                     android:fontFamily="@font/lora"
                     android:text="20:20"
                     android:textColor="@android:color/holo_blue_light"
                     android:textSize="15dp" />
-            </LinearLayout>
+            </RelativeLayout>
 
-            <LinearLayout
+            <RelativeLayout
                 android:id="@+id/appointment_date_container"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -117,6 +108,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/BookingDateTitle"
+                    android:layout_alignParentLeft="true"
                     android:fontFamily="@font/philosopher_bold"
                     android:text="Ngày hẹn: "
                     android:textColor="@android:color/black"
@@ -127,13 +119,14 @@
                     android:id="@+id/txtAppointmentDate"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
                     android:fontFamily="@font/lora"
                     android:text="05-04-2020"
                     android:textColor="@android:color/holo_blue_light"
                     android:textSize="15dp" />
-            </LinearLayout>
+            </RelativeLayout>
 
-            <LinearLayout
+            <RelativeLayout
                 android:id="@+id/appointment_time_container"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -145,6 +138,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/BookingDateTitle"
+                    android:layout_alignParentLeft="true"
                     android:fontFamily="@font/philosopher_bold"
                     android:text="Giờ hẹn: "
                     android:textColor="@android:color/black"
@@ -155,11 +149,12 @@
                     android:id="@+id/txtAppointmentTime"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
                     android:fontFamily="@font/lora"
                     android:text="12:00"
                     android:textColor="@android:color/holo_blue_light"
                     android:textSize="15dp" />
-            </LinearLayout>
+            </RelativeLayout>
 
         </RelativeLayout>
 

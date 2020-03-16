@@ -2,6 +2,7 @@
 <resources>
     <array name="preloaded_fonts" translatable="false">
         <item>@font/lora</item>
+        <item>@font/lora_bold</item>
         <item>@font/lora_italic</item>
         <item>@font/philosopher_bold</item>
         <item>@font/philosopher_bold_italic</item>
