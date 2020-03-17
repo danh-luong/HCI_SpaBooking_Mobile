@@ -1,36 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ScanFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <me.dm7.barcodescanner.zxing.ZXingScannerView
-        android:id="@+id/zxscan"
+    <TextView
+        android:id="@+id/checkin"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@+id/result_scan" />
+        android:textColor="#FF0000"
+        android:fontFamily="@font/philosopher_bold_italic"
+        android:text="Check in thất bại"
+        android:gravity="center_horizontal |center_vertical"
+        android:textSize="70dp"
+        />
 
-    <LinearLayout
-        android:id="@+id/result_scan"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:orientation="vertical"
-        android:padding="8dp"
-        android:background="@drawable/gradient_statusbar">
-        <TextView
-            android:id="@+id/txtResultScan"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textColor="@color/white"
-            android:textSize="16dp"
-            android:textStyle="bold"
-            android:gravity="center"
-            android:text="..."/>
-
-    </LinearLayout>
-
-
-</RelativeLayout>
+</LinearLayout>

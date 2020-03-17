@@ -1,8 +1,8 @@
 package rosie.com.rosiebeauty;
 
-import android.Manifest;
 import android.app.Activity;
-import android.content.Context;
+import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,20 +12,15 @@ import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 
+import com.google.android.gms.vision.barcode.Barcode;
 import com.google.zxing.Result;
-import com.karumi.dexter.Dexter;
-import com.karumi.dexter.PermissionToken;
-import com.karumi.dexter.listener.PermissionDeniedResponse;
-import com.karumi.dexter.listener.PermissionGrantedResponse;
-import com.karumi.dexter.listener.PermissionRequest;
-import com.karumi.dexter.listener.single.PermissionListener;
+import com.notbytes.barcode_reader.BarcodeReaderActivity;
 
 import me.dm7.barcodescanner.zxing.ZXingScannerView;
 
 public class ScanFragment extends Fragment implements ZXingScannerView.ResultHandler {
-    ZXingScannerView scannerView;
-    Context mContext;
-    Activity mActivity;
+    private static final int BARCODE_READER_ACTIVITY_REQUEST = 1000;
+    TextView checkin;
     TextView txtResultScan;
 
     public ScanFragment() {
@@ -42,27 +37,10 @@ public class ScanFragment extends Fragment implements ZXingScannerView.ResultHan
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View rootView = inflater.inflate(R.layout.fragment_scan, container, false);
-        scannerView = (ZXingScannerView) rootView.findViewById(R.id.zxscan);
-        txtResultScan = (TextView) rootView.findViewById(R.id.txtResultScan);
-        Dexter.withActivity(mActivity)
-                .withPermission(Manifest.permission.CAMERA
-                ).withListener(new PermissionListener() {
-            @Override
-            public void onPermissionGranted(PermissionGrantedResponse response) {
-                scannerView.setResultHandler(ScanFragment.this);
-                scannerView.startCamera();
-            }
-
-            @Override
-            public void onPermissionDenied(PermissionDeniedResponse response) {
-                Toast.makeText(mContext, "You must accept this permission", Toast.LENGTH_LONG);
-            }
-
-            @Override
-            public void onPermissionRationaleShouldBeShown(PermissionRequest permission, PermissionToken token) {
-
-            }
-        }).check();
+        checkin = rootView.findViewById(R.id.checkin);
+        checkin.setVisibility(View.GONE);
+        Intent launchIntent = BarcodeReaderActivity.getLaunchIntent(this.getContext(), true, false);
+        startActivityForResult(launchIntent, BARCODE_READER_ACTIVITY_REQUEST);
         return rootView;
     }
 
@@ -73,7 +51,26 @@ public class ScanFragment extends Fragment implements ZXingScannerView.ResultHan
 
     @Override
     public void onDestroy() {
-        scannerView.stopCamera();
         super.onDestroy();
+    }
+
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (resultCode != Activity.RESULT_OK) {
+            checkin.setVisibility(View.VISIBLE);
+            Toast.makeText(this.getContext(), "error in  scanning", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        if (requestCode == BARCODE_READER_ACTIVITY_REQUEST && data != null) {
+            checkin.setText("Check in thành công");
+            checkin.setTextColor(Color.parseColor("#008000"));
+            checkin.setVisibility(View.VISIBLE);
+            Barcode barcode = data.getParcelableExtra(BarcodeReaderActivity.KEY_CAPTURED_BARCODE);
+            Toast.makeText(this.getContext(), barcode.rawValue, Toast.LENGTH_SHORT).show();
+
+        }
+
     }
 }
