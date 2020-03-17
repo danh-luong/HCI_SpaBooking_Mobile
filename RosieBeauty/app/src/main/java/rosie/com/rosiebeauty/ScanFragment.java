@@ -13,12 +13,9 @@ import android.widget.Toast;
 import androidx.fragment.app.Fragment;
 
 import com.google.android.gms.vision.barcode.Barcode;
-import com.google.zxing.Result;
 import com.notbytes.barcode_reader.BarcodeReaderActivity;
 
-import me.dm7.barcodescanner.zxing.ZXingScannerView;
-
-public class ScanFragment extends Fragment implements ZXingScannerView.ResultHandler {
+public class ScanFragment extends Fragment {
     private static final int BARCODE_READER_ACTIVITY_REQUEST = 1000;
     TextView checkin;
     TextView txtResultScan;
@@ -42,11 +39,6 @@ public class ScanFragment extends Fragment implements ZXingScannerView.ResultHan
         Intent launchIntent = BarcodeReaderActivity.getLaunchIntent(this.getContext(), true, false);
         startActivityForResult(launchIntent, BARCODE_READER_ACTIVITY_REQUEST);
         return rootView;
-    }
-
-    @Override
-    public void handleResult(Result result) {
-        txtResultScan.setText(result.getText());
     }
 
     @Override
