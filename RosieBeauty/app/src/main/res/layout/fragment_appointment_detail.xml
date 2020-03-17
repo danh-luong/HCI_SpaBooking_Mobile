@@ -107,7 +107,6 @@
                     android:id="@+id/AppointmentDateTitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/BookingDateTitle"
                     android:layout_alignParentLeft="true"
                     android:fontFamily="@font/philosopher_bold"
                     android:text="Ngày hẹn: "
@@ -126,6 +125,7 @@
                     android:textSize="15dp" />
             </RelativeLayout>
 
+
             <RelativeLayout
                 android:id="@+id/appointment_time_container"
                 android:layout_width="wrap_content"
@@ -137,7 +137,6 @@
                     android:id="@+id/AppointmentTimeTitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/BookingDateTitle"
                     android:layout_alignParentLeft="true"
                     android:fontFamily="@font/philosopher_bold"
                     android:text="Giờ hẹn: "
@@ -158,11 +157,22 @@
 
         </RelativeLayout>
 
+        <ImageView
+            android:layout_marginTop="10dp"
+            android:padding="10dp"
+            android:background="@color/white"
+            android:id="@+id/barcode"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:layout_below="@+id/appointment_header_container"
+            android:src="@drawable/barcode"
+            android:foregroundGravity="center"/>
+
         <RelativeLayout
             android:id="@+id/appointment_detail_container"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/appointment_header_container"
+            android:layout_below="@id/barcode"
             android:layout_marginTop="10dp"
             android:background="@drawable/appointment_detail_header_background"
             android:paddingLeft="10dp"
