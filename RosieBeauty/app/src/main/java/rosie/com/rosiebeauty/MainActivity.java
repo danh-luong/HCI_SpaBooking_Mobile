@@ -29,7 +29,6 @@ public class MainActivity extends AppCompatActivity {
 
     MaterialSearchView searchView;
     private Fragment selectedFragment = null;
-    private FragmentActivity selectedFragmentActivity = null;
     private boolean isCurrentSearchFragment = false;
     private SearchFragment searchFragment = null;
     private TextView toolbar_title;
@@ -50,9 +49,7 @@ public class MainActivity extends AppCompatActivity {
         ActionBar actionBar = getSupportActionBar();
         actionBar.setHomeButtonEnabled(true);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
-//        actionBar.setLogo(R.drawable.ic_spa_logo_no_text);
         getSupportActionBar().setDisplayUseLogoEnabled(true);
-//        actionBar.setDisplayHomeAsUpEnabled(true);
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new HomeFragment()).commit();
         setupSearchView();
 
@@ -190,10 +187,6 @@ public class MainActivity extends AppCompatActivity {
 
     public void setIsCurrentSearchFragment(boolean isCurrentSearchFragment) {
         this.isCurrentSearchFragment = isCurrentSearchFragment;
-    }
-
-    public void clickToShowDetail(View view) {
-
     }
 
     public void clickGoToAppointmentDetail(View view) {
