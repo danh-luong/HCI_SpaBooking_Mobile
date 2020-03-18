@@ -76,7 +76,7 @@ public class MainActivity extends AppCompatActivity {
                     switch (item.getItemId()) {
                         case R.id.action_home:
                             selectedFragment = new HomeFragment();
-                              MainActivity.this.getSupportActionBar().setDisplayHomeAsUpEnabled(false);
+                            MainActivity.this.getSupportActionBar().setDisplayHomeAsUpEnabled(false);
                             break;
                         case R.id.action_favorites:
                             selectedFragment = new FavoriteFragment();

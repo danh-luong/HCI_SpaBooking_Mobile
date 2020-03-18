@@ -199,6 +199,16 @@
                     android:onClick="onclickActive"
                     android:background="@drawable/active_button"/>
             </LinearLayout>
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Đổi Chức Vụ"
+                android:onClick="changeRole"
+                android:layout_marginTop="10dp"
+                android:textSize="17dp"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:background="@drawable/button_border_login_style"/>
         </LinearLayout>
 
     </RelativeLayout>
