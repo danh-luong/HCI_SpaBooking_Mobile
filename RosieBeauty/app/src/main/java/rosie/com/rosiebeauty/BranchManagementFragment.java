@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.beardedhen.androidbootstrap.BootstrapButton;
 
@@ -25,6 +26,11 @@ import rosie.com.rosiebeauty.Model.Branch;
  * A simple {@link Fragment} subclass.
  */
 public class BranchManagementFragment extends Fragment {
+    public static final int STATUS_UPDATE = 10;
+    public static final int STATUS_CREATE = 9;
+    public static final int STATUS_NORMAL = 8;
+    public static  int status = STATUS_NORMAL;
+
 
     private View rootView;
     private RecyclerView recycleViewBranch;
@@ -32,7 +38,7 @@ public class BranchManagementFragment extends Fragment {
     private BranchRecycleViewAdapter adapter;
     private BootstrapButton btnCreateNewBranch;
 
-    public ArrayList<Branch> getBranches() {
+    public static ArrayList<Branch> getBranches() {
         return branches;
     }
 
@@ -83,6 +89,18 @@ public class BranchManagementFragment extends Fragment {
     @Override
     public void onStart() {
         super.onStart();
+        loadRecycleView();
+        if(status != STATUS_NORMAL) {
+            switch (status) {
+                case STATUS_CREATE:
+                    Toast.makeText(getActivity(), "Tạo chi nhánh thành công", Toast.LENGTH_SHORT).show();
+                    break;
+                case STATUS_UPDATE:
+                    Toast.makeText(getActivity(), "Cập nhật chi nhánh thành công", Toast.LENGTH_SHORT).show();
+                    break;
+            }
+        }
+        status = STATUS_NORMAL;
     }
 
     @Override
@@ -92,7 +110,7 @@ public class BranchManagementFragment extends Fragment {
 
         rootView = inflater.inflate(R.layout.fragment_branch_management, container, false);
         loadBranches();
-        loadRecycleView();
+
         btnCreateNewBranch = rootView.findViewById(R.id.btnCreateBranch);
         btnCreateNewBranch.setOnClickListener(new View.OnClickListener() {
             @Override

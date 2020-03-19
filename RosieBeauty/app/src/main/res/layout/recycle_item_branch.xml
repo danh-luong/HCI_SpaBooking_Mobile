@@ -32,12 +32,12 @@
 
         <ImageView
             android:id="@+id/itemImage"
-            android:layout_width="120dp"
-            android:layout_height="120dp"
+            android:layout_width="75dp"
+            android:layout_height="60dp"
             android:layout_alignParentLeft="true"
             android:background="@drawable/imageview_home"
             android:scaleType="fitXY"
-            android:src="@drawable/ser_gloss_hair" />
+            android:src="@drawable/ic_chi_nhanh_2" />
 
         <TextView
             android:id="@+id/txtTitle"
@@ -72,8 +72,9 @@
             android:layout_height="wrap_content"
             android:textAllCaps="false"
             android:text="Chỉnh sửa"
-            android:layout_marginRight="5dp"
+            android:layout_marginRight="10dp"
             android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
             android:layout_alignParentRight="true"
             android:layout_below="@id/txtStatus"
             app:roundedCorners="true"

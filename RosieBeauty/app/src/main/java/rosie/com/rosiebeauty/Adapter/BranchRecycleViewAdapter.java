@@ -8,7 +8,6 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -63,7 +62,7 @@ public class BranchRecycleViewAdapter extends RecyclerView.Adapter<BranchRecycle
         txtTitle.setText(branch.getTitle());
         txtAddress.setText(branch.getAddress());
         txtStatus.setText(branch.getStatus());
-        imageView.setImageResource(branch.getImage());
+        imageView.setImageResource(R.drawable.ic_chi_nhanh_2);
 
 
         //bấm vào edit pop up fragment edit
