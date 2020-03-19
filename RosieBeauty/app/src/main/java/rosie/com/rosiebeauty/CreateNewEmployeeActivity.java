@@ -4,6 +4,7 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
@@ -14,6 +15,8 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+
+import java.util.Random;
 
 import rosie.com.rosiebeauty.Data.User;
 import rosie.com.rosiebeauty.Data.UserRepository;
@@ -122,8 +125,12 @@ public class CreateNewEmployeeActivity extends AppCompatActivity {
                     txtErrorConfirm.setVisibility(View.GONE);
                 }
 
-                UserRepository.userList.put(User.ROLE_MANAGER,
-                        new User(username, name, password, email, phone, 1, User.ROLE_MANAGER, "active"));
+                UserRepository.userList.put(username,
+                        new User(username, name, password, email, phone, R.drawable.ic_user, User.ROLE_MANAGER, "active"));
+                Intent intent = new Intent(CreateNewEmployeeActivity.this, AdminActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                finish();
+                startActivity(intent);
             }
         });
     }
