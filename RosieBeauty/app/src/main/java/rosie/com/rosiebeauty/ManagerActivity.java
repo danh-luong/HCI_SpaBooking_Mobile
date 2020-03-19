@@ -5,6 +5,7 @@ import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.TextView;
@@ -81,4 +82,9 @@ public class ManagerActivity extends AppCompatActivity {
                     return true;
                 }
             };
+
+    public void clickToCreate(View view) {
+        selectedFragment = new CreateNewService() ;
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container_manager, selectedFragment).addToBackStack(null).commit();
+    }
 }
