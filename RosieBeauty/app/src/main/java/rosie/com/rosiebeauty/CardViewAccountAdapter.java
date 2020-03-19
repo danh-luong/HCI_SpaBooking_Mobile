@@ -29,14 +29,14 @@ public class CardViewAccountAdapter extends
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        CardView cardView = (CardView) LayoutInflater.from(parent.getContext())
+        LinearLayout cardView = (LinearLayout) LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.card_view_account, parent, false);
         return new ViewHolder(cardView);
     }
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, final int position) {
-        CardView cardView = holder.cardView;
+        LinearLayout cardView = holder.cardView;
         TextView txtName = (TextView) cardView.findViewById(R.id.txtName);
         TextView txtRoleId = (TextView) cardView.findViewById(R.id.txtRoleId);
         TextView txtEmail = (TextView) cardView.findViewById(R.id.txtEmail);
@@ -75,9 +75,9 @@ public class CardViewAccountAdapter extends
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
 
-        private CardView cardView;
+        private LinearLayout cardView;
 
-        public ViewHolder(CardView cardView) {
+        public ViewHolder(LinearLayout cardView) {
             super(cardView);
             this.cardView = cardView;
         }

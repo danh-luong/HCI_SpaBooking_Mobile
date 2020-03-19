@@ -1,29 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AdminActivity"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context=".AdminActivity">
 
     <include
         android:id="@+id/toolbar_main"
         layout="@layout/toolbar_main" />
 
-    <ScrollView
+    <FrameLayout
+        android:id="@+id/fragment_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/bottom_nav"
+        android:layout_below="@+id/toolbar_main"></FrameLayout>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_nav"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-            <androidx.recyclerview.widget.RecyclerView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/recycle_account"
-                android:layout_marginTop="20dp"/>
-        </LinearLayout>
-    </ScrollView>
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/bottom_grad"
+        app:itemIconTint="@color/bottom_nav_state"
+        app:itemTextColor="@color/bottom_nav_state"
+        app:menu="@menu/bottom_nav_menu_admin" />
 
-</LinearLayout>
+</RelativeLayout>

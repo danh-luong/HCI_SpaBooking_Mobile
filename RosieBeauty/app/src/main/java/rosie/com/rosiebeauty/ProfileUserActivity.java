@@ -3,6 +3,7 @@ package rosie.com.rosiebeauty;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -23,7 +24,8 @@ public class ProfileUserActivity extends AppCompatActivity {
     private Spinner spnRole;
     private ImageView avatar;
     private Button btnDeactive, btnActive;
-    User user;
+    private User user;
+    private String roleName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,6 +69,17 @@ public class ProfileUserActivity extends AppCompatActivity {
         }
         int spinnerPosition = dataAdapter.getPosition(myWantedRole);
         spnRole.setSelection(spinnerPosition);
+        spnRole.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                roleName = spnRole.getSelectedItem().toString();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
         btnDeactive = findViewById(R.id.btnDeactive);
         btnActive = findViewById(R.id.btnActive);
 
@@ -86,6 +99,21 @@ public class ProfileUserActivity extends AppCompatActivity {
 
     public void onclickActive(View view) {
         UserRepository.userList.get(user.getRole()).setStatus("active");
+        Intent intent = new Intent(this, AdminActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(intent);
+    }
+
+    public void changeRole(View view) {
+        String selectedRole = null;
+        if (roleName.equals(User.ROLE_ADMIN)) {
+            selectedRole = User.ROLE_ADMIN;
+        } else if (roleName.equals("Khách Hàng")) {
+            selectedRole = User.ROLE_CUSTOMER;
+        } else if (roleName.equals("Quản lí")) {
+            selectedRole = User.ROLE_MANAGER;
+        }
+        user.setRole(selectedRole);
         Intent intent = new Intent(this, AdminActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(intent);
