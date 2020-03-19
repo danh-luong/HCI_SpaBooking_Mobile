@@ -50,5 +50,6 @@
     <color name="schedule_button_color">#FFB8F8</color>
     <color name="duskYellow">#FFDF00</color>
     <color name="lightGrey">#9A9A9A</color>
+    <color name="red">#FF0000</color>
 </resources>
 

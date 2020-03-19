@@ -19,4 +19,6 @@
     <string name="demo_description_content">
         Massage body thư giãn nhẹ nhàng, cải thiện tinh thần, giúp ổn định tâm lý và giải tỏa những căng thẳng mệt mỏi trong cơ thể một cách hữu hiệu. Thực hiện kiểu massage này, các kỹ thuật viên dùng những động tác day ấn tròn, dọc cơ lực, ngang đẩy lực, từ đó truyền nguồn năng lượng mới vào các cơ quan chính trong cơ thể, đào thải ứ trệ, độc tố ra ngoài mang đến sự thư giãn tuyệt đối\.
     </string>
+    <string name="error_text"><i>Xin vui lòng nhập các thông tin cần thiết</i></string>
+    <string name="error_confirm_password"><i>Xác nhận mật khẩu phải giống với mật khẩu</i></string>
 </resources>
