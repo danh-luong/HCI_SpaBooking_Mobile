@@ -167,6 +167,17 @@
                         android:textColor="@color/white"
                         android:textSize="17dp"
                         android:textStyle="bold" />
+
+                    <Button
+                        android:id="@+id/btnLogOut"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp"
+                        android:background="@drawable/active_button"
+                        android:text="Đăng xuất"
+                        android:textColor="@color/white"
+                        android:textSize="17dp"
+                        android:textStyle="bold" />
                 </LinearLayout>
 
             </RelativeLayout>

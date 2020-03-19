@@ -29,6 +29,7 @@ public class CurrentUserProfileFragment extends Fragment {
     private View rootView;
     private TextView txtNameProfile;
     private Button btnUpdateUserProfile;
+    private Button btnLogOut;
 
     public CurrentUserProfileFragment() {
         // Required empty public constructor
@@ -83,6 +84,17 @@ public class CurrentUserProfileFragment extends Fragment {
 
                 FragmentTransaction ft = getFragmentManager().beginTransaction();
                 ft.detach(CurrentUserProfileFragment.this).attach(CurrentUserProfileFragment.this).commit();
+            }
+        });
+
+        btnLogOut = rootView.findViewById(R.id.btnLogOut);
+        btnLogOut.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), LoginActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                getActivity().finish();
+                startActivity(intent);
             }
         });
 
