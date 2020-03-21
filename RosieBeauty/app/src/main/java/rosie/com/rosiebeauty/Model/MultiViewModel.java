@@ -24,8 +24,6 @@ public class MultiViewModel {
 
     public static final int WRAP_CONTENT = -2;
     public static final int MATCH_PARENT = -1;
-    public static final int CREATE_NEW_SERVICE = 12;
-    public static final int SHOW_SERVICE_MANAGER = 13;
 
     public int styleOfContent;
     public int type;
@@ -121,6 +119,7 @@ public class MultiViewModel {
             this.payPrice = payPrice;
         }
     }
+
 
 
     public static class RecyclerChildItem {
