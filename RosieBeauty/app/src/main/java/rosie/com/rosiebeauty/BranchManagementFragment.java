@@ -12,11 +12,15 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import com.beardedhen.androidbootstrap.BootstrapButton;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import rosie.com.rosiebeauty.Adapter.BranchRecycleViewAdapter;
 import rosie.com.rosiebeauty.Model.Branch;
@@ -117,6 +121,25 @@ public class BranchManagementFragment extends Fragment {
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity(), CreateBranchActivity.class);
                 startActivity(intent);
+            }
+        });
+        FloatingActionButton btnSearchUser = (FloatingActionButton) rootView.findViewById(R.id.btnSearchUser);
+        final EditText edtSearchName = (EditText) rootView.findViewById(R.id.edtSearchName);
+        btnSearchUser.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String textSearch = edtSearchName.getText().toString();
+                List<Branch> searchBranch = new ArrayList<>();
+                for (int i = 0; i < branches.size(); i++) {
+                    if (branches.get(i).getTitle().toLowerCase().contains(textSearch.toLowerCase())) {
+                        searchBranch.add(branches.get(i));
+                    }
+                }
+                adapter = new BranchRecycleViewAdapter((ArrayList<Branch>) searchBranch, (AdminActivity) getActivity(), BranchManagementFragment.this);
+                recycleViewBranch = rootView.findViewById(R.id.recycle_view_branches);
+                LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());
+                recycleViewBranch.setAdapter(adapter);
+                recycleViewBranch.setLayoutManager(layoutManager);
             }
         });
         return rootView;

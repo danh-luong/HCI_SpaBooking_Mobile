@@ -9,7 +9,7 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/card_view"
         android:layout_width="match_parent"
-        android:layout_height="120dp"
+        android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
         android:layout_marginTop="10dp"
         android:layout_marginRight="10dp"
@@ -35,6 +35,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="10dp"
+                    android:fontFamily="@font/lora_bold"
                     android:text="Tên: "
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -43,9 +44,9 @@
                     android:id="@+id/txtName"
                     android:layout_width="wrap_content"
                     android:layout_height="19dp"
-                    android:layout_marginStart="7dp"
                     android:layout_marginTop="10dp"
                     android:text="Username"
+                    android:fontFamily="@font/lora"
                     app:layout_constraintStart_toEndOf="@+id/textView"
                     app:layout_constraintTop_toTopOf="parent" />
 
@@ -62,6 +63,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="10dp"
+                    android:fontFamily="@font/lora_bold"
                     android:text="Điện Thoại: "
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/textView3" />
@@ -70,7 +72,7 @@
                     android:id="@+id/txtPhone"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="7dp"
+                    android:fontFamily="@font/lora"
                     android:layout_marginTop="10dp"
                     android:text="Phone"
                     app:layout_constraintStart_toEndOf="@+id/textView4"
@@ -89,6 +91,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="10dp"
+                    android:fontFamily="@font/lora_bold"
                     android:text="Email: "
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/textView5" />
@@ -97,7 +100,7 @@
                     android:id="@+id/txtEmail"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="7dp"
+                    android:fontFamily="@font/lora"
                     android:layout_marginTop="10dp"
                     android:text="Email"
                     app:layout_constraintStart_toEndOf="@+id/textView3"
@@ -117,6 +120,7 @@
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="10dp"
                     android:text="Chức vụ: "
+                    android:fontFamily="@font/lora_bold"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/textView" />
 
@@ -124,7 +128,7 @@
                     android:id="@+id/txtRoleId"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="7dp"
+                    android:fontFamily="@font/lora"
                     android:layout_marginTop="10dp"
                     android:text="RoleId"
                     app:layout_constraintStart_toEndOf="@+id/textView5"

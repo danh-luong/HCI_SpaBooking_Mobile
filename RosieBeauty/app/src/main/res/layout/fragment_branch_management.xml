@@ -14,9 +14,37 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <RelativeLayout
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Kiếm Chi Nhánh:"
+                    android:textStyle="bold"
+                    android:textSize="14dp"
+                    android:fontFamily="@font/lora_bold"/>
+
+                <EditText
+                    android:id="@+id/edtSearchName"
+                    android:layout_width="210dp"
+                    android:layout_height="wrap_content" />
+
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/btnSearchUser"
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    android:layout_gravity="end|bottom"
+                    android:layout_marginTop="5dp"
+                    android:src="@drawable/round_search_white_24dp"/>
+            </LinearLayout>
 
             <!-- TODO: Update blank fragment layout -->
             <androidx.recyclerview.widget.RecyclerView
@@ -32,10 +60,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
                 android:layout_below="@id/recycle_view_branches"/>
-        </RelativeLayout>
+        </LinearLayout>
     </ScrollView>
 
     <com.beardedhen.androidbootstrap.BootstrapButton
+        android:fontFamily="@font/lora_bold"
         android:id="@+id/btnCreateBranch"
         android:layout_width="match_parent"
         android:layout_height="40dp"

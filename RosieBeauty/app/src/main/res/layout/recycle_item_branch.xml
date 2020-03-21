@@ -51,6 +51,7 @@
             android:textStyle="bold" />
 
         <TextView
+            android:fontFamily="@font/lora"
             android:id="@+id/txtAddress"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -59,6 +60,7 @@
             android:text="216 - Quang Trung - Gò Vấp" />
 
         <TextView
+            android:fontFamily="@font/lora"
             android:id="@+id/txtStatus"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -68,6 +70,7 @@
            />
 
         <com.beardedhen.androidbootstrap.BootstrapButton
+            android:fontFamily="@font/lora_bold"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAllCaps="false"
