@@ -1,8 +1,5 @@
 package rosie.com.rosiebeauty;
 
-import androidx.appcompat.app.ActionBar;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
@@ -16,7 +13,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import java.util.Random;
+import androidx.appcompat.app.AppCompatActivity;
 
 import rosie.com.rosiebeauty.Data.User;
 import rosie.com.rosiebeauty.Data.UserRepository;

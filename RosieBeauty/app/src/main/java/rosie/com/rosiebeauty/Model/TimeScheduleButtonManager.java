@@ -1,8 +1,6 @@
 package rosie.com.rosiebeauty.Model;
 
 
-
-import android.widget.Button;
 import android.widget.TextView;
 
 import rosie.com.rosiebeauty.R;
