@@ -1,6 +1,7 @@
 package rosie.com.rosiebeauty;
 
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -24,9 +25,13 @@ import rosie.com.rosiebeauty.Model.MultiViewModel;
 public class SpaServiceDetailFragment extends Fragment {
     private ArrayList<MultiViewModel> commentList;
     private RecyclerView commentsHolder;
+    private static AppCompatActivity currentActivity;
 
     private static com.beardedhen.androidbootstrap.BootstrapButton buttonBook;
 
+    public static void setInitParam(AppCompatActivity activity) {
+        currentActivity = activity;
+    }
 
     public static void updateButtonBook() {
         String buttonBookString = "Lịch đặt: " + "ngày " + MainActivity.schedule_button_date + " lúc: " + MainActivity.schedule_button_time + " | " + "Đặt ngay!";
@@ -61,7 +66,6 @@ public class SpaServiceDetailFragment extends Fragment {
         View rootView = inflater.inflate(R.layout.fragment_spa_service_detail, container, false);
         ((AppCompatActivity) getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         buttonBook = rootView.findViewById(R.id.boostrapButtonBook);
-
         prepareData();
         MultiViewTypeAdapter commentAdapter = new MultiViewTypeAdapter(commentList, this.getActivity().getApplicationContext());
         commentsHolder = rootView.findViewById(R.id.comments_holder);
@@ -70,7 +74,12 @@ public class SpaServiceDetailFragment extends Fragment {
         commentsHolder.setLayoutManager(lmForSuggestion);
         commentsHolder.setItemAnimator(new DefaultItemAnimator());
         commentsHolder.setAdapter(commentAdapter);
-
+        buttonBook.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                currentActivity.getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new AppointmentDetail()).addToBackStack(null).commit();
+            }
+        });
         return rootView;
 
     }

@@ -19,6 +19,7 @@ import java.util.Date;
 
 import rosie.com.rosiebeauty.Adapter.MultiViewTypeAdapter;
 import rosie.com.rosiebeauty.Model.MultiViewModel;
+import rosie.com.rosiebeauty.Model.TimeSchedule;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -33,29 +34,29 @@ public class ScheduleFragment extends Fragment {
     private int selectedDayOfWeek;
 
 
-    private String[] monday_schedule = new String[]{
-            "7:30", "8:30", "9:30", "13:30", "15:30", "8:30"
+    private TimeSchedule[] monday_schedule = new TimeSchedule[]{
+           new TimeSchedule("7:30", "-20%") , new TimeSchedule("8:30", "-20%"), new TimeSchedule("9:30", ""), new TimeSchedule("13:30", ""), new TimeSchedule("15:30", ""), new TimeSchedule("20:30", "")
     };
 
-    private String[] tuesday_schedule = new String[]{
-            "7:30", "8:30", "11:20", "13:30", "16:30", "20:30", "22:30"
+    private TimeSchedule[] tuesday_schedule = new TimeSchedule[]{
+            new TimeSchedule("7:30", "-15%") , new TimeSchedule("8:30", "-25%"), new TimeSchedule("9:30", ""), new TimeSchedule("13:30", ""), new TimeSchedule("15:30", ""), new TimeSchedule("20:30", "")
     };
 
-    private String[] wednesday_schedule = new String[]{
-            "7:30", "8:30", "12:30", "13:30", "15:30"
+    private TimeSchedule[] wednesday_schedule = new TimeSchedule[]{
+            new TimeSchedule("7:30", "-30%") , new TimeSchedule("8:30", "-15"), new TimeSchedule("9:30", ""), new TimeSchedule("13:30", ""), new TimeSchedule("15:30", ""), new TimeSchedule("20:30", "")
     };
 
-    private String[] thursday_schedule = new String[]{
-            "7:30", "8:30", "10:30", "13:30", "15:30", "20:30", "21:30", "23:00"
+    private TimeSchedule[] thursday_schedule = new TimeSchedule[]{
+            new TimeSchedule("7:30", "-15%") , new TimeSchedule("8:30", ""), new TimeSchedule("9:30", ""), new TimeSchedule("13:30", ""), new TimeSchedule("15:30", ""), new TimeSchedule("20:30", "")
     };
-    private String[] friday_schedule = new String[]{
-            "7:45", "8:50", "9:15", "13:30"
+    private TimeSchedule[] friday_schedule = new TimeSchedule[]{
+            new TimeSchedule("7:00", "") , new TimeSchedule("8:30", ""), new TimeSchedule("9:30", ""), new TimeSchedule("13:30", ""), new TimeSchedule("15:30", ""), new TimeSchedule("20:30", "")
     };
-    private String[] saturday_schedule = new String[]{
-            "8:00", "8:30", "8:45", "13:30", "15:30", "20:30"
+    private TimeSchedule[] saturday_schedule = new TimeSchedule[]{
+            new TimeSchedule("5:30", "") , new TimeSchedule("8:30", ""), new TimeSchedule("9:30", ""), new TimeSchedule("13:30", ""), new TimeSchedule("15:30", ""), new TimeSchedule("20:30", "")
     };
-    private String[] sunday_schedule = new String[]{
-            "7:00", "8:30", "11:30", "13:30", "15:30", "20:30"
+    private TimeSchedule[] sunday_schedule = new TimeSchedule[]{
+            new TimeSchedule("6:30", "") , new TimeSchedule("8:30", ""), new TimeSchedule("9:30", ""), new TimeSchedule("13:30", ""), new TimeSchedule("15:30", ""), new TimeSchedule("20:30", "")
     };
 
 
@@ -73,7 +74,7 @@ public class ScheduleFragment extends Fragment {
         long todayTime = Calendar.getInstance().getTimeInMillis();
         calendarView.setDate(todayTime, false, true);
         Calendar calendar = Calendar.getInstance();
-        selectedDayOfWeek = calendar.get(Calendar.DAY_OF_WEEK);
+        selectedDayOfWeek = 1;
         updateSchedule();
 
 
@@ -81,7 +82,8 @@ public class ScheduleFragment extends Fragment {
             @Override
             public void onSelectedDayChange(@NonNull CalendarView view, int year, int month, int dayOfMonth) {
                 Date selectedDate = convertCalendarInfoToDate(year, month, dayOfMonth);
-                ScheduleFragment.this.selectedDayOfWeek = convertDateToDayOfWeek(selectedDate);
+                ScheduleFragment.this.selectedDayOfWeek = convertDateToDayOfWeek(selectedDate) - 2;
+                if(selectedDayOfWeek == -1) selectedDayOfWeek = 7;
                 updateSchedule();
                 setDateOfBookButton(year, month, dayOfMonth);
 
@@ -108,7 +110,7 @@ public class ScheduleFragment extends Fragment {
     }
 
 
-    private String[] getScheduleOnDayOfWeek(int dayOfWeek) {
+    private TimeSchedule[] getScheduleOnDayOfWeek(int dayOfWeek) {
         switch (dayOfWeek) {
             case 1:
                 return this.monday_schedule;
@@ -148,7 +150,7 @@ public class ScheduleFragment extends Fragment {
 
     void prepareData() {
         timeList = new ArrayList<>();
-        String[] schedule = getScheduleOnDayOfWeek(selectedDayOfWeek);
+        TimeSchedule[] schedule = getScheduleOnDayOfWeek(selectedDayOfWeek);
         MultiViewModel gridViewModel = null;
         for (int i = 0; i < schedule.length; i++) {
             gridViewModel = new MultiViewModel(MultiViewModel.TYPE_BUTTON_TIME_SCHEDULE, schedule[i]);

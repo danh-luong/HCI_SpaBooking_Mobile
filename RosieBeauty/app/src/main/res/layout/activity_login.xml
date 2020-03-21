@@ -77,16 +77,21 @@
         android:onClick="onclickLogin"
         android:background="@drawable/button_border_login_style"/>
 
-    <TextView
+    <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
+        android:layout_marginLeft="35dp"
+        android:layout_marginRight="35dp"
         android:textSize="18dp"
         android:text="Không có tài khoản? Đăng ký ngay!"
         android:fontFamily="@font/lora_italic"
         android:textStyle="bold"
         android:gravity="center"
         android:id="@+id/txtRegisterLink"
+        android:textAllCaps="false"
+        android:background="@drawable/button_border_login_style"
+        android:textColor="@color/white"
         />
 
     <TextView

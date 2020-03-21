@@ -46,6 +46,8 @@ public class MultiViewModel {
     public int countComment;
     public String address;
     public String intPromotion;
+    public TimeSchedule timeSchedule;
+
 
     public static class FavoriteItem {
         int image;
@@ -134,6 +136,11 @@ public class MultiViewModel {
     public MultiViewModel(int type, FavoriteItem favoriteItem) {
         this.type = type;
         this.favoriteItem = favoriteItem;
+    }
+
+    public MultiViewModel(int type, TimeSchedule timeSchedule) {
+        this.type = type;
+        this.timeSchedule = timeSchedule;
     }
 
     public MultiViewModel(int type, Appointment appointment) {

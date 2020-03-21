@@ -51,7 +51,7 @@ public class HomeFragment extends Fragment {
 
         prepareData();
 
-        MultiViewTypeAdapter adapter = new MultiViewTypeAdapter(gridViewModelArrayList, this.getActivity().getApplicationContext());
+        MultiViewTypeAdapter adapter = new MultiViewTypeAdapter(gridViewModelArrayList, this.getActivity());
         // LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this, RecyclerView.VERTICAL, false);
 
         mRecyclerView = rootView.findViewById(R.id.suggestionView);

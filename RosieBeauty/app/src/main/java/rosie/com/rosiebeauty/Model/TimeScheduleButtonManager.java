@@ -3,6 +3,7 @@ package rosie.com.rosiebeauty.Model;
 
 
 import android.widget.Button;
+import android.widget.TextView;
 
 import rosie.com.rosiebeauty.R;
 
@@ -12,7 +13,7 @@ public class TimeScheduleButtonManager {
         UNSELECTED,
         SELECTED
     }
-    private Button btnTime;
+    private TextView btnTime;
     private ButtonTimeStatus btnStatus;
 
     public void setButtonStatus(ButtonTimeStatus status) {
@@ -36,16 +37,16 @@ public class TimeScheduleButtonManager {
 
     }
 
-    public TimeScheduleButtonManager(Button btnTime, ButtonTimeStatus btnStatus) {
+    public TimeScheduleButtonManager(TextView btnTime, ButtonTimeStatus btnStatus) {
         this.btnTime = btnTime;
         this.btnStatus = btnStatus;
     }
 
-    public Button getBtnTime() {
+    public TextView getBtnTime() {
         return btnTime;
     }
 
-    public void setBtnTime(Button btnTime) {
+    public void setBtnTime(TextView btnTime) {
         this.btnTime = btnTime;
     }
 
