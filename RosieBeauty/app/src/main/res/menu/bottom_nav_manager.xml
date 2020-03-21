@@ -2,17 +2,17 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
-        android:id="@+id/action_analysist"
-        android:enabled="true"
-        android:icon="@drawable/ic_result"
-        android:title="Thống kê"
-        app:actionViewClass="android.widget.ImageButton"
-        app:showAsAction="always"/>
-    <item
         android:id="@+id/action_service"
         android:enabled="true"
         android:icon="@drawable/ic_blank"
         android:title="Dịch vụ"
+        app:actionViewClass="android.widget.ImageButton"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/action_createService"
+        android:enabled="true"
+        android:icon="@drawable/ic_create"
+        android:title="Tạo mới"
         app:actionViewClass="android.widget.ImageButton"
         app:showAsAction="always" />
     <item

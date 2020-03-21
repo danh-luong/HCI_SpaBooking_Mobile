@@ -5,7 +5,6 @@ import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.TextView;
@@ -21,7 +20,6 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 public class ManagerActivity extends AppCompatActivity {
     private TextView toolbar_title;
     private Fragment selectedFragment = null;
-    private boolean isCurrentSearchFragment = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,7 +35,7 @@ public class ManagerActivity extends AppCompatActivity {
         actionBar.setHomeButtonEnabled(true);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
         getSupportActionBar().setDisplayUseLogoEnabled(true);
-        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container_manager, new AnalysistFragment()).commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container_manager, new ListServiceFragment()).commit();
     }
 
     protected void setStatusBarGradiant(Activity activity) {
@@ -55,14 +53,14 @@ public class ManagerActivity extends AppCompatActivity {
                 @Override
                 public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                     switch (item.getItemId()) {
-                        case R.id.action_analysist:
-                            selectedFragment = new AnalysistFragment();
-                            ManagerActivity.this.getSupportActionBar().setDisplayHomeAsUpEnabled(false);
-                            toolbar_title.setText("Thống kê");
-                            break;
                         case R.id.action_service:
                             selectedFragment = new ListServiceFragment();
+                            ManagerActivity.this.getSupportActionBar().setDisplayHomeAsUpEnabled(false);
                             toolbar_title.setText("Dịch vụ");
+                            break;
+                        case R.id.action_createService:
+                            selectedFragment = new FragmentCreateNewService();
+                            toolbar_title.setText("Tạo mới");
                             break;
                         case R.id.action_scan:
                             selectedFragment = new ScanFragment();
@@ -77,14 +75,8 @@ public class ManagerActivity extends AppCompatActivity {
                             toolbar_title.setText("Hồ sơ");
                             break;
                     }
-                    isCurrentSearchFragment = false;
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container_manager, selectedFragment).commit();
                     return true;
                 }
             };
-
-    public void clickToCreate(View view) {
-        selectedFragment = new CreateNewService() ;
-        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container_manager, selectedFragment).addToBackStack(null).commit();
-    }
 }

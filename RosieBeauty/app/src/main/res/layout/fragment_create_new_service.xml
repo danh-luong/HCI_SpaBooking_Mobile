@@ -2,141 +2,724 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:layout_margin="15dp"
+    android:gravity="center"
     android:orientation="vertical"
-    tools:context=".CreateNewService">
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/philosopher_bold"
-        android:gravity="center"
-        android:text="Thông tin dịch vụ"
-        android:textColor="#000000"
-        android:textSize="20dp"
-        android:textStyle="bold" />
+    tools:context=".FragmentCreateNewService">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:gravity="center"
         android:orientation="vertical">
 
         <TextView
-            android:layout_width="wrap_content"
+            android:id="@+id/txtTitleCreateService"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/philosopher_bold"
-            android:text="Tên dịch vụ: "
-            android:textColor="#000000"
-            android:textSize="16dp"
+            android:gravity="center"
+            android:text="Thông tin dịch vụ"
+            android:textColor="#FF0000"
+            android:textSize="20dp"
             android:textStyle="bold" />
 
-        <EditText
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content" />
-    </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/grey" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <TextView
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:fontFamily="@font/philosopher_bold"
-            android:text="Hình ảnh: "
-            android:textColor="#000000"
-            android:textSize="16dp"
-            android:textStyle="bold" />
+            android:orientation="vertical">
 
-        <ImageButton
-            android:layout_width="wrap_content"
+            <TextView
+                android:id="@+id/txtNameService"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/philosopher_bold"
+                android:text="Tên dịch vụ: "
+                android:textColor="#000000"
+                android:textSize="16dp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/edtNameService"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/lora"
+                android:textSize="16dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_photo" />
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/txtPhoto"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:fontFamily="@font/philosopher_bold"
+                android:text="Hình ảnh: "
+                android:textColor="#000000"
+                android:textSize="16dp"
+                android:textStyle="bold" />
+
+            <ImageButton
+                android:id="@+id/btnPhoto"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_photo" />
+        </LinearLayout>
 
         <ImageView
+            android:id="@+id/viewPhoto"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-    </LinearLayout>
+            android:layout_height="wrap_content"
+            android:src="@drawable/xonghoinu" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/txtDesService"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/philosopher_bold"
+                android:text="Mô tả dịch vụ: "
+                android:textColor="#000000"
+                android:textSize="16dp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/edtDesService"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/lora"
+                android:minLines="3"
+                android:textSize="16dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/txtCatagory"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/philosopher_bold"
+                android:text="Danh mục dịch vụ: "
+                android:textColor="#000000"
+                android:textSize="16dp"
+                android:textStyle="bold" />
+
+            <Spinner
+                android:id="@+id/spinnerCatagory"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/lora"
+                android:inputType="number"
+                android:singleLine="true"
+                android:textSize="16dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/txtPrice"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/philosopher_bold"
+                android:text="Giá gốc (gồm 10%VAT - ĐVT: Đồng): "
+                android:textColor="#000000"
+                android:textSize="16dp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/edtPrice"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/lora"
+                android:inputType="number"
+                android:singleLine="true"
+                android:textSize="16dp" />
+        </LinearLayout>
 
         <TextView
-            android:layout_width="wrap_content"
+            android:id="@+id/txtTitlePromotion"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/philosopher_bold"
-            android:text="Mô tả dịch vụ: "
-            android:textColor="#000000"
-            android:textSize="16dp"
+            android:gravity="center"
+            android:text="Thông tin khuyến mại"
+            android:textColor="#FF0000"
+            android:textSize="20dp"
             android:textStyle="bold" />
 
-        <EditText
-            android:layout_width="fill_parent"
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/grey" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:minLines="3" />
-    </LinearLayout>
+            android:orientation="vertical">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
+            <TextView
+                android:id="@+id/quantityPromotion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/philosopher_bold"
+                android:text="Khuyến mại: (%) "
+                android:textColor="#000000"
+                android:textSize="16dp"
+                android:textStyle="bold" />
 
-        <TextView
-            android:layout_width="wrap_content"
+            <EditText
+                android:id="@+id/edtQPromotion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/lora"
+                android:inputType="number"
+                android:singleLine="true"
+                android:textSize="16dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/philosopher_bold"
-            android:text="Giá (trước thuế - ĐVT: Đồng): "
-            android:textColor="#000000"
-            android:textSize="16dp"
-            android:textStyle="bold" />
+            android:orientation="vertical">
 
-        <EditText
-            android:layout_width="fill_parent"
+            <TextView
+                android:id="@+id/txtPromotion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/philosopher_bold"
+                android:text="Giá khuyến mại: (VND) "
+                android:textColor="#000000"
+                android:textSize="16dp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/edtPricePromo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/lora"
+                android:inputType="number"
+                android:singleLine="true"
+                android:textSize="16dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="number"
-            android:singleLine="true" />
-    </LinearLayout>
+            android:orientation="horizontal"
+            android:weightSum="1">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/philosopher_bold"
-        android:gravity="center"
-        android:text="Lịch hẹn"
-        android:textColor="#000000"
-        android:textSize="20dp"
-        android:textStyle="bold" />
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"
+                android:orientation="vertical">
 
+                <TextView
+                    android:id="@+id/txtStartDay"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/philosopher_bold"
+                    android:text="Từ ngày: "
+                    android:textColor="#000000"
+                    android:textSize="16dp"
+                    android:textStyle="bold" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
+                <EditText
+                    android:id="@+id/edtStartDay"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/lora"
+                    android:inputType="number"
+                    android:singleLine="true"
+                    android:textSize="16dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/txtEndDay"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/philosopher_bold"
+                    android:text="Đến ngày: "
+                    android:textColor="#000000"
+                    android:textSize="16dp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/edtEndDay"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/lora"
+                    android:inputType="number"
+                    android:singleLine="true"
+                    android:textSize="16dp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/txtPromotionInWeek"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/philosopher_bold"
+                android:text="Khuyến mại [Thứ Hai - Thứ Sáu] các giờ: "
+                android:textColor="#000000"
+                android:textSize="16dp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <CheckBox
+                    android:layout_width="90dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/lora"
+                    android:paddingEnd="10dp"
+                    android:text="08:00"
+                    android:textSize="16dp" />
+
+                <CheckBox
+                    android:layout_width="90dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/lora"
+                    android:paddingEnd="10dp"
+                    android:text="08:30"
+                    android:textSize="16dp" />
+
+                <CheckBox
+                    android:layout_width="90dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/lora"
+                    android:paddingEnd="10dp"
+                    android:text="09:00"
+                    android:textSize="16dp" />
+
+                <CheckBox
+                    android:layout_width="90dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/lora"
+                    android:paddingEnd="10dp"
+                    android:text="09:30"
+                    android:textSize="16dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <CheckBox
+                    android:layout_width="90dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/lora"
+                    android:paddingEnd="10dp"
+                    android:text="10:00"
+                    android:textSize="16dp" />
+
+                <CheckBox
+                    android:layout_width="90dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/lora"
+                    android:paddingEnd="10dp"
+                    android:text="10:30"
+                    android:textSize="16dp" />
+
+                <CheckBox
+                    android:layout_width="90dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/lora"
+                    android:paddingEnd="10dp"
+                    android:text="11:00"
+                    android:textSize="16dp" />
+
+                <CheckBox
+                    android:layout_width="90dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/lora"
+                    android:paddingEnd="10dp"
+                    android:text="11:30"
+                    android:textSize="16dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <CheckBox
+                    android:layout_width="90dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/lora"
+                    android:paddingEnd="10dp"
+                    android:text="13:00"
+                    android:textSize="16dp" />
+
+                <CheckBox
+                    android:layout_width="90dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/lora"
+                    android:paddingEnd="10dp"
+                    android:text="13:30"
+                    android:textSize="16dp" />
+
+                <CheckBox
+                    android:layout_width="90dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/lora"
+                    android:paddingEnd="10dp"
+                    android:text="14:00"
+                    android:textSize="16dp" />
+
+                <CheckBox
+                    android:layout_width="90dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/lora"
+                    android:paddingEnd="10dp"
+                    android:text="15:30"
+                    android:textSize="16dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <CheckBox
+                    android:layout_width="90dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/lora"
+                    android:paddingEnd="10dp"
+                    android:text="16:00"
+                    android:textSize="16dp" />
+
+                <CheckBox
+                    android:layout_width="90dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/lora"
+                    android:paddingEnd="10dp"
+                    android:text="16:30"
+                    android:textSize="16dp" />
+
+                <CheckBox
+                    android:layout_width="90dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/lora"
+                    android:paddingEnd="10dp"
+                    android:text="17:00"
+                    android:textSize="16dp" />
+
+                <CheckBox
+                    android:layout_width="90dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/lora"
+                    android:paddingEnd="10dp"
+                    android:text="17:30"
+                    android:textSize="16dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <CheckBox
+                    android:layout_width="90dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/lora"
+                    android:paddingEnd="10dp"
+                    android:text="18:00"
+                    android:textSize="16dp" />
+
+                <CheckBox
+                    android:layout_width="90dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/lora"
+                    android:paddingEnd="10dp"
+                    android:text="18:30"
+                    android:textSize="16dp" />
+
+                <CheckBox
+                    android:layout_width="90dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/lora"
+                    android:paddingEnd="10dp"
+                    android:text="19:00"
+                    android:textSize="16dp" />
+
+                <CheckBox
+                    android:layout_width="90dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/lora"
+                    android:paddingEnd="10dp"
+                    android:text="19:30"
+                    android:textSize="16dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/txtPromotionAtWeekend"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/philosopher_bold"
+                    android:text="Khuyến mại [Thứ Bảy và Chủ Nhật] các giờ: "
+                    android:textColor="#000000"
+                    android:textSize="16dp"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <CheckBox
+                        android:layout_width="90dp"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/lora"
+                        android:paddingEnd="10dp"
+                        android:text="08:00"
+                        android:textSize="16dp" />
+
+                    <CheckBox
+                        android:layout_width="90dp"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/lora"
+                        android:paddingEnd="10dp"
+                        android:text="08:30"
+                        android:textSize="16dp" />
+
+                    <CheckBox
+                        android:layout_width="90dp"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/lora"
+                        android:paddingEnd="10dp"
+                        android:text="09:00"
+                        android:textSize="16dp" />
+
+                    <CheckBox
+                        android:layout_width="90dp"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/lora"
+                        android:paddingEnd="10dp"
+                        android:text="09:30"
+                        android:textSize="16dp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <CheckBox
+                        android:layout_width="90dp"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/lora"
+                        android:paddingEnd="10dp"
+                        android:text="10:00"
+                        android:textSize="16dp" />
+
+                    <CheckBox
+                        android:layout_width="90dp"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/lora"
+                        android:paddingEnd="10dp"
+                        android:text="10:30"
+                        android:textSize="16dp" />
+
+                    <CheckBox
+                        android:layout_width="90dp"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/lora"
+                        android:paddingEnd="10dp"
+                        android:text="11:00"
+                        android:textSize="16dp" />
+
+                    <CheckBox
+                        android:layout_width="90dp"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/lora"
+                        android:paddingEnd="10dp"
+                        android:text="11:30"
+                        android:textSize="16dp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <CheckBox
+                        android:layout_width="90dp"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/lora"
+                        android:paddingEnd="10dp"
+                        android:text="13:00"
+                        android:textSize="16dp" />
+
+                    <CheckBox
+                        android:layout_width="90dp"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/lora"
+                        android:paddingEnd="10dp"
+                        android:text="13:30"
+                        android:textSize="16dp" />
+
+                    <CheckBox
+                        android:layout_width="90dp"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/lora"
+                        android:paddingEnd="10dp"
+                        android:text="14:00"
+                        android:textSize="16dp" />
+
+                    <CheckBox
+                        android:layout_width="90dp"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/lora"
+                        android:paddingEnd="10dp"
+                        android:text="15:30"
+                        android:textSize="16dp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <CheckBox
+                        android:layout_width="90dp"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/lora"
+                        android:paddingEnd="10dp"
+                        android:text="16:00"
+                        android:textSize="16dp" />
+
+                    <CheckBox
+                        android:layout_width="90dp"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/lora"
+                        android:paddingEnd="10dp"
+                        android:text="16:30"
+                        android:textSize="16dp" />
+
+                    <CheckBox
+                        android:layout_width="90dp"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/lora"
+                        android:paddingEnd="10dp"
+                        android:text="17:00"
+                        android:textSize="16dp" />
+
+                    <CheckBox
+                        android:layout_width="90dp"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/lora"
+                        android:paddingEnd="10dp"
+                        android:text="17:30"
+                        android:textSize="16dp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <CheckBox
+                        android:layout_width="90dp"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/lora"
+                        android:paddingEnd="10dp"
+                        android:text="18:00"
+                        android:textSize="16dp" />
+
+                    <CheckBox
+                        android:layout_width="90dp"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/lora"
+                        android:paddingEnd="10dp"
+                        android:text="18:30"
+                        android:textSize="16dp" />
+
+                    <CheckBox
+                        android:layout_width="90dp"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/lora"
+                        android:paddingEnd="10dp"
+                        android:text="19:00"
+                        android:textSize="16dp" />
+
+                    <CheckBox
+                        android:layout_width="90dp"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/lora"
+                        android:paddingEnd="10dp"
+                        android:text="19:30"
+                        android:textSize="16dp" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
 
         <CheckBox
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/lora_bold"
+            android:text="Hiển thị sản phẩm đến khách hàng?"
+            android:textSize="16dp" />
+
+        <Button
+            android:id="@+id/btnCreateService"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="@drawable/button_border_background"
             android:fontFamily="@font/philosopher_bold"
-            android:text="Khuyến mãi?"
-            android:textSize="16dp"
-            android:textStyle="bold" />
+            android:text="Thêm mới dịch vụ"
+            android:textColor="@color/white"
+            android:textSize="16dp" />
     </LinearLayout>
-<Button
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:text="Thêm lịch hẹn"
-    android:fontFamily="@font/lora_bold"
-    android:textColor="@color/white"
-    android:background="@color/solidCircle"/>
-    <fragment
-        android:id="@+id/scheduleCreate1"
-        android:name="rosie.com.rosiebeauty.ScheduleForCreate"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
-
 </LinearLayout>
