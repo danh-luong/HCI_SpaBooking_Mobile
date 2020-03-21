@@ -77,8 +77,9 @@
             android:fontFamily="@font/philosopher_bold"
             android:onClick="onclickLogin"
             android:text="Đăng nhập"
+            android:textAllCaps="false"
             android:textColor="@color/white"
-            android:textSize="17dp" />
+            android:textSize="18dp" />
 
         <TextView
             android:layout_width="match_parent"
@@ -86,6 +87,7 @@
             android:fontFamily="@font/lora_italic"
             android:gravity="center"
             android:paddingTop="10dp"
+            android:paddingBottom="5dp"
             android:text="Không có tài khoản?"
             android:textColor="#FFFFFF"
             android:textSize="18dp" />
@@ -97,7 +99,7 @@
             android:layout_marginLeft="35dp"
             android:layout_marginRight="35dp"
             android:background="@drawable/button_border_login_style"
-            android:fontFamily="@font/lora_italic"
+            android:fontFamily="@font/philosopher_bold"
             android:gravity="center"
             android:text=" Đăng ký ngay!"
             android:textAllCaps="false"
@@ -133,6 +135,7 @@
             android:fontFamily="@font/lora_italic"
             android:gravity="center"
             android:paddingTop="10dp"
+            android:paddingBottom="5dp"
             android:text="Hoặc đăng nhập bằng"
             android:textColor="#FFFFFF"
             android:textSize="18dp" />
@@ -144,7 +147,7 @@
             android:layout_marginLeft="35dp"
             android:layout_marginRight="35dp"
             android:background="#3b5998"
-            android:fontFamily="@font/lora_italic"
+            android:fontFamily="@font/philosopher_bold"
             android:gravity="center"
             android:text="Facebook"
             android:textAllCaps="false"
@@ -160,7 +163,7 @@
             android:layout_marginTop="10dp"
             android:layout_marginRight="35dp"
             android:background="#DB4437"
-            android:fontFamily="@font/lora_italic"
+            android:fontFamily="@font/philosopher_bold"
             android:gravity="center"
             android:text="Google"
             android:textAllCaps="false"
