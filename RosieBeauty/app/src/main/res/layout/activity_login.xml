@@ -1,107 +1,171 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/startup_grad"
-    tools:context=".LoginActivity"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context=".LoginActivity">
+
+    <LinearLayout
+        android:id="@+id/dangnhap"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:layout_marginBottom="30dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:src="@drawable/ic_spa_logo_no_text" />
 
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="10dp"
+                android:fontFamily="@font/philosopher_bold_italic"
+                android:text="Rose Spa"
+                android:textColor="@color/colorAccent"
+                android:textSize="40dp"
+                android:textStyle="bold|italic" />
+        </LinearLayout>
+
+        <EditText
+            android:id="@+id/edtUsername"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginRight="40dp"
+            android:background="@drawable/edit_text_border"
+            android:fontFamily="@font/lora_italic"
+            android:gravity="center"
+            android:hint="Tên đăng nhập"
+            android:singleLine="true" />
+
+
+        <EditText
+            android:id="@+id/edtPassword"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginRight="40dp"
+            android:background="@drawable/edit_text_border"
+            android:fontFamily="@font/lora_italic"
+            android:gravity="center"
+            android:hint="Mật khẩu"
+            android:inputType="textPassword"
+            android:singleLine="true" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="35dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="35dp"
+            android:background="@drawable/button_border_login_style"
+            android:fontFamily="@font/philosopher_bold"
+            android:onClick="onclickLogin"
+            android:text="Đăng nhập"
+            android:textColor="@color/white"
+            android:textSize="17dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/lora_italic"
+            android:gravity="center"
+            android:paddingTop="10dp"
+            android:text="Không có tài khoản?"
+            android:textColor="#FFFFFF"
+            android:textSize="18dp" />
+
+        <Button
+            android:id="@+id/txtRegisterLink"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="35dp"
+            android:layout_marginRight="35dp"
+            android:background="@drawable/button_border_login_style"
+            android:fontFamily="@font/lora_italic"
+            android:gravity="center"
+            android:text=" Đăng ký ngay!"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="18dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/txtErrorMsg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:textColor="@android:color/holo_red_dark"
+            android:textSize="20dp"
+            android:visibility="gone" />
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center"
-        android:layout_marginTop="100dp"
-        android:layout_marginBottom="50dp">
-        <ImageView
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:src="@drawable/ic_spa_logo_no_text" />
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="15dp"
+        android:orientation="vertical">
 
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/grey" />
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="Rose Spa"
-            android:textColor="@color/colorAccent"
-            android:fontFamily="@font/philosopher_bold_italic"
-            android:textSize="40dp"
-            android:textStyle="bold|italic"
-            android:layout_marginLeft="10dp"
-            />
+            android:fontFamily="@font/lora_italic"
+            android:gravity="center"
+            android:paddingTop="10dp"
+            android:text="Hoặc đăng nhập bằng"
+            android:textColor="#FFFFFF"
+            android:textSize="18dp" />
+
+        <Button
+            android:id="@+id/txtFacebook"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="35dp"
+            android:layout_marginRight="35dp"
+            android:background="#3b5998"
+            android:fontFamily="@font/lora_italic"
+            android:gravity="center"
+            android:text="Facebook"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="18dp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/txtGoogle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="35dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="35dp"
+            android:background="#DB4437"
+            android:fontFamily="@font/lora_italic"
+            android:gravity="center"
+            android:text="Google"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="18dp"
+            android:textStyle="bold" />
     </LinearLayout>
-
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:hint="Tên đăng nhập"
-        android:fontFamily="@font/lora_italic"
-        android:singleLine="true"
-        android:id="@+id/edtUsername"
-        android:layout_marginTop="16dp"
-        android:layout_marginLeft="40dp"
-        android:layout_marginRight="40dp"
-        android:gravity="center"
-        android:background="@drawable/edit_text_border"/>
-
-
-
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:hint="Mật khẩu"
-        android:inputType="textPassword"
-        android:singleLine="true"
-        android:fontFamily="@font/lora_italic"
-        android:id="@+id/edtPassword"
-        android:layout_marginTop="25dp"
-        android:layout_marginLeft="40dp"
-        android:layout_marginRight="40dp"
-        android:background="@drawable/edit_text_border"
-        android:gravity="center"/>
-
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:layout_marginLeft="35dp"
-        android:layout_marginRight="35dp"
-        android:text="Đăng nhập"
-        android:fontFamily="@font/philosopher_bold"
-        android:textSize="17dp"
-        android:textColor="@color/white"
-        android:onClick="onclickLogin"
-        android:background="@drawable/button_border_login_style"/>
-
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_marginLeft="35dp"
-        android:layout_marginRight="35dp"
-        android:textSize="18dp"
-        android:text="Không có tài khoản? Đăng ký ngay!"
-        android:fontFamily="@font/lora_italic"
-        android:textStyle="bold"
-        android:gravity="center"
-        android:id="@+id/txtRegisterLink"
-        android:textAllCaps="false"
-        android:background="@drawable/button_border_login_style"
-        android:textColor="@color/white"
-        />
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:textSize="20dp"
-        android:visibility="gone"
-        android:id="@+id/txtErrorMsg"
-        android:textColor="@android:color/holo_red_dark"/>
-
-
-</LinearLayout>
+</RelativeLayout>
