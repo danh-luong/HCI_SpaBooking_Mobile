@@ -2,8 +2,8 @@ package rosie.com.rosiebeauty.Model;
 
 public class ManagerViewModel {
 
-    public static final int CREATE_NEW_SERVICE = 1;
-    public static final int SHOW_SERVICE_MANAGER = 2;
+    public static final int CREATE_NEW_SERVICE = 0;
+    public static final int SHOW_SERVICE_MANAGER = 1;
     public int type;
     public int data;
     public String text;
