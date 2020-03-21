@@ -304,9 +304,9 @@
 
                 <CheckBox
                     android:layout_width="90dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="18dp"
                     android:fontFamily="@font/lora"
-                    android:paddingEnd="10dp"
+                    android:paddingEnd="5dp"
                     android:text="08:00"
                     android:textSize="16dp" />
 
@@ -314,7 +314,7 @@
                     android:layout_width="90dp"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/lora"
-                    android:paddingEnd="10dp"
+                    android:paddingEnd="5dp"
                     android:text="08:30"
                     android:textSize="16dp" />
 
@@ -322,7 +322,7 @@
                     android:layout_width="90dp"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/lora"
-                    android:paddingEnd="10dp"
+                    android:paddingEnd="5dp"
                     android:text="09:00"
                     android:textSize="16dp" />
 
@@ -330,7 +330,7 @@
                     android:layout_width="90dp"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/lora"
-                    android:paddingEnd="10dp"
+                    android:paddingEnd="5dp"
                     android:text="09:30"
                     android:textSize="16dp" />
             </LinearLayout>
@@ -345,7 +345,7 @@
                     android:layout_width="90dp"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/lora"
-                    android:paddingEnd="10dp"
+                    android:paddingEnd="5dp"
                     android:text="10:00"
                     android:textSize="16dp" />
 
@@ -353,7 +353,7 @@
                     android:layout_width="90dp"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/lora"
-                    android:paddingEnd="10dp"
+                    android:paddingEnd="5dp"
                     android:text="10:30"
                     android:textSize="16dp" />
 
@@ -361,7 +361,7 @@
                     android:layout_width="90dp"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/lora"
-                    android:paddingEnd="10dp"
+                    android:paddingEnd="5dp"
                     android:text="11:00"
                     android:textSize="16dp" />
 
@@ -369,7 +369,7 @@
                     android:layout_width="90dp"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/lora"
-                    android:paddingEnd="10dp"
+                    android:paddingEnd="5dp"
                     android:text="11:30"
                     android:textSize="16dp" />
             </LinearLayout>
@@ -384,7 +384,7 @@
                     android:layout_width="90dp"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/lora"
-                    android:paddingEnd="10dp"
+                    android:paddingEnd="5dp"
                     android:text="13:00"
                     android:textSize="16dp" />
 
@@ -392,7 +392,7 @@
                     android:layout_width="90dp"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/lora"
-                    android:paddingEnd="10dp"
+                    android:paddingEnd="5dp"
                     android:text="13:30"
                     android:textSize="16dp" />
 
@@ -400,7 +400,7 @@
                     android:layout_width="90dp"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/lora"
-                    android:paddingEnd="10dp"
+                    android:paddingEnd="5dp"
                     android:text="14:00"
                     android:textSize="16dp" />
 
@@ -408,7 +408,7 @@
                     android:layout_width="90dp"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/lora"
-                    android:paddingEnd="10dp"
+                    android:paddingEnd="5dp"
                     android:text="15:30"
                     android:textSize="16dp" />
             </LinearLayout>
@@ -423,7 +423,7 @@
                     android:layout_width="90dp"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/lora"
-                    android:paddingEnd="10dp"
+                    android:paddingEnd="5dp"
                     android:text="16:00"
                     android:textSize="16dp" />
 
@@ -431,7 +431,7 @@
                     android:layout_width="90dp"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/lora"
-                    android:paddingEnd="10dp"
+                    android:paddingEnd="5dp"
                     android:text="16:30"
                     android:textSize="16dp" />
 
@@ -439,7 +439,7 @@
                     android:layout_width="90dp"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/lora"
-                    android:paddingEnd="10dp"
+                    android:paddingEnd="5dp"
                     android:text="17:00"
                     android:textSize="16dp" />
 
@@ -447,7 +447,7 @@
                     android:layout_width="90dp"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/lora"
-                    android:paddingEnd="10dp"
+                    android:paddingEnd="5dp"
                     android:text="17:30"
                     android:textSize="16dp" />
             </LinearLayout>
@@ -462,7 +462,7 @@
                     android:layout_width="90dp"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/lora"
-                    android:paddingEnd="10dp"
+                    android:paddingEnd="5dp"
                     android:text="18:00"
                     android:textSize="16dp" />
 
@@ -470,7 +470,7 @@
                     android:layout_width="90dp"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/lora"
-                    android:paddingEnd="10dp"
+                    android:paddingEnd="5dp"
                     android:text="18:30"
                     android:textSize="16dp" />
 
@@ -478,7 +478,7 @@
                     android:layout_width="90dp"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/lora"
-                    android:paddingEnd="10dp"
+                    android:paddingEnd="5dp"
                     android:text="19:00"
                     android:textSize="16dp" />
 
@@ -486,7 +486,7 @@
                     android:layout_width="90dp"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/lora"
-                    android:paddingEnd="10dp"
+                    android:paddingEnd="5dp"
                     android:text="19:30"
                     android:textSize="16dp" />
             </LinearLayout>
@@ -516,7 +516,7 @@
                         android:layout_width="90dp"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/lora"
-                        android:paddingEnd="10dp"
+                        android:paddingEnd="5dp"
                         android:text="08:00"
                         android:textSize="16dp" />
 
@@ -524,7 +524,7 @@
                         android:layout_width="90dp"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/lora"
-                        android:paddingEnd="10dp"
+                        android:paddingEnd="5dp"
                         android:text="08:30"
                         android:textSize="16dp" />
 
@@ -532,7 +532,7 @@
                         android:layout_width="90dp"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/lora"
-                        android:paddingEnd="10dp"
+                        android:paddingEnd="5dp"
                         android:text="09:00"
                         android:textSize="16dp" />
 
@@ -540,7 +540,7 @@
                         android:layout_width="90dp"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/lora"
-                        android:paddingEnd="10dp"
+                        android:paddingEnd="5dp"
                         android:text="09:30"
                         android:textSize="16dp" />
                 </LinearLayout>
@@ -555,7 +555,7 @@
                         android:layout_width="90dp"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/lora"
-                        android:paddingEnd="10dp"
+                        android:paddingEnd="5dp"
                         android:text="10:00"
                         android:textSize="16dp" />
 
@@ -563,7 +563,7 @@
                         android:layout_width="90dp"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/lora"
-                        android:paddingEnd="10dp"
+                        android:paddingEnd="5dp"
                         android:text="10:30"
                         android:textSize="16dp" />
 
@@ -571,7 +571,7 @@
                         android:layout_width="90dp"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/lora"
-                        android:paddingEnd="10dp"
+                        android:paddingEnd="5dp"
                         android:text="11:00"
                         android:textSize="16dp" />
 
@@ -579,7 +579,7 @@
                         android:layout_width="90dp"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/lora"
-                        android:paddingEnd="10dp"
+                        android:paddingEnd="5dp"
                         android:text="11:30"
                         android:textSize="16dp" />
                 </LinearLayout>
@@ -594,7 +594,7 @@
                         android:layout_width="90dp"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/lora"
-                        android:paddingEnd="10dp"
+                        android:paddingEnd="5dp"
                         android:text="13:00"
                         android:textSize="16dp" />
 
@@ -602,7 +602,7 @@
                         android:layout_width="90dp"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/lora"
-                        android:paddingEnd="10dp"
+                        android:paddingEnd="5dp"
                         android:text="13:30"
                         android:textSize="16dp" />
 
@@ -610,7 +610,7 @@
                         android:layout_width="90dp"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/lora"
-                        android:paddingEnd="10dp"
+                        android:paddingEnd="5dp"
                         android:text="14:00"
                         android:textSize="16dp" />
 
@@ -618,7 +618,7 @@
                         android:layout_width="90dp"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/lora"
-                        android:paddingEnd="10dp"
+                        android:paddingEnd="5dp"
                         android:text="15:30"
                         android:textSize="16dp" />
                 </LinearLayout>
@@ -633,7 +633,7 @@
                         android:layout_width="90dp"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/lora"
-                        android:paddingEnd="10dp"
+                        android:paddingEnd="5dp"
                         android:text="16:00"
                         android:textSize="16dp" />
 
@@ -641,7 +641,7 @@
                         android:layout_width="90dp"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/lora"
-                        android:paddingEnd="10dp"
+                        android:paddingEnd="5dp"
                         android:text="16:30"
                         android:textSize="16dp" />
 
@@ -649,7 +649,7 @@
                         android:layout_width="90dp"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/lora"
-                        android:paddingEnd="10dp"
+                        android:paddingEnd="5dp"
                         android:text="17:00"
                         android:textSize="16dp" />
 
@@ -657,7 +657,7 @@
                         android:layout_width="90dp"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/lora"
-                        android:paddingEnd="10dp"
+                        android:paddingEnd="5dp"
                         android:text="17:30"
                         android:textSize="16dp" />
                 </LinearLayout>
@@ -672,7 +672,7 @@
                         android:layout_width="90dp"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/lora"
-                        android:paddingEnd="10dp"
+                        android:paddingEnd="5dp"
                         android:text="18:00"
                         android:textSize="16dp" />
 
@@ -680,7 +680,7 @@
                         android:layout_width="90dp"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/lora"
-                        android:paddingEnd="10dp"
+                        android:paddingEnd="5dp"
                         android:text="18:30"
                         android:textSize="16dp" />
 
@@ -688,7 +688,7 @@
                         android:layout_width="90dp"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/lora"
-                        android:paddingEnd="10dp"
+                        android:paddingEnd="5dp"
                         android:text="19:00"
                         android:textSize="16dp" />
 
@@ -696,7 +696,7 @@
                         android:layout_width="90dp"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/lora"
-                        android:paddingEnd="10dp"
+                        android:paddingEnd="5dp"
                         android:text="19:30"
                         android:textSize="16dp" />
                 </LinearLayout>
@@ -720,6 +720,7 @@
             android:fontFamily="@font/philosopher_bold"
             android:text="Thêm mới dịch vụ"
             android:textColor="@color/white"
+            android:padding="10dp"
             android:textSize="16dp" />
     </LinearLayout>
 </LinearLayout>
