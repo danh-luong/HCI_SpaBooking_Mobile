@@ -13,6 +13,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
@@ -41,7 +43,7 @@ public class CurrentAccountFragment extends Fragment {
                              Bundle savedInstanceState) {
         rootView = inflater.inflate(R.layout.fragment_current_account, container, false);
         RecyclerView historyTaskRecycler = (RecyclerView) rootView.findViewById(R.id.recycle_account);
-        List<User> userList = new ArrayList<>(UserRepository.userList.values());
+        final List<User> userList = new ArrayList<>(UserRepository.userList.values());
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
         CardViewAccountAdapter adapter = new CardViewAccountAdapter(userList, getActivity());
         historyTaskRecycler.setLayoutManager(linearLayoutManager);
@@ -54,6 +56,27 @@ public class CurrentAccountFragment extends Fragment {
                 startActivity(intent);
             }
         });
+        FloatingActionButton btnSearchUser = rootView.findViewById(R.id.btnSearchUser);
+        final EditText edtSearchName = rootView.findViewById(R.id.edtSearchName);
+        btnSearchUser.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String searchName = edtSearchName.getText().toString();
+                List<User> searchList = new ArrayList<>();
+                List<User> currentUserList = new ArrayList<>(UserRepository.userList.values());
+                for (int i = 0; i < currentUserList.size(); i++) {
+                    if (currentUserList.get(i).getName().toLowerCase().contains(searchName.toLowerCase())) {
+                        searchList.add(currentUserList.get(i));
+                    }
+                }
+                LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
+                CardViewAccountAdapter adapter = new CardViewAccountAdapter(searchList, getActivity());
+                RecyclerView historyTaskRecycler = (RecyclerView) rootView.findViewById(R.id.recycle_account);
+                historyTaskRecycler.setLayoutManager(linearLayoutManager);
+                historyTaskRecycler.setAdapter(adapter);
+            }
+        });
+
         return rootView;
     }
 

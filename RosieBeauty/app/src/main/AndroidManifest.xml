@@ -8,6 +8,11 @@
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-feature android:name="android.hardware.camera" />
     <uses-feature android:name="android.hardware.camera.autofocus" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+
+
     <uses-feature
         android:glEsVersion="0x00020000"
         android:required="true" />
@@ -21,6 +26,8 @@
         android:theme="@style/AppTheme">
         <activity android:name=".CreateNewEmployeeActivity"></activity>
         <activity android:name=".ProfileUserActivity" />
+        <activity android:name=".CreateBranchActivity"></activity>
+        <activity android:name=".EditBranchActivity" />
         <activity android:name=".RegisterActivity" />
         <activity android:name=".AdminActivity" />
         <activity android:name=".ManagerActivity" />

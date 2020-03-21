@@ -36,6 +36,7 @@
             android:id="@+id/txtTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="-7dp"
             android:layout_toRightOf="@id/itemImage"
             android:fontFamily="@font/philosopher_bold"
             android:text="Facial Treatment"

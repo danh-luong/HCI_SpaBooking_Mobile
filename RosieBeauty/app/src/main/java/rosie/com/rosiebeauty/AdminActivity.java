@@ -29,6 +29,10 @@ public class AdminActivity extends AppCompatActivity {
 
     private Fragment selectedFragment = null;
 
+    public Fragment getSelectedFragment() {
+        return selectedFragment;
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,7 +58,7 @@ public class AdminActivity extends AppCompatActivity {
                             selectedFragment = new CurrentUserProfileFragment();
                             break;
                         case R.id.action_branch:
-                            //selectedFragment = new
+                            selectedFragment = new BranchManagementFragment();
                             break;
                     }
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, selectedFragment).commit();

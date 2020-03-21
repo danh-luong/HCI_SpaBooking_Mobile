@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/card_view"
+    android:layout_marginLeft="10dp"
+    android:layout_marginRight="10dp"
+    android:layout_marginBottom="5dp"
+    android:layout_marginTop="5dp"
+    android:layout_gravity="center"
+    app:cardElevation="20dp"
+    app:cardCornerRadius="20dp"
+    >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+       >
+        <ImageButton
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="10dp"
+            android:layout_alignParentRight="true"
+            android:src="@android:drawable/ic_delete"
+            android:background="@android:color/transparent"
+            android:id="@+id/btnRemoveBranch"
+            />
+
+        <ImageView
+            android:id="@+id/itemImage"
+            android:layout_width="75dp"
+            android:layout_height="60dp"
+            android:layout_alignParentLeft="true"
+            android:background="@drawable/imageview_home"
+            android:scaleType="fitXY"
+            android:src="@drawable/ic_chi_nhanh_2" />
+
+        <TextView
+            android:id="@+id/txtTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/itemImage"
+            android:fontFamily="@font/philosopher_bold"
+            android:text="Rose spa Quang Trung"
+            android:textColor="@android:color/black"
+            android:textSize="18dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:fontFamily="@font/lora"
+            android:id="@+id/txtAddress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/txtTitle"
+            android:layout_toRightOf="@id/itemImage"
+            android:text="216 - Quang Trung - Gò Vấp" />
+
+        <TextView
+            android:fontFamily="@font/lora"
+            android:id="@+id/txtStatus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/txtAddress"
+            android:layout_toRightOf="@id/itemImage"
+            android:text="Đang hoạt động"
+           />
+
+        <com.beardedhen.androidbootstrap.BootstrapButton
+            android:fontFamily="@font/lora_bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAllCaps="false"
+            android:text="Chỉnh sửa"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:layout_alignParentRight="true"
+            android:layout_below="@id/txtStatus"
+            app:roundedCorners="true"
+            app:showOutline="false"
+            app:buttonMode="regular"
+            app:bootstrapBrand="warning"
+            app:bootstrapSize="lg"
+            android:id="@+id/btnEdit"/>
+
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>

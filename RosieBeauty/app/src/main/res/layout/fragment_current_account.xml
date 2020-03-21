@@ -9,24 +9,55 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
-            <androidx.recyclerview.widget.RecyclerView
+
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Kiếm Tài Khoản:"
+                    android:textStyle="bold"
+                    android:layout_marginTop="5dp"
+                    android:textSize="15dp"
+                    android:fontFamily="@font/lora_bold"/>
+
+                <EditText
+                    android:id="@+id/edtSearchName"
+                    android:layout_width="220dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_height="wrap_content" />
+
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/btnSearchUser"
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    android:layout_gravity="end|bottom"
+                    android:layout_marginTop="5dp"
+                    android:src="@drawable/round_search_white_24dp"/>
+            </LinearLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recycle_account"
-                android:layout_marginTop="20dp"/>
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp" />
         </LinearLayout>
     </ScrollView>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/btnCreateNewEmployee"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="end|bottom"
         android:layout_margin="16dp"
-        android:src="@drawable/round_add_white_36dp"
-        android:id="@+id/btnCreateNewEmployee"/>
+        android:src="@drawable/round_add_white_36dp" />
 
 </FrameLayout>
