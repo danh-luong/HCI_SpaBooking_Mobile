@@ -6,10 +6,15 @@
     android:paddingLeft="5dp"
     android:paddingRight="5dp">
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="day la item_recycler_view.xml" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/item_recyler_view"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_gravity="center_horizontal"
         android:background="?android:attr/selectableItemBackground" />
 </RelativeLayout>

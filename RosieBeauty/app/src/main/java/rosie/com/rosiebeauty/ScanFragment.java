@@ -18,7 +18,6 @@ import com.notbytes.barcode_reader.BarcodeReaderActivity;
 public class ScanFragment extends Fragment {
     private static final int BARCODE_READER_ACTIVITY_REQUEST = 1000;
     TextView checkin;
-    TextView txtResultScan;
 
     public ScanFragment() {
         // Required empty public constructor

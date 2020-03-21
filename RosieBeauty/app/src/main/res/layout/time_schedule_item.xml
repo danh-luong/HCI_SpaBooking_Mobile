@@ -8,7 +8,7 @@
     android:orientation="vertical"
     tools:layout_editor_absoluteY="315dp">
 
-    <TextView
+    <Button
         android:id="@+id/btnViewSchedule"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
