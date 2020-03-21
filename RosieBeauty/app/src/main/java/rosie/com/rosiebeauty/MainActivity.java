@@ -32,6 +32,10 @@ public class MainActivity extends AppCompatActivity {
     private SearchFragment searchFragment = null;
     private TextView toolbar_title;
 
+    public Fragment getSelectedFragment() {
+        return selectedFragment;
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 //        //color statusbar
@@ -72,7 +76,7 @@ public class MainActivity extends AppCompatActivity {
                     switch (item.getItemId()) {
                         case R.id.action_home:
                             selectedFragment = new HomeFragment();
-                              MainActivity.this.getSupportActionBar().setDisplayHomeAsUpEnabled(false);
+                            MainActivity.this.getSupportActionBar().setDisplayHomeAsUpEnabled(false);
                             toolbar_title.setText("Rose Spa");
                             break;
                         case R.id.action_favorites:

@@ -1,6 +1,8 @@
 package rosie.com.rosiebeauty.Adapter;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Outline;
 import android.graphics.Paint;
@@ -16,6 +18,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.RecyclerView;
@@ -31,6 +34,7 @@ import java.util.TimerTask;
 
 import rosie.com.rosiebeauty.MainActivity;
 import rosie.com.rosiebeauty.Model.MultiViewModel;
+import rosie.com.rosiebeauty.Model.TimeSchedule;
 import rosie.com.rosiebeauty.Model.TimeScheduleButtonManager;
 import rosie.com.rosiebeauty.R;
 import rosie.com.rosiebeauty.SearchFragment;
@@ -41,6 +45,7 @@ public class MultiViewTypeAdapter extends RecyclerView.Adapter {
 
     private ArrayList<MultiViewModel> dataSet;
     Context mContext;
+    Activity currentActivity;
     int total_types;
     private MaterialSearchView searchView;
     private Fragment triggerFragment;
@@ -106,10 +111,12 @@ public class MultiViewTypeAdapter extends RecyclerView.Adapter {
     public static class TimeHolder extends RecyclerView.ViewHolder {
 
         TimeScheduleButtonManager btnTimeManager;
+        TextView txtPromotion;
 
         public TimeHolder(View itemView) {
             super(itemView);
-            this.btnTimeManager = new TimeScheduleButtonManager((Button) itemView.findViewById(R.id.btnViewSchedule), TimeScheduleButtonManager.ButtonTimeStatus.UNSELECTED);
+            this.btnTimeManager = new TimeScheduleButtonManager((TextView)itemView.findViewById(R.id.btnViewSchedule), TimeScheduleButtonManager.ButtonTimeStatus.UNSELECTED);
+            this.txtPromotion = (TextView)itemView.findViewById(R.id.txtPromotion);
         }
     }
 
@@ -198,6 +205,13 @@ public class MultiViewTypeAdapter extends RecyclerView.Adapter {
     public MultiViewTypeAdapter(ArrayList<MultiViewModel> data, Context context) {
         this.dataSet = data;
         this.mContext = context;
+        total_types = dataSet.size();
+    }
+
+    public MultiViewTypeAdapter(ArrayList<MultiViewModel> data, Activity currentActivity) {
+        this.dataSet = data;
+        this.currentActivity = currentActivity;
+        this.mContext = currentActivity.getApplicationContext();
         total_types = dataSet.size();
     }
 
@@ -423,6 +437,15 @@ public class MultiViewTypeAdapter extends RecyclerView.Adapter {
                     ((ServiceCardListHolder) holder).rateStar.setText(object.rate + "");
                     ((ServiceCardListHolder) holder).countComment.setText(object.countComment + "");
                     ((ServiceCardListHolder) holder).serAddress.setText(object.address);
+                    ImageView image =  ((ServiceCardListHolder) holder).imgService;
+                    image.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            MainActivity activity  = (MainActivity)currentActivity;
+                            SpaServiceDetailFragment.setInitParam(activity);
+                            activity.getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new SpaServiceDetailFragment()).addToBackStack(null).commit();
+                        }
+                    });
                     break;
                 //Section in Appoinment
                 case MultiViewModel.TYPE_SECTION_TITLE:
@@ -477,7 +500,12 @@ public class MultiViewTypeAdapter extends RecyclerView.Adapter {
                 case MultiViewModel.TYPE_BUTTON_TIME_SCHEDULE:
                     final TimeHolder timeHolder = ((TimeHolder) holder);
                     listTimeHolders.add(timeHolder);
-                    timeHolder.btnTimeManager.getBtnTime().setText(object.text);
+                    TimeSchedule timeSchedule = object.timeSchedule;
+                    timeHolder.btnTimeManager.getBtnTime().setText(timeSchedule.getTime());
+                    if(!timeSchedule.getPromotion().equals("")) {
+                        timeHolder.txtPromotion.setText(timeSchedule.getPromotion());
+                        timeHolder.txtPromotion.setVisibility(View.VISIBLE);
+                    }
                     if (listPosition == 0) {
                         timeHolder.btnTimeManager.setButtonStatus(TimeScheduleButtonManager.ButtonTimeStatus.DISABLED);
                     } else {

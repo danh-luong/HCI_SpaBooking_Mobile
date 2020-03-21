@@ -15,9 +15,8 @@
             android:id="@+id/calviewSchedule"
             android:layout_width="match_parent"
             android:layout_height="300dp"
-            android:maxDate="03/29/2020"
+            android:maxDate="03/28/2020"
             android:minDate="03/23/2020"
-
             />
 
         <TextView

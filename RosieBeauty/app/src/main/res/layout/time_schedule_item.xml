@@ -13,23 +13,36 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
-        android:paddingBottom="10dp"
-        android:paddingTop="10dp"
-        android:paddingLeft="15dp"
-        android:paddingRight="15dp"
-        android:fontFamily="@font/lora"
         android:background="@drawable/button_border_background"
-        android:text="7:30"
         android:clickable="true"
+        android:fontFamily="@font/lora"
+        android:paddingLeft="15dp"
+        android:paddingTop="10dp"
+        android:paddingRight="15dp"
+        android:paddingBottom="10dp"
+        android:text="7:30"
         android:textColor="@android:color/white"
         android:textSize="16dp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.796"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintVertical_bias="0.106" />
+
+    <TextView
+        android:id="@+id/txtPromotion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/promotion_border_background"
+        android:text="-20%"
+        android:textColor="@color/duskYellow"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:visibility="invisible"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
