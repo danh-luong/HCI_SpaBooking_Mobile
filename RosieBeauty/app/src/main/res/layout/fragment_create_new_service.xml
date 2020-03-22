@@ -249,7 +249,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/lora"
-                    android:inputType="number"
+                    android:inputType="date"
                     android:singleLine="true"
                     android:textSize="16dp" />
             </LinearLayout>
@@ -275,7 +275,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/lora"
-                    android:inputType="number"
+                    android:inputType="date"
                     android:singleLine="true"
                     android:textSize="16dp" />
             </LinearLayout>
