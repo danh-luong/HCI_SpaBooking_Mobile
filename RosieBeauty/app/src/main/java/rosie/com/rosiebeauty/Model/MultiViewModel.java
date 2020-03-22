@@ -120,7 +120,8 @@ public class MultiViewModel {
         }
     }
 
-
+    public MultiViewModel() {
+    }
 
     public static class RecyclerChildItem {
         public int image;

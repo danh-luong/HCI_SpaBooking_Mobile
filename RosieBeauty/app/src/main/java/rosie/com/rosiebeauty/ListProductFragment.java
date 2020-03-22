@@ -172,15 +172,14 @@ public class ListProductFragment extends Fragment {
         };
 
         MultiViewModel gridViewModel = null;
-        List<MultiViewModel> childMultiViewModels = new ArrayList<>();
 
         //Promotion
-        gridViewModel = new MultiViewModel(MultiViewModel.TYPE_SECTION_TITLE, "Khuyến mại");
+        gridViewModel = new MultiViewModel(MultiViewModel.TYPE_SECTION_TITLE,"Khuyến mại");
         gridViewModelArrayList.add(gridViewModel);
+
         //clear old data
         gridViewModelArrayList.clear();
 
-        gridViewModelArrayList.add(gridViewModel);
         for (int i = 0; i < names.length; i++) {
             float price_afterpromotion = 0;
             price_afterpromotion = price[i] - (price[i] * intPromotion[i] / 100);
@@ -261,7 +260,6 @@ public class ListProductFragment extends Fragment {
         };
 
         MultiViewModel gridViewModel = null;
-        List<MultiViewModel> childMultiViewModels = new ArrayList<>();
         //Nearly
         gridViewModel = new MultiViewModel(MultiViewModel.TYPE_SECTION_TITLE, "Gần bạn");
         gridViewModelArrayList.add(gridViewModel);
@@ -301,6 +299,7 @@ public class ListProductFragment extends Fragment {
             }
         }
     }
+
     //Rating
     void prepareDataRating() {
 
@@ -354,7 +353,6 @@ public class ListProductFragment extends Fragment {
         };
 
         MultiViewModel gridViewModel = null;
-        List<MultiViewModel> childMultiViewModels = new ArrayList<>();
         //Nearly
         gridViewModel = new MultiViewModel(MultiViewModel.TYPE_SECTION_TITLE, "Gần bạn");
         gridViewModelArrayList.add(gridViewModel);
