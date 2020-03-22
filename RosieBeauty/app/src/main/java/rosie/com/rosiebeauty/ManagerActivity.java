@@ -5,6 +5,7 @@ import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.TextView;
@@ -14,6 +15,7 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -67,7 +69,7 @@ public class ManagerActivity extends AppCompatActivity {
                             toolbar_title.setText("Quét mã");
                             break;
                         case R.id.action_history:
-                            selectedFragment = new HistoryBookingFragment();
+                            selectedFragment = new BookingFragment();
                             toolbar_title.setText("Lịch hẹn");
                             break;
                         case R.id.action_profile:
@@ -79,4 +81,58 @@ public class ManagerActivity extends AppCompatActivity {
                     return true;
                 }
             };
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                onBackPressed();
+                break;
+        }
+
+        return true;
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Fragment f = getSupportFragmentManager().findFragmentById(R.id.fragment_container_manager);
+        if (f instanceof ListServiceFragment) {
+            BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_nav_manager);
+            bottomNavigationView.setVisibility(View.VISIBLE);
+            toolbar_title.setText("Dịch vụ");
+            getSupportActionBar().setDisplayHomeAsUpEnabled(false);
+        } else if (f instanceof FragmentCreateNewService) {
+            BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_nav_manager);
+            bottomNavigationView.setVisibility(View.VISIBLE);
+            getSupportActionBar().setDisplayHomeAsUpEnabled(false);
+            toolbar_title.setText("Tạo mới");
+        } else if (f instanceof BookingFragment) {
+            BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_nav_manager);
+            bottomNavigationView.setVisibility(View.VISIBLE);
+            getSupportActionBar().setDisplayHomeAsUpEnabled(false);
+            toolbar_title.setText("Lịch hẹn");
+        } else if (f instanceof CurrentUserProfileFragment) {
+            BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_nav_manager);
+            bottomNavigationView.setVisibility(View.VISIBLE);
+            getSupportActionBar().setDisplayHomeAsUpEnabled(false);
+            toolbar_title.setText("Hồ sơ");
+
+        }
+    }
+
+
+    public void clickGoToAppointmentDetail(View view) {
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_nav_manager);
+        bottomNavigationView.setVisibility(View.GONE);
+        toolbar_title.setText("Chi tiết lịch hẹn");
+        selectedFragment = new AppointmentDetail();
+        getSupportFragmentManager().beginTransaction().setCustomAnimations(R.animator.slide_in_left, R.animator.slide_out_right, R.animator.pop_out_right, R.animator.pop_in_left).setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN).replace(R.id.fragment_container_manager, selectedFragment).addToBackStack(null).commit();
+    }
+
+    public void clickToCreateService(View view) {
+        toolbar_title.setText("Dịch vụ");
+        selectedFragment = new ListServiceFragment();
+        getSupportFragmentManager().beginTransaction().setCustomAnimations(R.animator.slide_in_left, R.animator.slide_out_right, R.animator.pop_out_right, R.animator.pop_in_left).setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN).replace(R.id.fragment_container_manager, selectedFragment).addToBackStack(null).commit();
+    }
 }

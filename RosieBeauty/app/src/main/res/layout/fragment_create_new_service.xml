@@ -719,6 +719,7 @@
             android:background="@drawable/button_border_background"
             android:fontFamily="@font/philosopher_bold"
             android:text="Thêm mới dịch vụ"
+            android:onClick="clickToCreateService"
             android:textColor="@color/white"
             android:padding="10dp"
             android:textSize="16dp" />
