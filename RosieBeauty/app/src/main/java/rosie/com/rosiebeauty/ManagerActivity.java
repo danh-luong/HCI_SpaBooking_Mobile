@@ -35,7 +35,7 @@ public class ManagerActivity extends AppCompatActivity {
         actionBar.setHomeButtonEnabled(true);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
         getSupportActionBar().setDisplayUseLogoEnabled(true);
-        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container_manager, new ListServiceFragment()).commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container_manager, new ServiceManagementFragment()).commit();
     }
 
     protected void setStatusBarGradiant(Activity activity) {
@@ -54,7 +54,7 @@ public class ManagerActivity extends AppCompatActivity {
                 public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                     switch (item.getItemId()) {
                         case R.id.action_service:
-                            selectedFragment = new ListServiceFragment();
+                            selectedFragment = new ServiceManagementFragment();
                             ManagerActivity.this.getSupportActionBar().setDisplayHomeAsUpEnabled(false);
                             toolbar_title.setText("Dịch vụ");
                             break;

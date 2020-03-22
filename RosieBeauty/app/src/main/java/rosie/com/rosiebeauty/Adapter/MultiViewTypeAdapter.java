@@ -193,7 +193,7 @@ public class MultiViewTypeAdapter extends RecyclerView.Adapter {
             super(itemView);
             this.imageView = (ImageView) itemView.findViewById(R.id.itemImage);
             this.txtTitle = (TextView) itemView.findViewById(R.id.txtTitle);
-            this.txtAddress = (TextView) itemView.findViewById(R.id.txtAddress);
+            this.txtAddress = (TextView) itemView.findViewById(R.id.txtPrice);
             this.ratingBar = (RatingBar) itemView.findViewById(R.id.ratingBar);
         }
     }
