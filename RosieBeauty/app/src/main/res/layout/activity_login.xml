@@ -11,6 +11,7 @@
         android:id="@+id/dangnhap"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:gravity="center"
         android:orientation="vertical">
 
         <LinearLayout
@@ -94,14 +95,15 @@
 
         <Button
             android:id="@+id/txtRegisterLink"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="35dp"
             android:layout_marginRight="35dp"
+            android:padding="10dp"
             android:background="@drawable/button_border_login_style"
             android:fontFamily="@font/philosopher_bold"
             android:gravity="center"
-            android:text=" Đăng ký ngay!"
+            android:text="Đăng ký ngay!"
             android:textAllCaps="false"
             android:textColor="@color/white"
             android:textSize="18dp"
@@ -140,35 +142,40 @@
             android:textColor="#FFFFFF"
             android:textSize="18dp" />
 
-        <Button
-            android:id="@+id/txtFacebook"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="35dp"
-            android:layout_marginRight="35dp"
-            android:background="#3b5998"
-            android:fontFamily="@font/philosopher_bold"
-            android:gravity="center"
-            android:text="Facebook"
-            android:textAllCaps="false"
-            android:textColor="@color/white"
-            android:textSize="18dp"
-            android:textStyle="bold" />
+            android:orientation="horizontal"
+            android:gravity="center">
 
-        <Button
-            android:id="@+id/txtGoogle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="35dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginRight="35dp"
-            android:background="#DB4437"
-            android:fontFamily="@font/philosopher_bold"
-            android:gravity="center"
-            android:text="Google"
-            android:textAllCaps="false"
-            android:textColor="@color/white"
-            android:textSize="18dp"
-            android:textStyle="bold" />
+            <ImageButton
+                android:id="@+id/txtFacebook"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:background="#4267B2"
+                android:padding="6dp"
+                android:src="@drawable/ic_facebook" />
+
+            <ImageButton
+                android:id="@+id/txtGoogle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:background="#DB4437"
+                android:padding="10dp"
+                android:src="@drawable/ic_google_plus" />
+            <ImageButton
+                android:id="@+id/txtTwitter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:background="#1DA1F2"
+                android:padding="10dp"
+                android:src="@drawable/ic_twitter" />
+        </LinearLayout>
     </LinearLayout>
 </RelativeLayout>
