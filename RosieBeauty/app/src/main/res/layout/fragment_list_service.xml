@@ -1,14 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="10dp"
+    android:orientation="vertical"
     tools:context=".ListServiceFragment">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Kiếm Dịch Vụ:"
+            android:textStyle="bold"
+            android:layout_marginTop="5dp"
+            android:textSize="15dp"
+            android:fontFamily="@font/lora_bold"/>
+
+        <EditText
+            android:id="@+id/edtSearchService"
+            android:layout_width="220dp"
+            android:layout_marginTop="5dp"
+            android:layout_height="wrap_content" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/btnSearchService"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_gravity="end|bottom"
+            android:layout_marginTop="5dp"
+            android:src="@drawable/round_search_white_24dp"/>
+    </LinearLayout>
 
     <ListView
         android:id="@+id/listService_listview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
-</RelativeLayout>
+</LinearLayout>
