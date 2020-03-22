@@ -11,7 +11,7 @@
     <item
         android:id="@+id/action_branch"
         android:enabled="true"
-        android:icon="@drawable/ic_action_favorites"
+        android:icon="@drawable/ic_ereader"
         android:title="Quản lí chi nhánh"
         app:actionViewClass="android.widget.ImageButton"
         app:showAsAction="always" />
