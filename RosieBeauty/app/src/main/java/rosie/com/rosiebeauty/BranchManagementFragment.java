@@ -52,6 +52,7 @@ public class BranchManagementFragment extends Fragment {
     }
 
     private void loadBranches() {
+        branches.clear();
         branches.add(new Branch(R.drawable.spa2batrung,
                 "Rose Spa Hai Bà Trưng",
                 "235B - Hai Bà Trưng - Quận 1 ",
@@ -81,7 +82,7 @@ public class BranchManagementFragment extends Fragment {
 
     public void loadRecycleView() {
         adapter = new BranchRecycleViewAdapter(branches, (AdminActivity) getActivity(), this);
-        recycleViewBranch = rootView.findViewById(R.id.recycle_view_branches);
+        recycleViewBranch = rootView.findViewById(R.id.recycle_view_services);
         LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());
         recycleViewBranch.setAdapter(adapter);
         recycleViewBranch.setLayoutManager(layoutManager);
@@ -133,7 +134,7 @@ public class BranchManagementFragment extends Fragment {
                     }
                 }
                 adapter = new BranchRecycleViewAdapter((ArrayList<Branch>) searchBranch, (AdminActivity) getActivity(), BranchManagementFragment.this);
-                recycleViewBranch = rootView.findViewById(R.id.recycle_view_branches);
+                recycleViewBranch = rootView.findViewById(R.id.recycle_view_services);
                 LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());
                 recycleViewBranch.setAdapter(adapter);
                 recycleViewBranch.setLayoutManager(layoutManager);

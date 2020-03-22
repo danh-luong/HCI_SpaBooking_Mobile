@@ -4,7 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".BranchManagementFragment">
+    tools:context=".ServiceManagementFragment">
 
 
     <ScrollView
@@ -27,7 +27,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Kiếm Chi Nhánh:"
+                    android:text="Tìm kiếm dịch vụ:"
                     android:textStyle="bold"
                     android:textSize="14dp"
                     android:fontFamily="@font/lora_bold"/>
@@ -38,7 +38,7 @@
                     android:layout_height="wrap_content" />
 
                 <com.google.android.material.floatingactionbutton.FloatingActionButton
-                    android:id="@+id/btnSearchUser"
+                    android:id="@+id/btnSearchService"
                     android:layout_width="wrap_content"
                     android:layout_height="50dp"
                     android:layout_gravity="end|bottom"
@@ -62,23 +62,4 @@
                 android:layout_below="@id/recycle_view_services"/>
         </LinearLayout>
     </ScrollView>
-
-    <com.beardedhen.androidbootstrap.BootstrapButton
-        android:fontFamily="@font/lora_bold"
-        android:id="@+id/btnCreateBranch"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginBottom="2dp"
-        android:text="Tạo chi nhánh mới"
-        app:bootstrapBrand="danger"
-        app:bootstrapSize="lg"
-        app:buttonMode="regular"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:roundedCorners="true"
-        app:showOutline="false" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>

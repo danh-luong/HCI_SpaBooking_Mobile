@@ -47,11 +47,11 @@ public class BranchRecycleViewAdapter extends RecyclerView.Adapter<BranchRecycle
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         CardView cardView = holder.cardView;
         TextView txtTitle = cardView.findViewById(R.id.txtTitle);
-        TextView txtAddress = cardView.findViewById(R.id.txtAddress);
-        TextView txtStatus = cardView.findViewById(R.id.txtStatus);
+        TextView txtAddress = cardView.findViewById(R.id.txtPrice);
+        TextView txtStatus = cardView.findViewById(R.id.txtPromotion);
         ImageView imageView = cardView.findViewById(R.id.itemImage);
         BootstrapButton btnEditBranch = cardView.findViewById(R.id.btnEdit);
-        ImageButton btnRemoveBranch = cardView.findViewById(R.id.btnRemoveBranch);
+        ImageButton btnRemoveBranch = cardView.findViewById(R.id.btnRemoveService);
 
         Branch branch = branches.get(position);
         txtTitle.setText(branch.getTitle());

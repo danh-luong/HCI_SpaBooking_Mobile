@@ -45,7 +45,7 @@
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/txtAddress"
+            android:id="@+id/txtPrice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/txtTitle"
@@ -63,7 +63,7 @@
             android:transformPivotX="0dp"
             android:transformPivotY="0dp"
             android:layout_marginLeft="7dp"
-            android:layout_below="@id/txtAddress"
+            android:layout_below="@id/txtPrice"
             android:layout_toRightOf="@id/itemImage"
             android:isIndicator="true"
             android:max="5"

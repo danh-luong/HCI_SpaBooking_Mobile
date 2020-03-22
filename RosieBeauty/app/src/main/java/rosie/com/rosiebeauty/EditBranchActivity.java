@@ -2,12 +2,14 @@ package rosie.com.rosiebeauty;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -19,6 +21,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
 import java.util.ArrayList;
@@ -31,6 +34,9 @@ public class EditBranchActivity extends AppCompatActivity {
     private EditText edtAddress;
     private Spinner spinnerStatus;
     private ImageView itemImage;
+    private static final String IMG1 = "spa_01.jpeg";
+    private static final String IMG2 = "spa_02.jpg";
+    private static final String IMG3 = "spa_03.jpeg";
 
 
     private String title, address, status, oldTitle;
@@ -109,6 +115,18 @@ public class EditBranchActivity extends AppCompatActivity {
                 final Bitmap selectedImage = BitmapFactory.decodeStream(imageStream);
                 itemImage = findViewById(R.id.itemImage);
                 itemImage.setImageBitmap(selectedImage);
+                String imgName = getImageName(imageUri);
+                switch (imgName) {
+                    case IMG1:
+                        image = R.drawable.spa_01;
+                        break;
+                    case IMG2:
+                        image = R.drawable.spa_02;
+                        break;
+                    case IMG3:
+                        image = R.drawable.spa_03;
+                        break;
+                }
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
                 Toast.makeText(this, "Something went wrong", Toast.LENGTH_LONG).show();
@@ -127,5 +145,18 @@ public class EditBranchActivity extends AppCompatActivity {
             window.setStatusBarColor(activity.getResources().getColor(android.R.color.transparent));
             window.setBackgroundDrawable(background);
         }
+    }
+
+    private String getImageName(Uri imgUri) {
+        String[] filePathColumn = { MediaStore.Images.Media.DATA };
+        Cursor cursor = getContentResolver().query(imgUri,
+                filePathColumn, null, null, null);
+        cursor.moveToFirst();
+        int columnIndex = cursor.getColumnIndex(filePathColumn[0]);
+        String picturePath = cursor.getString(columnIndex);
+        cursor.close();
+        File f = new File(picturePath);
+        String imageName = f.getName();
+        return imageName;
     }
 }

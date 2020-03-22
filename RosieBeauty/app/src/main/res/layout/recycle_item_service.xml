@@ -16,17 +16,17 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-       >
+        >
+
         <ImageButton
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginRight="10dp"
-            android:layout_alignParentRight="true"
-            android:src="@android:drawable/ic_delete"
-            android:background="@android:color/transparent"
             android:id="@+id/btnRemoveService"
-            />
+            android:layout_width="12dp"
+            android:layout_height="18dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="19dp"
+            android:background="@android:color/transparent"
+            android:src="@android:drawable/ic_delete" />
 
         <ImageView
             android:id="@+id/itemImage"
@@ -55,7 +55,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/txtTitle"
             android:layout_toRightOf="@id/itemImage"
-            android:text="216 - Quang Trung - Gò Vấp" />
+            android:text="120000 VND" />
 
         <TextView
             android:fontFamily="@font/lora"
@@ -64,8 +64,18 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/txtPrice"
             android:layout_toRightOf="@id/itemImage"
-            android:text="Đang hoạt động"
-           />
+            android:text="-25%"
+            />
+
+        <TextView
+            android:fontFamily="@font/lora"
+            android:id="@+id/txtCategory"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/txtPromotion"
+            android:layout_toRightOf="@id/itemImage"
+            android:text="làm tóc"
+            />
 
         <com.beardedhen.androidbootstrap.BootstrapButton
             android:fontFamily="@font/lora_bold"
@@ -77,7 +87,7 @@
             android:layout_marginTop="5dp"
             android:layout_marginBottom="5dp"
             android:layout_alignParentRight="true"
-            android:layout_below="@id/txtPromotion"
+            android:layout_below="@id/txtCategory"
             app:roundedCorners="true"
             app:showOutline="false"
             app:buttonMode="regular"
