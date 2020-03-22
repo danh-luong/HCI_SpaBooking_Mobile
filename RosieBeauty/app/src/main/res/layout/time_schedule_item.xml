@@ -31,12 +31,14 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.106" />
 
+
     <TextView
         android:id="@+id/txtPromotion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
         android:background="@drawable/promotion_border_background"
+        android:elevation="5dp"
         android:text="-20%"
         android:textColor="@color/duskYellow"
         android:textStyle="bold"
