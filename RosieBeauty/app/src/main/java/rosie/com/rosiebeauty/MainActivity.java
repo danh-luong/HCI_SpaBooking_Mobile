@@ -92,7 +92,7 @@ public class MainActivity extends AppCompatActivity {
                             toolbar_title.setText("Lịch hẹn");
                             break;
                         case R.id.action_profile:
-                            selectedFragment = new ProfileFragment();
+                            selectedFragment = new CurrentUserProfileFragment();
                             toolbar_title.setText("Hồ sơ");
                             break;
                     }
