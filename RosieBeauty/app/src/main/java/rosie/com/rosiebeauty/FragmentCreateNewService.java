@@ -34,8 +34,8 @@ public class FragmentCreateNewService extends Fragment {
         //Recycler View
         gridViewModelArrayList = new ArrayList();
         gridViewModelArrayList.add(new ManagerViewModel(ManagerViewModel.CREATE_NEW_SERVICE, "", "", "", "", "", "", "", 1));
-        ManagerViewTypeAdapter adapter = new ManagerViewTypeAdapter(gridViewModelArrayList, this.getActivity().getApplicationContext());
-
+        //ManagerViewTypeAdapter adapter = new ManagerViewTypeAdapter(gridViewModelArrayList, this.getActivity().getApplicationContext());
+        ManagerViewTypeAdapter adapter = new ManagerViewTypeAdapter(gridViewModelArrayList, this.getActivity());
         mRecyclerView = rootView.findViewById(R.id.item_recyler_view);
         StaggeredGridLayoutManager lm =
                 new StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.VERTICAL);

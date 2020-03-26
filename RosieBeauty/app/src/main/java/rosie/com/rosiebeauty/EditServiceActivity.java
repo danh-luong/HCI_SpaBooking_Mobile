@@ -1,6 +1,7 @@
 package rosie.com.rosiebeauty;
 
 import android.app.Activity;
+import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Bitmap;
@@ -14,6 +15,7 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ArrayAdapter;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
@@ -25,16 +27,22 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
 
 import rosie.com.rosiebeauty.Model.Service;
 
-public class EditServiceActivity extends AppCompatActivity {
+public class EditServiceActivity extends AppCompatActivity  implements DatePickerDialog.OnDateSetListener{
     private static int RESULT_LOAD_IMAGE = 1;
 
     private ImageView viewPhoto;
     private EditText edtNameService;
     private EditText edtPrice;
     private EditText edtQPromotion;
+    private EditText edtEndDay;
+    private EditText edtStartDay;
+    private boolean isEndayClicked = false;
     private Spinner spinnerCatagory;
     private static final String IMG1 = "spa_01.jpeg";
     private static final String IMG2 = "spa_02.jpg";
@@ -63,6 +71,25 @@ public class EditServiceActivity extends AppCompatActivity {
         edtNameService = findViewById(R.id.edtNameService);
         edtPrice = findViewById(R.id.edtPrice);
         edtQPromotion = findViewById(R.id.edtQPromotion);
+        edtEndDay = findViewById(R.id.edtEndDay);
+        edtStartDay = findViewById(R.id.edtStartDay);
+        edtStartDay.setKeyListener(null);
+        edtStartDay.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                isEndayClicked = false;
+                showDatePickerDialog();
+            }
+        });
+        edtEndDay = findViewById(R.id.edtEndDay);
+        edtEndDay.setKeyListener(null);
+        edtEndDay.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                isEndayClicked = true;
+                showDatePickerDialog();
+            }
+        });
         spinnerCatagory = findViewById(R.id.spinnerCatagory);
 
         viewPhoto.setImageResource(image);
@@ -171,5 +198,30 @@ public class EditServiceActivity extends AppCompatActivity {
         File f = new File(picturePath);
         String imageName = f.getName();
         return imageName;
+    }
+
+    @Override
+    public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+        String strMonth = month + "";
+        String strDayOfMonth = dayOfMonth + "";
+        if(strMonth.length() == 1) strMonth = "0" + month;
+        if(strDayOfMonth.length() == 1) strDayOfMonth = "0" + dayOfMonth;
+        String date = strMonth + "/" + strDayOfMonth + "/" + year;
+        if(isEndayClicked) {
+            edtEndDay.setText(date);
+        } else {
+            edtStartDay.setText(date);
+        }
+    }
+
+    private void showDatePickerDialog() {
+        Activity activity = this;
+        DatePickerDialog datePickerDialog = new DatePickerDialog(
+                this,
+                this,
+                Calendar.getInstance().get(Calendar.YEAR),
+                Calendar.getInstance().get(Calendar.MONTH),
+                Calendar.getInstance().get(Calendar.DAY_OF_MONTH));
+        datePickerDialog.show();
     }
 }
