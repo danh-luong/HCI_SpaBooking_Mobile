@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/homeFragmentBackground"
     tools:context=".CurrentUserProfileFragment">
 
     <ScrollView
@@ -74,12 +75,79 @@
                 android:layout_below="@+id/rellay1">
 
                 <LinearLayout
+                    android:id="@+id/infoProfile"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="30dp"
                     android:layout_marginTop="10dp"
                     android:layout_marginRight="30dp"
                     android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Tên Đăng Nhập:"
+                            android:textColor="@color/headings"
+                            android:textSize="13sp" />
+
+                        <EditText
+                            android:id="@+id/edtUsernameProfile"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:focusable="false"
+                            android:fontFamily="sans-serif-light"
+                            android:text="facebook.com/joeytrib"
+                            android:textColor="#000000"
+                            android:textSize="18sp" />
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/spaInfoContainer"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp"
+                        android:orientation="vertical"
+                        android:visibility="gone">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Spa của bạn:"
+                            android:textColor="@color/headings"
+                            android:textSize="13sp" />
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <EditText
+                                android:id="@+id/valueSPa"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:editable="false"
+                                android:focusable="false"
+                                android:fontFamily="sans-serif-light"
+                                android:text="Rosie Spa"
+                                android:textColor="#000000"
+                                android:textSize="18sp" />
+                            <ImageButton
+                                android:id="@+id/btnEdit"
+                                android:layout_alignParentRight="true"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:src="@drawable/ic_edit_pen"
+                                android:background="@android:color/transparent"/>
+                        </RelativeLayout>
+
+                    </LinearLayout>
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -131,55 +199,33 @@
 
                     </LinearLayout>
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="15dp"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Tên Đăng Nhập:"
-                            android:textColor="@color/headings"
-                            android:textSize="13sp" />
-
-                        <EditText
-                            android:id="@+id/edtUsernameProfile"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:focusable="false"
-                            android:fontFamily="sans-serif-light"
-                            android:text="facebook.com/joeytrib"
-                            android:textColor="#000000"
-                            android:textSize="18sp" />
-
-
-                    </LinearLayout>
 
                     <Button
+
                         android:id="@+id/btnUpdateUserProfile"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="15dp"
-                        android:background="@drawable/button_border_login_style"
+                        android:background="@drawable/btn_update_profile"
                         android:text="Cập Nhật"
                         android:textColor="@color/white"
                         android:textSize="17dp"
                         android:textStyle="bold" />
 
-                    <Button
-                        android:id="@+id/btnLogOut"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="15dp"
-                        android:background="@drawable/active_button"
-                        android:text="Đăng xuất"
-                        android:textColor="@color/white"
-                        android:textSize="17dp"
-                        android:textStyle="bold" />
-                </LinearLayout>
 
+                </LinearLayout>
+                <Button
+                    android:layout_below="@+id/infoProfile"
+                    android:id="@+id/btnLogOut"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginBottom="30dp"
+                    android:background="@color/white"
+                    android:text="Đăng xuất"
+                    android:textColor="@color/red"
+                    android:textSize="17dp"
+                    android:textStyle="bold" />
             </RelativeLayout>
 
         </LinearLayout>
