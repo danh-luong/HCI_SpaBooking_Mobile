@@ -130,12 +130,6 @@ public class ManagerActivity extends AppCompatActivity {
         getSupportFragmentManager().beginTransaction().setCustomAnimations(R.animator.slide_in_left, R.animator.slide_out_right, R.animator.pop_out_right, R.animator.pop_in_left).setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN).replace(R.id.fragment_container_manager, selectedFragment).addToBackStack(null).commit();
     }
 
-    public void clickToCreateService(View view) {
-        toolbar_title.setText("Dịch vụ");
-        selectedFragment = new ListServiceFragment();
-        getSupportFragmentManager().beginTransaction().setCustomAnimations(R.animator.slide_in_left, R.animator.slide_out_right, R.animator.pop_out_right, R.animator.pop_in_left).setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN).replace(R.id.fragment_container_manager, selectedFragment).addToBackStack(null).commit();
-    }
-
     public void clickGoToAppointmentDetailManager(View view) {
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_nav_manager);
         bottomNavigationView.setVisibility(View.GONE);

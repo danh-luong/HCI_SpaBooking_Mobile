@@ -4,9 +4,11 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -20,6 +22,7 @@ public class ManagerViewTypeAdapter extends RecyclerView.Adapter {
     Context mContext;
     private ArrayList<ManagerViewModel> dataSet;
 
+
     public ManagerViewTypeAdapter(ArrayList<ManagerViewModel> dataSet, Context mContext) {
         this.mContext = mContext;
         this.dataSet = dataSet;
@@ -28,6 +31,7 @@ public class ManagerViewTypeAdapter extends RecyclerView.Adapter {
     public static class CreateServiceHolder extends RecyclerView.ViewHolder {
         EditText edtNameService, edtDesService, edtPrice, edtQPromotion, edtPricePromo, edtStartDay, edtEndDay;
         Spinner spinnerCatagory;
+        Button btnCreateService;
 
         public CreateServiceHolder(@NonNull View itemView) {
             super(itemView);
@@ -38,7 +42,7 @@ public class ManagerViewTypeAdapter extends RecyclerView.Adapter {
             this.edtPricePromo = (EditText) itemView.findViewById(R.id.edtPricePromo);
             this.edtStartDay = (EditText) itemView.findViewById(R.id.edtStartDay);
             this.edtEndDay = (EditText) itemView.findViewById(R.id.edtEndDay);
-
+            this.btnCreateService = (Button) itemView.findViewById(R.id.btnCreateService);
             this.spinnerCatagory = (Spinner) itemView.findViewById(R.id.spinnerCatagory);
         }
 
@@ -90,6 +94,12 @@ public class ManagerViewTypeAdapter extends RecyclerView.Adapter {
                     ((CreateServiceHolder) holder).edtStartDay.setText(object.getEdtStartDay());
                     ((CreateServiceHolder) holder).edtEndDay.setText(object.getEdtEndDay());
                     ((CreateServiceHolder) holder).spinnerCatagory.getTag(object.getSpinnerCatagory());
+                    ((CreateServiceHolder) holder).btnCreateService.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            Toast.makeText(mContext, "Successful!", Toast.LENGTH_LONG).show();
+                        }
+                    });
                     break;
                 case ManagerViewModel.TYPE_APPOINTMENT_MANAGER:
                     ((AppointmentItemViewHolder) holder).txtAppointmentCode.setText(object.appointment.appointmentCode);
