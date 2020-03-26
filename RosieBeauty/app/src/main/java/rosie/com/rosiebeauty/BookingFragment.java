@@ -41,7 +41,6 @@ public class BookingFragment extends Fragment {
         prepareData();
 
         MultiViewTypeAdapter adapter = new MultiViewTypeAdapter(gridViewModelArrayList, this.getActivity().getApplicationContext());
-        // LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this, RecyclerView.VERTICAL, false);
 
         mRecyclerView = rootView.findViewById(R.id.booking_recycler_view);
         StaggeredGridLayoutManager lm =
@@ -53,19 +52,16 @@ public class BookingFragment extends Fragment {
     }
 
     void prepareData() {
-//        MultiViewModel gridViewModel = null;
-//        gridViewModel = new MultiViewModel(MultiViewModel.TYPE_SECTION_TITLE, "My Appointments");
-//        gridViewModelArrayList.add(gridViewModel);
         List<MultiViewModel.Appointment> appointments = new ArrayList<>();
-        appointments.add(new MultiViewModel.Appointment("BK4051", "05-04-2020 12:00",
+        appointments.add(new MultiViewModel.Appointment("BK4051", "Thu Cúc Clinic","05-04-2020 12:00",
                 "20-05-2020 15:00", "8.000.000đ"));
-        appointments.add(new MultiViewModel.Appointment("BK4052", "05-06-2020 12:00",
+        appointments.add(new MultiViewModel.Appointment("BK4052","Hana Beauty", "05-06-2020 12:00",
                 "20-07-2020 15:00", "3.000.000đ"));
-        appointments.add(new MultiViewModel.Appointment("BK4053", "05-07-2020 12:00",
+        appointments.add(new MultiViewModel.Appointment("BK4053", "Venus Spa","05-07-2020 12:00",
                 "20-08-2020 15:00", "6.000.000đ"));
-        appointments.add(new MultiViewModel.Appointment("BK4054", "05-08-2020 12:00",
+        appointments.add(new MultiViewModel.Appointment("BK4054","Derma Spa", "05-08-2020 12:00",
                 "20-09-2020 15:00", "10.000.000đ"));
-        appointments.add(new MultiViewModel.Appointment("BK4055", "05-09-2020 12:00",
+        appointments.add(new MultiViewModel.Appointment("BK4055", "Tropic Spa","05-09-2020 12:00",
                 "20-10-2020 15:00", "20.000.000đ"));
         for (int i = 0; i < appointments.size(); i++) {
             gridViewModelArrayList.add(new MultiViewModel(MultiViewModel.TYPE_APPOINTMENT_ITEM, appointments.get(i)));

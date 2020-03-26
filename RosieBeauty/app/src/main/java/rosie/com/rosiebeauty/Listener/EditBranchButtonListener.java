@@ -5,9 +5,7 @@ import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import rosie.com.rosiebeauty.AdminActivity;
 import rosie.com.rosiebeauty.EditBranchActivity;
-import rosie.com.rosiebeauty.R;
 
 public class EditBranchButtonListener implements View.OnClickListener {
 

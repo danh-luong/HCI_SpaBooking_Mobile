@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -40,6 +41,24 @@ public class ManagerViewTypeAdapter extends RecyclerView.Adapter {
 
             this.spinnerCatagory = (Spinner) itemView.findViewById(R.id.spinnerCatagory);
         }
+
+    }
+
+    public static class AppointmentItemViewHolder extends RecyclerView.ViewHolder {
+        TextView txtAppointmentCode;
+        TextView txtName;
+        TextView txtBookingDate;
+        TextView txtAppointmentDate;
+        TextView txtPayPrice;
+
+        public AppointmentItemViewHolder(View itemView) {
+            super(itemView);
+            this.txtAppointmentCode = (TextView) itemView.findViewById(R.id.txtBookingCode);
+            this.txtName = (TextView) itemView.findViewById(R.id.txtNameCustomer);
+            this.txtBookingDate = (TextView) itemView.findViewById(R.id.txtBookingDate);
+            this.txtAppointmentDate = (TextView) itemView.findViewById(R.id.txtAppointmentDate);
+            this.txtPayPrice = (TextView) itemView.findViewById(R.id.txtPayPrice);
+        }
     }
 
     @NonNull
@@ -50,6 +69,9 @@ public class ManagerViewTypeAdapter extends RecyclerView.Adapter {
             case ManagerViewModel.CREATE_NEW_SERVICE:
                 view = LayoutInflater.from(parent.getContext()).inflate(R.layout.fragment_create_new_service, parent, false);
                 return new CreateServiceHolder(view);
+            case ManagerViewModel.TYPE_APPOINTMENT_MANAGER:
+                view = LayoutInflater.from(parent.getContext()).inflate(R.layout.general_booking_item_manager, parent, false);
+                return new AppointmentItemViewHolder(view);
         }
         return null;
     }
@@ -69,6 +91,13 @@ public class ManagerViewTypeAdapter extends RecyclerView.Adapter {
                     ((CreateServiceHolder) holder).edtEndDay.setText(object.getEdtEndDay());
                     ((CreateServiceHolder) holder).spinnerCatagory.getTag(object.getSpinnerCatagory());
                     break;
+                case ManagerViewModel.TYPE_APPOINTMENT_MANAGER:
+                    ((AppointmentItemViewHolder) holder).txtAppointmentCode.setText(object.appointment.appointmentCode);
+                    ((AppointmentItemViewHolder) holder).txtName.setText(object.appointment.name);
+                    ((AppointmentItemViewHolder) holder).txtBookingDate.setText(object.appointment.bookingDate);
+                    ((AppointmentItemViewHolder) holder).txtAppointmentDate.setText(object.appointment.appointmentDate);
+                    ((AppointmentItemViewHolder) holder).txtPayPrice.setText(object.appointment.payPrice);
+                    break;
             }
         }
     }
@@ -76,5 +105,10 @@ public class ManagerViewTypeAdapter extends RecyclerView.Adapter {
     @Override
     public int getItemCount() {
         return dataSet.size();
+    }
+
+    @Override
+    public int getItemViewType(int position) {
+        return dataSet.get(position).getType();
     }
 }

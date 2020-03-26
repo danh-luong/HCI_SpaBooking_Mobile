@@ -8,7 +8,7 @@
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".AppointmentDetail">
+        tools:context=".AppointmentDetailManager">
 
         <RelativeLayout
             android:id="@+id/appointment_container"
@@ -20,17 +20,6 @@
             android:layout_marginBottom="10dp"
             android:paddingLeft="5dp"
             android:paddingRight="5dp">
-
-            <ImageView
-                android:id="@+id/barcode"
-                android:layout_width="match_parent"
-                android:layout_height="150dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginBottom="10dp"
-                android:background="@color/white"
-                android:foregroundGravity="center"
-                android:padding="10dp"
-                android:src="@drawable/barcode" />
 
             <RelativeLayout
                 android:id="@+id/appointment_header_container"
@@ -55,70 +44,10 @@
                     android:textStyle="bold" />
 
                 <RelativeLayout
-                    android:id="@+id/namespa"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/txtBookingCode"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:id="@+id/AppointmentNameSpa"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentLeft="true"
-                        android:fontFamily="@font/philosopher_bold"
-                        android:text="Địa điểm:  "
-                        android:textColor="@android:color/black"
-                        android:textSize="16dp"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:id="@+id/txtNameSpa"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentRight="true"
-                        android:fontFamily="@font/lora_bold"
-                        android:text="Thu Cúc Clinics"
-                        android:textColor="@android:color/holo_blue_light"
-                        android:textSize="15dp" />
-                </RelativeLayout>
-
-                <RelativeLayout
-                    android:id="@+id/addspa"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/namespa"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:id="@+id/AppointmentAddSpa"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentLeft="true"
-                        android:fontFamily="@font/philosopher_bold"
-                        android:text="Địa chỉ:  "
-                        android:textColor="@android:color/black"
-                        android:textSize="16dp"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:id="@+id/txtAddSpa"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentRight="true"
-                        android:layout_toEndOf="@+id/AppointmentAddSpa"
-                        android:fontFamily="@font/lora"
-                        android:paddingLeft="10dp"
-                        android:text="55A Đường 3 Tháng 2, Phường 11, Quận 10, Hồ Chí Minh"
-                        android:textColor="@android:color/holo_blue_light"
-                        android:textSize="15dp" />
-                </RelativeLayout>
-
-                <RelativeLayout
                     android:id="@+id/booking_date_container"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_below="@id/addspa"
+                    android:layout_below="@id/txtBookingCode"
                     android:orientation="horizontal">
 
                     <TextView
@@ -233,12 +162,112 @@
 
             </RelativeLayout>
 
+            <RelativeLayout
+                android:id="@+id/customerinfomation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/appointment_header_container"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/appointment_detail_header_background"
+                android:paddingLeft="10dp"
+                android:paddingTop="10dp"
+                android:paddingRight="10dp"
+                android:paddingBottom="20dp">
+
+                <RelativeLayout
+                    android:id="@+id/nameCustomer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/txtBookingCode"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/AppointmentnameCustomer"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:fontFamily="@font/philosopher_bold"
+                        android:text="Khách hàng:  "
+                        android:textColor="@android:color/black"
+                        android:textSize="16dp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/txtnameCustomer"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:fontFamily="@font/lora_bold"
+                        android:text="Lê Nguyễn Ngọc Minh"
+                        android:textColor="@android:color/holo_blue_light"
+                        android:textSize="15dp" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/phoneCustomer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/nameCustomer"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/phoneCustomerTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:fontFamily="@font/philosopher_bold"
+                        android:text="Điện thoại: "
+                        android:textColor="@android:color/black"
+                        android:textSize="16dp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/txtphoneCustomer"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:fontFamily="@font/lora"
+                        android:text="0988388736"
+                        android:textColor="@android:color/holo_blue_light"
+                        android:textSize="15dp" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/emailCustomer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/phoneCustomer"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/emailCustomerTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:fontFamily="@font/philosopher_bold"
+                        android:text="Email: "
+                        android:textColor="@android:color/black"
+                        android:textSize="16dp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/txtemailCustomer"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:fontFamily="@font/lora"
+                        android:text="lenguyenngocminh@gmail.com"
+                        android:textColor="@android:color/holo_blue_light"
+                        android:textSize="15dp" />
+                </RelativeLayout>
+            </RelativeLayout>
+
 
             <RelativeLayout
                 android:id="@+id/appointment_detail_container"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/appointment_header_container"
+                android:layout_below="@id/customerinfomation"
                 android:layout_marginTop="10dp"
                 android:background="@drawable/appointment_detail_header_background"
                 android:paddingLeft="10dp"
@@ -437,7 +466,7 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/reasonCancel"
                     android:fontFamily="@font/lora"
-                    android:hint="Xin hãy cho biết lý do của bạn."
+                    android:hint="Nhập lý do huỷ để gửi đến khách hàng"
                     android:inputType="textMultiLine"
                     android:textSize="16dp" />
             </RelativeLayout>
@@ -463,6 +492,7 @@
                         android:fontFamily="@font/philosopher_bold"
                         android:text="HUỶ HẸN"
                         android:textColor="@color/white" />
+
                 </LinearLayout>
 
             </RelativeLayout>

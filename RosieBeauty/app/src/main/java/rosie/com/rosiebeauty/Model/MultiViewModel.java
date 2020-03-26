@@ -49,7 +49,6 @@ public class MultiViewModel {
     public TimeSchedule timeSchedule;
     public String name_Cn;
 
-
     public static class FavoriteItem {
         int image;
         String title;
@@ -112,9 +111,11 @@ public class MultiViewModel {
         public String bookingDate;
         public String appointmentDate;
         public String payPrice;
+        public String name;
 
-        public Appointment(String appointmentCode, String bookingDate, String appointmentDate, String payPrice) {
+        public Appointment(String appointmentCode, String name, String bookingDate, String appointmentDate, String payPrice) {
             this.appointmentCode = appointmentCode;
+            this.name = name;
             this.bookingDate = bookingDate;
             this.appointmentDate = appointmentDate;
             this.payPrice = payPrice;
@@ -180,7 +181,7 @@ public class MultiViewModel {
 //    }
 
     public MultiViewModel(int type, int data, String text, String price, String priceAfterPromotion,
-                          int hasPromotion, double rate, int countComment,String name_Cn, String address, String intPromotion) {
+                          int hasPromotion, double rate, int countComment, String name_Cn, String address, String intPromotion) {
         this.type = type;
         this.data = data;
         this.text = text;

@@ -43,20 +43,20 @@ public class ScheduleFragment extends Fragment {
     };
 
     private TimeSchedule[] wednesday_schedule = new TimeSchedule[]{
-            new TimeSchedule("7:30", "-30%") , new TimeSchedule("8:30", "-15"), new TimeSchedule("9:30", ""), new TimeSchedule("13:30", ""), new TimeSchedule("15:30", ""), new TimeSchedule("20:30", "")
+            new TimeSchedule("7:30", "-30%") , new TimeSchedule("8:30", "-15%"), new TimeSchedule("9:30", ""), new TimeSchedule("13:30", ""), new TimeSchedule("15:30", ""), new TimeSchedule("20:30", "")
     };
 
     private TimeSchedule[] thursday_schedule = new TimeSchedule[]{
-            new TimeSchedule("7:30", "-15%") , new TimeSchedule("8:30", ""), new TimeSchedule("9:30", ""), new TimeSchedule("13:30", ""), new TimeSchedule("15:30", ""), new TimeSchedule("20:30", "")
+            new TimeSchedule("7:30", "-15%") , new TimeSchedule("8:30", "-25%"), new TimeSchedule("9:30", ""), new TimeSchedule("13:30", "-25%"), new TimeSchedule("15:30", ""), new TimeSchedule("20:30", "")
     };
     private TimeSchedule[] friday_schedule = new TimeSchedule[]{
-            new TimeSchedule("7:00", "") , new TimeSchedule("8:30", ""), new TimeSchedule("9:30", ""), new TimeSchedule("13:30", ""), new TimeSchedule("15:30", ""), new TimeSchedule("20:30", "")
+            new TimeSchedule("7:00", "") , new TimeSchedule("8:30", "-25%"), new TimeSchedule("9:30", ""), new TimeSchedule("13:30", "-25%"), new TimeSchedule("15:30", ""), new TimeSchedule("20:30", "")
     };
     private TimeSchedule[] saturday_schedule = new TimeSchedule[]{
-            new TimeSchedule("5:30", "") , new TimeSchedule("8:30", ""), new TimeSchedule("9:30", ""), new TimeSchedule("13:30", ""), new TimeSchedule("15:30", ""), new TimeSchedule("20:30", "")
+            new TimeSchedule("5:30", "") , new TimeSchedule("8:30", "-25%"), new TimeSchedule("9:30", ""), new TimeSchedule("13:30", "-25%"), new TimeSchedule("15:30", ""), new TimeSchedule("20:30", "")
     };
     private TimeSchedule[] sunday_schedule = new TimeSchedule[]{
-            new TimeSchedule("6:30", "") , new TimeSchedule("8:30", ""), new TimeSchedule("9:30", ""), new TimeSchedule("13:30", ""), new TimeSchedule("15:30", ""), new TimeSchedule("20:30", "")
+            new TimeSchedule("6:30", "") , new TimeSchedule("8:30", ""), new TimeSchedule("9:30", ""), new TimeSchedule("13:30", "-25%"), new TimeSchedule("15:30", ""), new TimeSchedule("20:30", "")
     };
 
 

@@ -44,18 +44,18 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
                 android:fontFamily="@font/philosopher_bold"
-                android:text="Địa điểm: "
+                android:text="Khách hàng: "
                 android:textColor="@android:color/black"
                 android:textSize="16dp"
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/txtNameSpa"
+                android:id="@+id/txtNameCustomer"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
                 android:fontFamily="@font/lora_bold"
-                android:text="Thu Cúc Clinics"
+                android:text="Lê Nguyễn Ngọc Minh"
                 android:textColor="@android:color/holo_blue_light"
                 android:textSize="15dp" />
         </RelativeLayout>
@@ -100,7 +100,6 @@
                 android:id="@+id/AppointmentDateTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/BookingDateTitle"
                 android:layout_alignParentLeft="true"
                 android:fontFamily="@font/philosopher_bold"
                 android:text="Ngày hẹn: "
@@ -153,14 +152,14 @@
         android:id="@+id/mark_coming"
         android:layout_width="wrap_content"
         android:layout_height="30dp"
-        android:gravity="center"
-        android:padding="5dp"
         android:layout_alignBottom="@id/booking_inner_layout"
         android:layout_alignParentLeft="true"
         android:layout_centerInParent="true"
         android:background="@drawable/filter_boder_selected"
-        android:text="Sắp đến"
         android:fontFamily="@font/philosopher_bold"
+        android:gravity="center"
+        android:padding="5dp"
+        android:text="Sắp đến"
         android:textColor="@android:color/white"
         android:textSize="16dp" />
 
@@ -173,6 +172,6 @@
         android:layout_centerInParent="true"
         android:background="@drawable/circle"
         android:contentDescription="Next"
-        android:onClick="clickGoToAppointmentDetail"
+        android:onClick="clickGoToAppointmentDetailManager"
         android:src="@drawable/ic_arrow_forward_black_24dp" />
 </RelativeLayout>

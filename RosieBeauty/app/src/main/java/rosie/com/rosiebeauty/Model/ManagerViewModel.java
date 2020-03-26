@@ -4,6 +4,7 @@ public class ManagerViewModel {
 
     public static final int CREATE_NEW_SERVICE = 0;
     public static final int SHOW_SERVICE_MANAGER = 1;
+    public static final int TYPE_APPOINTMENT_MANAGER = 1;
     public int type;
     public int data;
     public String text;
@@ -15,6 +16,28 @@ public class ManagerViewModel {
     public String edtStartDay;
     public String edtEndDay;
     public int spinnerCatagory;
+    public Appointment appointment;
+
+    public static class Appointment {
+        public String appointmentCode;
+        public String bookingDate;
+        public String appointmentDate;
+        public String payPrice;
+        public String name;
+
+        public Appointment(String appointmentCode, String name, String bookingDate, String appointmentDate, String payPrice) {
+            this.appointmentCode = appointmentCode;
+            this.name = name;
+            this.bookingDate = bookingDate;
+            this.appointmentDate = appointmentDate;
+            this.payPrice = payPrice;
+        }
+    }
+
+    public ManagerViewModel(int type, Appointment appointment) {
+        this.type = type;
+        this.appointment = appointment;
+    }
 
     public ManagerViewModel(int type, String edtNameService, String edtDesService, String edtPrice,
                             String edtQPromotion, String edtPricePromo, String edtStartDay, String edtEndDay, int spinnerCatagory) {

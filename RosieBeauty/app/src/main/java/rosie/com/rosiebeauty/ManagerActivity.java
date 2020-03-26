@@ -69,7 +69,7 @@ public class ManagerActivity extends AppCompatActivity {
                             toolbar_title.setText("Quét mã");
                             break;
                         case R.id.action_history:
-                            selectedFragment = new BookingFragment();
+                            selectedFragment = new HistoryBookingFragment();
                             toolbar_title.setText("Lịch hẹn");
                             break;
                         case R.id.action_profile:
@@ -107,7 +107,7 @@ public class ManagerActivity extends AppCompatActivity {
             bottomNavigationView.setVisibility(View.VISIBLE);
             getSupportActionBar().setDisplayHomeAsUpEnabled(false);
             toolbar_title.setText("Tạo mới");
-        } else if (f instanceof BookingFragment) {
+        } else if (f instanceof HistoryBookingFragment) {
             BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_nav_manager);
             bottomNavigationView.setVisibility(View.VISIBLE);
             getSupportActionBar().setDisplayHomeAsUpEnabled(false);
@@ -133,6 +133,14 @@ public class ManagerActivity extends AppCompatActivity {
     public void clickToCreateService(View view) {
         toolbar_title.setText("Dịch vụ");
         selectedFragment = new ListServiceFragment();
+        getSupportFragmentManager().beginTransaction().setCustomAnimations(R.animator.slide_in_left, R.animator.slide_out_right, R.animator.pop_out_right, R.animator.pop_in_left).setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN).replace(R.id.fragment_container_manager, selectedFragment).addToBackStack(null).commit();
+    }
+
+    public void clickGoToAppointmentDetailManager(View view) {
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_nav_manager);
+        bottomNavigationView.setVisibility(View.GONE);
+        toolbar_title.setText("Chi tiết lịch hẹn");
+        selectedFragment = new AppointmentDetailManager();
         getSupportFragmentManager().beginTransaction().setCustomAnimations(R.animator.slide_in_left, R.animator.slide_out_right, R.animator.pop_out_right, R.animator.pop_in_left).setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN).replace(R.id.fragment_container_manager, selectedFragment).addToBackStack(null).commit();
     }
 }
