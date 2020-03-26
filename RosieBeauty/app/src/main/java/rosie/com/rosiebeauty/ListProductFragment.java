@@ -15,7 +15,6 @@ import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
 import java.text.NumberFormat;
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Locale;
 
 import rosie.com.rosiebeauty.Adapter.MultiViewTypeAdapter;
@@ -25,7 +24,7 @@ public class ListProductFragment extends Fragment {
     Context mContext;
     ArrayList<MultiViewModel> gridViewModelArrayList;
     private RecyclerView mRecyclerView;
-    private String[] names, address;
+    private String[] names, address, name_cn;
     private int[] pic, countComment, intPromotion;
     private Double[] rateStar;
     float[] price;
@@ -159,6 +158,14 @@ public class ListProductFragment extends Fragment {
         countComment = new int[]{
                 4, 5, 7, 8, 6, 5
         };
+        name_cn = new String[]{
+                "Hana Beauty",
+                "Koi Spa",
+                "Venus Spa",
+                "Thu Cúc Clinics",
+                "Derma Spa",
+                "Tropic Spa"
+        };
         address = new String[]{
                 "Nguyễn Thiện Thuật, Q.3",
                 "Võ Văn Tần, Q.3",
@@ -174,7 +181,7 @@ public class ListProductFragment extends Fragment {
         MultiViewModel gridViewModel = null;
 
         //Promotion
-        gridViewModel = new MultiViewModel(MultiViewModel.TYPE_SECTION_TITLE,"Khuyến mại");
+        gridViewModel = new MultiViewModel(MultiViewModel.TYPE_SECTION_TITLE, "Khuyến mại");
         gridViewModelArrayList.add(gridViewModel);
 
         //clear old data
@@ -190,18 +197,18 @@ public class ListProductFragment extends Fragment {
                 if (price[i] % 1000000 == 0) {
                     gridViewModel = new MultiViewModel(MultiViewModel.TYPE_IMG_TEXT_PRICE, pic[i], names[i],
                             String.format("%.0f", price_acronym) + " triệu", formatPrice.format(price_afterpromotion), MultiViewModel.HAS_PROMOTION,
-                            rateStar[i], countComment[i], address[i], "-" + intPromotion[i] + "%");
+                            rateStar[i], countComment[i], name_cn[i], address[i], "-" + intPromotion[i] + "%");
                     gridViewModelArrayList.add(gridViewModel);
                 } else {
                     gridViewModel = new MultiViewModel(MultiViewModel.TYPE_IMG_TEXT_PRICE, pic[i], names[i],
                             String.format("%.1f", price_acronym) + " triệu", formatPrice.format(price_afterpromotion), MultiViewModel.HAS_PROMOTION,
-                            rateStar[i], countComment[i], address[i], "-" + intPromotion[i] + "%");
+                            rateStar[i], countComment[i], name_cn[i], address[i], "-" + intPromotion[i] + "%");
                     gridViewModelArrayList.add(gridViewModel);
                 }
             } else {
                 gridViewModel = new MultiViewModel(MultiViewModel.TYPE_IMG_TEXT_PRICE, pic[i], names[i],
                         formatPrice.format(price[i]), formatPrice.format(price_afterpromotion), MultiViewModel.HAS_PROMOTION,
-                        rateStar[i], countComment[i], address[i], "-" + intPromotion[i] + "%");
+                        rateStar[i], countComment[i], name_cn[i], address[i], "-" + intPromotion[i] + "%");
                 gridViewModelArrayList.add(gridViewModel);
             }
         }
@@ -246,6 +253,14 @@ public class ListProductFragment extends Fragment {
         countComment = new int[]{
                 4, 5, 7, 8, 10, 9
         };
+        name_cn = new String[]{
+                "Hana Beauty",
+                "Koi Spa",
+                "Venus Spa",
+                "Thu Cúc Clinics",
+                "Derma Spa",
+                "Tropic Spa"
+        };
         address = new String[]{
                 "Phan Văn Trị, Q. Bình Thạnh",
                 "Phạm Văn Đồng, Q. Bình Thạnh",
@@ -283,18 +298,18 @@ public class ListProductFragment extends Fragment {
                 if (price[i] % 1000000 == 0) {
                     gridViewModel = new MultiViewModel(MultiViewModel.TYPE_IMG_TEXT_PRICE, pic[i], names[i],
                             String.format("%.0f", price_acronym) + " triệu", formatPrice.format(afterpromotion), int_promotion,
-                            rateStar[i], countComment[i], address[i], "-" + intPromotion[i] + "%");
+                            rateStar[i], countComment[i], name_cn[i], address[i], "-" + intPromotion[i] + "%");
                     gridViewModelArrayList.add(gridViewModel);
                 } else {
                     gridViewModel = new MultiViewModel(MultiViewModel.TYPE_IMG_TEXT_PRICE, pic[i], names[i],
                             String.format("%.1f", price_acronym) + " triệu", formatPrice.format(afterpromotion), int_promotion,
-                            rateStar[i], countComment[i], address[i], "-" + intPromotion[i] + "%");
+                            rateStar[i], countComment[i], name_cn[i], address[i], "-" + intPromotion[i] + "%");
                     gridViewModelArrayList.add(gridViewModel);
                 }
             } else {
                 gridViewModel = new MultiViewModel(MultiViewModel.TYPE_IMG_TEXT_PRICE, pic[i], names[i],
                         formatPrice.format(price[i]), formatPrice.format(afterpromotion),
-                        int_promotion, rateStar[i], countComment[i], address[i], "-" + intPromotion[i] + "%");
+                        int_promotion, rateStar[i], countComment[i], name_cn[i], address[i], "-" + intPromotion[i] + "%");
                 gridViewModelArrayList.add(gridViewModel);
             }
         }
@@ -339,6 +354,14 @@ public class ListProductFragment extends Fragment {
         countComment = new int[]{
                 4, 5, 7, 8, 10, 9
         };
+        name_cn = new String[]{
+                "Hana Beauty",
+                "Koi Spa",
+                "Venus Spa",
+                "Thu Cúc Clinics",
+                "Derma Spa",
+                "Tropic Spa"
+        };
         address = new String[]{
                 "Phạm Văn Đồng, Q. Bình Thạnh",
                 "Lê Quang Định, Q. Gò Vấp",
@@ -376,18 +399,18 @@ public class ListProductFragment extends Fragment {
                 if (price[i] % 1000000 == 0) {
                     gridViewModel = new MultiViewModel(MultiViewModel.TYPE_IMG_TEXT_PRICE, pic[i], names[i],
                             String.format("%.0f", price_acronym) + " triệu", formatPrice.format(afterpromotion), int_promotion,
-                            rateStar[i], countComment[i], address[i], "-" + intPromotion[i] + "%");
+                            rateStar[i], countComment[i], name_cn[i], address[i], "-" + intPromotion[i] + "%");
                     gridViewModelArrayList.add(gridViewModel);
                 } else {
                     gridViewModel = new MultiViewModel(MultiViewModel.TYPE_IMG_TEXT_PRICE, pic[i], names[i],
                             String.format("%.1f", price_acronym) + " triệu", formatPrice.format(afterpromotion), int_promotion,
-                            rateStar[i], countComment[i], address[i], "-" + intPromotion[i] + "%");
+                            rateStar[i], countComment[i], name_cn[i], address[i], "-" + intPromotion[i] + "%");
                     gridViewModelArrayList.add(gridViewModel);
                 }
             } else {
                 gridViewModel = new MultiViewModel(MultiViewModel.TYPE_IMG_TEXT_PRICE, pic[i], names[i],
                         formatPrice.format(price[i]), formatPrice.format(afterpromotion),
-                        int_promotion, rateStar[i], countComment[i], address[i], "-" + intPromotion[i] + "%");
+                        int_promotion, rateStar[i], countComment[i], name_cn[i], address[i], "-" + intPromotion[i] + "%");
                 gridViewModelArrayList.add(gridViewModel);
             }
         }

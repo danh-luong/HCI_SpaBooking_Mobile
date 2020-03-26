@@ -47,6 +47,7 @@ public class MultiViewModel {
     public String address;
     public String intPromotion;
     public TimeSchedule timeSchedule;
+    public String name_Cn;
 
 
     public static class FavoriteItem {
@@ -179,7 +180,7 @@ public class MultiViewModel {
 //    }
 
     public MultiViewModel(int type, int data, String text, String price, String priceAfterPromotion,
-                          int hasPromotion, double rate, int countComment, String address, String intPromotion) {
+                          int hasPromotion, double rate, int countComment,String name_Cn, String address, String intPromotion) {
         this.type = type;
         this.data = data;
         this.text = text;
@@ -188,8 +189,17 @@ public class MultiViewModel {
         this.hasPromotion = hasPromotion;
         this.rate = rate;
         this.countComment = countComment;
+        this.name_Cn = name_Cn;
         this.address = address;
         this.intPromotion = intPromotion;
+    }
+
+    public String getName_Cn() {
+        return name_Cn;
+    }
+
+    public void setName_Cn(String name_Cn) {
+        this.name_Cn = name_Cn;
     }
 
     public MultiViewModel(int type, int orientation, int reclyerSpan, List<MultiViewModel> multiViewModels) {
