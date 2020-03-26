@@ -24,6 +24,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
+import java.io.Serializable;
 import java.util.ArrayList;
 
 import rosie.com.rosiebeauty.Model.Branch;
@@ -85,14 +86,14 @@ public class EditBranchActivity extends AppCompatActivity {
     }
 
     public void clickToUpdateBranch(View view) {
-        if(image == 0) return;
+        if (image == 0) return;
         title = edtTitle.getText().toString();
         address = edtAddress.getText().toString();
         status = spinnerStatus.getSelectedItem().toString();
         ArrayList<Branch> branches = BranchManagementFragment.getBranches();
-        Branch selectedBranch = null;
+        Branch selectedBranch = new Branch();
         for (Branch branch : branches) {
-            if (branch.getTitle().equals(oldTitle) ) {
+            if (branch.getTitle().equals(oldTitle)) {
                 selectedBranch = branch;
                 break;
             }
@@ -102,6 +103,9 @@ public class EditBranchActivity extends AppCompatActivity {
         selectedBranch.setStatus(status);
         selectedBranch.setAddress(address);
         BranchManagementFragment.status = BranchManagementFragment.STATUS_UPDATE;
+        Intent result = new Intent();
+        result.putExtra("branch", (Serializable) selectedBranch);
+        setResult(AppCompatActivity.RESULT_OK, result);
         onBackPressed();
     }
 
@@ -148,7 +152,7 @@ public class EditBranchActivity extends AppCompatActivity {
     }
 
     private String getImageName(Uri imgUri) {
-        String[] filePathColumn = { MediaStore.Images.Media.DATA };
+        String[] filePathColumn = {MediaStore.Images.Media.DATA};
         Cursor cursor = getContentResolver().query(imgUri,
                 filePathColumn, null, null, null);
         cursor.moveToFirst();

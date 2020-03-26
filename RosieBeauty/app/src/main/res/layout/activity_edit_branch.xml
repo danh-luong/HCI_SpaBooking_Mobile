@@ -166,7 +166,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:layout_marginBottom="10dp"
-                    android:background="@drawable/button_border_login_style"
+                    android:background="@drawable/btn_update_profile"
                     android:onClick="clickToUpdateBranch"
                     android:text="Cập nhật"
                     android:textColor="@color/white"

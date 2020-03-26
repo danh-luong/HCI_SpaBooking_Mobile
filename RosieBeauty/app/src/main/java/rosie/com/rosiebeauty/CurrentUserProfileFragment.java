@@ -10,14 +10,21 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
+import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.google.android.material.snackbar.Snackbar;
 
 import rosie.com.rosiebeauty.Data.UserRepository;
+import rosie.com.rosiebeauty.Listener.EditBranchButtonListener;
+import rosie.com.rosiebeauty.Model.Branch;
 
 
 /**
@@ -30,6 +37,7 @@ public class CurrentUserProfileFragment extends Fragment {
     private TextView txtNameProfile;
     private Button btnUpdateUserProfile;
     private Button btnLogOut;
+    private Branch branch;
 
     public CurrentUserProfileFragment() {
         // Required empty public constructor
@@ -102,8 +110,33 @@ public class CurrentUserProfileFragment extends Fragment {
                 startActivity(intent);
             }
         });
-
+        if (UserRepository.currentUser.getRole().equals("manager")) {
+            LinearLayout spaContainer = rootView.findViewById(R.id.spaInfoContainer);
+            spaContainer.setVisibility(View.VISIBLE);
+            ImageButton btnEdit = rootView.findViewById(R.id.btnEdit);
+            branch = new Branch(R.drawable.spa_01, "Rosie Spa", "Nguyên hồng", "active");
+            btnEdit.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(getActivity(), EditBranchActivity.class);
+                    intent.putExtra("title", branch.getTitle());
+                    intent.putExtra("address", branch.getAddress());
+                    intent.putExtra("image", branch.getImage());
+                    intent.putExtra("status", branch.getStatus());
+                    startActivityForResult(intent, 1000);
+                }
+            });
+        }
         return rootView;
     }
 
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        if (requestCode == 1000 && resultCode == AppCompatActivity.RESULT_OK) {
+            Toast.makeText(getActivity(), "Cập nhật chi nhánh thành công", Toast.LENGTH_LONG).show();
+            EditText valueSpa = rootView.findViewById(R.id.valueSPa);
+            branch = (Branch) data.getSerializableExtra("branch");
+            valueSpa.setText(branch.getTitle());
+        }
+    }
 }

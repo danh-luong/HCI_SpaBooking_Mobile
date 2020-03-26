@@ -1,10 +1,15 @@
 package rosie.com.rosiebeauty.Model;
 
-public class Branch {
+import java.io.Serializable;
+
+public class Branch implements Serializable {
     private int image;
     private String title;
     private String address;
     private String status;
+
+    public Branch() {
+    }
 
     public Branch(int image, String title, String address, String status) {
         this.image = image;
