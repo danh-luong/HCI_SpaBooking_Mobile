@@ -64,7 +64,7 @@ public class ListProductFragment extends Fragment {
         //Default
         txtNearly.setBackground(getActivity().getResources().getDrawable(R.drawable.filter_boder_selected));
         prepareDataNearly();
-        adapter = new MultiViewTypeAdapter(gridViewModelArrayList, ListProductFragment.this.getActivity().getApplicationContext());
+        adapter = new MultiViewTypeAdapter(gridViewModelArrayList, ListProductFragment.this.getActivity());
         StaggeredGridLayoutManager lm =
                 new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL);
         mRecyclerView.setLayoutManager(lm);
@@ -78,7 +78,7 @@ public class ListProductFragment extends Fragment {
                 cleanFilterSelected();
                 txtNearly.setBackground(getActivity().getResources().getDrawable(R.drawable.filter_boder_selected));
                 prepareDataNearly();
-                adapter = new MultiViewTypeAdapter(gridViewModelArrayList, ListProductFragment.this.getActivity().getApplicationContext());
+                adapter = new MultiViewTypeAdapter(gridViewModelArrayList, ListProductFragment.this.getActivity());
                 StaggeredGridLayoutManager lm =
                         new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL);
                 mRecyclerView.setLayoutManager(lm);
@@ -94,7 +94,7 @@ public class ListProductFragment extends Fragment {
                 cleanFilterSelected();
                 txtPromotion.setBackground(getActivity().getResources().getDrawable(R.drawable.filter_boder_selected));
                 prepareDataPromotion();
-                adapter = new MultiViewTypeAdapter(gridViewModelArrayList, ListProductFragment.this.getActivity().getApplicationContext());
+                adapter = new MultiViewTypeAdapter(gridViewModelArrayList, ListProductFragment.this.getActivity());
                 StaggeredGridLayoutManager lm =
                         new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL);
                 mRecyclerView.setLayoutManager(lm);
@@ -110,7 +110,7 @@ public class ListProductFragment extends Fragment {
                 cleanFilterSelected();
                 txtRating.setBackground(getActivity().getResources().getDrawable(R.drawable.filter_boder_selected));
                 prepareDataRating();
-                adapter = new MultiViewTypeAdapter(gridViewModelArrayList, ListProductFragment.this.getActivity().getApplicationContext());
+                adapter = new MultiViewTypeAdapter(gridViewModelArrayList, ListProductFragment.this.getActivity());
                 StaggeredGridLayoutManager lm =
                         new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL);
                 mRecyclerView.setLayoutManager(lm);

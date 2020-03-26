@@ -1,7 +1,9 @@
 package rosie.com.rosiebeauty;
 
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -91,6 +93,11 @@ public class CurrentUserProfileFragment extends Fragment {
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity(), LoginActivity.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                SharedPreferences preferences = getActivity().getApplicationContext().getSharedPreferences("login", Context.MODE_PRIVATE);
+                SharedPreferences.Editor editor = preferences.edit();
+                editor.remove("username");
+                editor.remove("password");
+                editor.commit();
                 getActivity().finish();
                 startActivity(intent);
             }

@@ -42,7 +42,6 @@ public class MultiViewTypeAdapter extends RecyclerView.Adapter {
 
     private ArrayList<MultiViewModel> dataSet;
     Context mContext;
-    Activity currentActivity;
     int total_types;
     private MaterialSearchView searchView;
     private Fragment triggerFragment;
@@ -112,8 +111,8 @@ public class MultiViewTypeAdapter extends RecyclerView.Adapter {
 
         public TimeHolder(View itemView) {
             super(itemView);
-            this.btnTimeManager = new TimeScheduleButtonManager((TextView)itemView.findViewById(R.id.btnViewSchedule), TimeScheduleButtonManager.ButtonTimeStatus.UNSELECTED);
-            this.txtPromotion = (TextView)itemView.findViewById(R.id.txtPromotion);
+            this.btnTimeManager = new TimeScheduleButtonManager((TextView) itemView.findViewById(R.id.btnViewSchedule), TimeScheduleButtonManager.ButtonTimeStatus.UNSELECTED);
+            this.txtPromotion = (TextView) itemView.findViewById(R.id.txtPromotion);
         }
     }
 
@@ -188,6 +187,7 @@ public class MultiViewTypeAdapter extends RecyclerView.Adapter {
         TextView txtTitle;
         TextView txtAddress;
         RatingBar ratingBar;
+        ImageView btnRemoveFav;
 
         public FavoriteItemViewHolder(View itemView) {
             super(itemView);
@@ -195,6 +195,7 @@ public class MultiViewTypeAdapter extends RecyclerView.Adapter {
             this.txtTitle = (TextView) itemView.findViewById(R.id.txtTitle);
             this.txtAddress = (TextView) itemView.findViewById(R.id.txtPrice);
             this.ratingBar = (RatingBar) itemView.findViewById(R.id.ratingBar);
+            this.btnRemoveFav = itemView.findViewById(R.id.btnRemoveFav);
         }
     }
 
@@ -205,12 +206,6 @@ public class MultiViewTypeAdapter extends RecyclerView.Adapter {
         total_types = dataSet.size();
     }
 
-    public MultiViewTypeAdapter(ArrayList<MultiViewModel> data, Activity currentActivity) {
-        this.dataSet = data;
-        this.currentActivity = currentActivity;
-        this.mContext = currentActivity.getApplicationContext();
-        total_types = dataSet.size();
-    }
 
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -434,11 +429,10 @@ public class MultiViewTypeAdapter extends RecyclerView.Adapter {
                     ((ServiceCardListHolder) holder).rateStar.setText(object.rate + "");
                     ((ServiceCardListHolder) holder).countComment.setText(object.countComment + "");
                     ((ServiceCardListHolder) holder).serAddress.setText(object.address);
-                    ImageView image =  ((ServiceCardListHolder) holder).imgService;
-                    image.setOnClickListener(new View.OnClickListener() {
+                    ((ServiceCardListHolder) holder).relativeLayout.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                            MainActivity activity  = (MainActivity)currentActivity;
+                            MainActivity activity = (MainActivity) mContext;
                             SpaServiceDetailFragment.setInitParam(activity);
                             activity.getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new SpaServiceDetailFragment()).addToBackStack(null).commit();
                         }
@@ -479,6 +473,13 @@ public class MultiViewTypeAdapter extends RecyclerView.Adapter {
                     ((FavoriteItemViewHolder) holder).txtTitle.setText(object.favoriteItem.getTitle());
                     ((FavoriteItemViewHolder) holder).txtAddress.setText(object.favoriteItem.getLocation());
                     ((FavoriteItemViewHolder) holder).ratingBar.setRating(object.favoriteItem.getStar());
+                    ((FavoriteItemViewHolder) holder).btnRemoveFav.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            dataSet.remove(listPosition);
+                            notifyDataSetChanged();
+                        }
+                    });
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
 
                         ((FavoriteItemViewHolder) holder).imageView.setOutlineProvider(new ViewOutlineProvider() {
@@ -499,7 +500,7 @@ public class MultiViewTypeAdapter extends RecyclerView.Adapter {
                     listTimeHolders.add(timeHolder);
                     TimeSchedule timeSchedule = object.timeSchedule;
                     timeHolder.btnTimeManager.getBtnTime().setText(timeSchedule.getTime());
-                    if(!timeSchedule.getPromotion().equals("")) {
+                    if (!timeSchedule.getPromotion().equals("")) {
                         timeHolder.txtPromotion.setText(timeSchedule.getPromotion());
                         timeHolder.txtPromotion.setVisibility(View.VISIBLE);
                     }

@@ -21,16 +21,36 @@
             tools:context=".SpaServiceDetailFragment">
 
             <!-- TODO: Update blank fragment layout -->
-            <ImageView
-                android:id="@+id/imageView2"
+            <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="250dp"
-                android:scaleType="centerCrop"
-                android:src="@drawable/img_trang_diem_han_quoc" />
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/imageView2"
+                    android:layout_width="match_parent"
+                    android:layout_height="250dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/img_trang_diem_han_quoc" />
+
+                <CheckBox
+                    android:tooltipText="Yêu thích"
+                    android:id="@+id/favButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_margin="10dp"
+                    android:background="@android:color/transparent"
+                    android:button="@drawable/custom_fav_check_box"
+                    android:gravity="center"
+                    android:textColor="#000000"
+                    android:textSize="16dp" />
+            </RelativeLayout>
+
 
             <TextView
                 android:id="@+id/txtTitle"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/philosopher_bold"
                 android:gravity="center"
@@ -38,6 +58,7 @@
                 android:textSize="50dp"
                 android:textStyle="bold"
                 tools:layout_editor_absoluteX="16dp" />
+
 
             <RatingBar
                 android:layout_width="wrap_content"

@@ -1,7 +1,9 @@
 package rosie.com.rosiebeauty;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
@@ -18,11 +20,33 @@ import rosie.com.rosiebeauty.Data.UserRepository;
 
 public class LoginActivity extends AppCompatActivity {
     private Intent intent;
+    private SharedPreferences preference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         UserRepository.initDataUser();
+        preference = getApplicationContext().getSharedPreferences("login", Context.MODE_PRIVATE);
+        if (preference.contains("username") && preference.contains("password")) {
+            String username = preference.getString("username", null);
+            String password = preference.getString("password", null);
+            Boolean isAuthenticated = requestLogin(username, password);
+            if (isAuthenticated == true) {
+                switch (UserRepository.currentUser.getRole()) {
+                    case User.ROLE_ADMIN:
+                        intent = new Intent(this, AdminActivity.class);
+                        break;
+                    case User.ROLE_MANAGER:
+                        intent = new Intent(this, ManagerActivity.class);
+                        break;
+                    case User.ROLE_CUSTOMER:
+                        intent = new Intent(this, MainActivity.class);
+                        break;
+                }
+                finish();
+                startActivity(intent);
+            }
+        }
         setStatusBarGradiant(this);
         setContentView(R.layout.activity_login);
         TextView registerLink = (TextView) findViewById(R.id.txtRegisterLink);
@@ -51,6 +75,10 @@ public class LoginActivity extends AppCompatActivity {
                     intent = new Intent(this, MainActivity.class);
                     break;
             }
+            SharedPreferences.Editor editor = preference.edit();
+            editor.putString("username", UserRepository.currentUser.getUsername());
+            editor.putString("password", UserRepository.currentUser.getPassword());
+            editor.commit();
             finish();
             startActivity(intent);
 
