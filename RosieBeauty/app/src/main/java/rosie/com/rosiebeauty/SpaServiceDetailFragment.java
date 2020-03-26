@@ -64,6 +64,7 @@ public class SpaServiceDetailFragment extends Fragment {
         // Inflate the layout for this fragment
         View rootView = inflater.inflate(R.layout.fragment_spa_service_detail, container, false);
         ((AppCompatActivity) getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getActivity().findViewById(R.id.bottom_nav).setVisibility(View.GONE);
         buttonBook = rootView.findViewById(R.id.boostrapButtonBook);
         prepareData();
         MultiViewTypeAdapter commentAdapter = new MultiViewTypeAdapter(commentList, this.getActivity().getApplicationContext());

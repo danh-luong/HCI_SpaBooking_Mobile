@@ -364,15 +364,14 @@
     <com.beardedhen.androidbootstrap.BootstrapButton
         android:id="@+id/boostrapButtonBook"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:layout_marginBottom="2dp"
+        android:layout_height="wrap_content"
         android:text="Đặt"
+        android:fontFamily="@font/philosopher_bold"
         app:bootstrapBrand="danger"
         app:bootstrapSize="lg"
         app:buttonMode="regular"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:roundedCorners="true"
         app:showOutline="false" />
 </androidx.constraintlayout.widget.ConstraintLayout>
