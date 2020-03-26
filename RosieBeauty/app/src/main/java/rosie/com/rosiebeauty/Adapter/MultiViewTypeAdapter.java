@@ -119,7 +119,7 @@ public class MultiViewTypeAdapter extends RecyclerView.Adapter {
     public static class ServiceCardListHolder extends RecyclerView.ViewHolder {
 
         ImageView imgService;
-        TextView txtName, txtPromotion, rateStar, countComment, serAddress;
+        TextView txtName, txtPromotion, rateStar, countComment,serCN, serAddress;
         TextView txtPrice;
         TextView txtPriceAfterPromotion;
         RelativeLayout relativeLayout;
@@ -133,6 +133,7 @@ public class MultiViewTypeAdapter extends RecyclerView.Adapter {
             this.txtPromotion = (TextView) itemView.findViewById(R.id.txtPromotion);
             this.rateStar = (TextView) itemView.findViewById(R.id.rateStar);
             this.countComment = (TextView) itemView.findViewById(R.id.countComment);
+            this.serCN=(TextView)itemView.findViewById(R.id.serCN);
             this.serAddress = (TextView) itemView.findViewById(R.id.serAddress);
             this.relativeLayout = (RelativeLayout) itemView.findViewById(R.id.service_card_item_container);
         }
@@ -429,6 +430,8 @@ public class MultiViewTypeAdapter extends RecyclerView.Adapter {
                     ((ServiceCardListHolder) holder).rateStar.setText(object.rate + "");
                     ((ServiceCardListHolder) holder).countComment.setText(object.countComment + "");
                     ((ServiceCardListHolder) holder).serAddress.setText(object.address);
+                    ((ServiceCardListHolder)holder).serCN.setText(object.name_Cn);
+                    ImageView image =  ((ServiceCardListHolder) holder).imgService;
                     ((ServiceCardListHolder) holder).relativeLayout.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
