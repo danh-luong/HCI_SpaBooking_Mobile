@@ -3,134 +3,56 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/homeFragmentBackground"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/white"
     android:orientation="vertical"
     tools:context=".RegisterActivity">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:orientation="vertical">
+
+
+            <androidx.viewpager.widget.ViewPager
+                android:layout_marginTop="50dp"
+                android:id="@+id/registerViewPager"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <com.google.android.material.tabs.TabLayout
+                    app:tabSelectedTextColor="@color/colorAccent"
+                    app:tabRippleColor="@color/colorAccent"
+                    android:id="@+id/tabLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </androidx.viewpager.widget.ViewPager>
+
+
+        </LinearLayout>
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:layout_marginBottom="20dp"
-        android:gravity="center"
-        android:orientation="horizontal">
+        android:layout_height="wrap_content">
 
-        <ImageView
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:src="@drawable/ic_spa_logo_no_text" />
-
-
-        <TextView
-            android:layout_width="wrap_content"
+        <Button
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginLeft="10dp"
-            android:fontFamily="@font/philosopher_bold_italic"
-            android:text="Rose spa"
-            android:textColor="@color/colorAccent"
-            android:textSize="30dp" />
+            android:layout_marginLeft="35dp"
+            android:layout_marginRight="35dp"
+            android:layout_marginBottom="15dp"
+            android:background="@drawable/button_border_login_style"
+            android:onClick="onclickRegister"
+            android:text="Tạo tài khoản"
+            android:textColor="@color/white"
+            android:textSize="17dp" />
     </LinearLayout>
-
-    <EditText
-        android:id="@+id/edtUsername"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:layout_marginLeft="40dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginRight="40dp"
-        android:background="@drawable/edit_text_border"
-        android:fontFamily="@font/lora_italic"
-        android:gravity="center"
-        android:hint="Tên đăng nhập" />
-
-    <EditText
-        android:id="@+id/edtPassword"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:layout_marginLeft="40dp"
-        android:layout_marginTop="25dp"
-        android:layout_marginRight="40dp"
-        android:background="@drawable/edit_text_border"
-        android:fontFamily="@font/lora_italic"
-        android:gravity="center"
-        android:hint="Mật khẩu"
-        android:inputType="textPassword" />
-
-    <EditText
-        android:id="@+id/edtConfirmPassword"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:layout_marginLeft="40dp"
-        android:layout_marginTop="25dp"
-        android:layout_marginRight="40dp"
-        android:background="@drawable/edit_text_border"
-        android:fontFamily="@font/lora_italic"
-        android:gravity="center"
-        android:hint="Xác nhận mật khẩu"
-        android:inputType="textPassword" />
-
-    <EditText
-        android:id="@+id/edtName"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:layout_marginLeft="40dp"
-        android:layout_marginTop="25dp"
-        android:layout_marginRight="40dp"
-        android:background="@drawable/edit_text_border"
-        android:fontFamily="@font/lora_italic"
-        android:gravity="center"
-        android:hint="Họ và tên" />
-
-    <EditText
-        android:id="@+id/edtPhoneNumber"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:layout_marginLeft="40dp"
-        android:layout_marginTop="25dp"
-        android:layout_marginRight="40dp"
-        android:background="@drawable/edit_text_border"
-        android:fontFamily="@font/lora_italic"
-        android:gravity="center"
-        android:hint="Số điện thoại"
-        android:inputType="textPhonetic" />
-
-    <EditText
-        android:id="@+id/edtEmail"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:layout_marginLeft="40dp"
-        android:layout_marginTop="25dp"
-        android:layout_marginRight="40dp"
-        android:background="@drawable/edit_text_border"
-        android:fontFamily="@font/lora_italic"
-        android:gravity="center"
-        android:hint="Email"
-        android:inputType="textEmailAddress" />
-
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="35dp"
-        android:layout_marginTop="40dp"
-        android:layout_marginRight="35dp"
-        android:background="@drawable/button_border_login_style"
-        android:onClick="onclickRegister"
-        android:text="Tạo tài khoản"
-        android:textColor="@color/white"
-        android:textSize="17dp" />
-
-    <TextView
-        android:id="@+id/txtErrorMsg"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:fontFamily="@font/philosopher_bold"
-        android:text="Errrorrrrrrrrrrrrrrrrrrrrrrr"
-        android:textColor="@android:color/holo_red_dark"
-        android:textSize="20dp"
-        android:visibility="gone" />
-
 
 </LinearLayout>
