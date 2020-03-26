@@ -38,6 +38,7 @@ public class AppointmentDetail extends Fragment {
                 Snackbar snackBar = Snackbar.make(getActivity().findViewById(android.R.id.content),
                         "Successful!!", Snackbar.LENGTH_LONG);
                 snackBar.show();
+                getActivity().onBackPressed();
             }
         });
         return rootView;

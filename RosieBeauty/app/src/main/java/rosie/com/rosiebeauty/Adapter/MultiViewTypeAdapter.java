@@ -9,18 +9,23 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewOutlineProvider;
+import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 import androidx.viewpager.widget.ViewPager;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.miguelcatalan.materialsearchview.MaterialSearchView;
 
 import java.util.ArrayList;
@@ -28,6 +33,7 @@ import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import rosie.com.rosiebeauty.AppointmentDetail;
 import rosie.com.rosiebeauty.MainActivity;
 import rosie.com.rosiebeauty.Model.MultiViewModel;
 import rosie.com.rosiebeauty.Model.TimeSchedule;
@@ -173,6 +179,7 @@ public class MultiViewTypeAdapter extends RecyclerView.Adapter {
         TextView txtBookingDate;
         TextView txtAppointmentDate;
         TextView txtPayPrice;
+        ImageButton btnGotoDetail;
 
         public AppointmentItemViewHolder(View itemView) {
             super(itemView);
@@ -181,6 +188,7 @@ public class MultiViewTypeAdapter extends RecyclerView.Adapter {
             this.txtBookingDate = (TextView) itemView.findViewById(R.id.txtBookingDate);
             this.txtAppointmentDate = (TextView) itemView.findViewById(R.id.txtAppointmentDate);
             this.txtPayPrice = (TextView) itemView.findViewById(R.id.txtPayPrice);
+            this.btnGotoDetail = itemView.findViewById(R.id.goto_appointment_details);
         }
     }
 
@@ -471,6 +479,17 @@ public class MultiViewTypeAdapter extends RecyclerView.Adapter {
                     ((AppointmentItemViewHolder) holder).txtBookingDate.setText(object.appointment.bookingDate);
                     ((AppointmentItemViewHolder) holder).txtAppointmentDate.setText(object.appointment.appointmentDate);
                     ((AppointmentItemViewHolder) holder).txtPayPrice.setText(object.appointment.payPrice);
+                    ((AppointmentItemViewHolder)holder).btnGotoDetail.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            BottomNavigationView bottomNavigationView = ((AppCompatActivity)mContext).findViewById(R.id.bottom_nav);
+                            bottomNavigationView.setVisibility(View.GONE);
+                            ((TextView)((AppCompatActivity) mContext).findViewById(R.id.text_toolbar)).setText("Chi tiết lịch hẹn");
+                            Fragment selectedFragment = new AppointmentDetail();
+                            ((AppCompatActivity)mContext).getSupportFragmentManager().beginTransaction().setCustomAnimations(R.animator.slide_in_left, R.animator.slide_out_right, R.animator.pop_out_right, R.animator.pop_in_left).setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN).replace(R.id.fragment_container, selectedFragment).addToBackStack(null).commit();
+
+                        }
+                    });
                     break;
                 case MultiViewModel.TYPE_FAVORITE_ITEM:
                     ((FavoriteItemViewHolder) holder).imageView.setImageResource(object.favoriteItem.getImage());

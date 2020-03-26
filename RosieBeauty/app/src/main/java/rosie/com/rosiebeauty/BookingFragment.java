@@ -40,7 +40,7 @@ public class BookingFragment extends Fragment {
 
         prepareData();
 
-        MultiViewTypeAdapter adapter = new MultiViewTypeAdapter(gridViewModelArrayList, this.getActivity().getApplicationContext());
+        MultiViewTypeAdapter adapter = new MultiViewTypeAdapter(gridViewModelArrayList, this.getActivity());
 
         mRecyclerView = rootView.findViewById(R.id.booking_recycler_view);
         StaggeredGridLayoutManager lm =
