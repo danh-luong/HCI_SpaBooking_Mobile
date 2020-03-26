@@ -485,6 +485,7 @@
                     android:layout_centerHorizontal="true">
 
                     <Button
+                        android:id="@+id/btnCancel"
                         android:layout_width="150dp"
                         android:layout_height="wrap_content"
                         android:layout_marginRight="5dp"

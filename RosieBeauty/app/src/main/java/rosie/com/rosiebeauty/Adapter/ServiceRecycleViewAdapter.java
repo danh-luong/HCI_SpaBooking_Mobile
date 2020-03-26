@@ -59,8 +59,6 @@ public class ServiceRecycleViewAdapter extends RecyclerView.Adapter<ServiceRecyc
         txtCategory.setText(service.getCategory());
         imageView.setImageResource(service.getImage());
 
-
-
         //bấm vào edit pop up fragment edit
         btnEditService.setOnClickListener(
                 new EditServiceButtonListener(
