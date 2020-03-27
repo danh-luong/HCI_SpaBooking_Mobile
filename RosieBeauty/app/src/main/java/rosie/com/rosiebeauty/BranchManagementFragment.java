@@ -37,7 +37,7 @@ public class BranchManagementFragment extends Fragment {
     private RecyclerView recycleViewBranch;
     private static ArrayList<Branch> branches = new ArrayList<>();
     private BranchRecycleViewAdapter adapter;
-    private BootstrapButton btnCreateNewBranch;
+//    private BootstrapButton btnCreateNewBranch;
 
     public static ArrayList<Branch> getBranches() {
         return branches;
@@ -113,14 +113,14 @@ public class BranchManagementFragment extends Fragment {
         rootView = inflater.inflate(R.layout.fragment_branch_management, container, false);
         loadBranches();
 
-        btnCreateNewBranch = rootView.findViewById(R.id.btnCreateBranch);
-        btnCreateNewBranch.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), CreateBranchActivity.class);
-                startActivity(intent);
-            }
-        });
+//        btnCreateNewBranch = rootView.findViewById(R.id.btnCreateBranch);
+//        btnCreateNewBranch.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent = new Intent(getActivity(), CreateBranchActivity.class);
+//                startActivity(intent);
+//            }
+//        });
         FloatingActionButton btnSearchUser = (FloatingActionButton) rootView.findViewById(R.id.btnSearchUser);
         final EditText edtSearchName = (EditText) rootView.findViewById(R.id.edtSearchName);
         btnSearchUser.setOnClickListener(new View.OnClickListener() {

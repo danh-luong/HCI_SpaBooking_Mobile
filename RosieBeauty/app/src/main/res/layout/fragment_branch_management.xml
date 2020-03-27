@@ -63,22 +63,4 @@
         </LinearLayout>
     </ScrollView>
 
-    <com.beardedhen.androidbootstrap.BootstrapButton
-        android:fontFamily="@font/lora_bold"
-        android:id="@+id/btnCreateBranch"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginBottom="2dp"
-        android:text="Tạo chi nhánh mới"
-        app:bootstrapBrand="danger"
-        app:bootstrapSize="lg"
-        app:buttonMode="regular"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:roundedCorners="true"
-        app:showOutline="false" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>
