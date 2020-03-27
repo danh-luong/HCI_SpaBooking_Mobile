@@ -712,6 +712,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:fontFamily="@font/lora_bold"
+                android:checked="true"
                 android:text="Hiển thị sản phẩm đến khách hàng?"
                 android:textSize="16dp" />
 
