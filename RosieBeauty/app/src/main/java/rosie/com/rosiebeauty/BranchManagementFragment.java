@@ -56,27 +56,27 @@ public class BranchManagementFragment extends Fragment {
         branches.add(new Branch(R.drawable.spa2batrung,
                 "Rose Spa Hai Bà Trưng",
                 "235B - Hai Bà Trưng - Quận 1 ",
-                "đang hoạt động"));
+                "Đang hoạt động"));
 
         branches.add(new Branch(R.drawable.spa_hoang_van_thu,
                 "Rose Spa Hoàng Văn Thụ",
                 "41 - Hoàng Văn Thụ - Quận 1 ",
-                "đang hoạt động"));
+                "Đang hoạt động"));
 
         branches.add(new Branch(R.drawable.spa_le_duan,
                 "Rose Spa Lê Duẩn",
                 "75 - Lê Duẩn - Quận 1 ",
-                "đang hoạt động"));
+                "Đang hoạt động"));
 
         branches.add(new Branch(R.drawable.spa_le_loi,
                 "Rose Spa Lê lợi",
                 "216 - Hai Bà Trưng - Quận 1 ",
-                "tạm nghỉ"));
+                "Tạm nghỉ"));
 
         branches.add(new Branch(R.drawable.spa_quangtrung,
                 "Rose Spa Quang Trung",
                 "115 - Quang Trung - Gò Vấp ",
-                "đang hoạt động"));
+                "Đang hoạt động"));
     }
 
 
