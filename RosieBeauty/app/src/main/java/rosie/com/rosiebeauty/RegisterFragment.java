@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import androidx.fragment.app.Fragment;
 
@@ -13,6 +14,7 @@ import androidx.fragment.app.Fragment;
  */
 public class RegisterFragment extends Fragment {
     private String tabTitle;
+    private Button btnRegister;
 
     public RegisterFragment(String tabTitle) {
         this.tabTitle = tabTitle;
@@ -24,10 +26,12 @@ public class RegisterFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+        View view;
         if (tabTitle.equals("Khách hàng")) {
-            return inflater.inflate(R.layout.fragment_register_user, container, false);
+            view = inflater.inflate(R.layout.fragment_register_user, container, false);
         } else {
-            return inflater.inflate(R.layout.fragment_register_manager, container, false);
+            view = inflater.inflate(R.layout.fragment_register_manager, container, false);
         }
+        return view;
     }
 }
