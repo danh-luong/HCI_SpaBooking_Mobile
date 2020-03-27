@@ -123,7 +123,7 @@ public class CreateNewEmployeeActivity extends AppCompatActivity {
                 }
 
                 UserRepository.userList.put(username,
-                        new User(username, name, password, email, phone, R.drawable.ic_user, User.ROLE_MANAGER, "active"));
+                        new User(username, name, password, email, phone, R.drawable.ic_user, User.ROLE_MANAGER, "active", true));
                 Intent intent = new Intent(CreateNewEmployeeActivity.this, AdminActivity.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 finish();

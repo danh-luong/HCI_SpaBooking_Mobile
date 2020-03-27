@@ -50,6 +50,9 @@ public class AdminActivity extends AppCompatActivity {
                         case R.id.action_branch:
                             selectedFragment = new BranchManagementFragment();
                             break;
+                        case R.id.action_pending_user:
+                            selectedFragment = new PendingManagerFragment();
+                            break;
                     }
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, selectedFragment).commit();
                     return true;

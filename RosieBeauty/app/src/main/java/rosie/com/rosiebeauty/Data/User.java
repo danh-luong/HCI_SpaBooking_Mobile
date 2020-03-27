@@ -4,7 +4,8 @@ import java.io.Serializable;
 
 public class User implements Serializable {
 
-    private String username, name, password, email, phone, role, status;
+    private String username, name, password, email, phone, role, status, spaName, address;
+    private boolean isAccepted;
     public static final String ROLE_ADMIN = "admin";
     public static final String ROLE_MANAGER = "manager";
     public static final String ROLE_CUSTOMER = "customer";
@@ -13,7 +14,7 @@ public class User implements Serializable {
     public User() {
     }
 
-    public User(String username, String name, String password, String email, String phone, int imgSrc, String role, String status) {
+    public User(String username, String name, String password, String email, String phone, int imgSrc, String role, String status, boolean isAccepted) {
         this.username = username;
         this.name = name;
         this.password = password;
@@ -22,6 +23,21 @@ public class User implements Serializable {
         this.imgSrc = imgSrc;
         this.role = role;
         this.status = status;
+        this.isAccepted = isAccepted;
+    }
+
+    public User(String username, String name, String password, String email, String phone, int imgSrc, String role, String status, boolean isAccepted, String spaName, String address) {
+        this.username = username;
+        this.name = name;
+        this.password = password;
+        this.email = email;
+        this.phone = phone;
+        this.imgSrc = imgSrc;
+        this.role = role;
+        this.status = status;
+        this.isAccepted = isAccepted;
+        this.spaName = spaName;
+        this.address = address;
     }
 
     public String getStatus() {
@@ -86,5 +102,29 @@ public class User implements Serializable {
 
     public void setRole(String role) {
         this.role = role;
+    }
+
+    public boolean isAccepted() {
+        return isAccepted;
+    }
+
+    public void setAccepted(boolean accepted) {
+        isAccepted = accepted;
+    }
+
+    public String getSpaName() {
+        return spaName;
+    }
+
+    public void setSpaName(String spaName) {
+        this.spaName = spaName;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
     }
 }

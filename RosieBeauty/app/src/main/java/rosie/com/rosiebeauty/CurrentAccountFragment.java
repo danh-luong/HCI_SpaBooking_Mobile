@@ -41,7 +41,13 @@ public class CurrentAccountFragment extends Fragment {
         RecyclerView historyTaskRecycler = (RecyclerView) rootView.findViewById(R.id.recycle_account);
         final List<User> userList = new ArrayList<>(UserRepository.userList.values());
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
-        CardViewAccountAdapter adapter = new CardViewAccountAdapter(userList, getActivity());
+        List<User> acceptedListUser = new ArrayList<>();
+        for (int i = 0; i < userList.size(); i++) {
+            if (userList.get(i).isAccepted()) {
+                acceptedListUser.add(userList.get(i));
+            }
+        }
+        CardViewAccountAdapter adapter = new CardViewAccountAdapter(acceptedListUser, getActivity());
         historyTaskRecycler.setLayoutManager(linearLayoutManager);
         historyTaskRecycler.setAdapter(adapter);
         btnCreateNewEmployee = rootView.findViewById(R.id.btnCreateNewEmployee);
@@ -61,7 +67,8 @@ public class CurrentAccountFragment extends Fragment {
                 List<User> searchList = new ArrayList<>();
                 List<User> currentUserList = new ArrayList<>(UserRepository.userList.values());
                 for (int i = 0; i < currentUserList.size(); i++) {
-                    if (currentUserList.get(i).getName().toLowerCase().contains(searchName.toLowerCase())) {
+                    if (currentUserList.get(i).getName().toLowerCase().contains(searchName.toLowerCase())
+                    && currentUserList.get(i).isAccepted()) {
                         searchList.add(currentUserList.get(i));
                     }
                 }

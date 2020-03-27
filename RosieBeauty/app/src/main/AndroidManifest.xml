@@ -24,7 +24,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".EditServiceActivity"></activity>
+        <activity android:name=".PendingRequestDetailActivity"></activity>
+        <activity android:name=".EditServiceActivity" />
         <activity android:name=".CreateNewEmployeeActivity" />
         <activity android:name=".ProfileUserActivity" />
         <activity android:name=".CreateBranchActivity" />
