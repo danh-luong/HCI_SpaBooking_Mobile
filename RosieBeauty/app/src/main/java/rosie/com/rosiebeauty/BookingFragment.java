@@ -1,6 +1,8 @@
 package rosie.com.rosiebeauty;
 
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,6 +13,9 @@ import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
+import com.google.gson.Gson;
+
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -52,20 +57,43 @@ public class BookingFragment extends Fragment {
     }
 
     void prepareData() {
+        SharedPreferences preferences = getActivity().getSharedPreferences("appointments", Context.MODE_PRIVATE);
+        Gson gson = new Gson();
         List<MultiViewModel.Appointment> appointments = new ArrayList<>();
-        appointments.add(new MultiViewModel.Appointment("BK4051", "Thu Cúc Clinic","05-04-2020 12:00",
-                "20-05-2020 15:00", "8.000.000đ"));
-        appointments.add(new MultiViewModel.Appointment("BK4052","Hana Beauty", "05-06-2020 12:00",
-                "20-07-2020 15:00", "3.000.000đ"));
-        appointments.add(new MultiViewModel.Appointment("BK4053", "Venus Spa","05-07-2020 12:00",
-                "20-08-2020 15:00", "6.000.000đ"));
-        appointments.add(new MultiViewModel.Appointment("BK4054","Derma Spa", "05-08-2020 12:00",
-                "20-09-2020 15:00", "10.000.000đ"));
-        appointments.add(new MultiViewModel.Appointment("BK4055", "Tropic Spa","05-09-2020 12:00",
-                "20-10-2020 15:00", "20.000.000đ"));
-        for (int i = 0; i < appointments.size(); i++) {
-            gridViewModelArrayList.add(new MultiViewModel(MultiViewModel.TYPE_APPOINTMENT_ITEM, appointments.get(i)));
+        if (!preferences.contains("appointmentList")) {
+            appointments.add(new MultiViewModel.Appointment("BK4051", "Thu Cúc Clinic", "05-04-2020 12:00",
+                    "20-05-2020 15:00", "8.000.000đ"));
+            appointments.add(new MultiViewModel.Appointment("BK4052", "Hana Beauty", "05-06-2020 12:00",
+                    "20-07-2020 15:00", "3.000.000đ"));
+            appointments.add(new MultiViewModel.Appointment("BK4053", "Venus Spa", "05-07-2020 12:00",
+                    "20-08-2020 15:00", "6.000.000đ"));
+            appointments.add(new MultiViewModel.Appointment("BK4054", "Derma Spa", "05-08-2020 12:00",
+                    "20-09-2020 15:00", "10.000.000đ"));
+            appointments.add(new MultiViewModel.Appointment("BK4055", "Tropic Spa", "05-09-2020 12:00",
+                    "20-10-2020 15:00", "20.000.000đ"));
+            for (int i = 0; i < appointments.size(); i++) {
+                gridViewModelArrayList.add(new MultiViewModel(MultiViewModel.TYPE_APPOINTMENT_ITEM, appointments.get(i)));
+            }
+            GsonAppointment gsonAppointment = new GsonAppointment();
+            gsonAppointment.appointments = appointments;
+            String listAppointments = gson.toJson(gsonAppointment);
+            SharedPreferences.Editor editor = preferences.edit();
+            editor.putString("appointmentList", listAppointments);
+            editor.commit();
+        } else {
+            String appointmentListString = preferences.getString("appointmentList", null);
+            GsonAppointment gsonAppointment = gson.fromJson(appointmentListString, GsonAppointment.class);
+            appointments = gsonAppointment.appointments;
+            for (int i = 0; i < appointments.size(); i++) {
+                gridViewModelArrayList.add(new MultiViewModel(MultiViewModel.TYPE_APPOINTMENT_ITEM, appointments.get(i)));
+            }
         }
+
+
+    }
+
+    public class GsonAppointment implements Serializable {
+        List<MultiViewModel.Appointment> appointments;
     }
 
 }
