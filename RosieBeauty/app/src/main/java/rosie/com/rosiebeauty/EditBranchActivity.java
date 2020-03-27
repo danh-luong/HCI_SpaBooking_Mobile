@@ -28,6 +28,7 @@ import java.io.InputStream;
 import java.io.Serializable;
 import java.util.ArrayList;
 
+import rosie.com.rosiebeauty.Data.UserRepository;
 import rosie.com.rosiebeauty.Model.Branch;
 
 public class EditBranchActivity extends AppCompatActivity {
@@ -218,5 +219,11 @@ public class EditBranchActivity extends AppCompatActivity {
         result.putExtra("branch", (Serializable) selectedBranch);
         setResult(AppCompatActivity.RESULT_OK, result);
         onBackPressed();
+    }
+
+    public void clickToWatchManagerDetail(View view) {
+        Intent intent = new Intent(this, ProfileUserActivity.class);
+        intent.putExtra("key", UserRepository.userList.get("manager").getUsername());
+        startActivity(intent);
     }
 }

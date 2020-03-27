@@ -231,6 +231,19 @@
                     android:textColor="@color/white"
                     android:textSize="17dp"
                     android:textStyle="bold" />
+
+                <Button
+                    android:id="@+id/btnManagerDetail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:background="@drawable/active_green_button"
+                    android:onClick="clickToWatchManagerDetail"
+                    android:text="Xem thông tin quản lí"
+                    android:textColor="@color/white"
+                    android:textSize="17dp"
+                    android:textStyle="bold" />
             </LinearLayout>
 
         </RelativeLayout>

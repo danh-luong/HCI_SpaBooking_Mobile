@@ -94,6 +94,11 @@ public class ProfileUserActivity extends AppCompatActivity {
         } else {
             btnActive.setVisibility(View.VISIBLE);
         }
+
+        if (user.getRole().equalsIgnoreCase("manager")) {
+            Button btnSpaDetail = findViewById(R.id.btnSpaDetail);
+            btnSpaDetail.setVisibility(View.VISIBLE);
+        }
     }
 
     public void onclickDeactive(View view) {
@@ -133,5 +138,14 @@ public class ProfileUserActivity extends AppCompatActivity {
             window.setStatusBarColor(activity.getResources().getColor(android.R.color.transparent));
             window.setBackgroundDrawable(background);
         }
+    }
+
+    public void clickToWatchSpaDetail(View view) {
+        Intent intent = new Intent(this, EditBranchActivity.class);
+        intent.putExtra("title","Rose Spa Hai Bà Trưng");
+        intent.putExtra("address","235B - Hai Bà Trưng - Quận 1 " );
+        intent.putExtra("status", "Đang hoạt động");
+        intent.putExtra("image", R.drawable.spa2batrung);
+        startActivity(intent);
     }
 }
