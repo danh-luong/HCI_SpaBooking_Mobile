@@ -1,10 +1,13 @@
 package rosie.com.rosiebeauty.Adapter;
 
+import android.app.Activity;
+import android.app.DatePickerDialog;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -14,19 +17,35 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
 
 import rosie.com.rosiebeauty.Model.ManagerViewModel;
 import rosie.com.rosiebeauty.R;
 
-public class ManagerViewTypeAdapter extends RecyclerView.Adapter {
+public class ManagerViewTypeAdapter extends RecyclerView.Adapter implements DatePickerDialog.OnDateSetListener{
     Context mContext;
+    private Activity currentActivity;
     private ArrayList<ManagerViewModel> dataSet;
+    private boolean isEndDate = false;
+    private EditText edtStartDay;
+    private EditText edtEndDay;
+
 
 
     public ManagerViewTypeAdapter(ArrayList<ManagerViewModel> dataSet, Context mContext) {
         this.mContext = mContext;
         this.dataSet = dataSet;
     }
+
+    public ManagerViewTypeAdapter(ArrayList<ManagerViewModel> dataSet, Activity activity) {
+        this.currentActivity = activity;
+        mContext = currentActivity.getApplicationContext();
+        this.dataSet = dataSet;
+    }
+
+
 
     public static class CreateServiceHolder extends RecyclerView.ViewHolder {
         EditText edtNameService, edtDesService, edtPrice, edtQPromotion, edtPricePromo, edtStartDay, edtEndDay;
@@ -92,7 +111,25 @@ public class ManagerViewTypeAdapter extends RecyclerView.Adapter {
                     ((CreateServiceHolder) holder).edtQPromotion.setText(object.getEdtQPromotion());
                     ((CreateServiceHolder) holder).edtPricePromo.setText(object.getEdtPricePromo());
                     ((CreateServiceHolder) holder).edtStartDay.setText(object.getEdtStartDay());
+                    edtStartDay = ((CreateServiceHolder) holder).edtStartDay;
+                    edtStartDay.setKeyListener(null);
+                    edtStartDay.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            isEndDate = false;
+                            showDatePickerDialog();
+                        }
+                    });
                     ((CreateServiceHolder) holder).edtEndDay.setText(object.getEdtEndDay());
+                    edtEndDay = ((CreateServiceHolder) holder).edtEndDay;
+                    edtEndDay.setKeyListener(null);
+                    edtEndDay.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            isEndDate = true;
+                            showDatePickerDialog();
+                        }
+                    });
                     ((CreateServiceHolder) holder).spinnerCatagory.getTag(object.getSpinnerCatagory());
                     ((CreateServiceHolder) holder).btnCreateService.setOnClickListener(new View.OnClickListener() {
                         @Override
@@ -120,5 +157,31 @@ public class ManagerViewTypeAdapter extends RecyclerView.Adapter {
     @Override
     public int getItemViewType(int position) {
         return dataSet.get(position).getType();
+    }
+
+
+    @Override
+    public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+        String strMonth = month + "";
+        String strDayOfMonth = dayOfMonth + "";
+        if(strMonth.length() == 1) strMonth = "0" + month;
+        if(strDayOfMonth.length() == 1) strDayOfMonth = "0" + dayOfMonth;
+        String date = strMonth + "/" + strDayOfMonth + "/" + year;
+        if(isEndDate) {
+            edtEndDay.setText(date);
+        } else {
+            edtStartDay.setText(date);
+        }
+    }
+
+    private void showDatePickerDialog() {
+        Activity activity = currentActivity;
+        DatePickerDialog datePickerDialog = new DatePickerDialog(
+                currentActivity,
+                this,
+                Calendar.getInstance().get(Calendar.YEAR),
+                Calendar.getInstance().get(Calendar.MONTH),
+                Calendar.getInstance().get(Calendar.DAY_OF_MONTH));
+        datePickerDialog.show();
     }
 }
