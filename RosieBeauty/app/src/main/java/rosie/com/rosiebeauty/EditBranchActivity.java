@@ -14,6 +14,7 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
@@ -35,10 +36,10 @@ public class EditBranchActivity extends AppCompatActivity {
     private EditText edtAddress;
     private Spinner spinnerStatus;
     private ImageView itemImage;
+    private Button btnUploadImage, btnActiveSpa, btnDeactiveSpa, btnUpdateSpa;
     private static final String IMG1 = "spa_01.jpeg";
     private static final String IMG2 = "spa_02.jpg";
     private static final String IMG3 = "spa_03.jpeg";
-
 
     private String title, address, status, oldTitle;
     private int image = 0;
@@ -56,17 +57,34 @@ public class EditBranchActivity extends AppCompatActivity {
         image = getIntent().getExtras().getInt("image");
 
         edtTitle = findViewById(R.id.edtTitle);
+        edtTitle.setEnabled(false);
         edtAddress = findViewById(R.id.edtAddress);
+        edtAddress.setEnabled(false);
         spinnerStatus = findViewById(R.id.spinnerStatus);
+        spinnerStatus.setEnabled(false);
         itemImage = findViewById(R.id.itemImage);
+        btnUploadImage = findViewById(R.id.btnUploadImage);
+
+        btnActiveSpa = findViewById(R.id.btnActiveSpa);
+        btnDeactiveSpa = findViewById(R.id.btnDeactiveSpa);
+        btnUpdateSpa = findViewById(R.id.btnUpdateSpa);
+
+        btnUpdateSpa.setVisibility(View.GONE);
+        if(status.equalsIgnoreCase("vô hiệu hóa")) {
+            btnActiveSpa.setVisibility(View.VISIBLE);
+        } else {
+            btnDeactiveSpa.setVisibility(View.VISIBLE);
+        }
 
         edtTitle.setHint(title);
         edtTitle.setText(title);
         edtAddress.setHint(address);
         edtAddress.setText(address);
+        btnUploadImage.setVisibility(View.GONE);
+
         ArrayList<String> statusList = new ArrayList<>();
-        statusList.add("đạng hoạt động");
-        statusList.add("tạm nghỉ");
+        statusList.add("đang hoạt động");
+        statusList.add("vô hiệu hóa");
         ArrayAdapter<String> statusSpinnerAdapter = new ArrayAdapter<String>
                 (getApplicationContext(),
                         android.R.layout.simple_spinner_dropdown_item, statusList);
@@ -162,5 +180,43 @@ public class EditBranchActivity extends AppCompatActivity {
         File f = new File(picturePath);
         String imageName = f.getName();
         return imageName;
+    }
+
+    public void clickToActive(View view) {
+        Toast.makeText(this, "Đã kích hoạt thành công", Toast.LENGTH_LONG);
+        status = "đang hoạt động";
+        ArrayList<Branch> branches = BranchManagementFragment.getBranches();
+        Branch selectedBranch = new Branch();
+        for (Branch branch : branches) {
+            if (branch.getTitle().equals(oldTitle)) {
+                selectedBranch = branch;
+                break;
+            }
+        }
+        selectedBranch.setStatus(status);
+        BranchManagementFragment.status = BranchManagementFragment.STATUS_UPDATE;
+        Intent result = new Intent();
+        result.putExtra("branch", (Serializable) selectedBranch);
+        setResult(AppCompatActivity.RESULT_OK, result);
+        onBackPressed();
+    }
+
+    public void clickToDeactive(View view) {
+        Toast.makeText(this, "Vô hiệu hóa thành công", Toast.LENGTH_LONG);
+        status = "vô hiệu hóa";
+        ArrayList<Branch> branches = BranchManagementFragment.getBranches();
+        Branch selectedBranch = new Branch();
+        for (Branch branch : branches) {
+            if (branch.getTitle().equals(oldTitle)) {
+                selectedBranch = branch;
+                break;
+            }
+        }
+        selectedBranch.setStatus(status);
+        BranchManagementFragment.status = BranchManagementFragment.STATUS_UPDATE;
+        Intent result = new Intent();
+        result.putExtra("branch", (Serializable) selectedBranch);
+        setResult(AppCompatActivity.RESULT_OK, result);
+        onBackPressed();
     }
 }

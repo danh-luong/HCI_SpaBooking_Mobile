@@ -31,7 +31,7 @@ public class PendingRequestDetailActivity extends AppCompatActivity {
         txtSpaName = findViewById(R.id.txtSpaName);
         txtAddress = findViewById(R.id.txtAddress);
 
-        txtProfileName.setText(user.getName());
+        txtProfileName.setText("Hoa cúc");
         txtEmailProfile.setText(user.getEmail());
         txtPhoneProfile.setText(user.getPhone());
         txtUsernameProfile.setText(user.getUsername());

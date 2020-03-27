@@ -59,22 +59,22 @@ public class BranchManagementFragment extends Fragment {
                 "Đang hoạt động"));
 
         branches.add(new Branch(R.drawable.spa_hoang_van_thu,
-                "Rose Spa Hoàng Văn Thụ",
+                "Hoa Cúc Hoàng Văn Thụ",
                 "41 - Hoàng Văn Thụ - Quận 1 ",
                 "Đang hoạt động"));
 
         branches.add(new Branch(R.drawable.spa_le_duan,
-                "Rose Spa Lê Duẩn",
+                "Hoàng Kim Lê Duẩn",
                 "75 - Lê Duẩn - Quận 1 ",
                 "Đang hoạt động"));
 
         branches.add(new Branch(R.drawable.spa_le_loi,
-                "Rose Spa Lê lợi",
+                "Hàn Quốc Spa Lê lợi",
                 "216 - Hai Bà Trưng - Quận 1 ",
-                "Tạm nghỉ"));
+                "Vô hiệu hóa"));
 
         branches.add(new Branch(R.drawable.spa_quangtrung,
-                "Rose Spa Quang Trung",
+                "Mộc Spa Quang Trung",
                 "115 - Quang Trung - Gò Vấp ",
                 "Đang hoạt động"));
     }
@@ -98,7 +98,7 @@ public class BranchManagementFragment extends Fragment {
                     Toast.makeText(getActivity(), "Tạo chi nhánh thành công", Toast.LENGTH_SHORT).show();
                     break;
                 case STATUS_UPDATE:
-                    Toast.makeText(getActivity(), "Cập nhật chi nhánh thành công", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(), "Cập nhật thành công", Toast.LENGTH_SHORT).show();
                     break;
             }
         }

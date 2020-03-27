@@ -9,19 +9,19 @@
         app:actionViewClass="android.widget.ImageButton"
         app:showAsAction="always"/>
     <item
-        android:id="@+id/action_pending_user"
-        android:enabled="true"
-        android:icon="@drawable/ic_bell"
-        android:title="Phê duyệt"
-        app:actionViewClass="android.widget.ImageButton"
-        app:showAsAction="always"/>
-    <item
         android:id="@+id/action_branch"
         android:enabled="true"
         android:icon="@drawable/ic_ereader"
         android:title="Quản lí spa"
         app:actionViewClass="android.widget.ImageButton"
         app:showAsAction="always" />
+    <item
+        android:id="@+id/action_pending_user"
+        android:enabled="true"
+        android:icon="@drawable/ic_bell"
+        android:title="Phê duyệt"
+        app:actionViewClass="android.widget.ImageButton"
+        app:showAsAction="always"/>
     <item
         android:id="@+id/action_profile"
         android:enabled="true"
