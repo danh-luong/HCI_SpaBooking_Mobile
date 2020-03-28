@@ -10,12 +10,17 @@
         android:layout_height="wrap_content"
         android:background="@drawable/grad_profile"
         android:paddingBottom="20dp">
+
+        <include
+            android:id="@+id/toolbar_main"
+            layout="@layout/toolbar_main" />
+
         <RelativeLayout
             android:id="@+id/imgUser"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="70dp"
             android:background="@drawable/circle_border">
 
             <ImageView
@@ -56,6 +61,36 @@
             android:layout_marginRight="30dp"
             android:layout_marginTop="10dp"
             android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Tên đăng nhập:"
+                    android:textColor="@color/headings"
+                    android:fontFamily="@font/philosopher_bold"
+                    android:textSize="13sp" />
+
+                <TextView
+                    android:id="@+id/txtUsernameProfile"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/lora"
+                    android:text="facebook.com/joeytrib"
+                    android:textColor="#000000"
+                    android:textSize="18sp" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="15dp"
+                    android:background="@color/grey" />
+            </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -151,36 +186,6 @@
                     android:layout_marginTop="15dp"
                     android:background="@color/grey" />
 
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Tên đăng nhập:"
-                    android:textColor="@color/headings"
-                    android:fontFamily="@font/philosopher_bold"
-                    android:textSize="13sp" />
-
-                <TextView
-                    android:id="@+id/txtUsernameProfile"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/lora"
-                    android:text="facebook.com/joeytrib"
-                    android:textColor="#000000"
-                    android:textSize="18sp" />
-
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:layout_marginTop="15dp"
-                    android:background="@color/grey" />
             </LinearLayout>
 
             <LinearLayout

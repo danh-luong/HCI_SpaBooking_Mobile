@@ -5,10 +5,49 @@
     android:layout_height="match_parent"
     tools:context=".PendingManagerFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Kiếm Tài Khoản:"
+                    android:textStyle="bold"
+                    android:layout_marginTop="5dp"
+                    android:textSize="15dp"
+                    android:fontFamily="@font/lora_bold"/>
+
+                <EditText
+                    android:id="@+id/edtSearchName"
+                    android:layout_width="220dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_height="wrap_content" />
+
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/btnSearchUser"
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    android:layout_gravity="end|bottom"
+                    android:layout_marginTop="5dp"
+                    android:src="@drawable/round_search_white_24dp"/>
+            </LinearLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycle_account"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+    </ScrollView>
 
 </FrameLayout>

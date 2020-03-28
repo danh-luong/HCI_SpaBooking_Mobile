@@ -57,6 +57,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="end|bottom"
         android:layout_margin="16dp"
-        android:src="@drawable/round_add_white_36dp" />
+        android:src="@drawable/round_add_white_36dp"
+        android:visibility="gone"/>
 
 </FrameLayout>

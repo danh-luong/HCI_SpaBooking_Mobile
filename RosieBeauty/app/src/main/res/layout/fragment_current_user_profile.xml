@@ -104,7 +104,8 @@
                             android:fontFamily="sans-serif-light"
                             android:text="facebook.com/joeytrib"
                             android:textColor="#000000"
-                            android:textSize="18sp" />
+                            android:textSize="18sp"
+                            android:enabled="false"/>
 
 
                     </LinearLayout>
