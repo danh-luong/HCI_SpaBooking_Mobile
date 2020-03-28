@@ -107,8 +107,8 @@ public class ProfileUserActivity extends AppCompatActivity {
         Button btnChangeRole = findViewById(R.id.btnChangeRole);
 
         if (user.getRole().equalsIgnoreCase("manager")) {
-            Button btnSpaDetail = findViewById(R.id.btnSpaDetail);
-            btnSpaDetail.setVisibility(View.VISIBLE);
+//            Button btnSpaDetail = findViewById(R.id.btnSpaDetail);
+//            btnSpaDetail.setVisibility(View.VISIBLE);
             btnDeactive.setVisibility(View.GONE);
             btnActive.setVisibility(View.GONE);
         }

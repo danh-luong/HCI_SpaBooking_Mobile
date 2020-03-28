@@ -94,8 +94,8 @@ public class EditBranchActivity extends AppCompatActivity {
         btnUploadImage.setVisibility(View.GONE);
 
         ArrayList<String> statusList = new ArrayList<>();
-        statusList.add("đang hoạt động");
-        statusList.add("vô hiệu hóa");
+        statusList.add("Đang hoạt động");
+        statusList.add("Vô hiệu hóa");
         ArrayAdapter<String> statusSpinnerAdapter = new ArrayAdapter<String>
                 (getApplicationContext(),
                         android.R.layout.simple_spinner_dropdown_item, statusList);
@@ -195,7 +195,7 @@ public class EditBranchActivity extends AppCompatActivity {
 
     public void clickToActive(View view) {
         Toast.makeText(this, "Đã kích hoạt thành công", Toast.LENGTH_LONG);
-        status = "đang hoạt động";
+        status = "Đang hoạt động";
         ArrayList<Branch> branches = BranchManagementFragment.getBranches();
         Branch selectedBranch = new Branch();
         for (Branch branch : branches) {
@@ -215,7 +215,7 @@ public class EditBranchActivity extends AppCompatActivity {
 
     public void clickToDeactive(View view) {
         Toast.makeText(this, "Vô hiệu hóa thành công", Toast.LENGTH_LONG);
-        status = "vô hiệu hóa";
+        status = "Vô hiệu hóa";
         ArrayList<Branch> branches = BranchManagementFragment.getBranches();
         Branch selectedBranch = new Branch();
         for (Branch branch : branches) {
