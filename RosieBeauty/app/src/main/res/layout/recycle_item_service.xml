@@ -35,7 +35,8 @@
             android:layout_alignParentLeft="true"
             android:background="@drawable/imageview_home"
             android:scaleType="fitXY"
-            android:src="@drawable/ic_chi_nhanh_2" />
+            android:src="@drawable/ic_chi_nhanh_2"
+            android:layout_marginRight="20dp"/>
 
         <TextView
             android:id="@+id/txtTitle"
@@ -49,13 +50,13 @@
             android:textStyle="bold" />
 
         <TextView
-            android:fontFamily="@font/lora"
             android:id="@+id/txtPrice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/txtTitle"
             android:layout_toRightOf="@id/itemImage"
-            android:text="120000 VND" />
+            android:fontFamily="@font/lora_bold"
+            android:text="120000 đ"/>
 
         <TextView
             android:fontFamily="@font/lora"

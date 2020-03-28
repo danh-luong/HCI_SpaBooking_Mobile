@@ -14,8 +14,10 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
+import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 import rosie.com.rosiebeauty.Adapter.ServiceRecycleViewAdapter;
 import rosie.com.rosiebeauty.Model.Service;
@@ -29,6 +31,8 @@ public class ServiceManagementFragment extends Fragment {
     public static final int STATUS_CREATE = 9;
     public static final int STATUS_NORMAL = 8;
     public static  int status = STATUS_NORMAL;
+    Locale locale = Locale.forLanguageTag("vi-VN");
+    java.text.NumberFormat formatPrice = NumberFormat.getCurrencyInstance(locale);
 
     private View rootView;
     private RecyclerView recycleViewService;
@@ -44,6 +48,7 @@ public class ServiceManagementFragment extends Fragment {
     }
 
     private void loadServices() {
+
         services.clear();
         services.add(new Service(R.drawable.img_trang_diem_han_quoc,
                 "Trang điểm Hàn Quốc",
@@ -54,29 +59,29 @@ public class ServiceManagementFragment extends Fragment {
                 "Sơn màu móng tay",
                 105000,
                 20,
-                "làm móng"));
+                "Làm móng"));
 
         services.add(new Service(R.drawable.ser_highlight_hair,
                 "Nhuộm highlight",
                 228000,
-                25, "làm tóc"));
+                25, "Làm tóc"));
 
         services.add(new Service(R.drawable.ser_trimun,
                 "Điều trị mụn",
                 92000,
                 15,
-                "dưỡng da"));
+                "Dưỡng da"));
 
         services.add(new Service(R.drawable.xonghoinu,
                 "Xông hơi thải độc",
                 324000,
                 30,
-                "dưỡng da"));
+                "Dưỡng da"));
         services.add(new Service(R.drawable.ser1_acne,
                 "Mặt nạ thải độc",
                 117000,
                 10,
-                "dưỡng da"));
+                "Dưỡng da"));
     }
 
     public void loadRecycleView() {
