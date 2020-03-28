@@ -57,22 +57,18 @@ public class HomeFragment extends Fragment {
                              ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View rootView = inflater.inflate(R.layout.fragment_home,
-                container,
-                false);
+        View rootView = inflater.inflate(R.layout.fragment_home, container, false);
 
         //Recycler View
         gridViewModelArrayList = new ArrayList();
 
         prepareData();
 
-        MultiViewTypeAdapter adapter = new MultiViewTypeAdapter(gridViewModelArrayList,
-                this.getActivity());
+        MultiViewTypeAdapter adapter = new MultiViewTypeAdapter(gridViewModelArrayList, this.getActivity());
 
         mRecyclerView = rootView.findViewById(R.id.suggestionView);
         StaggeredGridLayoutManager lm =
-                new StaggeredGridLayoutManager(2,
-                        StaggeredGridLayoutManager.VERTICAL);
+                new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL);
         mRecyclerView.setLayoutManager(lm);
         mRecyclerView.setItemAnimator(new DefaultItemAnimator());
         mRecyclerView.setAdapter(adapter);
