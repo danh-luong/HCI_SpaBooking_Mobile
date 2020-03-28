@@ -1,5 +1,6 @@
 package rosie.com.rosiebeauty;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
@@ -26,7 +27,7 @@ public class OptActivity extends AppCompatActivity {
             @Override
             public void onOtpCompleted(String otp) {
                 Intent intent = new Intent(OptActivity.this, ChangePasswordActivity.class);
-                startActivity(intent);
+                startActivityForResult(intent, 1000);
             }
         });
     }
@@ -38,6 +39,15 @@ public class OptActivity extends AppCompatActivity {
             window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
             window.setStatusBarColor(activity.getResources().getColor(android.R.color.transparent));
             window.setBackgroundDrawable(background);
+        }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == 1000 && resultCode == RESULT_OK) {
+            setResult(RESULT_OK);
+            finish();
         }
     }
 }

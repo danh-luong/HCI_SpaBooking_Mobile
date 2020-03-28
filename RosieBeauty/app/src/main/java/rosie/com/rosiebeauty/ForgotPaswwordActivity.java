@@ -1,5 +1,6 @@
 package rosie.com.rosiebeauty;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
@@ -19,6 +20,7 @@ public class ForgotPaswwordActivity extends AppCompatActivity {
         setContentView(R.layout.activity_forgot_paswword);
         setStatusBarGradiant(this);
     }
+
     protected void setStatusBarGradiant(Activity activity) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             Window window = activity.getWindow();
@@ -31,6 +33,15 @@ public class ForgotPaswwordActivity extends AppCompatActivity {
 
     public void clickGotoOpt(View view) {
         Intent intent = new Intent(ForgotPaswwordActivity.this, OptActivity.class);
-        startActivity(intent);
+        startActivityForResult(intent, 1000);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == 1000 && resultCode == RESULT_OK) {
+            setResult(RESULT_OK);
+            finish();
+        }
     }
 }

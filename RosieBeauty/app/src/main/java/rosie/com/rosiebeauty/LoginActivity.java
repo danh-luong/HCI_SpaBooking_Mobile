@@ -130,8 +130,8 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if(requestCode == RESULT_OK && requestCode == 1000){
-            Toast.makeText(this, "Password Changed successfully. Please login again", Toast.LENGTH_LONG).show();
+        if(resultCode == RESULT_OK && requestCode == 1000){
+            Toast.makeText(LoginActivity.this, "Đổi mật khẩu thành công. Hãy đăng nhập lại.", Toast.LENGTH_LONG).show();
         }
     }
 }
