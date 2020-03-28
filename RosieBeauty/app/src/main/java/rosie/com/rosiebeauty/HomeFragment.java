@@ -27,10 +27,22 @@ public class HomeFragment extends Fragment {
 
     ArrayList<MultiViewModel> gridViewModelArrayList;
     private RecyclerView mRecyclerView;
-    private String[] pro_names, pro_address, near_names, near_address, pro_name_cn, near_name_cn;
-    private int[] pro_pic, pro_countComment, pro_txtPromotion, near_pic, near_countComment, near_txtPromotion;
-    private Double[] pro_rateStar, near_rateStar;
-    float[] near_price, pro_price;
+    private String[] pro_names,
+            pro_address,
+            near_names,
+            near_address,
+            pro_name_cn,
+            near_name_cn;
+    private int[] pro_pic,
+            pro_countComment,
+            pro_txtPromotion,
+            near_pic,
+            near_countComment,
+            near_txtPromotion;
+    private Double[] pro_rateStar,
+            near_rateStar;
+    float[] near_price,
+            pro_price;
     Locale locale = Locale.forLanguageTag("vi-VN");
     java.text.NumberFormat formatPrice = NumberFormat.getCurrencyInstance(locale);
     private int int_promotion = -1;
@@ -41,22 +53,26 @@ public class HomeFragment extends Fragment {
 
     @SuppressLint("WrongViewCast")
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(LayoutInflater inflater,
+                             ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View rootView = inflater.inflate(R.layout.fragment_home, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_home,
+                container,
+                false);
 
         //Recycler View
         gridViewModelArrayList = new ArrayList();
 
         prepareData();
 
-        MultiViewTypeAdapter adapter = new MultiViewTypeAdapter(gridViewModelArrayList, this.getActivity());
-        // LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this, RecyclerView.VERTICAL, false);
+        MultiViewTypeAdapter adapter = new MultiViewTypeAdapter(gridViewModelArrayList,
+                this.getActivity());
 
         mRecyclerView = rootView.findViewById(R.id.suggestionView);
         StaggeredGridLayoutManager lm =
-                new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL);
+                new StaggeredGridLayoutManager(2,
+                        StaggeredGridLayoutManager.VERTICAL);
         mRecyclerView.setLayoutManager(lm);
         mRecyclerView.setItemAnimator(new DefaultItemAnimator());
         mRecyclerView.setAdapter(adapter);
@@ -100,7 +116,12 @@ public class HomeFragment extends Fragment {
                 4.8
         };
         pro_countComment = new int[]{
-                4, 5, 7, 8, 6, 5
+                4,
+                5,
+                7,
+                8,
+                6,
+                5
         };
         pro_name_cn = new String[]{
                 "Hana Beauty",
@@ -119,7 +140,12 @@ public class HomeFragment extends Fragment {
                 "Lê Văn Sĩ, Quận 3"
         };
         pro_price = new float[]{
-                4000000, 3000000, 1500000, 800000, 200000, 30000000
+                4000000,
+                3000000,
+                1500000,
+                800000,
+                200000,
+                30000000
         };
         //Nearly
         near_names = new String[]{
@@ -156,7 +182,12 @@ public class HomeFragment extends Fragment {
                 4.0,
         };
         near_countComment = new int[]{
-                4, 5, 7, 8, 10, 9
+                4,
+                5,
+                7,
+                8,
+                10,
+                9
         };
         near_name_cn = new String[]{
                 "Lori Beauty Spa",
@@ -167,42 +198,61 @@ public class HomeFragment extends Fragment {
                 "H&T SPA"
         };
         near_address = new String[]{
-                "Phạm Văn Đồng, Q. Bình Thạnh",
-                "Lê Quang Định, Q. Gò Vấp",
-                "Phan Đăng Lưu, Q. Phú Nhuận",
-                "Nơ Trang Long, Q. Bình Thạnh",
-                "Phan Chu Trinh, Q. Bình Thạnh",
-                "Nơ Trang Long, Q. Bình Thạnh",
+                "Phạm Văn Đồng, Q.Bình Thạnh",
+                "Lê Quang Định, Q.Gò Vấp",
+                "Phan Đăng Lưu, Q.Phú Nhuận",
+                "Nơ Trang Long, Q.Bình Thạnh",
+                "Phan Chu Trinh, Q.Bình Thạnh",
+                "Nơ Trang Long, Q.Bình Thạnh",
 
         };
         near_price = new float[]{
-                2000000, 500000, 800000, 600000, 1000000, 400000
+                2000000,
+                500000,
+                800000,
+                600000,
+                1000000,
+                400000
         };
 
         MultiViewModel gridViewModel = null;
         List<MultiViewModel> childMultiViewModels = new ArrayList<>();
-        childMultiViewModels.add(new MultiViewModel(MultiViewModel.TYPE_SQUARE_ICON_TEXT_BELOW, R.drawable.ca_facial_treatment));
-        childMultiViewModels.add(new MultiViewModel(MultiViewModel.TYPE_SQUARE_ICON_TEXT_BELOW, R.drawable.ca_hair));
-        childMultiViewModels.add(new MultiViewModel(MultiViewModel.TYPE_SQUARE_ICON_TEXT_BELOW, R.drawable.ca_massage));
-        childMultiViewModels.add(new MultiViewModel(MultiViewModel.TYPE_SQUARE_ICON_TEXT_BELOW, R.drawable.ca_makeup));
-        childMultiViewModels.add(new MultiViewModel(MultiViewModel.TYPE_SQUARE_ICON_TEXT_BELOW, R.drawable.ca_nails));
-        childMultiViewModels.add(new MultiViewModel(MultiViewModel.TYPE_SQUARE_ICON_TEXT_BELOW, R.drawable.ca_waxing));
-        childMultiViewModels.add(new MultiViewModel(MultiViewModel.TYPE_SQUARE_ICON_TEXT_BELOW, R.drawable.ca_steam_bath));
-        childMultiViewModels.add(new MultiViewModel(MultiViewModel.TYPE_SQUARE_ICON_TEXT_BELOW, R.drawable.ca_burn_fat));
+        childMultiViewModels.add(new MultiViewModel(MultiViewModel.TYPE_SQUARE_ICON_TEXT_BELOW,
+                R.drawable.ca_facial_treatment));
+        childMultiViewModels.add(new MultiViewModel(MultiViewModel.TYPE_SQUARE_ICON_TEXT_BELOW,
+                R.drawable.ca_hair));
+        childMultiViewModels.add(new MultiViewModel(MultiViewModel.TYPE_SQUARE_ICON_TEXT_BELOW,
+                R.drawable.ca_massage));
+        childMultiViewModels.add(new MultiViewModel(MultiViewModel.TYPE_SQUARE_ICON_TEXT_BELOW,
+                R.drawable.ca_makeup));
+        childMultiViewModels.add(new MultiViewModel(MultiViewModel.TYPE_SQUARE_ICON_TEXT_BELOW,
+                R.drawable.ca_nails));
+        childMultiViewModels.add(new MultiViewModel(MultiViewModel.TYPE_SQUARE_ICON_TEXT_BELOW,
+                R.drawable.ca_waxing));
+        childMultiViewModels.add(new MultiViewModel(MultiViewModel.TYPE_SQUARE_ICON_TEXT_BELOW,
+                R.drawable.ca_steam_bath));
+        childMultiViewModels.add(new MultiViewModel(MultiViewModel.TYPE_SQUARE_ICON_TEXT_BELOW,
+                R.drawable.ca_burn_fat));
         //Slideshow
-        gridViewModel = new MultiViewModel(MultiViewModel.TYPE_SLIDESHOW, "", R.drawable.slide_show0);
+        gridViewModel = new MultiViewModel(MultiViewModel.TYPE_SLIDESHOW,
+                "",
+                R.drawable.slide_show0);
         gridViewModelArrayList.add(gridViewModel);
         //Catagory
-        gridViewModel = new MultiViewModel(MultiViewModel.TYPE_SECTION_TITLE, "Danh mục dịch vụ");
+        gridViewModel = new MultiViewModel(MultiViewModel.TYPE_SECTION_TITLE,
+                "Danh mục dịch vụ");
         gridViewModelArrayList.add(gridViewModel);
         gridViewModel =
-                new MultiViewModel(MultiViewModel.TYPE_RECYLERVIEW, MultiViewModel.ORIENTATION_HORIZONTAL,
-                        2, childMultiViewModels);
+                new MultiViewModel(MultiViewModel.TYPE_RECYLERVIEW,
+                        MultiViewModel.ORIENTATION_HORIZONTAL,
+                        2,
+                        childMultiViewModels);
         gridViewModelArrayList.add(gridViewModel);
 
 
         //Nearly
-        gridViewModel = new MultiViewModel(MultiViewModel.TYPE_SECTION_TITLE, "Gần bạn");
+        gridViewModel = new MultiViewModel(MultiViewModel.TYPE_SECTION_TITLE,
+                "Gần bạn");
         gridViewModelArrayList.add(gridViewModel);
 
         for (int i = 0; i < near_names.length; i++) {
@@ -219,26 +269,51 @@ public class HomeFragment extends Fragment {
             if (Math.abs(near_price[i] / 1000000) > 1) {
                 price_acronym = (near_price[i] / 1000000);
                 if (near_price[i] % 1000000 == 0) {
-                    gridViewModel = new MultiViewModel(MultiViewModel.TYPE_IMG_TEXT_PRICE, near_pic[i], near_names[i],
-                            String.format("%.0f", price_acronym) + " triệu", formatPrice.format(near_afterpromotion), int_promotion,
-                            near_rateStar[i], near_countComment[i], near_name_cn[i], near_address[i], "-" + near_txtPromotion[i] + "%");
+                    gridViewModel = new MultiViewModel(MultiViewModel.TYPE_IMG_TEXT_PRICE,
+                            near_pic[i],
+                            near_names[i],
+                            String.format("%.0f", price_acronym) + " triệu",
+                            formatPrice.format(near_afterpromotion),
+                            int_promotion,
+                            near_rateStar[i],
+                            near_countComment[i],
+                            near_name_cn[i],
+                            near_address[i],
+                            "-" + near_txtPromotion[i] + "%");
                     gridViewModelArrayList.add(gridViewModel);
                 } else {
-                    gridViewModel = new MultiViewModel(MultiViewModel.TYPE_IMG_TEXT_PRICE, near_pic[i], near_names[i],
-                            String.format("%.1f", price_acronym) + " triệu", formatPrice.format(near_afterpromotion), int_promotion,
-                            near_rateStar[i], near_countComment[i], near_name_cn[i], near_address[i], "-" + near_txtPromotion[i] + "%");
+                    gridViewModel = new MultiViewModel(MultiViewModel.TYPE_IMG_TEXT_PRICE,
+                            near_pic[i],
+                            near_names[i],
+                            String.format("%.1f", price_acronym) + " triệu",
+                            formatPrice.format(near_afterpromotion),
+                            int_promotion,
+                            near_rateStar[i],
+                            near_countComment[i],
+                            near_name_cn[i],
+                            near_address[i],
+                            "-" + near_txtPromotion[i] + "%");
                     gridViewModelArrayList.add(gridViewModel);
                 }
             } else {
-                gridViewModel = new MultiViewModel(MultiViewModel.TYPE_IMG_TEXT_PRICE, near_pic[i], near_names[i],
-                        formatPrice.format(near_price[i]), formatPrice.format(near_afterpromotion),
-                        int_promotion, near_rateStar[i], near_countComment[i], near_name_cn[i], near_address[i], "-" + near_txtPromotion[i] + "%");
+                gridViewModel = new MultiViewModel(MultiViewModel.TYPE_IMG_TEXT_PRICE,
+                        near_pic[i],
+                        near_names[i],
+                        formatPrice.format(near_price[i]),
+                        formatPrice.format(near_afterpromotion),
+                        int_promotion,
+                        near_rateStar[i],
+                        near_countComment[i],
+                        near_name_cn[i],
+                        near_address[i],
+                        "-" + near_txtPromotion[i] + "%");
                 gridViewModelArrayList.add(gridViewModel);
             }
         }
 
         //Promotion
-        gridViewModel = new MultiViewModel(MultiViewModel.TYPE_SECTION_TITLE, "Giảm giá HOT");
+        gridViewModel = new MultiViewModel(MultiViewModel.TYPE_SECTION_TITLE,
+                "Giảm giá HOT");
         gridViewModelArrayList.add(gridViewModel);
         for (int i = 0; i < pro_names.length; i++) {
             float price_afterpromotion = 0;
@@ -248,20 +323,44 @@ public class HomeFragment extends Fragment {
             if (Math.abs(pro_price[i] / 1000000) > 1) {
                 price_acronym = (pro_price[i] / 1000000);
                 if (pro_price[i] % 1000000 == 0) {
-                    gridViewModel = new MultiViewModel(MultiViewModel.TYPE_IMG_TEXT_PRICE, pro_pic[i], pro_names[i],
-                            String.format("%.0f", price_acronym) + " triệu", formatPrice.format(price_afterpromotion), MultiViewModel.HAS_PROMOTION,
-                            pro_rateStar[i], pro_countComment[i], pro_name_cn[i], pro_address[i], "-" + pro_txtPromotion[i] + "%");
+                    gridViewModel = new MultiViewModel(MultiViewModel.TYPE_IMG_TEXT_PRICE,
+                            pro_pic[i],
+                            pro_names[i],
+                            String.format("%.0f", price_acronym) + " triệu",
+                            formatPrice.format(price_afterpromotion),
+                            MultiViewModel.HAS_PROMOTION,
+                            pro_rateStar[i],
+                            pro_countComment[i],
+                            pro_name_cn[i],
+                            pro_address[i],
+                            "-" + pro_txtPromotion[i] + "%");
                     gridViewModelArrayList.add(gridViewModel);
                 } else {
-                    gridViewModel = new MultiViewModel(MultiViewModel.TYPE_IMG_TEXT_PRICE, pro_pic[i], pro_names[i],
-                            String.format("%.1f", price_acronym) + " triệu", formatPrice.format(price_afterpromotion), MultiViewModel.HAS_PROMOTION,
-                            pro_rateStar[i], pro_countComment[i], pro_name_cn[i], pro_address[i], "-" + pro_txtPromotion[i] + "%");
+                    gridViewModel = new MultiViewModel(MultiViewModel.TYPE_IMG_TEXT_PRICE,
+                            pro_pic[i],
+                            pro_names[i],
+                            String.format("%.1f", price_acronym) + " triệu",
+                            formatPrice.format(price_afterpromotion),
+                            MultiViewModel.HAS_PROMOTION,
+                            pro_rateStar[i],
+                            pro_countComment[i],
+                            pro_name_cn[i],
+                            pro_address[i],
+                            "-" + pro_txtPromotion[i] + "%");
                     gridViewModelArrayList.add(gridViewModel);
                 }
             } else {
-                gridViewModel = new MultiViewModel(MultiViewModel.TYPE_IMG_TEXT_PRICE, pro_pic[i], pro_names[i],
-                        formatPrice.format(pro_price[i]), formatPrice.format(price_afterpromotion), MultiViewModel.HAS_PROMOTION,
-                        pro_rateStar[i], pro_countComment[i], pro_name_cn[i], pro_address[i], "-" + pro_txtPromotion[i] + "%");
+                gridViewModel = new MultiViewModel(MultiViewModel.TYPE_IMG_TEXT_PRICE,
+                        pro_pic[i],
+                        pro_names[i],
+                        formatPrice.format(pro_price[i]),
+                        formatPrice.format(price_afterpromotion),
+                        MultiViewModel.HAS_PROMOTION,
+                        pro_rateStar[i],
+                        pro_countComment[i],
+                        pro_name_cn[i],
+                        pro_address[i],
+                        "-" + pro_txtPromotion[i] + "%");
                 gridViewModelArrayList.add(gridViewModel);
             }
         }
