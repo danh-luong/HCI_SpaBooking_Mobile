@@ -25,16 +25,17 @@
                 android:orientation="horizontal">
 
                 <TextView
+                    android:layout_marginLeft="10dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Kiếm Chi Nhánh:"
+                    android:text="Tìm Spa:"
                     android:textStyle="bold"
                     android:textSize="14dp"
                     android:fontFamily="@font/lora_bold"/>
 
                 <EditText
                     android:id="@+id/edtSearchName"
-                    android:layout_width="210dp"
+                    android:layout_width="260dp"
                     android:layout_height="wrap_content" />
 
                 <com.google.android.material.floatingactionbutton.FloatingActionButton

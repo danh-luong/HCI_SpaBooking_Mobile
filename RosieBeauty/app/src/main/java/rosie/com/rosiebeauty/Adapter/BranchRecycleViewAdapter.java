@@ -64,7 +64,7 @@ public class BranchRecycleViewAdapter extends RecyclerView.Adapter<BranchRecycle
         btnEditBranch.setOnClickListener(
                 new EditBranchButtonListener(
                         branch.getTitle(), branch.getAddress(),
-                        branch.getStatus(), branch.getImage(), currentActivity));
+                        branch.getStatus(), branch.getImage(), currentActivity, branch.getManager()));
         btnRemoveBranch.setOnClickListener(new RemoveBranchButtonListener(holder.cardView, currentActivity, currentFragment, branch));
 
     }

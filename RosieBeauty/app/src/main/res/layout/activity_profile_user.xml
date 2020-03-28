@@ -136,8 +136,15 @@
                     android:layout_width="200dp"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/lora"
-                    android:id="@+id/spnRole"/>
-
+                    android:id="@+id/spnRole"
+                    android:visibility="gone"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/txtRole"
+                    android:fontFamily="@font/lora"
+                    android:textColor="#000000"
+                    android:textSize="18sp" />
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
@@ -204,6 +211,7 @@
                     android:background="@drawable/active_button"/>
             </LinearLayout>
             <Button
+                android:id="@+id/btnChangeRole"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Đổi Chức Vụ"
@@ -221,7 +229,7 @@
                 android:layout_marginBottom="10dp"
                 android:background="@drawable/active_green_button"
                 android:onClick="clickToWatchSpaDetail"
-                android:text="Xem thông tin spa của bạn"
+                android:text="Xem thông tin spa"
                 android:visibility="gone"
                 android:textColor="@color/white"
                 android:textSize="17dp"

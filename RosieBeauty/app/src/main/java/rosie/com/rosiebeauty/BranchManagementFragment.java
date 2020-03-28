@@ -20,6 +20,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import rosie.com.rosiebeauty.Adapter.BranchRecycleViewAdapter;
+import rosie.com.rosiebeauty.Data.UserRepository;
 import rosie.com.rosiebeauty.Model.Branch;
 
 
@@ -56,27 +57,27 @@ public class BranchManagementFragment extends Fragment {
         branches.add(new Branch(R.drawable.spa2batrung,
                 "Rose Spa Hai Bà Trưng",
                 "235B - Hai Bà Trưng - Quận 1 ",
-                "Đang hoạt động"));
+                "Đang hoạt động", UserRepository.userList.get("manager")));
 
         branches.add(new Branch(R.drawable.spa_hoang_van_thu,
                 "Hoa Cúc Hoàng Văn Thụ",
                 "41 - Hoàng Văn Thụ - Quận 1 ",
-                "Đang hoạt động"));
+                "Đang hoạt động", UserRepository.userList.get("manager1")));
 
         branches.add(new Branch(R.drawable.spa_le_duan,
                 "Hoàng Kim Lê Duẩn",
                 "75 - Lê Duẩn - Quận 1 ",
-                "Đang hoạt động"));
+                "Đang hoạt động", UserRepository.userList.get("manager2")));
 
         branches.add(new Branch(R.drawable.spa_le_loi,
                 "Hàn Quốc Spa Lê lợi",
                 "216 - Hai Bà Trưng - Quận 1 ",
-                "Vô hiệu hóa"));
+                "Vô hiệu hóa", UserRepository.userList.get("manager3")));
 
         branches.add(new Branch(R.drawable.spa_quangtrung,
                 "Mộc Spa Quang Trung",
                 "115 - Quang Trung - Gò Vấp ",
-                "Đang hoạt động"));
+                "Đang hoạt động", UserRepository.userList.get("manager4")));
     }
 
 

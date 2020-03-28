@@ -5,6 +5,7 @@ import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import rosie.com.rosiebeauty.Data.User;
 import rosie.com.rosiebeauty.EditBranchActivity;
 
 public class EditBranchButtonListener implements View.OnClickListener {
@@ -14,6 +15,7 @@ public class EditBranchButtonListener implements View.OnClickListener {
     private String status;
     private int image;
     private AppCompatActivity currentActivity;
+    private User manager;
 
     public EditBranchButtonListener(String title, String address, String status, int image, AppCompatActivity currentActivity) {
         this.title = title;
@@ -21,6 +23,23 @@ public class EditBranchButtonListener implements View.OnClickListener {
         this.status = status;
         this.image = image;
         this.currentActivity = currentActivity;
+    }
+
+    public EditBranchButtonListener(String title, String address, String status, int image, AppCompatActivity currentActivity, User manager) {
+        this.title = title;
+        this.address = address;
+        this.status = status;
+        this.image = image;
+        this.currentActivity = currentActivity;
+        this.manager = manager;
+    }
+
+    public User getManager() {
+        return manager;
+    }
+
+    public void setUser(User manager) {
+        this.manager = manager;
     }
 
     public String getTitle() {
@@ -70,6 +89,7 @@ public class EditBranchButtonListener implements View.OnClickListener {
         intent.putExtra("address", address);
         intent.putExtra("image", image);
         intent.putExtra("status", status);
+        intent.putExtra("manager", manager);
         currentActivity.startActivity(intent);
     }
 }

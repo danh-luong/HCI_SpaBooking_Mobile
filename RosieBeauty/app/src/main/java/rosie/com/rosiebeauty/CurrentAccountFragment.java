@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -28,6 +29,10 @@ public class CurrentAccountFragment extends Fragment {
 
     private View rootView;
     private FloatingActionButton btnCreateNewEmployee;
+    public static final int STATUS_DEACTIIVE = 10;
+    public static final int STATUS_ACTIVE = 9;
+    public static final int STATUS_NORMAL = 8;
+    public static  int status = STATUS_NORMAL;
 
     public CurrentAccountFragment() {
         // Required empty public constructor
@@ -44,7 +49,9 @@ public class CurrentAccountFragment extends Fragment {
         List<User> acceptedListUser = new ArrayList<>();
         for (int i = 0; i < userList.size(); i++) {
             if (userList.get(i).isAccepted()) {
-                acceptedListUser.add(userList.get(i));
+                if (!userList.get(i).getUsername().contains("admin") && !userList.get(i).getUsername().contains("manager")) {
+                    acceptedListUser.add(userList.get(i));
+                }
             }
         }
         CardViewAccountAdapter adapter = new CardViewAccountAdapter(acceptedListUser, getActivity());
@@ -83,4 +90,19 @@ public class CurrentAccountFragment extends Fragment {
         return rootView;
     }
 
+    @Override
+    public void onStart() {
+        super.onStart();
+        if(status != STATUS_NORMAL) {
+            switch (status) {
+                case STATUS_ACTIVE:
+                    Toast.makeText(getActivity(), "Kích hoạt thành công", Toast.LENGTH_SHORT).show();
+                    break;
+                case STATUS_DEACTIIVE:
+                    Toast.makeText(getActivity(), "Vô hiệu hóa thành công", Toast.LENGTH_SHORT).show();
+                    break;
+            }
+        }
+        status = STATUS_NORMAL;
+    }
 }

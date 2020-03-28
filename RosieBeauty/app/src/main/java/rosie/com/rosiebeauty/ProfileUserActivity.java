@@ -11,9 +11,11 @@ import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -31,6 +33,7 @@ public class ProfileUserActivity extends AppCompatActivity {
     private Button btnDeactive, btnActive;
     private User user;
     private String roleName;
+    private TextView txtRole;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,6 +55,8 @@ public class ProfileUserActivity extends AppCompatActivity {
         txtUsernameProfile.setText(user.getUsername());
         avatar.setImageResource(user.getImgSrc());
 
+        txtRole = findViewById(R.id.txtRole);
+
         spnRole = findViewById(R.id.spnRole);
         List<String> listRoletemp = new ArrayList<>();
         listRoletemp.add(User.ROLE_ADMIN);
@@ -65,12 +70,15 @@ public class ProfileUserActivity extends AppCompatActivity {
         switch (user.getRole()) {
             case User.ROLE_ADMIN:
                 myWantedRole = User.ROLE_ADMIN;
+                txtRole.setText(User.ROLE_ADMIN);
                 break;
             case User.ROLE_CUSTOMER:
                 myWantedRole = "Khách Hàng";
+                txtRole.setText("Khách Hàng");
                 break;
             case User.ROLE_MANAGER:
                 myWantedRole = "Quản lí";
+                txtRole.setText("Quản lí");
                 break;
         }
         int spinnerPosition = dataAdapter.getPosition(myWantedRole);
@@ -86,6 +94,7 @@ public class ProfileUserActivity extends AppCompatActivity {
 
             }
         });
+        spnRole.setEnabled(false);
         btnDeactive = findViewById(R.id.btnDeactive);
         btnActive = findViewById(R.id.btnActive);
 
@@ -95,22 +104,30 @@ public class ProfileUserActivity extends AppCompatActivity {
             btnActive.setVisibility(View.VISIBLE);
         }
 
+        Button btnChangeRole = findViewById(R.id.btnChangeRole);
+
         if (user.getRole().equalsIgnoreCase("manager")) {
             Button btnSpaDetail = findViewById(R.id.btnSpaDetail);
             btnSpaDetail.setVisibility(View.VISIBLE);
+            btnDeactive.setVisibility(View.GONE);
+            btnActive.setVisibility(View.GONE);
         }
+
+        btnChangeRole.setVisibility(View.GONE);
     }
 
     public void onclickDeactive(View view) {
-        UserRepository.userList.get(user.getRole()).setStatus("deactive");
+        UserRepository.userList.get(user.getUsername()).setStatus("deactive");
         Intent intent = new Intent(this, AdminActivity.class);
+        CurrentAccountFragment.status = CurrentAccountFragment.STATUS_DEACTIIVE;
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(intent);
     }
 
     public void onclickActive(View view) {
-        UserRepository.userList.get(user.getRole()).setStatus("active");
+        UserRepository.userList.get(user.getUsername()).setStatus("active");
         Intent intent = new Intent(this, AdminActivity.class);
+        CurrentAccountFragment.status = CurrentAccountFragment.STATUS_ACTIVE;
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(intent);
     }
@@ -146,6 +163,7 @@ public class ProfileUserActivity extends AppCompatActivity {
         intent.putExtra("address","235B - Hai Bà Trưng - Quận 1 " );
         intent.putExtra("status", "Đang hoạt động");
         intent.putExtra("image", R.drawable.spa2batrung);
+        intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
         startActivity(intent);
     }
 }

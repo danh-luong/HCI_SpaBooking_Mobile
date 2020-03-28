@@ -41,6 +41,7 @@ public class CardViewAccountAdapter extends
         TextView txtRoleId = (TextView) cardView.findViewById(R.id.txtRoleId);
         TextView txtEmail = (TextView) cardView.findViewById(R.id.txtEmail);
         TextView txtPhone = (TextView) cardView.findViewById(R.id.txtPhone);
+        TextView txtStatus = (TextView) cardView.findViewById(R.id.txtStatus);
 
         txtName.setText(list.get(position).getName());
         switch (list.get(position).getRole()) {
@@ -56,6 +57,12 @@ public class CardViewAccountAdapter extends
         }
         txtEmail.setText(list.get(position).getEmail());
         txtPhone.setText(list.get(position).getPhone());
+
+        if (list.get(position).getStatus().equalsIgnoreCase("active")) {
+            txtStatus.setText("Kích hoạt");
+        } else {
+            txtStatus.setText("Vô hiệu hóa");
+        }
 
         cardView.setOnClickListener(new View.OnClickListener() {
             @Override

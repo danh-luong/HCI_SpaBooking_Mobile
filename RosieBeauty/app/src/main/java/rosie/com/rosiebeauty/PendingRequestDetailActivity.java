@@ -2,9 +2,14 @@ package rosie.com.rosiebeauty;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -21,6 +26,7 @@ public class PendingRequestDetailActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pending_request_detail);
+        setStatusBarGradiant(this);
         Intent intent = getIntent();
         userKey = intent.getStringExtra("key");
         user = UserRepository.userList.get(userKey);
@@ -31,7 +37,7 @@ public class PendingRequestDetailActivity extends AppCompatActivity {
         txtSpaName = findViewById(R.id.txtSpaName);
         txtAddress = findViewById(R.id.txtAddress);
 
-        txtProfileName.setText("Hoa cúc");
+        txtProfileName.setText("Trần Quang");
         txtEmailProfile.setText(user.getEmail());
         txtPhoneProfile.setText(user.getPhone());
         txtUsernameProfile.setText(user.getUsername());
@@ -53,5 +59,15 @@ public class PendingRequestDetailActivity extends AppCompatActivity {
         Toast.makeText(this, "Đã Duyệt Thành Công!", Toast.LENGTH_LONG).show();
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(intent);
+    }
+
+    protected void setStatusBarGradiant(Activity activity) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            Window window = activity.getWindow();
+            Drawable background = activity.getResources().getDrawable(R.drawable.gradient_statusbar);
+            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+            window.setStatusBarColor(activity.getResources().getColor(android.R.color.transparent));
+            window.setBackgroundDrawable(background);
+        }
     }
 }

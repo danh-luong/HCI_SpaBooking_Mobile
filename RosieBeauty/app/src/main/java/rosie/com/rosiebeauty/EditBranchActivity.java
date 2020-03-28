@@ -28,6 +28,7 @@ import java.io.InputStream;
 import java.io.Serializable;
 import java.util.ArrayList;
 
+import rosie.com.rosiebeauty.Data.User;
 import rosie.com.rosiebeauty.Data.UserRepository;
 import rosie.com.rosiebeauty.Model.Branch;
 
@@ -35,6 +36,7 @@ public class EditBranchActivity extends AppCompatActivity {
     private static int RESULT_LOAD_IMAGE = 1;
     private EditText edtTitle;
     private EditText edtAddress;
+    private EditText edtManagerName;
     private Spinner spinnerStatus;
     private ImageView itemImage;
     private Button btnUploadImage, btnActiveSpa, btnDeactiveSpa, btnUpdateSpa;
@@ -44,6 +46,7 @@ public class EditBranchActivity extends AppCompatActivity {
 
     private String title, address, status, oldTitle;
     private int image = 0;
+    private User manager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,11 +54,15 @@ public class EditBranchActivity extends AppCompatActivity {
         setContentView(R.layout.activity_edit_branch);
         setStatusBarGradiant(this);
 
+        Intent intent = getIntent();
+
         title = getIntent().getExtras().getString("title");
         oldTitle = getIntent().getExtras().getString("title");
         address = getIntent().getExtras().getString("address");
         status = getIntent().getExtras().getString("status");
         image = getIntent().getExtras().getInt("image");
+
+        manager = (User) intent.getSerializableExtra("manager");
 
         edtTitle = findViewById(R.id.edtTitle);
         edtTitle.setEnabled(false);
@@ -65,6 +72,9 @@ public class EditBranchActivity extends AppCompatActivity {
         spinnerStatus.setEnabled(false);
         itemImage = findViewById(R.id.itemImage);
         btnUploadImage = findViewById(R.id.btnUploadImage);
+        edtManagerName = findViewById(R.id.edtManagerName);
+
+        edtManagerName.setText(manager.getName());
 
         btnActiveSpa = findViewById(R.id.btnActiveSpa);
         btnDeactiveSpa = findViewById(R.id.btnDeactiveSpa);
@@ -194,6 +204,7 @@ public class EditBranchActivity extends AppCompatActivity {
                 break;
             }
         }
+        UserRepository.userList.get(manager.getUsername()).setStatus("active");
         selectedBranch.setStatus(status);
         BranchManagementFragment.status = BranchManagementFragment.STATUS_UPDATE;
         Intent result = new Intent();
@@ -213,6 +224,7 @@ public class EditBranchActivity extends AppCompatActivity {
                 break;
             }
         }
+        UserRepository.userList.get(manager.getUsername()).setStatus("deactive");
         selectedBranch.setStatus(status);
         BranchManagementFragment.status = BranchManagementFragment.STATUS_UPDATE;
         Intent result = new Intent();
@@ -223,7 +235,8 @@ public class EditBranchActivity extends AppCompatActivity {
 
     public void clickToWatchManagerDetail(View view) {
         Intent intent = new Intent(this, ProfileUserActivity.class);
-        intent.putExtra("key", UserRepository.userList.get("manager").getUsername());
+        intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+        intent.putExtra("key", UserRepository.userList.get(manager.getUsername()).getUsername());
         startActivity(intent);
     }
 }
