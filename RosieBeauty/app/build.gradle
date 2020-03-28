@@ -60,6 +60,8 @@ dependencies {
 
     implementation group: 'com.google.code.gson', name: 'gson', version: '2.7'
 
+    implementation 'com.github.mukeshsolanki:android-otpview-pinview:2.0.1'
+
 }
 allprojects {
     repositories {

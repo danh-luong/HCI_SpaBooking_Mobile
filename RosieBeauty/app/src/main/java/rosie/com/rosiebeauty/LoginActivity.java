@@ -12,7 +12,9 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import rosie.com.rosiebeauty.Data.User;
@@ -118,5 +120,18 @@ public class LoginActivity extends AppCompatActivity {
             }
         }
         return false;
+    }
+
+    public void clickForgotPassword(View view) {
+        Intent intent = new Intent(LoginActivity.this, ForgotPaswwordActivity.class);
+        startActivityForResult(intent, 1000);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode == RESULT_OK && requestCode == 1000){
+            Toast.makeText(this, "Password Changed successfully. Please login again", Toast.LENGTH_LONG).show();
+        }
     }
 }

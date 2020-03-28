@@ -24,7 +24,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".PendingRequestDetailActivity"></activity>
+        <activity android:name=".ChangePasswordActivity"></activity>
+        <activity android:name=".OptActivity" />
+        <activity android:name=".ForgotPaswwordActivity" />
+        <activity android:name=".PendingRequestDetailActivity" />
         <activity android:name=".EditServiceActivity" />
         <activity android:name=".CreateNewEmployeeActivity" />
         <activity android:name=".ProfileUserActivity" />

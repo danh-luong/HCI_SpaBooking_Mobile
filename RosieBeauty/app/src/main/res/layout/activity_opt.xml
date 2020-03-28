@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center_vertical"
+    tools:context=".OptActivity">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginBottom="300dp"
+        android:layout_marginRight="40dp"
+        android:layout_marginLeft="40dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="30dp"
+            android:fontFamily="@font/philosopher_bold"
+            android:textColor="@android:color/black"
+            android:layout_gravity="center"
+            android:text="Nhập mã xác nhận"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="22dp"
+            android:fontFamily="@font/philosopher_bold"
+            android:text="Xin nhập mã xác nhận trong mail của bạn"/>
+        <com.mukesh.OtpView
+            android:layout_gravity="center"
+            android:id="@+id/otp_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:itemBackground="@color/white"
+            android:textColor="@android:color/widget_edittext_dark"
+            android:inputType="number"
+            app:itemCount="6"
+            app:lineColor="@color/white"
+            app:viewType="line"/>
+        <TextView
+            android:layout_marginTop="18dp"
+            android:layout_marginBottom="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/lora_bold"
+            android:textSize="15dp"
+            android:layout_gravity="center"
+            android:textColor="@color/white"
+            android:text="Chưa nhận được mã?"/>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/button_border_background"
+            android:fontFamily="@font/lora_bold"
+            android:textSize="20dp"
+            android:textColor="@color/white"
+            android:text="Gửi lại"/>
+    </LinearLayout>
+
+</LinearLayout>
