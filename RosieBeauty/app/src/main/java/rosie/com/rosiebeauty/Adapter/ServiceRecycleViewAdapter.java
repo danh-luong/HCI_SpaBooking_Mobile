@@ -15,7 +15,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.beardedhen.androidbootstrap.BootstrapButton;
 
+import java.text.NumberFormat;
 import java.util.ArrayList;
+import java.util.Locale;
 
 import rosie.com.rosiebeauty.Listener.EditServiceButtonListener;
 import rosie.com.rosiebeauty.Listener.RemoveServiceButtonListener;
@@ -26,6 +28,8 @@ public class ServiceRecycleViewAdapter extends RecyclerView.Adapter<ServiceRecyc
     private ArrayList<Service> services;
     private AppCompatActivity currentActivity;
     private Fragment currentFragment;
+    Locale locale = Locale.forLanguageTag("vi-VN");
+    java.text.NumberFormat formatPrice = NumberFormat.getCurrencyInstance(locale);
 
     public ServiceRecycleViewAdapter(ArrayList<Service> services, AppCompatActivity currentActivity, Fragment currentFragment) {
         this.services = services;
@@ -54,7 +58,7 @@ public class ServiceRecycleViewAdapter extends RecyclerView.Adapter<ServiceRecyc
 
         Service service = services.get(position);
         txtTitle.setText(service.getTitle());
-        txtPrice.setText(service.getPrice() + "VND");
+        txtPrice.setText(formatPrice.format(service.getPrice()));
         txtPromotion.setText("-" + service.getPromotion() + "%");
         txtCategory.setText(service.getCategory());
         imageView.setImageResource(service.getImage());

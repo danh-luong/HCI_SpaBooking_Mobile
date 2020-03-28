@@ -100,11 +100,11 @@ public class EditServiceActivity extends AppCompatActivity  implements DatePicke
         edtQPromotion.setText(promotion + "");
         edtQPromotion.setHint(promotion + "");
         ArrayList<String> categoriesList = new ArrayList<>();
-        categoriesList.add("massage");
-        categoriesList.add("làm tóc");
-        categoriesList.add("dưỡng da");
-        categoriesList.add("làm móng");
-        categoriesList.add("trang điểm");
+        categoriesList.add("Massage");
+        categoriesList.add("Làm tóc");
+        categoriesList.add("Dưỡng da");
+        categoriesList.add("Làm móng");
+        categoriesList.add("Trang điểm");
         ArrayAdapter<String> categorySpinnerAdapter = new ArrayAdapter<String>
                 (getApplicationContext(),
                         android.R.layout.simple_spinner_dropdown_item, categoriesList);
