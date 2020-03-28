@@ -114,7 +114,7 @@ public class CurrentUserProfileFragment extends Fragment {
             LinearLayout spaContainer = rootView.findViewById(R.id.spaInfoContainer);
             spaContainer.setVisibility(View.VISIBLE);
             ImageButton btnEdit = rootView.findViewById(R.id.btnEdit);
-            branch = new Branch(R.drawable.spa_01, "Rosie Spa", "Nguyên hồng", "active");
+            branch = new Branch(R.drawable.spa_01, "Rosie Spa", "Nguyên hồng", "active", UserRepository.userList.get("manager"));
             btnEdit.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -123,6 +123,7 @@ public class CurrentUserProfileFragment extends Fragment {
                     intent.putExtra("address", branch.getAddress());
                     intent.putExtra("image", branch.getImage());
                     intent.putExtra("status", branch.getStatus());
+                    intent.putExtra("manager", branch.getManager());
                     startActivityForResult(intent, 1000);
                 }
             });

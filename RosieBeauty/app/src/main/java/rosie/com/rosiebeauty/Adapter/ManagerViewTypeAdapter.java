@@ -6,6 +6,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
@@ -31,6 +32,7 @@ public class ManagerViewTypeAdapter extends RecyclerView.Adapter implements Date
     private boolean isEndDate = false;
     private EditText edtStartDay;
     private EditText edtEndDay;
+    private Spinner spinnerCatagory;
 
 
 
@@ -137,6 +139,17 @@ public class ManagerViewTypeAdapter extends RecyclerView.Adapter implements Date
                             Toast.makeText(mContext, "Successful!", Toast.LENGTH_LONG).show();
                         }
                     });
+                    spinnerCatagory = ((CreateServiceHolder) holder).spinnerCatagory;
+                    ArrayList<String> categoriesList = new ArrayList<>();
+                    categoriesList.add("Massage");
+                    categoriesList.add("Làm tóc");
+                    categoriesList.add("Dưỡng da");
+                    categoriesList.add("Làm móng");
+                    categoriesList.add("Trang điểm");
+                    ArrayAdapter<String> categorySpinnerAdapter = new ArrayAdapter<String>
+                            (currentActivity,
+                                    android.R.layout.simple_spinner_dropdown_item, categoriesList);
+                    spinnerCatagory.setAdapter(categorySpinnerAdapter);
                     break;
                 case ManagerViewModel.TYPE_APPOINTMENT_MANAGER:
                     ((AppointmentItemViewHolder) holder).txtAppointmentCode.setText(object.appointment.appointmentCode);
