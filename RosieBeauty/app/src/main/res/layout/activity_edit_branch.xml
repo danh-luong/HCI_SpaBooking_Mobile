@@ -1,251 +1,258 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     tools:context=".EditBranchActivity">
 
-    <RelativeLayout
+    <include
+        android:id="@+id/toolbar_main"
+        layout="@layout/toolbar_main" />
+
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/white">
-
-        <include
-            android:id="@+id/toolbar_main"
-            layout="@layout/toolbar_main" />
+        android:layout_marginTop="57dp">
 
         <RelativeLayout
-            android:id="@+id/rellay1"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/grad_profile"
-            android:paddingBottom="20dp"
-            android:layout_below="@id/toolbar_main">
+            android:layout_height="match_parent">
 
             <RelativeLayout
-                android:id="@+id/imgUser"
-                android:layout_width="wrap_content"
+                android:id="@+id/rellay1"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="20dp">
+                android:background="@drawable/grad_profile"
+                android:paddingBottom="20dp">
 
-                <ImageView
-                    android:id="@+id/itemImage"
-                    android:layout_width="match_parent"
-                    android:layout_height="250dp"
-                    android:layout_marginLeft="40dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginRight="40dp"
-                    android:layout_marginBottom="10dp"
-                    android:src="@drawable/img_holder_icon" />
+                <RelativeLayout
+                    android:id="@+id/imgUser"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="20dp">
 
-                <Button
-                    android:id="@+id/btnUploadImage"
+                    <ImageView
+                        android:id="@+id/itemImage"
+                        android:layout_width="match_parent"
+                        android:layout_height="250dp"
+                        android:layout_marginLeft="40dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginRight="40dp"
+                        android:layout_marginBottom="10dp"
+                        android:src="@drawable/img_holder_icon" />
+
+                    <Button
+                        android:id="@+id/btnUploadImage"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/itemImage"
+                        android:layout_marginLeft="80dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginRight="80dp"
+                        android:layout_marginBottom="10dp"
+                        android:background="@drawable/burron_border_edit_style"
+                        android:onClick="clickToUploadImage"
+                        android:text="Đổi ảnh"
+                        android:textColor="@color/white"
+                        android:textSize="17dp"
+                        android:textStyle="bold" />
+
+
+                </RelativeLayout>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/rellay1">
+
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_below="@id/itemImage"
-                    android:layout_marginLeft="80dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginRight="80dp"
-                    android:layout_marginBottom="10dp"
-                    android:background="@drawable/burron_border_edit_style"
-                    android:onClick="clickToUploadImage"
-                    android:text="Đổi ảnh"
-                    android:textColor="@color/white"
-                    android:textSize="17dp"
-                    android:textStyle="bold" />
+                    android:layout_centerInParent="true"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginRight="30dp"
+                    android:orientation="vertical">
 
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Tên Spa"
+                            android:textColor="@color/headings"
+                            android:textSize="13sp" />
+
+                        <EditText
+                            android:id="@+id/edtTitle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="sans-serif-light"
+                            android:hint="Nhập vào tên chi nhánh"
+                            android:textColor="#000000"
+                            android:textSize="18sp" />
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_marginTop="15dp"
+                            android:background="@color/grey" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Tên Quản Lí:"
+                            android:textColor="@color/headings"
+                            android:textSize="13sp" />
+
+                        <EditText
+                            android:id="@+id/edtManagerName"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:focusable="false"
+                            android:fontFamily="sans-serif-light"
+                            android:text="Lê Hoa"
+                            android:textColor="#000000"
+                            android:textSize="18sp" />
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_marginTop="15dp"
+                            android:background="@color/grey" />
+
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Địa chỉ"
+                            android:textColor="@color/headings"
+                            android:textSize="13sp" />
+
+                        <EditText
+                            android:id="@+id/edtAddress"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="sans-serif-light"
+                            android:hint="Nhập vào địa chỉ"
+                            android:textColor="#000000"
+                            android:textSize="18sp" />
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_marginTop="15dp"
+                            android:background="@color/grey" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Trạng thái"
+                            android:textColor="@color/headings"
+                            android:textSize="13sp" />
+
+                        <Spinner
+                            android:id="@+id/spinnerStatus"
+                            android:layout_width="200dp"
+                            android:layout_height="wrap_content" />
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_marginTop="15dp"
+                            android:background="@color/grey" />
+
+                    </LinearLayout>
+
+                    <Button
+                        android:id="@+id/btnUpdateSpa"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:background="@drawable/btn_update_profile"
+                        android:onClick="clickToUpdateBranch"
+                        android:text="Cập nhật"
+                        android:textColor="@color/white"
+                        android:textSize="17dp"
+                        android:textStyle="bold" />
+
+                    <Button
+                        android:id="@+id/btnActiveSpa"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:background="@drawable/btn_update_profile"
+                        android:onClick="clickToActive"
+                        android:text="Kích hoạt"
+                        android:textColor="@color/white"
+                        android:textSize="17dp"
+                        android:textStyle="bold"
+                        android:visibility="gone" />
+
+                    <Button
+                        android:id="@+id/btnDeactiveSpa"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:background="@drawable/button_border_login_style"
+                        android:onClick="clickToDeactive"
+                        android:text="Vô hiệu hóa"
+                        android:textColor="@color/white"
+                        android:textSize="17dp"
+                        android:textStyle="bold"
+                        android:visibility="gone" />
+
+                    <Button
+                        android:id="@+id/btnManagerDetail"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:background="@drawable/active_green_button"
+                        android:onClick="clickToWatchManagerDetail"
+                        android:text="Xem thông tin quản lí"
+                        android:textColor="@color/white"
+                        android:textSize="17dp"
+                        android:textStyle="bold" />
+                </LinearLayout>
 
             </RelativeLayout>
 
         </RelativeLayout>
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_below="@+id/rellay1">
+    </ScrollView>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:layout_marginLeft="30dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginRight="30dp"
-                android:orientation="vertical">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Tên Spa"
-                        android:textColor="@color/headings"
-                        android:textSize="13sp" />
-
-                    <EditText
-                        android:id="@+id/edtTitle"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="sans-serif-light"
-                        android:hint="Nhập vào tên chi nhánh"
-                        android:textColor="#000000"
-                        android:textSize="18sp" />
-
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:layout_marginTop="15dp"
-                        android:background="@color/grey" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Tên Quản Lí:"
-                        android:textColor="@color/headings"
-                        android:textSize="13sp" />
-
-                    <EditText
-                        android:id="@+id/edtManagerName"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="sans-serif-light"
-                        android:text="Lê Hoa"
-                        android:textColor="#000000"
-                        android:focusable="false"
-                        android:textSize="18sp" />
-
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:layout_marginTop="15dp"
-                        android:background="@color/grey" />
-
-                </LinearLayout>
-
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="15dp"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Địa chỉ"
-                        android:textColor="@color/headings"
-                        android:textSize="13sp" />
-
-                    <EditText
-                        android:id="@+id/edtAddress"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="sans-serif-light"
-                        android:hint="Nhập vào địa chỉ"
-                        android:textColor="#000000"
-                        android:textSize="18sp" />
-
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:layout_marginTop="15dp"
-                        android:background="@color/grey" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="15dp"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Trạng thái"
-                        android:textColor="@color/headings"
-                        android:textSize="13sp" />
-
-                    <Spinner
-                        android:id="@+id/spinnerStatus"
-                        android:layout_width="200dp"
-                        android:layout_height="wrap_content" />
-
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:layout_marginTop="15dp"
-                        android:background="@color/grey" />
-
-                </LinearLayout>
-
-                <Button
-                    android:id="@+id/btnUpdateSpa"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginBottom="10dp"
-                    android:background="@drawable/btn_update_profile"
-                    android:onClick="clickToUpdateBranch"
-                    android:text="Cập nhật"
-                    android:textColor="@color/white"
-                    android:textSize="17dp"
-                    android:textStyle="bold" />
-
-                <Button
-                    android:id="@+id/btnActiveSpa"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginBottom="10dp"
-                    android:background="@drawable/btn_update_profile"
-                    android:onClick="clickToActive"
-                    android:text="Kích hoạt"
-                    android:textColor="@color/white"
-                    android:textSize="17dp"
-                    android:visibility="gone"
-                    android:textStyle="bold" />
-
-                <Button
-                    android:id="@+id/btnDeactiveSpa"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginBottom="10dp"
-                    android:background="@drawable/button_border_login_style"
-                    android:onClick="clickToDeactive"
-                    android:text="Vô hiệu hóa"
-                    android:visibility="gone"
-                    android:textColor="@color/white"
-                    android:textSize="17dp"
-                    android:textStyle="bold" />
-
-                <Button
-                    android:id="@+id/btnManagerDetail"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginBottom="10dp"
-                    android:background="@drawable/active_green_button"
-                    android:onClick="clickToWatchManagerDetail"
-                    android:text="Xem thông tin quản lí"
-                    android:textColor="@color/white"
-                    android:textSize="17dp"
-                    android:textStyle="bold" />
-            </LinearLayout>
-
-        </RelativeLayout>
-
-    </RelativeLayout>
-</ScrollView>
+</RelativeLayout>
