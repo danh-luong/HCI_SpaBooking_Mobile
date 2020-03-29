@@ -76,6 +76,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/forgot_password_underline"
+            android:fontFamily="@font/lora"
             android:clickable="true"
             android:text="Quên mật khẩu?"
             android:textColor="#FFFFFF"
@@ -84,9 +85,7 @@
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="35dp"
             android:layout_marginTop="20dp"
-            android:layout_marginRight="35dp"
             android:background="@drawable/button_border_login_style"
             android:fontFamily="@font/philosopher_bold"
             android:onClick="onclickLogin"

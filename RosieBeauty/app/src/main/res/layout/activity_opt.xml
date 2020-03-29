@@ -18,7 +18,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="30dp"
-            android:fontFamily="@font/philosopher_bold"
+            android:fontFamily="@font/lora_bold"
             android:textColor="@android:color/black"
             android:layout_gravity="center"
             android:text="Nhập mã xác nhận"/>
@@ -26,7 +26,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="22dp"
-            android:fontFamily="@font/philosopher_bold"
+            android:fontFamily="@font/lora"
             android:text="Xin nhập mã xác nhận trong mail của bạn"/>
         <com.mukesh.OtpView
             android:layout_gravity="center"
@@ -36,6 +36,7 @@
             android:layout_marginTop="15dp"
             android:itemBackground="@color/white"
             android:textColor="@android:color/widget_edittext_dark"
+            android:fontFamily="@font/lora"
             android:inputType="number"
             app:itemCount="6"
             app:lineColor="@color/white"
@@ -51,10 +52,11 @@
             android:textColor="@color/white"
             android:text="Chưa nhận được mã?"/>
         <Button
+            android:textAllCaps="false"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/button_border_background"
-            android:fontFamily="@font/lora_bold"
+            android:fontFamily="@font/philosopher_bold"
             android:textSize="20dp"
             android:textColor="@color/white"
             android:text="Gửi lại"/>
