@@ -11,14 +11,17 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.EditText;
 
 public class ForgotPaswwordActivity extends AppCompatActivity {
+    private EditText emailForgotPassword;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_forgot_paswword);
         setStatusBarGradiant(this);
+        emailForgotPassword = findViewById(R.id.emailForgotPassword);
     }
 
     protected void setStatusBarGradiant(Activity activity) {
@@ -32,8 +35,16 @@ public class ForgotPaswwordActivity extends AppCompatActivity {
     }
 
     public void clickGotoOpt(View view) {
-        Intent intent = new Intent(ForgotPaswwordActivity.this, OptActivity.class);
-        startActivityForResult(intent, 1000);
+        String emailPattern = "^[_A-Za-z0-9-]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
+
+        if (emailForgotPassword.getText().toString().isEmpty()) {
+            emailForgotPassword.setError("Hãy nhập email của bạn.");
+        } else if (!emailForgotPassword.getText().toString().matches(emailPattern)) {
+            emailForgotPassword.setError("Email không hợp lệ");
+        } else {
+            Intent intent = new Intent(ForgotPaswwordActivity.this, OptActivity.class);
+            startActivityForResult(intent, 1000);
+        }
     }
 
     @Override

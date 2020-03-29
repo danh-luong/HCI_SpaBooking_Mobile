@@ -47,10 +47,12 @@
             android:background="@drawable/edit_text_border"
             android:padding="10dp">
             <EditText
+                android:inputType="textEmailAddress"
+                android:id="@+id/emailForgotPassword"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:hint="Email"
-                android:fontFamily="@font/lora"
+                android:fontFamily="@font/lora_italic"
                 android:background="@android:color/transparent"/>
         </LinearLayout>
         <Button
