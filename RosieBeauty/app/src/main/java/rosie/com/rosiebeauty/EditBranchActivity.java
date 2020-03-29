@@ -94,7 +94,7 @@ public class EditBranchActivity extends AppCompatActivity {
         btnUpdateSpa = findViewById(R.id.btnUpdateSpa);
 
         btnUpdateSpa.setVisibility(View.GONE);
-        if(status.equalsIgnoreCase("vô hiệu hóa")) {
+        if (status.equalsIgnoreCase("vô hiệu hóa")) {
             btnActiveSpa.setVisibility(View.VISIBLE);
         } else {
             btnDeactiveSpa.setVisibility(View.VISIBLE);
@@ -147,6 +147,7 @@ public class EditBranchActivity extends AppCompatActivity {
         BranchManagementFragment.status = BranchManagementFragment.STATUS_UPDATE;
         Intent result = new Intent();
         result.putExtra("branch", (Serializable) selectedBranch);
+        result.putExtra("manager", (Serializable) manager);
         setResult(AppCompatActivity.RESULT_OK, result);
         onBackPressed();
     }
@@ -218,10 +219,14 @@ public class EditBranchActivity extends AppCompatActivity {
             }
         }
         UserRepository.userList.get(manager.getUsername()).setStatus("active");
+        selectedBranch.setTitle(title);
+        selectedBranch.setAddress(address);
+        selectedBranch.setImage(image);
         selectedBranch.setStatus(status);
         BranchManagementFragment.status = BranchManagementFragment.STATUS_UPDATE;
         Intent result = new Intent();
         result.putExtra("branch", (Serializable) selectedBranch);
+        result.putExtra("manager", (Serializable) manager);
         setResult(AppCompatActivity.RESULT_OK, result);
         onBackPressed();
     }
@@ -238,10 +243,14 @@ public class EditBranchActivity extends AppCompatActivity {
             }
         }
         UserRepository.userList.get(manager.getUsername()).setStatus("deactive");
+        selectedBranch.setTitle(title);
+        selectedBranch.setAddress(address);
+        selectedBranch.setImage(image);
         selectedBranch.setStatus(status);
         BranchManagementFragment.status = BranchManagementFragment.STATUS_UPDATE;
         Intent result = new Intent();
         result.putExtra("branch", (Serializable) selectedBranch);
+        result.putExtra("manager", (Serializable) manager);
         setResult(AppCompatActivity.RESULT_OK, result);
         onBackPressed();
     }

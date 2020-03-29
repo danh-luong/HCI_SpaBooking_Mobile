@@ -22,6 +22,7 @@ import androidx.fragment.app.FragmentTransaction;
 
 import com.google.android.material.snackbar.Snackbar;
 
+import rosie.com.rosiebeauty.Data.User;
 import rosie.com.rosiebeauty.Data.UserRepository;
 import rosie.com.rosiebeauty.Listener.EditBranchButtonListener;
 import rosie.com.rosiebeauty.Model.Branch;
@@ -137,6 +138,7 @@ public class CurrentUserProfileFragment extends Fragment {
             Toast.makeText(getActivity(), "Cập nhật chi nhánh thành công", Toast.LENGTH_LONG).show();
             EditText valueSpa = rootView.findViewById(R.id.valueSPa);
             branch = (Branch) data.getSerializableExtra("branch");
+            branch.setManager((User) data.getSerializableExtra("manager"));
             valueSpa.setText(branch.getTitle());
         }
     }

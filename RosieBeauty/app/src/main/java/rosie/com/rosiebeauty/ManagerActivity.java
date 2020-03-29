@@ -22,13 +22,14 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 public class ManagerActivity extends AppCompatActivity {
     private TextView toolbar_title;
     private Fragment selectedFragment = null;
+    private BottomNavigationView bottomNavigationView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         setStatusBarGradiant(this);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_manager);
-        BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_nav_manager);
+        bottomNavigationView = findViewById(R.id.bottom_nav_manager);
         bottomNavigationView.setOnNavigationItemSelectedListener(navListener);
         toolbar_title = (TextView) findViewById(R.id.text_toolbar);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar_main);
@@ -48,6 +49,11 @@ public class ManagerActivity extends AppCompatActivity {
             window.setStatusBarColor(activity.getResources().getColor(android.R.color.transparent));
             window.setBackgroundDrawable(background);
         }
+    }
+
+    public void selectService() {
+        bottomNavigationView.setSelectedItemId(R.id.action_service);
+        toolbar_title.setText("Dịch vụ");
     }
 
     private BottomNavigationView.OnNavigationItemSelectedListener navListener =

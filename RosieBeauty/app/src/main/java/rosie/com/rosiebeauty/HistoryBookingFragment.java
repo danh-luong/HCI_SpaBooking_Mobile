@@ -35,7 +35,7 @@ public class HistoryBookingFragment extends Fragment {
 
         prepareData();
 
-        ManagerViewTypeAdapter adapter = new ManagerViewTypeAdapter(gridViewModelArrayList, this.getActivity().getApplicationContext());
+        ManagerViewTypeAdapter adapter = new ManagerViewTypeAdapter(gridViewModelArrayList, this.getActivity());
 
         mRecyclerView = rootView.findViewById(R.id.history_booking_recycler_view);
         StaggeredGridLayoutManager lm =

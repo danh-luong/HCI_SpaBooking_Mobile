@@ -38,7 +38,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/lora"
             android:textSize="18dp"
-            android:text="Chúng tôi sẽ gửi mã xác nhận đển email của bạn."/>
+            android:text="Chúng tôi sẽ gửi mã xác nhận đến email của bạn."/>
         <LinearLayout
             android:layout_marginTop="15dp"
             android:layout_width="match_parent"

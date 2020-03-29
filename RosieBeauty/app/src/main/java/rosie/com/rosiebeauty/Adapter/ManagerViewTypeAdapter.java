@@ -15,6 +15,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
@@ -22,12 +23,13 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 
+import rosie.com.rosiebeauty.ManagerActivity;
 import rosie.com.rosiebeauty.Model.ManagerViewModel;
 import rosie.com.rosiebeauty.R;
+import rosie.com.rosiebeauty.ServiceManagementFragment;
 
-public class ManagerViewTypeAdapter extends RecyclerView.Adapter implements DatePickerDialog.OnDateSetListener{
+public class ManagerViewTypeAdapter extends RecyclerView.Adapter implements DatePickerDialog.OnDateSetListener {
     Context mContext;
-    private Activity currentActivity;
     private ArrayList<ManagerViewModel> dataSet;
     private boolean isEndDate = false;
     private EditText edtStartDay;
@@ -35,18 +37,10 @@ public class ManagerViewTypeAdapter extends RecyclerView.Adapter implements Date
     private Spinner spinnerCatagory;
 
 
-
     public ManagerViewTypeAdapter(ArrayList<ManagerViewModel> dataSet, Context mContext) {
         this.mContext = mContext;
         this.dataSet = dataSet;
     }
-
-    public ManagerViewTypeAdapter(ArrayList<ManagerViewModel> dataSet, Activity activity) {
-        this.currentActivity = activity;
-        mContext = currentActivity.getApplicationContext();
-        this.dataSet = dataSet;
-    }
-
 
 
     public static class CreateServiceHolder extends RecyclerView.ViewHolder {
@@ -136,7 +130,10 @@ public class ManagerViewTypeAdapter extends RecyclerView.Adapter implements Date
                     ((CreateServiceHolder) holder).btnCreateService.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                            Toast.makeText(mContext, "Successful!", Toast.LENGTH_LONG).show();
+                            ((AppCompatActivity) mContext).getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container_manager, new ServiceManagementFragment()).commit();
+                            ((AppCompatActivity) mContext).setTitle("Dịch vụ");
+                            ((ManagerActivity) mContext).selectService();
+                            Toast.makeText(mContext, "Tạo dịch vụ thành công", Toast.LENGTH_LONG).show();
                         }
                     });
                     spinnerCatagory = ((CreateServiceHolder) holder).spinnerCatagory;
@@ -147,7 +144,7 @@ public class ManagerViewTypeAdapter extends RecyclerView.Adapter implements Date
                     categoriesList.add("Làm móng");
                     categoriesList.add("Trang điểm");
                     ArrayAdapter<String> categorySpinnerAdapter = new ArrayAdapter<String>
-                            (currentActivity,
+                            (mContext,
                                     android.R.layout.simple_spinner_dropdown_item, categoriesList);
                     spinnerCatagory.setAdapter(categorySpinnerAdapter);
                     break;
@@ -177,10 +174,10 @@ public class ManagerViewTypeAdapter extends RecyclerView.Adapter implements Date
     public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
         String strMonth = month + "";
         String strDayOfMonth = dayOfMonth + "";
-        if(strMonth.length() == 1) strMonth = "0" + month;
-        if(strDayOfMonth.length() == 1) strDayOfMonth = "0" + dayOfMonth;
+        if (strMonth.length() == 1) strMonth = "0" + month;
+        if (strDayOfMonth.length() == 1) strDayOfMonth = "0" + dayOfMonth;
         String date = strMonth + "/" + strDayOfMonth + "/" + year;
-        if(isEndDate) {
+        if (isEndDate) {
             edtEndDay.setText(date);
         } else {
             edtStartDay.setText(date);
@@ -188,9 +185,8 @@ public class ManagerViewTypeAdapter extends RecyclerView.Adapter implements Date
     }
 
     private void showDatePickerDialog() {
-        Activity activity = currentActivity;
         DatePickerDialog datePickerDialog = new DatePickerDialog(
-                currentActivity,
+                mContext,
                 this,
                 Calendar.getInstance().get(Calendar.YEAR),
                 Calendar.getInstance().get(Calendar.MONTH),
