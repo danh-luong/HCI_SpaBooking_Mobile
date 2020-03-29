@@ -31,8 +31,6 @@ public class ServiceManagementFragment extends Fragment {
     public static final int STATUS_CREATE = 9;
     public static final int STATUS_NORMAL = 8;
     public static  int status = STATUS_NORMAL;
-    Locale locale = Locale.forLanguageTag("vi-VN");
-    java.text.NumberFormat formatPrice = NumberFormat.getCurrencyInstance(locale);
 
     private View rootView;
     private RecyclerView recycleViewService;
@@ -53,7 +51,7 @@ public class ServiceManagementFragment extends Fragment {
         services.add(new Service(R.drawable.img_trang_diem_han_quoc,
                 "Trang điểm Hàn Quốc",
                 135000,
-                20, "trang điểm"));
+                20, "Trang điểm"));
 
         services.add(new Service(R.drawable.ser_sonmong,
                 "Sơn màu móng tay",
