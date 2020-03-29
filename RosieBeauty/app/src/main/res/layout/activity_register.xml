@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/white"
     android:orientation="vertical"
     tools:context=".RegisterActivity">
@@ -19,18 +19,19 @@
             android:layout_height="wrap_content"
             android:layout_margin="20dp"
             android:orientation="vertical">
+
             <androidx.viewpager.widget.ViewPager
-                android:layout_marginTop="50dp"
                 android:id="@+id/registerViewPager"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50dp">
 
                 <com.google.android.material.tabs.TabLayout
-                    app:tabSelectedTextColor="@color/colorAccent"
-                    app:tabRippleColor="@color/colorAccent"
                     android:id="@+id/tabLayout"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    app:tabRippleColor="@color/colorAccent"
+                    app:tabSelectedTextColor="@color/colorAccent" />
             </androidx.viewpager.widget.ViewPager>
         </LinearLayout>
 
@@ -41,41 +42,45 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
             android:layout_weight="1"
-            android:gravity="center">
+            android:gravity="center"
+            android:orientation="horizontal">
+
             <CheckBox
                 style="@style/Animation.Design.BottomSheetDialog"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content" />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/lora_bold"
-                android:text="Tôi đã đọc và chấp nhận mọi "/>
+                android:text="Tôi đã đọc và chấp nhận mọi " />
+
             <TextView
                 android:id="@+id/textTerms"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/lora_bold"
-                android:textColor="@color/service_item_blue_color"
-                android:text="điều khoản."/>
+                android:text="điều khoản."
+                android:textColor="@color/service_item_blue_color" />
         </LinearLayout>
 
         <Button
-            android:textAllCaps="false"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="35dp"
             android:layout_marginRight="35dp"
             android:layout_marginBottom="15dp"
             android:background="@drawable/button_border_login_style"
-            android:onClick="onclickRegister"
             android:fontFamily="@font/philosopher_bold"
+            android:onClick="onclickRegister"
             android:text="Tạo tài khoản"
+            android:textAllCaps="false"
             android:textColor="@color/white"
             android:textSize="20dp" />
     </LinearLayout>

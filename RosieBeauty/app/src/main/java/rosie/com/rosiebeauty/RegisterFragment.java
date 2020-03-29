@@ -14,7 +14,6 @@ import androidx.fragment.app.Fragment;
  */
 public class RegisterFragment extends Fragment {
     private String tabTitle;
-    private Button btnRegister;
 
     public RegisterFragment(String tabTitle) {
         this.tabTitle = tabTitle;
