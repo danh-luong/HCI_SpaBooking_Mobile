@@ -33,6 +33,7 @@
             android:scaleType="fitXY"
             android:src="@drawable/ser_gloss_hair" />
 
+
         <TextView
             android:id="@+id/txtTitle"
             android:layout_width="match_parent"
@@ -44,12 +45,21 @@
             android:textColor="@android:color/black"
             android:textSize="18dp"
             android:textStyle="bold" />
-
+        <TextView
+            android:id="@+id/txtSpaName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/txtTitle"
+            android:layout_marginLeft="7dp"
+            android:layout_toRightOf="@id/itemImage"
+            android:fontFamily="@font/lora_bold"
+            android:textColor="@color/colorAccent"
+            android:text="Rose spa" />
         <TextView
             android:id="@+id/txtPrice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/txtTitle"
+            android:layout_below="@id/txtSpaName"
             android:layout_marginLeft="7dp"
             android:layout_toRightOf="@id/itemImage"
             android:fontFamily="@font/lora"

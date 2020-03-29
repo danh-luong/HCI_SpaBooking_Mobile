@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -16,7 +17,7 @@ import androidx.fragment.app.Fragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class AdminActivity extends AppCompatActivity {
-
+    private TextView toolbar_title;
     private Fragment selectedFragment = null;
 
     public Fragment getSelectedFragment() {
@@ -29,6 +30,8 @@ public class AdminActivity extends AppCompatActivity {
         setContentView(R.layout.activity_admin);
         setStatusBarGradiant(this);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar_main);
+        toolbar_title = (TextView) findViewById(R.id.text_toolbar);
+        toolbar_title.setText("Quản lý tài khoản");
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_nav);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
@@ -43,15 +46,19 @@ public class AdminActivity extends AppCompatActivity {
                     switch (item.getItemId()) {
                         case R.id.action_home:
                             selectedFragment = new CurrentAccountFragment();
+                            toolbar_title.setText("Quản lý tài khoản");
                             break;
                         case R.id.action_profile:
                             selectedFragment = new CurrentUserProfileFragment();
+                            toolbar_title.setText("Hồ sơ");
                             break;
                         case R.id.action_branch:
                             selectedFragment = new BranchManagementFragment();
+                            toolbar_title.setText("Phê duyệt quản lý");
                             break;
                         case R.id.action_pending_user:
                             selectedFragment = new PendingManagerFragment();
+                            toolbar_title.setText("Quản lý spa");
                             break;
                     }
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, selectedFragment).commit();

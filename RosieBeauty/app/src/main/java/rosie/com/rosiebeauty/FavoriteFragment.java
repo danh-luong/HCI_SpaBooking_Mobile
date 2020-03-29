@@ -40,7 +40,7 @@ public class FavoriteFragment extends Fragment {
 
         prepareData();
 
-        MultiViewTypeAdapter adapter = new MultiViewTypeAdapter(gridViewModelArrayList, this.getActivity().getApplicationContext());
+        MultiViewTypeAdapter adapter = new MultiViewTypeAdapter(gridViewModelArrayList, this.getActivity());
         // LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this, RecyclerView.VERTICAL, false);
 
         mRecyclerView = rootView.findViewById(R.id.favorite_recycler_view);
@@ -59,13 +59,13 @@ public class FavoriteFragment extends Fragment {
         List<MultiViewModel.FavoriteItem> favoriteItems = new ArrayList<>();
         favoriteItems.add(
                 new MultiViewModel.FavoriteItem
-                        (R.drawable.ser_gloss_hair, "Trang điểm mặt", "", "Sư Vạn Hạnh, Quận 10", 3.5f));
+                        (R.drawable.ser_gloss_hair, "Trang điểm mặt", "Rose Spa", "Sư Vạn Hạnh, Quận 10", 3.5f));
         favoriteItems.add(
                 new MultiViewModel.FavoriteItem
-                        (R.drawable.ser_perm, "Massage mặt", "", "Sư Vạn Hạnh, Quận 10", 3.5f));
+                        (R.drawable.ser_perm, "Massage mặt", "Hoa cúc clinic", "Sư Vạn Hạnh, Quận 10", 3.5f));
         favoriteItems.add(
                 new MultiViewModel.FavoriteItem
-                        (R.drawable.ser_steaming_hair, "Xăm chân mày", "", "Sư Vạn Hạnh, Quận 10", 3.5f));
+                        (R.drawable.ser_steaming_hair, "Xăm chân mày", "Hoa Lan Spa", "Sư Vạn Hạnh, Quận 10", 3.5f));
 
         for (int i = 0; i < favoriteItems.size(); i++) {
             gridViewModelArrayList.add(new MultiViewModel(MultiViewModel.TYPE_FAVORITE_ITEM, favoriteItems.get(i)));

@@ -23,11 +23,12 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Kiếm Tài Khoản:"
-                    android:textStyle="bold"
                     android:layout_marginTop="5dp"
+                    android:fontFamily="@font/lora_bold"
+                    android:text="Tìm Kiếm:"
                     android:textSize="15dp"
-                    android:fontFamily="@font/lora_bold"/>
+                    android:layout_marginLeft="10dp"
+                    android:textStyle="bold" />
 
                 <EditText
                     android:id="@+id/edtSearchName"

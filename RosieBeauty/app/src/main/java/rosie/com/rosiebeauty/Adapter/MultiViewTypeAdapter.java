@@ -198,6 +198,7 @@ public class MultiViewTypeAdapter extends RecyclerView.Adapter {
         TextView txtAddress;
         RatingBar ratingBar;
         ImageView btnRemoveFav;
+        TextView spaName;
 
         public FavoriteItemViewHolder(View itemView) {
             super(itemView);
@@ -206,6 +207,7 @@ public class MultiViewTypeAdapter extends RecyclerView.Adapter {
             this.txtAddress = (TextView) itemView.findViewById(R.id.txtPrice);
             this.ratingBar = (RatingBar) itemView.findViewById(R.id.ratingBar);
             this.btnRemoveFav = itemView.findViewById(R.id.btnRemoveFav);
+            this.spaName = itemView.findViewById(R.id.txtSpaName);
         }
     }
 
@@ -479,14 +481,14 @@ public class MultiViewTypeAdapter extends RecyclerView.Adapter {
                     ((AppointmentItemViewHolder) holder).txtBookingDate.setText(object.appointment.bookingDate);
                     ((AppointmentItemViewHolder) holder).txtAppointmentDate.setText(object.appointment.appointmentDate);
                     ((AppointmentItemViewHolder) holder).txtPayPrice.setText(object.appointment.payPrice);
-                    ((AppointmentItemViewHolder)holder).btnGotoDetail.setOnClickListener(new View.OnClickListener() {
+                    ((AppointmentItemViewHolder) holder).btnGotoDetail.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                            BottomNavigationView bottomNavigationView = ((AppCompatActivity)mContext).findViewById(R.id.bottom_nav);
+                            BottomNavigationView bottomNavigationView = ((AppCompatActivity) mContext).findViewById(R.id.bottom_nav);
                             bottomNavigationView.setVisibility(View.GONE);
-                            ((TextView)((AppCompatActivity) mContext).findViewById(R.id.text_toolbar)).setText("Chi tiết lịch hẹn");
+                            ((TextView) ((AppCompatActivity) mContext).findViewById(R.id.text_toolbar)).setText("Chi tiết lịch hẹn");
                             Fragment selectedFragment = new AppointmentDetail();
-                            ((AppCompatActivity)mContext).getSupportFragmentManager().beginTransaction().setCustomAnimations(R.animator.slide_in_left, R.animator.slide_out_right, R.animator.pop_out_right, R.animator.pop_in_left).setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN).replace(R.id.fragment_container, selectedFragment).addToBackStack(null).commit();
+                            ((AppCompatActivity) mContext).getSupportFragmentManager().beginTransaction().setCustomAnimations(R.animator.slide_in_left, R.animator.slide_out_right, R.animator.pop_out_right, R.animator.pop_in_left).setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN).replace(R.id.fragment_container, selectedFragment).addToBackStack(null).commit();
 
                         }
                     });
@@ -495,6 +497,7 @@ public class MultiViewTypeAdapter extends RecyclerView.Adapter {
                     ((FavoriteItemViewHolder) holder).imageView.setImageResource(object.favoriteItem.getImage());
                     ((FavoriteItemViewHolder) holder).imageView.setClipToOutline(true);
                     ((FavoriteItemViewHolder) holder).txtTitle.setText(object.favoriteItem.getTitle());
+                    ((FavoriteItemViewHolder) holder).spaName.setText(object.favoriteItem.getSpaName());
                     ((FavoriteItemViewHolder) holder).txtAddress.setText(object.favoriteItem.getLocation());
                     ((FavoriteItemViewHolder) holder).ratingBar.setRating(object.favoriteItem.getStar());
                     ((FavoriteItemViewHolder) holder).btnRemoveFav.setOnClickListener(new View.OnClickListener() {
