@@ -73,6 +73,7 @@
             android:singleLine="true" />
         <TextView
             android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/forgot_password_underline"
@@ -80,12 +81,12 @@
             android:clickable="true"
             android:text="Quên mật khẩu?"
             android:textColor="#FFFFFF"
-            android:textSize="20dp"
+            android:textSize="16dp"
             android:onClick="clickForgotPassword"/>
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="5dp"
             android:background="@drawable/button_border_login_style"
             android:fontFamily="@font/philosopher_bold"
             android:onClick="onclickLogin"
