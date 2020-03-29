@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.RelativeLayout;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
@@ -18,6 +19,7 @@ import com.google.android.material.snackbar.Snackbar;
  */
 public class AppointmentDetail extends Fragment {
     Button btnCancle;
+    RelativeLayout successBooking;
 
     public AppointmentDetail() {
         // Required empty public constructor
@@ -31,6 +33,8 @@ public class AppointmentDetail extends Fragment {
 
         ((AppCompatActivity) getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         View rootView = inflater.inflate(R.layout.fragment_appointment_detail, container, false);
+        successBooking = rootView.findViewById(R.id.successBooking);
+        successBooking.setVisibility(View.GONE);
         btnCancle = (Button) rootView.findViewById(R.id.btnCancel);
         btnCancle.setOnClickListener(new View.OnClickListener() {
             @Override

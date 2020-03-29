@@ -21,13 +21,45 @@
             android:paddingLeft="5dp"
             android:paddingRight="5dp">
 
+            <RelativeLayout
+                android:id="@+id/successBooking"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/appointment_detail_header_background"
+                android:paddingLeft="10dp"
+                android:paddingTop="20dp"
+                android:paddingRight="10dp"
+                android:paddingBottom="20dp">
+
+                <TextView
+                    android:id="@+id/txtSuccessTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Đặt lịch thành công"
+                    android:gravity="center"
+                    android:textColor="#008800"
+                    android:fontFamily="@font/philosopher_bold"
+                    android:textAllCaps="true"
+                    android:textSize="20dp"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/txtSuccessTitle"
+                    android:text="Xin chúc mừng, lịch hẹn của bạn đã được ghi nhận.\nChúng mình rất mong được đem cho bạn đến những trải nghiệm tốt nhất tại Thu Cúc Spa. \nHẹn gặp bạn vào ngày hẹn nhé!"
+                    android:fontFamily="@font/lora_italic"
+                    android:textColor="#000000"
+                    android:textSize="16dp"
+                    />
+            </RelativeLayout>
+
             <ImageView
                 android:id="@+id/barcode"
                 android:layout_width="match_parent"
                 android:layout_height="150dp"
+                android:layout_below="@+id/successBooking"
                 android:layout_marginTop="5dp"
                 android:layout_marginBottom="10dp"
-                android:background="@color/white"
+                android:background="@drawable/appointment_detail_header_background"
                 android:foregroundGravity="center"
                 android:padding="10dp"
                 android:src="@drawable/barcode" />

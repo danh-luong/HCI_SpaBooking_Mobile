@@ -77,7 +77,7 @@ public class SpaServiceDetailFragment extends Fragment {
         buttonBook.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                currentActivity.getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new AppointmentDetail()).addToBackStack(null).commit();
+                currentActivity.getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new SuccessBookingFragment()).addToBackStack(null).commit();
             }
         });
         return rootView;
