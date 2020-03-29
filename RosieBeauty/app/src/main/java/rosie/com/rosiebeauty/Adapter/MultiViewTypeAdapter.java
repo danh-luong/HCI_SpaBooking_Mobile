@@ -9,7 +9,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewOutlineProvider;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.RatingBar;
@@ -35,6 +34,7 @@ import java.util.TimerTask;
 
 import rosie.com.rosiebeauty.AppointmentDetail;
 import rosie.com.rosiebeauty.MainActivity;
+import rosie.com.rosiebeauty.Model.ManagerViewModel;
 import rosie.com.rosiebeauty.Model.MultiViewModel;
 import rosie.com.rosiebeauty.Model.TimeSchedule;
 import rosie.com.rosiebeauty.Model.TimeScheduleButtonManager;
@@ -246,6 +246,13 @@ public class MultiViewTypeAdapter extends RecyclerView.Adapter {
             case MultiViewModel.TYPE_IMG_TEXT_PRICE:
                 view = LayoutInflater.from(parent.getContext()).inflate(R.layout.service_card_list, parent, false);
                 return new ServiceCardListHolder(view);
+            case MultiViewModel.TYPE_BRANCH_SERVICE:
+                view = LayoutInflater.from(parent.getContext()).inflate(R.layout.service_card_list, parent, false);
+                TextView serCN = view.findViewById(R.id.serCN);
+                serCN.setVisibility(View.GONE);
+                TextView serAddress = view.findViewById(R.id.serAddress);
+                serAddress.setVisibility(View.GONE);
+                return new ServiceCardListHolder(view);
             case MultiViewModel.TYPE_SECTION_TITLE:
                 view = LayoutInflater.from(parent.getContext()).inflate(R.layout.section_title, parent, false);
                 final ViewGroup.LayoutParams lp1 = view.getLayoutParams();
@@ -310,6 +317,8 @@ public class MultiViewTypeAdapter extends RecyclerView.Adapter {
                 return MultiViewModel.TYPE_FACEBOOK_COMMENT;
             case 11:
                 return MultiViewModel.TYPE_BUTTON_TIME_SCHEDULE;
+            case 12:
+                return MultiViewModel.TYPE_BRANCH_SERVICE;
         }
         return 0;
     }
@@ -443,6 +452,52 @@ public class MultiViewTypeAdapter extends RecyclerView.Adapter {
                     ((ServiceCardListHolder) holder).serAddress.setText(object.address);
                     ((ServiceCardListHolder) holder).serCN.setText(object.name_Cn);
                     ImageView image = ((ServiceCardListHolder) holder).imgService;
+                    ((ServiceCardListHolder) holder).relativeLayout.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            MainActivity activity = (MainActivity) mContext;
+                            SpaServiceDetailFragment.setInitParam(activity);
+                            activity.getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new SpaServiceDetailFragment()).addToBackStack(null).commit();
+                        }
+                    });
+                    break;
+                    //Branch Service List
+                case MultiViewModel.TYPE_BRANCH_SERVICE:
+                    ((ServiceCardListHolder) holder).imgService.setImageResource(object.data);
+                    ((ServiceCardListHolder) holder).imgService.setClipToOutline(true);
+
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+
+                        ((ServiceCardListHolder) holder).imgService.setOutlineProvider(new ViewOutlineProvider() {
+                            @Override
+                            public void getOutline(View view, Outline outline) {
+                                int curveRadius = 30;
+                                outline.setRoundRect(0, 0, view.getWidth(), (view.getHeight() + curveRadius), curveRadius);
+                            }
+                        });
+                    }
+                    ((ServiceCardListHolder) holder).txtPriceAfterPromotion.setClipToOutline(true);
+                    ((ServiceCardListHolder) holder).txtName.setText(object.text);
+                    if (object.hasPromotion == MultiViewModel.HAS_PROMOTION) {
+                        ((ServiceCardListHolder) holder).txtPrice.setText(object.price);
+                        ((ServiceCardListHolder) holder).txtPrice.setPaintFlags(((ServiceCardListHolder) holder).txtPrice.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
+                        ((ServiceCardListHolder) holder).txtPrice.setTextSize(14f);
+                        ((ServiceCardListHolder) holder).txtPriceAfterPromotion.setText(object.priceAfterPromotion);
+                        ((ServiceCardListHolder) holder).txtPromotion.setText(object.intPromotion + "");
+                        ((ServiceCardListHolder) holder).txtPromotion.setBackground(mContext.getResources().getDrawable(R.drawable.service_card_list_image_corner));
+                        ((ServiceCardListHolder) holder).txtPromotion.setTextSize(16f);
+                        ((ServiceCardListHolder) holder).txtPrice.setAlpha(0.5f);
+
+                    } else if (object.hasPromotion == MultiViewModel.NO_PROMOTION) {
+                        ((ServiceCardListHolder) holder).txtPrice.setText(object.price);
+                        ((ServiceCardListHolder) holder).txtPrice.setAlpha(1);
+                        ((ServiceCardListHolder) holder).txtPrice.setTextSize(16f);
+                        ((ServiceCardListHolder) holder).txtPromotion.setText("");
+                        ((ServiceCardListHolder) holder).txtPromotion.setBackgroundColor(Color.TRANSPARENT);
+                    }
+                    ((ServiceCardListHolder) holder).rateStar.setText(object.rate + "");
+                    ((ServiceCardListHolder) holder).countComment.setText(object.countComment + "");
+                    ImageView imageView = ((ServiceCardListHolder) holder).imgService;
                     ((ServiceCardListHolder) holder).relativeLayout.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {

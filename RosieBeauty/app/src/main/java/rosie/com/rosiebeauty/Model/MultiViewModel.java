@@ -16,6 +16,7 @@ public class MultiViewModel {
     public static final int TYPE_FACEBOOK_COMMENT = 10;
     public static final int TYPE_BUTTON_TIME_SCHEDULE = 11;
 
+    public static final int TYPE_BRANCH_SERVICE = 12;
     public static final int ORIENTATION_HORIZONTAL = 0;
     public static final int ORIENTATION_VERTICAL = 1;
 
@@ -170,15 +171,19 @@ public class MultiViewModel {
         this.price = price;
     }
 
-//    public MultiViewModel(int type, String text, int data, String price, int hasPromotion, String priceAfterPromotion, int width) {
-//        this.type = type;
-//        this.data = data;
-//        this.text = text;
-//        this.price = price;
-//        this.hasPromotion = hasPromotion;
-//        this.priceAfterPromotion = priceAfterPromotion;
-//        this.width = width;
-//    }
+    public MultiViewModel(int type, int data, String text, String price, String priceAfterPromotion,
+                          int hasPromotion, double rate, int countComment, String intPromotion) {
+        this.type = type;
+        this.data = data;
+        this.text = text;
+        this.price = price;
+        this.priceAfterPromotion = priceAfterPromotion;
+        this.hasPromotion = hasPromotion;
+        this.rate = rate;
+        this.countComment = countComment;
+        this.intPromotion = intPromotion;
+    }
+
 
     public MultiViewModel(int type, int data, String text, String price, String priceAfterPromotion,
                           int hasPromotion, double rate, int countComment, String name_Cn, String address, String intPromotion) {

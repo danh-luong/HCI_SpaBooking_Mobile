@@ -21,7 +21,6 @@ import rosie.com.rosiebeauty.Adapter.MultiViewTypeAdapter;
 import rosie.com.rosiebeauty.Model.MultiViewModel;
 
 public class ListProductFragment extends Fragment {
-    Context mContext;
     ArrayList<MultiViewModel> gridViewModelArrayList;
     private RecyclerView mRecyclerView;
     private String[] names,

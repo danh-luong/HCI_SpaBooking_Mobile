@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
@@ -25,7 +26,7 @@ public class SpaServiceDetailFragment extends Fragment {
     private ArrayList<MultiViewModel> commentList;
     private RecyclerView commentsHolder;
     private static AppCompatActivity currentActivity;
-
+    private LinearLayout txtBranchInfo;
     private static com.beardedhen.androidbootstrap.BootstrapButton buttonBook;
 
     public static void setInitParam(AppCompatActivity activity) {
@@ -34,7 +35,7 @@ public class SpaServiceDetailFragment extends Fragment {
 
     public static void updateButtonBook() {
         String buttonBookString = "Lịch đặt: " + "ngày " + MainActivity.schedule_button_date + " lúc: " + MainActivity.schedule_button_time + " | " + "Đặt ngay!";
-        if(buttonBook != null) buttonBook.setText(buttonBookString);
+        if (buttonBook != null) buttonBook.setText(buttonBookString);
     }
 
 
@@ -54,7 +55,7 @@ public class SpaServiceDetailFragment extends Fragment {
 
     public SpaServiceDetailFragment() {
         // Required empty public constructor
-        
+
     }
 
 
@@ -78,6 +79,13 @@ public class SpaServiceDetailFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 currentActivity.getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new SuccessBookingFragment()).addToBackStack(null).commit();
+            }
+        });
+        txtBranchInfo = rootView.findViewById(R.id.txtBranchInfo);
+        txtBranchInfo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                currentActivity.getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new BrachServiceListFragment()).addToBackStack(null).commit();
             }
         });
         return rootView;
