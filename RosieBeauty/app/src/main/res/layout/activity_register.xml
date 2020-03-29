@@ -66,6 +66,7 @@
         </LinearLayout>
 
         <Button
+            android:textAllCaps="false"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="35dp"
@@ -73,9 +74,10 @@
             android:layout_marginBottom="15dp"
             android:background="@drawable/button_border_login_style"
             android:onClick="onclickRegister"
+            android:fontFamily="@font/philosopher_bold"
             android:text="Tạo tài khoản"
             android:textColor="@color/white"
-            android:textSize="17dp" />
+            android:textSize="20dp" />
     </LinearLayout>
 
 </LinearLayout>

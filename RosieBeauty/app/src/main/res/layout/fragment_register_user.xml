@@ -9,87 +9,231 @@
         android:id="@+id/registerUserPage"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@drawable/register_background"
         android:orientation="vertical"
-        android:padding="15dp"
-        android:background="@drawable/register_background">
+        android:padding="15dp">
 
-        <EditText
-            android:id="@+id/edtUsername"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:background="@drawable/edit_text_border"
-            android:fontFamily="@font/lora_italic"
-            android:gravity="center"
-            android:hint="Tên đăng nhập" />
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
 
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="10dp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="*"
+                android:textAlignment="center"
+                android:textColor="@color/colorAccent"
+                android:textSize="25dp" />
 
-        <EditText
-            android:id="@+id/edtPassword"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:background="@drawable/edit_text_border"
-            android:fontFamily="@font/lora_italic"
-            android:gravity="center"
-            android:hint="Mật khẩu"
-            android:inputType="textPassword" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/lora_italic"
+                android:textSize="18dp"
+                android:text=" Bắt buộc"
+                android:textAlignment="center"
+                android:textColor="@color/colorAccent" />
+        </LinearLayout>
 
-        <Space
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="10dp" />
+            android:layout_height="wrap_content">
 
-        <EditText
-            android:id="@+id/edtConfirmPassword"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:background="@drawable/edit_text_border"
-            android:fontFamily="@font/lora_italic"
-            android:gravity="center"
-            android:hint="Xác nhận mật khẩu"
-            android:inputType="textPassword" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
 
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="10dp" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/edit_text_border"
+                    android:orientation="horizontal"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp">
 
-        <EditText
-            android:id="@+id/edtName"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:background="@drawable/edit_text_border"
-            android:fontFamily="@font/lora_italic"
-            android:gravity="center"
-            android:hint="Họ và tên" />
+                    <EditText
+                        android:id="@+id/edtUsername"
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        android:layout_weight="0.99"
+                        android:background="@android:color/transparent"
+                        android:fontFamily="@font/lora_italic"
+                        android:hint="Tên đăng nhập" />
 
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="10dp" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.01"
+                        android:text="*"
+                        android:textAlignment="center"
+                        android:textColor="@color/colorAccent"
+                        android:textSize="25dp" />
+                </LinearLayout>
 
-        <EditText
-            android:id="@+id/edtPhoneNumber"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:background="@drawable/edit_text_border"
-            android:fontFamily="@font/lora_italic"
-            android:gravity="center"
-            android:hint="Số điện thoại"
-            android:inputType="textPhonetic" />
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="10dp" />
 
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="10dp" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/edit_text_border"
+                    android:orientation="horizontal"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp">
 
-        <EditText
-            android:id="@+id/edtEmail"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:background="@drawable/edit_text_border"
-            android:fontFamily="@font/lora_italic"
-            android:gravity="center"
-            android:hint="Email"
-            android:inputType="textEmailAddress" />
+                    <EditText
+                        android:id="@+id/edtPassword"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:layout_weight="0.99"
+                        android:background="@android:color/transparent"
+                        android:fontFamily="@font/lora_italic"
+                        android:hint="Mật khẩu"
+                        android:inputType="textPassword" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.01"
+                        android:text="*"
+                        android:textAlignment="center"
+                        android:textColor="@color/colorAccent"
+                        android:textSize="25dp" />
+                </LinearLayout>
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="10dp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/edit_text_border"
+                    android:orientation="horizontal"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp">
+
+                    <EditText
+                        android:id="@+id/edtConfirmPassword"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:layout_weight="0.99"
+                        android:background="@android:color/transparent"
+                        android:fontFamily="@font/lora_italic"
+                        android:hint="Xác nhận mật khẩu"
+                        android:inputType="textPassword" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.01"
+                        android:text="*"
+                        android:textAlignment="center"
+                        android:textColor="@color/colorAccent"
+                        android:textSize="25dp" />
+                </LinearLayout>
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="10dp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/edit_text_border"
+                    android:orientation="horizontal"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp">
+
+                    <EditText
+                        android:id="@+id/edtName"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:layout_weight="0.99"
+                        android:background="@android:color/transparent"
+                        android:fontFamily="@font/lora_italic"
+                        android:hint="Họ và tên" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.01"
+                        android:text="*"
+                        android:textAlignment="center"
+                        android:textColor="@color/colorAccent"
+                        android:textSize="25dp" />
+                </LinearLayout>
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="10dp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/edit_text_border"
+                    android:orientation="horizontal"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp">
+
+                    <EditText
+                        android:id="@+id/edtPhoneNumber"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:layout_weight="0.99"
+                        android:background="@android:color/transparent"
+                        android:fontFamily="@font/lora_italic"
+                        android:hint="Số điện thoại"
+                        android:inputType="textPhonetic" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.01"
+                        android:text="*"
+                        android:textAlignment="center"
+                        android:textColor="@color/colorAccent"
+                        android:textSize="25dp" />
+                </LinearLayout>
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="10dp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/edit_text_border"
+                    android:orientation="horizontal"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp">
+
+                    <EditText
+                        android:id="@+id/edtEmail"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:layout_weight="0.99"
+                        android:background="@android:color/transparent"
+                        android:fontFamily="@font/lora_italic"
+                        android:hint="Email"
+                        android:inputType="textEmailAddress" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.01"
+                        android:text="*"
+                        android:textAlignment="center"
+                        android:textColor="@color/colorAccent"
+                        android:textSize="25dp" />
+                </LinearLayout>
+            </LinearLayout>
+
+        </ScrollView>
 
 
         <TextView
