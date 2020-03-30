@@ -61,15 +61,15 @@ public class RemoveBranchButtonListener implements View.OnClickListener {
     @Override
     public void onClick(View v) {
         new AlertDialog.Builder(currentActivity)
-                .setTitle("Xác nhận xóa chi nhánh")
-                .setMessage("Bạn có muốn xóa chi nhánh này?")
+                .setTitle("Xác nhận gỡ Spa")
+                .setMessage("Bạn có muốn gỡ Spa này?")
                 .setIcon(android.R.drawable.ic_dialog_alert)
                 .setPositiveButton("Xác nhận", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int whichButton) {
                         BranchManagementFragment fragment = (BranchManagementFragment)currentFragment;
                         fragment.getBranches().remove(branch);
                         ((BranchManagementFragment) currentFragment).loadRecycleView();
-                        Toast.makeText(currentActivity, "Chi nhánh đã bị xóa!", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(currentActivity, "Spa đã bị gỡ!", Toast.LENGTH_SHORT).show();
                     }})
                 .setNegativeButton("Hủy", null).show();
     }

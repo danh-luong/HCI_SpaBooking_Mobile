@@ -96,7 +96,7 @@ public class BranchManagementFragment extends Fragment {
         if(status != STATUS_NORMAL) {
             switch (status) {
                 case STATUS_CREATE:
-                    Toast.makeText(getActivity(), "Tạo chi nhánh thành công", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(), "Tạo spa thành công", Toast.LENGTH_SHORT).show();
                     break;
                 case STATUS_UPDATE:
                     Toast.makeText(getActivity(), "Cập nhật thành công", Toast.LENGTH_SHORT).show();
