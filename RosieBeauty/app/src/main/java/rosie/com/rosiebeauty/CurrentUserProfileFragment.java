@@ -135,7 +135,7 @@ public class CurrentUserProfileFragment extends Fragment {
     @Override
     public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         if (requestCode == 1000 && resultCode == AppCompatActivity.RESULT_OK) {
-            Toast.makeText(getActivity(), "Cập nhật chi nhánh thành công", Toast.LENGTH_LONG).show();
+            Toast.makeText(getActivity(), "Cập nhật spa thành công", Toast.LENGTH_LONG).show();
             EditText valueSpa = rootView.findViewById(R.id.valueSPa);
             branch = (Branch) data.getSerializableExtra("branch");
             branch.setManager((User) data.getSerializableExtra("manager"));

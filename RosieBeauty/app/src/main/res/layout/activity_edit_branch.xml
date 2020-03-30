@@ -95,7 +95,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:fontFamily="sans-serif-light"
-                            android:hint="Nhập vào tên chi nhánh"
+                            android:hint="Nhập vào tên spa"
                             android:textColor="#000000"
                             android:textSize="18sp" />
 
