@@ -61,7 +61,7 @@
                         android:layout_weight="0.99"
                         android:background="@android:color/transparent"
                         android:fontFamily="@font/lora_italic"
-                        android:hint="Tên đăng nhập" />
+                        android:hint="Tên đăng nhập"/>
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -156,6 +156,7 @@
                         android:layout_weight="0.99"
                         android:background="@android:color/transparent"
                         android:fontFamily="@font/lora_italic"
+                        android:inputType="textCapWords"
                         android:hint="Họ và tên" />
 
                     <TextView
@@ -187,6 +188,7 @@
                         android:layout_weight="0.99"
                         android:background="@android:color/transparent"
                         android:fontFamily="@font/lora_italic"
+                        android:inputType="textCapWords"
                         android:hint="Tên spa" />
 
                     <TextView
@@ -218,7 +220,8 @@
                         android:layout_weight="0.99"
                         android:background="@android:color/transparent"
                         android:fontFamily="@font/lora_italic"
-                        android:hint="Địa chỉ spa" />
+                        android:hint="Địa chỉ spa"
+                        android:inputType="textPostalAddress"/>
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -250,7 +253,7 @@
                         android:background="@android:color/transparent"
                         android:fontFamily="@font/lora_italic"
                         android:hint="Số điện thoại"
-                        android:inputType="textPhonetic" />
+                        android:inputType="phone" />
 
                     <TextView
                         android:layout_width="wrap_content"
