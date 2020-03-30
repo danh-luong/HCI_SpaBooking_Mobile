@@ -40,7 +40,7 @@ public class AppointmentDetail extends Fragment {
             @Override
             public void onClick(View v) {
                 Snackbar snackBar = Snackbar.make(getActivity().findViewById(android.R.id.content),
-                        "Successful!!", Snackbar.LENGTH_LONG);
+                        "Cuộc hẹn của bạn đã được huỷ!\nXin cảm ơn!", Snackbar.LENGTH_LONG);
                 snackBar.show();
                 getActivity().onBackPressed();
             }

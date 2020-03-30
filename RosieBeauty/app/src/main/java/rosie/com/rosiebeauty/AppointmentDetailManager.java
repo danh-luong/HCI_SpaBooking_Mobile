@@ -36,7 +36,7 @@ public class AppointmentDetailManager extends Fragment {
             @Override
             public void onClick(View v) {
                 Snackbar snackBar = Snackbar.make(getActivity().findViewById(android.R.id.content),
-                        "Successful!!", Snackbar.LENGTH_LONG);
+                        "Bạn đã huỷ hẹn với khách hàng!!", Snackbar.LENGTH_LONG);
                 snackBar.show();
             }
         });
