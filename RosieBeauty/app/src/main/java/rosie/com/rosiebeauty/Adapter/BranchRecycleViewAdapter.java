@@ -57,7 +57,7 @@ public class BranchRecycleViewAdapter extends RecyclerView.Adapter<BranchRecycle
         txtTitle.setText(branch.getTitle());
         txtAddress.setText(branch.getAddress());
         txtStatus.setText(branch.getStatus());
-        imageView.setImageResource(R.drawable.ic_chi_nhanh_2);
+        imageView.setImageResource(branch.getImage());
 
 
         //bấm vào edit pop up fragment edit
