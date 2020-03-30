@@ -63,7 +63,7 @@
                 android:background="@drawable/appointment_detail_header_background"
                 android:foregroundGravity="center"
                 android:padding="10dp"
-                android:src="@drawable/qrcode" />
+                android:src="@drawable/qrcode1" />
 
             <RelativeLayout
                 android:id="@+id/appointment_header_container"
