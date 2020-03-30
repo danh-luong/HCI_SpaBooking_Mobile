@@ -17,7 +17,7 @@ import com.google.android.material.snackbar.Snackbar;
  * A simple {@link Fragment} subclass.
  */
 public class AppointmentDetailManager extends Fragment {
-    Button btnCancle;
+    Button btnCancle, btnCheckin;
 
     public AppointmentDetailManager() {
         // Required empty public constructor
@@ -38,6 +38,15 @@ public class AppointmentDetailManager extends Fragment {
                 Snackbar snackBar = Snackbar.make(getActivity().findViewById(android.R.id.content),
                         "Bạn đã huỷ hẹn với khách hàng!!", Snackbar.LENGTH_LONG);
                 snackBar.show();
+            }
+        });
+
+        btnCheckin = (Button) rootView.findViewById(R.id.btnCheckin);
+        btnCheckin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container_manager, new CheckinByButtonFragment()).commit();
+                getActivity().setTitle("Checkin");
             }
         });
         return rootView;

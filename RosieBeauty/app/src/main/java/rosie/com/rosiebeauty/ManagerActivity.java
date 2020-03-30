@@ -56,6 +56,12 @@ public class ManagerActivity extends AppCompatActivity {
         toolbar_title.setText("Dịch vụ");
     }
 
+    @Override
+    public void setTitle(CharSequence title) {
+        super.setTitle(title);
+        toolbar_title.setText(title);
+    }
+
     private BottomNavigationView.OnNavigationItemSelectedListener navListener =
             new BottomNavigationView.OnNavigationItemSelectedListener() {
                 @Override

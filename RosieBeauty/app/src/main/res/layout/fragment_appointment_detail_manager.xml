@@ -494,7 +494,15 @@
                         android:fontFamily="@font/philosopher_bold"
                         android:text="HUỶ HẸN"
                         android:textColor="@color/white" />
-
+                    <Button
+                        android:id="@+id/btnCheckin"
+                        android:layout_width="150dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="5dp"
+                        android:background="@drawable/greend_round_button"
+                        android:fontFamily="@font/philosopher_bold"
+                        android:text="CHECKIN"
+                        android:textColor="@color/white" />
                 </LinearLayout>
 
             </RelativeLayout>
