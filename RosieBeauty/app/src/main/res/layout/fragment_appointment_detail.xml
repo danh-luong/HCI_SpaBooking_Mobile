@@ -55,15 +55,15 @@
 
             <ImageView
                 android:id="@+id/barcode"
-                android:layout_width="match_parent"
-                android:layout_height="150dp"
+                android:layout_width="wrap_content"
+                android:layout_height="200dp"
                 android:layout_below="@+id/successBooking"
                 android:layout_marginTop="5dp"
                 android:layout_marginBottom="10dp"
                 android:background="@drawable/appointment_detail_header_background"
                 android:foregroundGravity="center"
                 android:padding="10dp"
-                android:src="@drawable/QRcode" />
+                android:src="@drawable/qrcode" />
 
             <RelativeLayout
                 android:id="@+id/appointment_header_container"
