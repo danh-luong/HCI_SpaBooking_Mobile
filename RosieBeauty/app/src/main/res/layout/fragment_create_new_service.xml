@@ -45,7 +45,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/philosopher_bold"
-                android:text="Tên dịch vụ: "
+                android:text="Tên dịch vụ:* "
                 android:textColor="#000000"
                 android:textSize="16dp"
                 android:textStyle="bold" />
@@ -69,7 +69,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:fontFamily="@font/philosopher_bold"
-                android:text="Hình ảnh: "
+                android:text="Hình ảnh:*"
                 android:textColor="#000000"
                 android:textSize="16dp"
                 android:textStyle="bold" />
@@ -97,7 +97,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/philosopher_bold"
-                android:text="Mô tả dịch vụ: "
+                android:text="Mô tả dịch vụ:* "
                 android:textColor="#000000"
                 android:textSize="16dp"
                 android:textStyle="bold" />
@@ -121,7 +121,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/philosopher_bold"
-                android:text="Danh mục dịch vụ: "
+                android:text="Danh mục dịch vụ:* "
                 android:textColor="#000000"
                 android:textSize="16dp"
                 android:textStyle="bold" />
@@ -146,7 +146,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/philosopher_bold"
-                android:text="Giá gốc (gồm 10%VAT - ĐVT: Đồng): "
+                android:text="Giá gốc* (gồm 10%VAT - ĐVT: Đồng): "
                 android:textColor="#000000"
                 android:textSize="16dp"
                 android:textStyle="bold" />
